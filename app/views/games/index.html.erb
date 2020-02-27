@@ -1,0 +1,18 @@
+<h1>Games#index</h1>
+<div class="container">
+  <div class="row">
+    <% @games.each do |game| %>
+      <div class="col-12 col-sm-6 col-md-4">
+          <div class="card" style="min-height: 26rem;">
+          <!-- <div class="card" style="width: 18rem;"> -->
+            <%= cl_image_tag game.thumbnail.key, width: 150, crop: :fit, class: 'card-img-top' %>
+            <div class="card-body">
+              <h5 class="card-title"><%= game.name %></h5>
+              <p class="card-text"><%= game.description %></p>
+              <a href="#" class="btn btn-primary">Download!</a>
+            </div>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>
