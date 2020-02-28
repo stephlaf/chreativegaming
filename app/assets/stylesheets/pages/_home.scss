@@ -1,1 +1,23 @@
-// Specific CSS for your home-page
+#comm-banner {
+  width: 100%;
+  min-height: 200px;
+  background: lightblue;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+#news {
+  width: 100%;
+  min-height: 200px;
+  background: grey;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+#members-feed {
+  width: 100%;
+  min-height: 200px;
+  background: lightgrey;
+  margin-bottom: 20px;
+  padding: 10px;
+}
