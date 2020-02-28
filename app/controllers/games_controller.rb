@@ -1,4 +1,6 @@
 class GamesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   before_action :set_game, only: [:show, :edit, :update, :destroy]
   before_action :set_user, except: [:index, :show]
 
@@ -27,9 +29,11 @@ class GamesController < ApplicationController
   end
 
   def edit
+    authorize @game
   end
 
   def update
+    authorize @game
     if @game.update(game_params)
       redirect_to game_path(@game)
     else
@@ -38,6 +42,7 @@ class GamesController < ApplicationController
   end
 
   def destroy
+    authorize @game
     @game.destroy
     redirect_to games_path
   end

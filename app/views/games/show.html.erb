@@ -1,13 +1,31 @@
-<h1>Games#show</h1>
 
-<div class="card">
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @game.thumbnail.key, class: 'card-img-top' %>')">
+    <h1 class="card-title"><%= @game.name %></h1>
 </div>
 
-<div class="card" style="width: 18rem;">
-  <%= cl_image_tag @game.thumbnail.key, crop: :fill, class: 'card-img-top' %>
-  <div class="card-body">
-    <h5 class="card-title"><%= @game.name %></h5>
-    <p class="card-text"><%= @game.description %></p>
-    <a href="#" class="btn btn-primary">Download!</a>
+<div class="card-body">
+  <h3 class="card-text"><%= @game.description %></h3>
+  <p class="card-text">Category: <%= @game.category %></p>
+  <p class="card-text">Level: <%= @game.level %></p>
+  <p class="card-text">Price: <%= humanized_money_with_symbol(@game.price) %></p>
+  
+  <div class="game-buttons">
+    <p>
+      <%= link_to 'Download!', "#", class: 'btn btn-sm btn-primary'  %>
+    </p>
+    
+    <% if user_signed_in? %>
+      <% if policy(Game).update? %>
+        <p class="nav-item">
+          <%= link_to "Edit game", edit_game_path, class: "btn btn-sm btn-warning" %>
+        </p>
+        <p class="nav-item">
+          <%= link_to "Delete game", game_path(@game), method: 'delete', data: { confirm: "Are you sure you want to delete #{@game.name}?" }, class: "btn btn-sm btn-danger" %>
+        </p>
+      <% end %>
+    <% end %>
+    
   </div>
 </div>
+
+

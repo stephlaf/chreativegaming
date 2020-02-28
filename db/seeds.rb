@@ -17,7 +17,7 @@ urls = [
   'https://www.designzzz.com/wp-content/uploads/2013/04/Diablo-lineage-wallpaper.jpg',
   'https://www.designzzz.com/wp-content/uploads/2013/04/Fantasy-game-Diablo-wallpaper.jpg',
   'https://www.designzzz.com/wp-content/uploads/2013/04/Online-games-DNF.jpg',
-  'https://www.designzzz.com/wp-content/uploads/2013/04/Angry-birds-rio-wallpaper.jpg'
+  'https://www.designzzz.com/wp-content/uploads/2013/04/Ninja-Gaiden-hd-wallpaper.jpg'
 ]
 
 i = 0
@@ -25,7 +25,7 @@ i = 0
   file = URI.open(urls[i])
   g = Game.new(
     name: Faker::Games::HeroesOfTheStorm.unique.battleground,
-    description: Faker::Games::LeagueOfLegends.quote,
+    description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
     category: Faker::Games::LeagueOfLegends.summoner_spell,
     level: Faker::Games::LeagueOfLegends.rank,
     price_cents: rand(100..500),

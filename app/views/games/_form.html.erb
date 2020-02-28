@@ -1,0 +1,36 @@
+<%= simple_form_for(@game) do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :category %>
+    <%= f.text_field :category, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :level %>
+    <%= f.text_field :level, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :price_cents %>
+    <%= f.text_field :price_cents, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%#= f.label :status %>
+    <%= f.input :status, collection: ['downloadable', 'standby'], class: 'form-control' %>
+  </div>
+
+  <%= f.input :thumbnail, as: :file %>
+
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+

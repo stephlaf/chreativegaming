@@ -1,7 +1,7 @@
-<h1>Games#index</h1>
+<h1>Our Collection of Awesome Games</h1>
 <div class="container">
   <div class="row">
-    <% @games.each do |game| %>
+    <% @games.order(updated_at: :desc).each do |game| %>
       <div class="col-12 col-sm-6 col-md-4">
           <%= link_to game_path(game) do %>
             <div class="card" style="min-height: 26rem;">
@@ -10,7 +10,7 @@
                 <h5 class="card-title"><%= game.name %></h5>
                 <p class="card-text"><%= game.description %></p>
                 <p class="card-text">Price: <%= humanized_money_with_symbol(game.price) %></p>
-                <a href="#" class="btn btn-primary">Download!</a>
+                <!-- <a href="#" class="btn btn-primary">Download!</a> -->
               </div>
             </div>
           <% end %>

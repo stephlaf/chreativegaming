@@ -17,4 +17,16 @@ class GamePolicy < ApplicationPolicy
   def create?
     return true if @user.master == true
   end
+
+  def edit?
+    return true if @user.master == true
+  end
+
+  def update?
+    return true if @user.master == true
+  end
+
+  def destroy?
+    return true if @user.master == true
+  end
 end
