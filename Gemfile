@@ -36,6 +36,8 @@ gem 'font-awesome-sass', '~> 5.6.1'
 
 gem 'pundit'
 
+gem 'money-rails', '~>1.12'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

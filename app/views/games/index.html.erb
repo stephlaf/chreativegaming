@@ -3,15 +3,17 @@
   <div class="row">
     <% @games.each do |game| %>
       <div class="col-12 col-sm-6 col-md-4">
-          <div class="card" style="min-height: 26rem;">
-          <!-- <div class="card" style="width: 18rem;"> -->
-            <%= cl_image_tag game.thumbnail.key, width: 330, height: 230, crop: :fit, class: 'card-img-top' %>
-            <div class="card-body">
-              <h5 class="card-title"><%= game.name %></h5>
-              <p class="card-text"><%= game.description %></p>
-              <a href="#" class="btn btn-primary">Download!</a>
+          <%= link_to game_path(game) do %>
+            <div class="card" style="min-height: 26rem;">
+              <%= cl_image_tag game.thumbnail.key, width: 320, height: 480, crop: :fit, class: 'card-img-top' %>
+              <div class="card-body">
+                <h5 class="card-title"><%= game.name %></h5>
+                <p class="card-text"><%= game.description %></p>
+                <p class="card-text">Price: <%= humanized_money_with_symbol(game.price) %></p>
+                <a href="#" class="btn btn-primary">Download!</a>
+              </div>
             </div>
-          </div>
+          <% end %>
       </div>
     <% end %>
   </div>
