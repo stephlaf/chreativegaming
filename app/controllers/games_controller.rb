@@ -17,7 +17,6 @@ class GamesController < ApplicationController
   end
 
   def create
-    # raise
     @game = Game.new(game_params)
     authorize @game
 
