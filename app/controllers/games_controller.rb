@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
-  before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :set_game, only: [:show, :edit, :update, :destroy, :toggle_availability]
   before_action :set_user, except: [:index, :show]
 
   def index
@@ -32,6 +32,7 @@ class GamesController < ApplicationController
   end
 
   def update
+    # raise
     authorize @game
     if @game.update(game_params)
       redirect_to game_path(@game)
@@ -44,6 +45,11 @@ class GamesController < ApplicationController
     authorize @game
     @game.destroy
     redirect_to games_path
+  end
+
+  def toggle_availability
+    @game.toggle!(:available)
+    redirect_to game_path(@game)
   end
 
   private

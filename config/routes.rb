@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   get 'community', to: 'pages#community'
 
-  resources :games
+  resources :games do
+    member do
+      get 'toggle_availability'
+    end
+  end
+
   
 end

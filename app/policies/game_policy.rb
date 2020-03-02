@@ -29,4 +29,8 @@ class GamePolicy < ApplicationPolicy
   def destroy?
     return true if @user.master == true
   end
+
+  def toggle_availability?
+    return true if @user.master == true
+  end
 end

@@ -8,7 +8,12 @@
   <p class="card-text">Category: <%= @game.category %></p>
   <p class="card-text">Level: <%= @game.level %></p>
   <p class="card-text">Price: <%= humanized_money_with_symbol(@game.price) %></p>
-  
+  <% if user_signed_in? %>
+    <% if policy(Game).update? %>
+      <p class="card-text">Status: <%= @game.available? ? 'Available' : 'Standby' %></p>
+    <% end %>
+  <% end %>
+
   <div class="game-buttons">
     <p>
       <%= link_to 'Download!', "#", class: 'btn btn-sm btn-primary'  %>
@@ -18,6 +23,9 @@
       <% if policy(Game).update? %>
         <p class="nav-item">
           <%= link_to "Edit game", edit_game_path, class: "btn btn-sm btn-warning" %>
+        </p>
+        <p class="nav-item">
+          <%= link_to "Toggle Status", toggle_availability_game_path(@game), data: { confirm: "Are you sure you want to change #{@game.name}'s status to #{@game.available? ? 'Standby' : 'Available'}?" }, class: "btn btn-sm btn-info" %>
         </p>
         <p class="nav-item">
           <%= link_to "Delete game", game_path(@game), method: 'delete', data: { confirm: "Are you sure you want to delete #{@game.name}?" }, class: "btn btn-sm btn-danger" %>
