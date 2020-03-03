@@ -9,7 +9,6 @@ Game.destroy_all if Rails.env.development?
 puts "Seeding games..."
 
 urls = [
-  'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922800/eil7sn3qzxtsxpkxlotrfw1t1fv6.jpg',
   'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922799/65qqreerqxtw478fa7oxjbxpq310.jpg',
   'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922799/ni4u2e55545krh0znhii19n45iqm.jpg',
   'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922798/0axikj8uumujc5tgouvmoosk8tha.jpg',
@@ -18,6 +17,7 @@ urls = [
   'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922797/9usn2iq2vt9dftaziyc6d1s7yypq.jpg',
   'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922796/pfoetdch3uuodoco3n2kiqh1kocv.jpg',
   'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922796/ja11ijo6xyq6f0kgap4gqdqebeen.jpg',
+  'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922800/eil7sn3qzxtsxpkxlotrfw1t1fv6.jpg',
   'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922795/r3r3m4hgy31x3tbfo70or9qfhas1.jpg'
 
   # 'https://www.designzzz.com/wp-content/uploads/2013/04/Assassins-Creed-wallpaper-iphone.jpg',
@@ -31,6 +31,10 @@ urls = [
   # 'https://www.designzzz.com/wp-content/uploads/2013/04/Ninja-Gaiden-hd-wallpaper.jpg',
   # 'https://www.designzzz.com/wp-content/uploads/2013/04/Angry-bird-wallpaper-iphone.jpg'
 ]
+
+  # p "opening game_file"
+  # game_file = URI.open('https://res.cloudinary.com/chreative-gaming/raw/upload/v1583255749/dr1vxvknpno9hc7kcifx.zip')
+  # p "game_file opened"
 
 i = 0
 10.times do
@@ -47,6 +51,7 @@ i = 0
     available: [true, false].sample
     )
   g.thumbnail.attach(io: file, filename: 'rand.jpg', content_type: 'image/jpg')
+  # g.game_file.attach(io: game_file, filename: 'game')
   g.save!
   i += 1
 end
