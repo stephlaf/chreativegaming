@@ -32,12 +32,13 @@ urls = [
   # 'https://www.designzzz.com/wp-content/uploads/2013/04/Angry-bird-wallpaper-iphone.jpg'
 ]
 
-  # p "opening game_file"
+  p "opening game_file"
   # game_file = URI.open('https://res.cloudinary.com/chreative-gaming/raw/upload/v1583255749/dr1vxvknpno9hc7kcifx.zip')
-  # p "game_file opened"
+  game_file = File.open('test.exe.zip')
+  p "game_file opened"
 
 i = 0
-10.times do
+1.times do
   p "opening URL num #{i}"
   file = URI.open(urls[i])
   p "URL num #{i} opened"
@@ -51,7 +52,8 @@ i = 0
     available: [true, false].sample
     )
   g.thumbnail.attach(io: file, filename: 'rand.jpg', content_type: 'image/jpg')
-  # g.game_file.attach(io: game_file, filename: 'game')
+  g.game_file.attach(io: game_file, filename: 'game_file')
+  # g.game_file.attach(io: game_file, filename: 'game_file', content_type:'application/raw', identify: false)
   g.save!
   i += 1
 end
