@@ -39,6 +39,8 @@ gem 'pundit'
 gem 'money-rails', '~>1.12'
 gem 'faker'
 
+gem "aws-sdk-s3", require: false
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

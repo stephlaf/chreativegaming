@@ -4,7 +4,7 @@ require 'open-uri'
 
 puts "Destroying all games..."
 
-Game.destroy_all if Rails.env.development?
+# Game.destroy_all if Rails.env.development?
 
 puts "Seeding games..."
 
@@ -34,14 +34,15 @@ urls = [
 
   p "opening game_file"
   # game_file = URI.open('https://res.cloudinary.com/chreative-gaming/raw/upload/v1583255749/dr1vxvknpno9hc7kcifx.zip')
+  # game_file = File.open('Ninja-Gaiden-hd-wallpaper.jpg')
   game_file = File.open('test.exe.zip')
   p "game_file opened"
 
 i = 0
 1.times do
-  p "opening URL num #{i}"
-  file = URI.open(urls[i])
-  p "URL num #{i} opened"
+  # p "opening URL num #{i}"
+  # file = URI.open(urls[i])
+  # p "URL num #{i} opened"
   g = Game.new(
     name: Faker::Games::HeroesOfTheStorm.unique.battleground,
     description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
@@ -51,7 +52,7 @@ i = 0
     # status: %w(standby downloadable).sample
     available: [true, false].sample
     )
-  g.thumbnail.attach(io: file, filename: 'rand.jpg', content_type: 'image/jpg')
+  # g.thumbnail.attach(io: file, filename: 'rand.jpg', content_type: 'image/jpg')
   g.game_file.attach(io: game_file, filename: 'game_file')
   # g.game_file.attach(io: game_file, filename: 'game_file', content_type:'application/raw', identify: false)
   g.save!
