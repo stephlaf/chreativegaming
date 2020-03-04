@@ -40,9 +40,9 @@ urls = [
 
 i = 0
 1.times do
-  # p "opening URL num #{i}"
-  # file = URI.open(urls[i])
-  # p "URL num #{i} opened"
+  p "opening URL num #{i}"
+  file = URI.open(urls[i])
+  p "URL num #{i} opened"
   g = Game.new(
     name: Faker::Games::HeroesOfTheStorm.unique.battleground,
     description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
@@ -52,7 +52,7 @@ i = 0
     # status: %w(standby downloadable).sample
     available: [true, false].sample
     )
-  # g.thumbnail.attach(io: file, filename: 'rand.jpg', content_type: 'image/jpg')
+  g.thumbnail.attach(io: file, filename: 'rand.jpg', content_type: 'image/jpg')
   g.game_file.attach(io: game_file, filename: 'game_file')
   # g.game_file.attach(io: game_file, filename: 'game_file', content_type:'application/raw', identify: false)
   g.save!
