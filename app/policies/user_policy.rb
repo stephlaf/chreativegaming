@@ -18,13 +18,13 @@ class UserPolicy < ApplicationPolicy
   #   return true if @user.master == true
   # end
 
-  # def edit?
-  #   return true if @user.master == true
-  # end
+  def edit?
+    return true
+  end
 
-  # def update?
-  #   return true if @user.master == true
-  # end
+  def update?
+    return true
+  end
 
   # def destroy?
   #   return true if @user.master == true

@@ -11,3 +11,4 @@
   <li>Member since: <%= @user.created_at.strftime('%b %d, %Y') %></li>
 </ul>
 
+<%= link_to 'Edit your profile', edit_user_path(@user), class: 'btn btn-sm btn-primary' %>
