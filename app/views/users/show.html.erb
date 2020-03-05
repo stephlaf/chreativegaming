@@ -1,4 +1,13 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>User's Profile Page</h1>
+<p>Where they can see / edit their profile</p>
 
-<%= @user.email %>
+<ul>
+  <li>Email: <%= @user.email %></li>
+  <li>Gametag: <%= @user.username %></li>
+  <li>First name: <%= @user.first_name %></li>
+  <li>Last name: <%= @user.last_name %></li>
+  <li>Status: <%= @user.status %></li>
+  <li>Avatar: </li>
+  <li>Member since: <%= @user.created_at.strftime('%b %d, %Y') %></li>
+</ul>
+
