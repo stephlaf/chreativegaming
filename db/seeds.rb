@@ -53,7 +53,7 @@ i = 0
     available: [true, false].sample
     )
   g.thumbnail.attach(io: file, filename: 'rand.jpg', content_type: 'image/jpg')
-  g.game_file.attach(io: game_file, filename: 'game_file')
+  g.game_file.attach(io: game_file, filename: 'game_file', content_type: Marcel::MimeType.for(game_file))
   # g.game_file.attach(io: game_file, filename: 'game_file', content_type:'application/raw', identify: false)
   g.save!
   i += 1
