@@ -1,0 +1,11 @@
+<h1>All users for admin purposes</h1>
+
+<ul>
+  <% @users.order(id: :asc).each do |user| %>
+    <li>
+      <%= link_to user_path(user) do %>
+        Id: <%= user.id %> Gametag: <%= user.gametag %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

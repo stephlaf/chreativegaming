@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user
-  before_action :authorize_user
+  before_action :authorize_user, except: :index
+
+  def index
+    @users = policy_scope(User).all if current_user.master == true
+    # @users = policy_scope(User).search_by_all_fields(params[:query])
+  end
 
   def show
   end
@@ -17,6 +22,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    
   end
 
   private
