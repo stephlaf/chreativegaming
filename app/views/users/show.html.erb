@@ -29,8 +29,15 @@
 </ul>
 
 <%= link_to 'Edit your profile', edit_user_path(@user), class: 'btn btn-sm btn-primary' %>
-<%= link_to 'Delete your account',
-  edit_user_path(@user), method: 'delete',
-  data: { confirm: "Are you sure you want to delete your account?" },
-  class: "btn btn-sm btn-danger"
-%>
+
+<% if @user.master %>
+  <%= link_to "Delete user", user_path(@user), method: 'delete', data: { confirm: "Are you sure you want to delete #{@user.gametag}'s account?" }, class: "btn btn-sm btn-danger" %>
+<% else %>
+  <%= link_to 'Archive account',
+    # user_path(@user),
+    user_registration_path,
+    method: 'delete',
+    data: { confirm: "Are you sure you want to delete your account?" },
+    class: "btn btn-sm btn-danger" %>
+    <%#= link_to 'Archive account', destroy_user_session_path, method: 'delete', data: { confirm: "Are you sure you want to delete #{@user.gametag}'s account?" }, class: "btn btn-sm btn-danger" %>
+<% end %>

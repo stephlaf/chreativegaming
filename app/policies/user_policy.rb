@@ -26,11 +26,16 @@ class UserPolicy < ApplicationPolicy
     return true
   end
 
-  # def destroy?
-  #   return true if @user.master == true
-  # end
+  def destroy?
+    return true
+    # return true if @user.master == true
+  end
 
   # def toggle_availability?
   #   return true if @user.master == true
   # end
+
+  def archive_profile?
+    return true
+  end
 end
