@@ -28,14 +28,29 @@
       <% if user_signed_in? %>
 
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/stephlaf", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user.avatar.attached? %>
+            <%= cl_image_tag current_user.avatar.key,
+              :transformation=>[
+              {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
+              {:width=>200, :crop=>"scale"}
+              ],
+              class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" },
+              'aria-haspopup': true, 'aria-expanded': false
+            %>
+          <% else %>
+            <%= image_tag 'default',
+              class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" },
+              'aria-haspopup': true, 'aria-expanded': false
+            %>
+          <% end %>
+
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <% if policy(Game).new? %>
-                <%= link_to "Add a new game", new_game_path, class: "dropdown-item" %>
+              <%= link_to "Add a new game", new_game_path, class: "dropdown-item" %>
+              <%= link_to "See all users", users_path, class: "dropdown-item" %>
             <% end %>
 
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "See profile", user_path(current_user), class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

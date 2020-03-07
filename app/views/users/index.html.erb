@@ -1,0 +1,13 @@
+<h1>All users for admin purposes</h1>
+
+<ul>
+  <% @users.order(id: :asc).each do |user| %>
+    <li>
+      <%= link_to user_path(user) do %>
+        Id: <%= user.id %> Gametag: <%= user.gametag %> &emsp;&emsp;
+        Account Active?: <%= user.deleted_at ? 'Nope: archived on ' : 'Yes' %>
+        <%= user.deleted_at.strftime('%b %d, %Y') if user.deleted_at %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,18 @@
+<%= simple_form_for(@user) do |f| %>
+  <p>Gametag: <%= @user.gametag %></p>
+  <p>Email: <%= @user.email %></p>
+  <div class="form-group">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, class: 'form-control' %>
+  </div>
+
+  <%= f.input :avatar, as: :file %>
+
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+
