@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, except: :show
-  before_action :authorize_user, except: [:index, :show]
+  before_action :set_user
+  before_action :authorize_user, except: [:index]
 
   def index
     @users = policy_scope(User).all if current_user.master == true
@@ -8,12 +8,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user.master
-      @user = User.find(params[:id])
-    else
-      set_user
-    end
-    authorize @user
   end
 
   def edit
@@ -28,8 +22,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    # raise
     @user.destroy
-    redirect_to root_path
+    redirect_to users_path
   end
 
   private
