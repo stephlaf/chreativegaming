@@ -37,7 +37,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:gametag])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:gametag])
+    update_attrs = [:gametag, :password, :password_confirmation, :current_password]
+    devise_parameter_sanitizer.permit(:account_update, keys: update_attrs)
   end
 
   private
