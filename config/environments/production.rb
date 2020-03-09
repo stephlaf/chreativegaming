@@ -63,7 +63,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # Configure this to the actual host of the application
-  config.action_mailer.default_url_options = { host: 'chreativegaming-dev.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'https://chreativegaming-dev.herokuapp.com' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
