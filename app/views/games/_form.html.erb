@@ -15,19 +15,14 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :level %>
-    <%= f.text_field :level, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
     <%= f.label :price_cents %>
     <%= f.text_field :price_cents, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
+  <!-- <div class="form-group"> -->
     <%#= f.label :status %>
-    <%= f.input :status, collection: ['downloadable', 'standby'], class: 'form-control' %>
-  </div>
+    <%#= f.input :available, collection: [true, false], class: 'form-control' %>
+  <!-- </div> -->
 
   <%= f.input :thumbnail, as: :file %>
   <%= f.input :game_file, as: :file %>
