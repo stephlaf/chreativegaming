@@ -17,7 +17,7 @@ urls = [
   'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922797/zyjlnzltr6hnwdbef6nqu58e037z.jpg',
   'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922797/9usn2iq2vt9dftaziyc6d1s7yypq.jpg',
   'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922796/pfoetdch3uuodoco3n2kiqh1kocv.jpg',
-  'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922796/ja11ijo6xyq6f0kgap4gqdqebeen.jpg',
+  # 'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922796/ja11ijo6xyq6f0kgap4gqdqebeen.jpg',
   'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922795/r3r3m4hgy31x3tbfo70or9qfhas1.jpg'
 
   # 'https://www.designzzz.com/wp-content/uploads/2013/04/Assassins-Creed-wallpaper-iphone.jpg',
@@ -32,21 +32,38 @@ urls = [
   # 'https://www.designzzz.com/wp-content/uploads/2013/04/Angry-bird-wallpaper-iphone.jpg'
 ]
 
+banner_urls = [
+  'https://res.cloudinary.com/chreative-gaming/image/upload/v1584036412/gamebannersedit/08edit_h6tqke.jpg',
+  'https://res.cloudinary.com/chreative-gaming/image/upload/v1584036413/gamebannersedit/07edit_qt4jnh.jpg',
+  'https://res.cloudinary.com/chreative-gaming/image/upload/v1584036412/gamebannersedit/03edit_phsuuj.jpg',
+  'https://res.cloudinary.com/chreative-gaming/image/upload/v1584036412/gamebannersedit/09edit_gab8p9.jpg',
+  'https://res.cloudinary.com/chreative-gaming/image/upload/v1584036412/gamebannersedit/05edit_f4sc1c.jpg',
+  'https://res.cloudinary.com/chreative-gaming/image/upload/v1584036411/gamebannersedit/06edit_vqrb00.jpg',
+  'https://res.cloudinary.com/chreative-gaming/image/upload/v1584036411/gamebannersedit/04edit_dtrfm9.jpg',
+  'https://res.cloudinary.com/chreative-gaming/image/upload/v1584036411/gamebannersedit/01edit_sckarv.jpg',
+  'https://res.cloudinary.com/chreative-gaming/image/upload/v1584036411/gamebannersedit/02edit_vdfel3.jpg'
+]
+
 i = 0
-10.times do
+9.times do
   p "opening URL num #{i}"
   file = URI.open(urls[i])
   p "URL num #{i} opened"
+
+  p "opening Banner URL num #{i}"
+  banner_file = URI.open(banner_urls[i])
+  p "Banner URL num #{i} opened"
+
   g = Game.new(
     name: Faker::Games::HeroesOfTheStorm.unique.battleground,
     description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
     category: Faker::Games::LeagueOfLegends.summoner_spell,
-    level: Faker::Games::LeagueOfLegends.rank,
     price_cents: rand(100..500),
     # status: %w(standby downloadable).sample
     available: [true, false].sample
     )
   g.thumbnail.attach(io: file, filename: 'rand.jpg', content_type: 'image/jpg')
+  g.banner.attach(io: banner_file, filename: 'rand.jpg', content_type: 'image/jpg')
   g.save!
   i += 1
 end
