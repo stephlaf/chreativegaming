@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
-  before_action :set_game, only: [:show, :edit, :update, :destroy, :toggle_availability, :get_status]
+  before_action :set_game, only: [:show, :edit, :update, :destroy, :toggle_availability]
   before_action :set_user, except: [:index, :show]
 
   def index
@@ -35,7 +35,6 @@ class GamesController < ApplicationController
     # raise
     authorize @game
     if @game.update(game_params)
-      # @game.toggle!(:available) if get_status != game_params[:available]
       redirect_to game_path(@game)
     else
       render :edit
@@ -55,10 +54,6 @@ class GamesController < ApplicationController
 
   private
 
-  def get_status
-    @game.status == 'available' 
-  end
-
   def set_game
     @game = Game.find(params[:id])
     authorize @game
@@ -69,6 +64,6 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name, :description, :category, :price_cents, :thumbnail)
+    params.require(:game).permit(:name, :description, :category, :price_cents, :thumbnail, :banner)
   end
 end
