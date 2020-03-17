@@ -16,7 +16,8 @@
 
   <div class="game-buttons">
     <p>
-      <%= link_to 'Download!', "#", class: 'btn btn-sm btn-primary'  %>
+      <%= link_to @game.game_file.attached? ? 'Download' : 'No Game', "#", class: 'btn btn-sm btn-primary'  %>
+      <%#= send_file('../../../Bouncer_third_test.exe.zip')  %>
     </p>
     
     <% if user_signed_in? %>

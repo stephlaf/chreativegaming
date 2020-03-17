@@ -29,7 +29,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'simple_form'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'devise'
-gem 'cloudinary', '~> 1.12.0'
+# gem 'cloudinary', '~> 1.12.0'
+gem 'cloudinary', '1.13.2'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
@@ -38,6 +39,8 @@ gem 'pundit'
 
 gem 'money-rails', '~>1.12'
 gem 'faker'
+
+gem "aws-sdk-s3", require: false
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

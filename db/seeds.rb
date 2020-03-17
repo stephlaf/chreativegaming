@@ -9,16 +9,15 @@ Game.destroy_all if Rails.env.development?
 puts "Seeding games..."
 
 urls = [
-  'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922800/eil7sn3qzxtsxpkxlotrfw1t1fv6.jpg',
-  'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922799/65qqreerqxtw478fa7oxjbxpq310.jpg',
-  'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922799/ni4u2e55545krh0znhii19n45iqm.jpg',
-  'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922798/0axikj8uumujc5tgouvmoosk8tha.jpg',
-  'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922798/0khjvs9k5hx9dsdgco178e25k6x4.jpg',
-  'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922797/zyjlnzltr6hnwdbef6nqu58e037z.jpg',
-  'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922797/9usn2iq2vt9dftaziyc6d1s7yypq.jpg',
-  'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922796/pfoetdch3uuodoco3n2kiqh1kocv.jpg',
-  # 'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922796/ja11ijo6xyq6f0kgap4gqdqebeen.jpg',
-  'https://res.cloudinary.com/chreative-gaming/image/upload/v1582922795/r3r3m4hgy31x3tbfo70or9qfhas1.jpg'
+  'https://res.cloudinary.com/chreative-gaming/image/upload/v1584476046/gamethumbnails/03_jjojqm.jpg',
+  'https://res.cloudinary.com/chreative-gaming/image/upload/v1584476045/gamethumbnails/07_y4guib.jpg',
+  'https://res.cloudinary.com/chreative-gaming/image/upload/v1584476045/gamethumbnails/08_bvghc3.jpg',
+  'https://res.cloudinary.com/chreative-gaming/image/upload/v1584476045/gamethumbnails/09_fd6oxf.jpg',
+  'https://res.cloudinary.com/chreative-gaming/image/upload/v1584476045/gamethumbnails/02_sgd2ug.jpg',
+  'https://res.cloudinary.com/chreative-gaming/image/upload/v1584476045/gamethumbnails/05_hvssjz.jpg',
+  'https://res.cloudinary.com/chreative-gaming/image/upload/v1584476044/gamethumbnails/06_yjncev.jpg',
+  'https://res.cloudinary.com/chreative-gaming/image/upload/v1584476044/gamethumbnails/01_x1vwt7.jpg',
+  'https://res.cloudinary.com/chreative-gaming/image/upload/v1584476044/gamethumbnails/04_wbumta.jpg'
 
   # 'https://www.designzzz.com/wp-content/uploads/2013/04/Assassins-Creed-wallpaper-iphone.jpg',
   # 'https://www.designzzz.com/wp-content/uploads/2013/04/Battlefield-Aircraft-wallpaper-iphone.jpg',
@@ -46,6 +45,10 @@ banner_urls = [
 
 i = 0
 9.times do
+  p "opening game_file"
+  game_file = File.open('test.exe.zip')
+  p "game_file opened"
+
   p "opening URL num #{i}"
   file = URI.open(urls[i])
   p "URL num #{i} opened"
@@ -64,6 +67,8 @@ i = 0
     )
   g.thumbnail.attach(io: file, filename: 'rand.jpg', content_type: 'image/jpg')
   g.banner.attach(io: banner_file, filename: 'rand.jpg', content_type: 'image/jpg')
+  g.game_file.attach(io: game_file, filename: 'game_file', content_type:'application/raw', identify: false)
+  p "Saving game #{i}"
   g.save!
   i += 1
 end
