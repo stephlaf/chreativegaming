@@ -1,0 +1,44 @@
+<h1>User's Profile Page</h1>
+<p>Where they can see / edit their profile</p>
+
+<p>
+  <% if @user.avatar.attached? %>
+    <%= cl_image_tag @user.avatar.key,
+      :transformation=>[
+      {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
+      {:width=>200, :crop=>"scale"}
+      ],
+      class: "avatar-profile dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" },
+      'aria-haspopup': true, 'aria-expanded': false
+    %>
+  <% else %>
+    <%= image_tag 'default',
+      class: "avatar-profile dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" },
+      'aria-haspopup': true, 'aria-expanded': false
+    %>
+  <% end %>
+</p>
+
+<ul>
+  <li>Email: <%= @user.email %></li>
+  <li>Gametag: <%= @user.gametag %></li>
+  <li>First name: <%= @user.first_name %></li>
+  <li>Last name: <%= @user.last_name %></li>
+  <li>Membership Level: <%= @user.membership_level %></li>
+  <li>Member since: <%= @user.created_at.strftime('%b %d, %Y') %></li>
+</ul>
+
+<%= link_to 'Edit your profile', edit_user_path(@user), class: 'btn btn-sm btn-primary' %>
+<%= link_to "Change your password", edit_user_registration_path, class: 'btn btn-sm btn-warning' %>
+
+<% if @user.master %>
+  <%= link_to "Delete user", user_path(@user), method: 'delete', data: { confirm: "Are you sure you want to delete #{@user.gametag}'s account?" }, class: "btn btn-sm btn-danger" %>
+<% else %>
+  <%= link_to 'Archive account',
+    # user_path(@user),
+    user_registration_path,
+    method: 'delete',
+    data: { confirm: "Are you sure you want to delete your account?" },
+    class: "btn btn-sm btn-danger" %>
+    <%#= link_to 'Archive account', destroy_user_session_path, method: 'delete', data: { confirm: "Are you sure you want to delete #{@user.gametag}'s account?" }, class: "btn btn-sm btn-danger" %>
+<% end %>
