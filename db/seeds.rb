@@ -61,7 +61,10 @@ i = 0
     name: Faker::Games::HeroesOfTheStorm.unique.battleground,
     description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
     category: Faker::Games::LeagueOfLegends.summoner_spell,
-    price_cents: rand(100..500),
+    price_bronze_cents: rand(700..1000),
+    price_silver_cents: rand(400..699),
+    price_gold_cents: rand(150..399),
+    price_platinum_cents: rand(100..149),
     # status: %w(standby downloadable).sample
     available: [true, false].sample
     )
