@@ -10,9 +10,8 @@ class GamesController < ApplicationController
 
   def show
     @level = @current_user.membership_level
-    @price = get_prices.first
-    @prices = get_prices[1..]
-    # raise
+    @price = get_prices[@level.downcase.to_sym]
+    @prices = get_prices
   end
 
   def new
@@ -83,22 +82,21 @@ class GamesController < ApplicationController
   end
 
   def get_prices
-    prices = [
-      @game.price_bronze_cents,
-      @game.price_silver_cents,
-      @game.price_gold_cents,
-      @game.price_platinum_cents
-    ]
     case @level
-      when 'Bronze' then prices[0..3]
-      when 'Silver' then prices[1..3]
-      when 'Gold' then prices[2..3]
-      when 'Platinum' then [prices.last]
+      when 'Bronze'
+        { bronze: @game.price_bronze_cents,
+          silver: @game.price_silver_cents,
+          gold: @game.price_gold_cents,
+          platinum: @game.price_platinum_cents }
+      when 'Silver'
+        { silver: @game.price_silver_cents,
+          gold: @game.price_gold_cents,
+          platinum: @game.price_platinum_cents }
+      when 'Gold'
+        { gold: @game.price_gold_cents, platinum: @game.price_platinum_cents }
+      when 'Platinum'
+        { platinum: @game.price_platinum_cents }
     end
   end
 end
 
-      # bronze: @game.price_bronze_cents,
-      # silver: @game.price_silver_cents,
-      # gold: @game.price_gold_cents,
-      # platinum: @game.price_platinum_cents

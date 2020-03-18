@@ -11,8 +11,10 @@
   
   <% unless @prices.empty? %>
     <ul>
-      <% @prices.each do |price| %>
-        <li><%=  %> level price: <%= humanized_money_with_symbol(price) %></li>        
+      <% @prices.each_with_index do |(level, price), index| %>
+        <% unless index.zero? %>
+          <li><%= level.capitalize %> level price: <%= humanized_money_with_symbol(price) %></li>        
+        <% end %>
       <% end %>
     </ul>
   <% end %>
