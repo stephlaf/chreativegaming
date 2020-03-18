@@ -84,18 +84,18 @@ class GamesController < ApplicationController
   def get_prices
     case @level
       when 'Bronze'
-        { bronze: @game.price_bronze_cents,
-          silver: @game.price_silver_cents,
-          gold: @game.price_gold_cents,
-          platinum: @game.price_platinum_cents }
+        { bronze: @game.price_bronze,
+          silver: @game.price_silver,
+          gold: @game.price_gold,
+          platinum: @game.price_platinum }
       when 'Silver'
-        { silver: @game.price_silver_cents,
-          gold: @game.price_gold_cents,
-          platinum: @game.price_platinum_cents }
+        { silver: @game.price_silver,
+          gold: @game.price_gold,
+          platinum: @game.price_platinum }
       when 'Gold'
-        { gold: @game.price_gold_cents, platinum: @game.price_platinum_cents }
+        { gold: @game.price_gold, platinum: @game.price_platinum }
       when 'Platinum'
-        { platinum: @game.price_platinum_cents }
+        { platinum: @game.price_platinum }
     end
   end
 end

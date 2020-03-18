@@ -6,8 +6,9 @@
 <div class="card-body">
   <h3 class="card-text"><%= @game.description %></h3>
   <p class="card-text">Category: <%= @game.category %></p>
-  <p class="card-text">Membership level: <%= current_user.membership_level %></p>
-  <p class="card-text">Your price: <%= humanized_money_with_symbol(@price) %></p>
+  <p class="card-text">Membership level: <%= @level %></p>
+  <!-- <p class="card-text">Price: <%#= humanized_money_with_symbol(@game.price) %></p> -->
+  <p class="card-text">Your <%= @level %> price: <%= humanized_money_with_symbol(@price) %></p>
   
   <% unless @prices.empty? %>
     <ul>
