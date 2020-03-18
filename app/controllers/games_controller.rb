@@ -9,7 +9,11 @@ class GamesController < ApplicationController
   end
 
   def show
-    @level = @current_user.membership_level
+    if @current_user
+      @level = @current_user.membership_level
+    else
+      @level = 'Bronze'
+    end
     @price = get_prices[@level.downcase.to_sym]
     @prices = get_prices
   end
