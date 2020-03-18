@@ -7,7 +7,16 @@
   <h3 class="card-text"><%= @game.description %></h3>
   <p class="card-text">Category: <%= @game.category %></p>
   <p class="card-text">Membership level: <%= current_user.membership_level %></p>
-  <p class="card-text">Your price: <%= humanized_money_with_symbol(@game.price) %></p>
+  <p class="card-text">Your price: <%= humanized_money_with_symbol(@price) %></p>
+  
+  <% unless @prices.empty? %>
+    <ul>
+      <% @prices.each do |price| %>
+        <li><%=  %> level price: <%= humanized_money_with_symbol(price) %></li>        
+      <% end %>
+    </ul>
+  <% end %>
+
   <% if user_signed_in? %>
     <% if policy(Game).update? %>
       <p class="card-text">Availability: <%= @game.available? ? 'Available' : 'Standby' %></p>

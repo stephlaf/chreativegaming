@@ -2,13 +2,17 @@ class GamesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   before_action :set_game, only: [:show, :edit, :update, :destroy, :toggle_availability]
-  before_action :set_user, except: [:index, :show]
+  before_action :set_user, except: [:index]
 
   def index
     @games = policy_scope(Game)
   end
 
   def show
+    @level = @current_user.membership_level
+    @price = get_prices.first
+    @prices = get_prices[1..]
+    # raise
   end
 
   def new
@@ -64,6 +68,37 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name, :description, :category, :price_cents, :thumbnail, :banner, :game_file)
+    params.require(:game).permit(:name,
+      :description,
+      :category,
+      :price_cents,
+      :price_bronze_cents,
+      :price_silver_cents,
+      :price_gold_cents,
+      :price_platinum_cents,
+      :thumbnail,
+      :banner,
+      :game_file
+    )
+  end
+
+  def get_prices
+    prices = [
+      @game.price_bronze_cents,
+      @game.price_silver_cents,
+      @game.price_gold_cents,
+      @game.price_platinum_cents
+    ]
+    case @level
+      when 'Bronze' then prices[0..3]
+      when 'Silver' then prices[1..3]
+      when 'Gold' then prices[2..3]
+      when 'Platinum' then [prices.last]
+    end
   end
 end
+
+      # bronze: @game.price_bronze_cents,
+      # silver: @game.price_silver_cents,
+      # gold: @game.price_gold_cents,
+      # platinum: @game.price_platinum_cents
