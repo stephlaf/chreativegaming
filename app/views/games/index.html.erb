@@ -10,8 +10,25 @@
               <div class="card-body">
                 <h5 class="card-title"><%= game.name %></h5>
                 <p class="card-text"><%= game.description %></p>
-                <!-- <p class="card-text">Price: <%#= humanized_money_with_symbol(game.price) %></p> -->
-                <!-- <a href="#" class="btn btn-primary">Download!</a> -->
+
+                <% if user_signed_in? %>
+                  <p class="card-text">
+                    Your <%= @level %> price:
+                    <% case @level %>
+                    <% when 'Bronze' %>
+                      <%= humanized_money_with_symbol(game.price_bronze) %>
+                    <% when 'Silver' %>
+                      <%= humanized_money_with_symbol(game.price_silver) %>
+                    <% when 'Gold' %>
+                      <%= humanized_money_with_symbol(game.price_gold) %>
+                    <% when 'Platinum' %>
+                      <%= humanized_money_with_symbol(game.price_platinum) %>
+                    <% end %>
+                  </p>
+                <% else %>
+                  <p class="card-text">Full price: <%= humanized_money_with_symbol(game.price) %></p>
+                <% end %>
+
               </div>
             </div>
           <% end %>

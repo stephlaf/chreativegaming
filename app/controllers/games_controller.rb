@@ -6,15 +6,12 @@ class GamesController < ApplicationController
 
   def index
     @games = policy_scope(Game)
+    set_level
   end
 
   def show
-    if @current_user
-      @level = @current_user.membership_level
-    else
-      @level = 'Bronze'
-    end
-    @price = get_prices[@level.downcase.to_sym]
+    set_level
+    @price = get_prices[@level.gsub(' ', '_').downcase.to_sym]
     @prices = get_prices
   end
 
@@ -87,19 +84,33 @@ class GamesController < ApplicationController
 
   def get_prices
     case @level
-      when 'Bronze'
-        { bronze: @game.price_bronze,
-          silver: @game.price_silver,
-          gold: @game.price_gold,
-          platinum: @game.price_platinum }
-      when 'Silver'
-        { silver: @game.price_silver,
-          gold: @game.price_gold,
-          platinum: @game.price_platinum }
-      when 'Gold'
-        { gold: @game.price_gold, platinum: @game.price_platinum }
-      when 'Platinum'
-        { platinum: @game.price_platinum }
+    when 'Bronze'
+      { bronze: @game.price_bronze,
+        silver: @game.price_silver,
+        gold: @game.price_gold,
+        platinum: @game.price_platinum }
+    when 'Silver'
+      { silver: @game.price_silver,
+        gold: @game.price_gold,
+        platinum: @game.price_platinum }
+    when 'Gold'
+      { gold: @game.price_gold, platinum: @game.price_platinum }
+    when 'Platinum'
+      { platinum: @game.price_platinum }
+    else
+      { non_member: @game.price,
+        bronze: @game.price_bronze,
+        silver: @game.price_silver,
+        gold: @game.price_gold,
+        platinum: @game.price_platinum }
+    end
+  end
+
+  def set_level
+    if @current_user
+      @level = @current_user.membership_level
+    else
+      @level = 'Non member'
     end
   end
 end
