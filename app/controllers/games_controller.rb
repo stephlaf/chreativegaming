@@ -23,6 +23,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     authorize @game
+    set_prices
 
     if @game.save
       redirect_to game_path(@game)
@@ -36,9 +37,10 @@ class GamesController < ApplicationController
   end
 
   def update
-    # raise
     authorize @game
     if @game.update(game_params)
+      set_prices
+      @game.save
       redirect_to game_path(@game)
     else
       render :edit
@@ -72,14 +74,17 @@ class GamesController < ApplicationController
       :description,
       :category,
       :price_cents,
-      :price_bronze_cents,
-      :price_silver_cents,
-      :price_gold_cents,
-      :price_platinum_cents,
       :thumbnail,
       :banner,
       :game_file
     )
+  end
+
+  def set_prices
+    @game.price_bronze_cents = @game.price_cents * 0.9
+    @game.price_silver_cents = @game.price_cents * 0.8
+    @game.price_gold_cents = @game.price_cents * 0.7
+    @game.price_platinum_cents = @game.price_cents * 0.5
   end
 
   def get_prices
