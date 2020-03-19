@@ -8,17 +8,16 @@
   <p class="card-text">Category: <%= @game.category %></p>
   <% if user_signed_in? %>
     <p class="card-text">Your membership level: <%= @level %></p>
-    <!-- <p class="card-text">Price: <%#= humanized_money_with_symbol(@game.price) %></p> -->
-    <p class="card-text">Your <%= @level %> price: <%= humanized_money_with_symbol(@price) %></p>
+    <p class="card-text">Your <%= @level %> price: <%= @price.zero? ? 'Free' : humanized_money_with_symbol(@price) %></p>
   <% else %>
-    <p class="card-text"><%= @level.capitalize %> price: <%= humanized_money_with_symbol(@price) %></p>
+    <p class="card-text"><%= @level.capitalize %> price: <%= @price.zero? ? 'Free' : humanized_money_with_symbol(@price) %></p>
   <% end %>
   
-  <% unless @prices.empty? %>
+  <% unless @prices.empty? || @price.zero? %>
     <ul>
       <% @prices.each_with_index do |(level, price), index| %>
         <% unless index.zero? %>
-          <li><%= level.capitalize %> level price: <%= humanized_money_with_symbol(price) %></li>        
+          <li><%= level.capitalize %> level price: <%= price.zero? ? 'Free' : humanized_money_with_symbol(price) %></li>        
         <% end %>
       <% end %>
     </ul>

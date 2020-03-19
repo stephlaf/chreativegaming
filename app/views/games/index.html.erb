@@ -16,17 +16,17 @@
                     Your <%= @level %> price:
                     <% case @level %>
                     <% when 'Bronze' %>
-                      <%= humanized_money_with_symbol(game.price_bronze) %>
+                      <%= game.price_bronze.zero? ? 'Free' : humanized_money_with_symbol(game.price_bronze) %>
                     <% when 'Silver' %>
-                      <%= humanized_money_with_symbol(game.price_silver) %>
+                      <%= game.price_silver.zero? ? 'Free' : humanized_money_with_symbol(game.price_silver) %>
                     <% when 'Gold' %>
-                      <%= humanized_money_with_symbol(game.price_gold) %>
+                      <%= game.price_gold.zero? ? 'Free' : humanized_money_with_symbol(game.price_gold) %>
                     <% when 'Platinum' %>
-                      <%= humanized_money_with_symbol(game.price_platinum) %>
+                      <%= game.price_platinum.zero? ? 'Free' : humanized_money_with_symbol(game.price_platinum) %>
                     <% end %>
                   </p>
                 <% else %>
-                  <p class="card-text">Full price: <%= humanized_money_with_symbol(game.price) %></p>
+                  <p class="card-text">Full price: <%= game.price.zero? ? 'Free' : humanized_money_with_symbol(game.price) %></p>
                 <% end %>
 
               </div>
