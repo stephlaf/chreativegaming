@@ -18,6 +18,12 @@
     <%= f.label :price %>
     <%= f.text_field :price_cents, class: 'form-control' %>
   </div>
+  <ul>
+    <li>Bronze: <span id="bronze"><%= @game.price_bronze_cents %></span></li>
+    <li>Silver: <span id="silver"><%= @game.price_silver_cents %></span></li>
+    <li>Gold: <span id="gold"><%= @game.price_gold_cents %></span></li>
+    <li>Platinum: <span id="platinum"><%= @game.price_platinum_cents %></span></li>
+  </ul>
 
   <!-- <div class="form-group"> -->
     <%#= f.label :status %>
