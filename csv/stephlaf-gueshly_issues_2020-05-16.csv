@@ -1,0 +1,262 @@
+Issue ID,URL,Title,State,Description,Author,Author Username,Assignee,Assignee Username,Confidential,Locked,Due Date,Created At (UTC),Updated At (UTC),Closed At (UTC),Milestone,Weight,Labels,Time Estimate,Time Spent
+1,https://gitlab.com/stephlaf/gueshly/-/issues/1,Upload Games,Open,As an Admin I want to upload games (make them downloadable),Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 18:03:10,2020-03-18 18:46:10,,Games (Selling),,Games (Selling),0,0
+2,https://gitlab.com/stephlaf/gueshly/-/issues/2,Set Game Price,Closed,"As an Admin I want to set the price on each games available for download
+This should be done at the moment of uploading, and should be editable",Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 18:03:10,2020-03-02 18:06:02,2020-02-28 20:36:01,Games (Admin),,Admin Games,0,0
+3,https://gitlab.com/stephlaf/gueshly/-/issues/3,Set Games to Standby,Closed,As an Admin I want to put some uploaded games on standby (meaning before it even gets to be downloadable),Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 18:03:10,2020-03-02 19:22:42,2020-03-02 19:22:42,Games (Admin),,Admin Games,0,0
+4,https://gitlab.com/stephlaf/gueshly/-/issues/4,Set Games to Available,Closed,As an Admin I want to make some uploaded games available to download,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 18:03:10,2020-03-02 19:22:38,2020-03-02 19:22:38,Games (Admin),,Admin Games,0,0
+5,https://gitlab.com/stephlaf/gueshly/-/issues/5,Get Number of Downloads,Open,As an Admin I want to see how many people downloaded each games,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 18:03:10,2020-03-18 18:47:16,,Games (Selling),,Games (Selling),0,0
+6,https://gitlab.com/stephlaf/gueshly/-/issues/6,CRUD Game,Closed,As an Admin I can create / edit / delete a game card,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 18:03:10,2020-03-02 17:59:14,2020-02-28 20:36:09,Games (Admin),,Admin Games,0,0
+7,https://gitlab.com/stephlaf/gueshly/-/issues/7,Add Game Thumbnail,Closed,As an Admin I want to add a thumbnail to a game card,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 18:03:10,2020-03-02 18:05:27,2020-02-28 20:36:03,Games (Admin),,Admin Games,0,0
+8,https://gitlab.com/stephlaf/gueshly/-/issues/8,Change Game Thumbnail,Closed,As an Admin I want to change the thumbnail to an uploaded game card,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 18:03:10,2020-03-02 18:05:38,2020-02-28 20:36:07,Games (Admin),,Admin Games,0,0
+9,https://gitlab.com/stephlaf/gueshly/-/issues/9,Change Game Thumbnail Size,Open,As an Admin I want to change the size of the thumbnail of a game card,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 18:03:11,2020-03-18 18:37:51,,,,Design-dependent,0,0
+10,https://gitlab.com/stephlaf/gueshly/-/issues/10,Modify Game Card Display - Position,Open,As an Admin I want to change the position and display of the uploaded game cards,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 18:03:11,2020-03-18 18:39:11,,,,Design-dependent,0,0
+11,https://gitlab.com/stephlaf/gueshly/-/issues/11,Edit Game Card Description,Closed,As an Admin I want to modify the description next to an uploaded game card,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 18:03:11,2020-03-02 18:05:50,2020-02-28 20:36:05,Games (Admin),,Admin Games,0,0
+12,https://gitlab.com/stephlaf/gueshly/-/issues/12,Download Games,Open,As an Admin I want to download uploaded games,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 18:03:11,2020-03-18 18:47:40,,Games (Selling),,Games (Selling),0,0
+13,https://gitlab.com/stephlaf/gueshly/-/issues/13,Update Uploaded Games,Open,As an Admin I want to update uploaded games,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 18:03:11,2020-03-18 18:48:51,,Games (Selling),,Games (Selling),0,0
+14,https://gitlab.com/stephlaf/gueshly/-/issues/14,Delete Uploaded Games,Open,As an Admin I want to delete uploaded games,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 18:03:11,2020-03-18 18:49:16,,Games (Selling),,Games (Selling),0,0
+15,https://gitlab.com/stephlaf/gueshly/-/issues/15,Create Blog Posts,Open,As an Admin I want to create blog posts,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 18:03:11,2020-01-06 20:29:12,,,,Admin Forum/posts,0,0
+16,https://gitlab.com/stephlaf/gueshly/-/issues/16,Create Forum Posts,Open,"As an Admin I want to create forum posts
+The forum posts posted by an Admin have to have an 'Admin' label next to the post so that people know that it comes from an Admin.",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 18:03:11,2020-01-06 22:43:22,,,,Admin Forum/posts,0,0
+17,https://gitlab.com/stephlaf/gueshly/-/issues/17,Create Forum Topics,Open,"As an Admin I want to create forum topics
+posts that can be discussed by the community",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 18:03:11,2020-01-06 22:08:25,,,,Admin Forum/posts,0,0
+18,https://gitlab.com/stephlaf/gueshly/-/issues/18,Access To All Sections,Open,As an Admin I want to have access to all sections,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 18:03:11,2020-01-06 20:29:43,,,,Admin Maintenance,0,0
+19,https://gitlab.com/stephlaf/gueshly/-/issues/19,See Member List,Open,As an Admin I want to see the list of members,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 18:03:11,2020-01-06 20:29:51,,,,Admin Maintenance,0,0
+20,https://gitlab.com/stephlaf/gueshly/-/issues/20,See Member's Status,Open,As an Admin I want to see how long members have been subscribed for and their membership status,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 18:03:12,2020-01-06 20:30:01,,,,Admin Maintenance,0,0
+21,https://gitlab.com/stephlaf/gueshly/-/issues/21,Give Free Membership,Open,As an Admin I want to give free/promo membership to specific people,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 18:03:12,2020-01-06 20:30:08,,,,Admin Maintenance,0,0
+22,https://gitlab.com/stephlaf/gueshly/-/issues/22,Give Free Games,Open,As an Admin I want to give free/promo games to specific people,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 18:03:12,2020-01-06 20:30:19,,,,Admin Maintenance,0,0
+24,https://gitlab.com/stephlaf/gueshly/-/issues/24,Post new Forum Post,Open,As an Admin I want to post News post,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:33,2020-01-06 22:49:34,,Forums / Posts (Admin),,Admin Forum/posts,0,0
+25,https://gitlab.com/stephlaf/gueshly/-/issues/25,Post Priority Post,Open,"As an Admin I want to post priority posts
+
+Posts that will appear on top of the Newsfeed on the Home page (like a pinned post)",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:33,2020-01-06 22:53:30,,Forums / Posts (Admin),,Admin Forum/posts,0,0
+26,https://gitlab.com/stephlaf/gueshly/-/issues/26,Comment forum post,Open,"As an Admin I want to comment on forum posts
+
+Comment on other people's forum posts with the Admin label next to the name",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:33,2020-01-09 19:47:13,,Forums / Posts (Admin),,Admin Forum/posts,0,0
+27,https://gitlab.com/stephlaf/gueshly/-/issues/27,Turn Blog Post into Forum,Open,"As an Admin I want to comment on blog posts
+CHANGED TO 
+As an Admin I want to turn selected blog posts into new Forum topics
+
+NOT MVP ANYMORE",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:33,2020-01-09 19:24:06,,Forums / Posts (Admin),,Admin Forum/posts,0,0
+28,https://gitlab.com/stephlaf/gueshly/-/issues/28,Upload media to blog post,Open,"As an Admin I want to upload photos 
+videos or links on blog posts",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:33,2020-01-09 19:52:13,,Forums / Posts (Admin),,Admin Forum/posts,0,0
+29,https://gitlab.com/stephlaf/gueshly/-/issues/29,Like a blog post,Open,"As an Admin I want to like a blog post
+
+like someone else's post",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:34,2020-01-09 19:54:15,,Forums / Posts (Admin),,Admin Forum/posts,0,0
+30,https://gitlab.com/stephlaf/gueshly/-/issues/30,Like a forum Post,Open,"As an Admin I want to like a forum post
+
+like someone else's forum post",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:34,2020-01-09 19:56:38,,Forums / Posts (Admin),,Admin Forum/posts,0,0
+31,https://gitlab.com/stephlaf/gueshly/-/issues/31,Edit comment,Open,As an Admin I want to edit comments that I previously posted,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:34,2020-01-09 20:02:42,,Forums / Posts (Admin),,Admin Forum/posts,0,0
+32,https://gitlab.com/stephlaf/gueshly/-/issues/32,Reorganize newsfeed,Open,"As an Admin I want to reorganize the news feed
+
+Newsfeed that holds members' blog posts, forum posts and special announcements.",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:34,2020-01-09 20:04:06,,Forums / Posts (Admin),,Admin Forum/posts,0,0
+33,https://gitlab.com/stephlaf/gueshly/-/issues/33,Delete own comment,Open,As an Admin I want to delete comments that I previously posted,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:34,2020-01-09 20:04:48,,Forums / Posts (Admin),,Admin Forum/posts,0,0
+34,https://gitlab.com/stephlaf/gueshly/-/issues/34,Delete inappropriate posts,Open,"As an Admin I want to delete inappropriate posts
+
+whether it's forum posts or blog posts. (should make 2 separate issues (?))",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:34,2020-01-09 20:10:26,,Forums / Posts (Admin),,Admin Forum/posts,0,0
+35,https://gitlab.com/stephlaf/gueshly/-/issues/35,Edit own forum post,Open,"As an Admin I want to edit a post (forum/blog) that I previously posted
+
+it then gets updated on the newsfeed",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:34,2020-01-09 20:19:31,,Forums / Posts (Admin),,Admin Forum/posts,0,0
+36,https://gitlab.com/stephlaf/gueshly/-/issues/36,Delete own forum post,Open,"As an Admin I want to delete a post (forum/blog) that I previously posted
+
+it then gets deleted in the newsfeed",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:34,2020-01-09 20:18:44,,Forums / Posts (Admin),,Admin Forum/posts,0,0
+37,https://gitlab.com/stephlaf/gueshly/-/issues/37,Receive post notifications,Open,"As an Admin I want to receive notification for every post posted
+
+on-site notifications or email notification",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:34,2020-01-09 20:23:27,,Forums / Posts (Admin),,Admin Forum/posts,0,0
+38,https://gitlab.com/stephlaf/gueshly/-/issues/38,Send emails,Open,"As an Admin I want to send personalized emails at specific times in one's membership
+
+And be able to keep a template of email and be able to change it whenever I need to. ",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:34,2020-01-09 20:25:24,,Maintenance,,Admin Maintenance,0,0
+39,https://gitlab.com/stephlaf/gueshly/-/issues/39,Change Password,Open,As an Admin I want to change my password,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:34,2020-01-09 20:26:36,,Maintenance,,Admin Maintenance,0,0
+40,https://gitlab.com/stephlaf/gueshly/-/issues/40,Admin - Upload photo,Open,"As an Admin I want to upload photos on the website
+
+on specific predesigned places to put photos",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:34,2020-01-09 20:28:53,,Maintenance,,Admin Maintenance,0,0
+41,https://gitlab.com/stephlaf/gueshly/-/issues/41,Review name change,Open,"As an Admin I want to approve/disapprove a name change
+
+And be able to give a reason if disapproved (prewritten reasons)",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:35,2020-01-09 20:32:50,,Maintenance,,Admin Maintenance,0,0
+42,https://gitlab.com/stephlaf/gueshly/-/issues/42,Kick/Ban member,Open,"As an Admin I want to kick/ban members
+
+And give a reason why (prewritten messages)",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:35,2020-01-09 20:33:44,,Maintenance,,Admin Maintenance,0,0
+43,https://gitlab.com/stephlaf/gueshly/-/issues/43,Member Download games,Open,"As a Member I want to download uploaded games **
+
+Also available for non-members",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:35,2020-01-09 20:36:08,,Games (Members),,Member Games,0,0
+44,https://gitlab.com/stephlaf/gueshly/-/issues/44,Member See price of games,Open,"As a Member I want to see the price of uploaded games with the matching membership
+
+as well as seeing higher memberships' prices.",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:35,2020-01-09 20:38:33,,Games (Members),,Member Games,0,0
+45,https://gitlab.com/stephlaf/gueshly/-/issues/45,Member Purchase games,Open,"As a Member I want to purchase games **
+
+Also available for non-member",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:35,2020-01-09 20:39:24,,Games (Members),,Member Games,0,0
+46,https://gitlab.com/stephlaf/gueshly/-/issues/46,Member Purchase games extensions,Open,"As a Member I want to purchase game extensions **
+
+Also available for non-members",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:35,2020-01-09 20:40:03,,Games (Members),,Member Games,0,0
+47,https://gitlab.com/stephlaf/gueshly/-/issues/47,Member Rate uploaded games,Open,"As a Member I want to rate uploaded games **
+
+Also available for non-members",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:35,2020-01-09 20:41:25,,Games (Members),,Member Games,0,0
+48,https://gitlab.com/stephlaf/gueshly/-/issues/48,Member Create blog posts,Open,"As a Member I want to create blog posts
+
+Have a member label next to the name to indicate that the blog post is from a member and not an Admin",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:35,2020-01-09 20:42:30,,Forums / Posts (Member),,Member forum/posts,0,0
+49,https://gitlab.com/stephlaf/gueshly/-/issues/49,Member create Forum Posts,Open,"As a Member I want to create forum posts
+
+Have a member label next to the name to indicate that the discussion is started by a member and not an Admin",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:35,2020-01-09 20:43:41,,Forums / Posts (Member),,Member forum/posts,0,0
+50,https://gitlab.com/stephlaf/gueshly/-/issues/50,Member Create Forum Topics,Open,As a Member I want to create forum topics,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:35,2020-01-09 20:44:30,,Forums / Posts (Member),,Member forum/posts,0,0
+51,https://gitlab.com/stephlaf/gueshly/-/issues/51,Member Upload Media to blog posts,Open,"As a Member I want to upload photos in his post
+
+in designated areas of course
+videos or links on blog posts",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:35,2020-01-10 04:39:42,,Forums / Posts (Member),,Member forum/posts,0,0
+52,https://gitlab.com/stephlaf/gueshly/-/issues/52,Member Access all sections,Open,"As a Member I want to have access to all sections
+
+according to what membership he's on",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:35,2020-01-10 04:42:10,,Access (Member),,Member Accessibility,0,0
+53,https://gitlab.com/stephlaf/gueshly/-/issues/53,Member Click on any news on feed,Open,"As a Member I want to click on any news in the feed
+
+news include forum posts, blog posts and Admin news(articles).",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:35,2020-01-10 04:43:50,,Access (Member),,Member Accessibility,0,0
+54,https://gitlab.com/stephlaf/gueshly/-/issues/54,Member See members' Newsfeed,Open,"As a Member I want to see the newsfeed reserved for member
+
+greyed out when if it's seen by a non-member account",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:35,2020-01-10 04:45:47,,Access (Member),,Member Accessibility,0,0
+55,https://gitlab.com/stephlaf/gueshly/-/issues/55,Member Subscribe to topics/posts,Open,"As a Member I want to subscribe to specific topics/posts
+
+allows them to get a notification whenever there's a reply/comment on thy post",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:36,2020-01-10 04:46:56,,Forums / Posts (Member),,Member forum/posts,0,0
+56,https://gitlab.com/stephlaf/gueshly/-/issues/56,Member Unsubscribe to topics/posts,Open,"As a Member I want to unsubscribe to subscribed topics/posts
+
+not receive notifs anymore",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:36,2020-01-10 04:47:45,,Forums / Posts (Member),,Member forum/posts,0,0
+57,https://gitlab.com/stephlaf/gueshly/-/issues/57,Member Notifications for posts/topics,Open,"As a Member I want to receive notifications for subscribed topics/posts
+
+on platform notification OR email notifs",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:36,2020-01-10 04:50:11,,Forums / Posts (Member),,Member forum/posts,0,0
+58,https://gitlab.com/stephlaf/gueshly/-/issues/58,Member Comment (reply) on forums,Open,"As a Member I want to reply on forum posts
+
+Add a reply to the on-going discussion",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:36,2020-01-11 23:03:36,,Forums / Posts (Member),,Member forum/posts,0,0
+59,https://gitlab.com/stephlaf/gueshly/-/issues/59,Member Like forum post,Open,As a Member I want to like a forum post,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:36,2020-01-10 04:53:07,,Forums / Posts (Member),,Member forum/posts,0,0
+60,https://gitlab.com/stephlaf/gueshly/-/issues/60,Member Like blog post,Open,As a Member I want to like a blog post,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:36,2020-01-10 04:55:35,,Forums / Posts (Member),,Member forum/posts,0,0
+61,https://gitlab.com/stephlaf/gueshly/-/issues/61,Member Edit own forum/post,Open,"As a Member I want to edit a post (forum/blog) that I previously posted
+",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:36,2020-01-10 04:57:40,,Forums / Posts (Member),,Member forum/posts,0,0
+62,https://gitlab.com/stephlaf/gueshly/-/issues/62,Member Hide post,Open,"As a Member I want to hide a post
+
+doesn't delete it, just makes it not visible for the member to see it",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:36,2020-01-10 04:58:53,,Forums / Posts (Member),,Member forum/posts,0,0
+63,https://gitlab.com/stephlaf/gueshly/-/issues/63,Member Hide post from other member,Open,"As a Member I want to hide posts from a specific member
+",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:36,2020-01-10 05:00:34,,Forums / Posts (Member),,Member forum/posts,0,0
+64,https://gitlab.com/stephlaf/gueshly/-/issues/64,Mem Edit own Comments,Open,As a Member I want to edit comments that I previously posted,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:36,2020-01-10 05:02:59,,Forums / Posts (Member),,Member forum/posts,0,0
+65,https://gitlab.com/stephlaf/gueshly/-/issues/65,Member Delete own Comments (replies),Open,As a Member I want to delete comments (replies) that I previously posted,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:36,2020-01-11 23:04:16,,Forums / Posts (Member),,Member forum/posts,0,0
+66,https://gitlab.com/stephlaf/gueshly/-/issues/66,Member Delete own forum post,Open,"As a Member I want to delete a post (forum/blog) that I previously posted
+
+Then gets removed on the newsfeed as well",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:36,2020-01-10 05:05:29,,Forums / Posts (Member),,Member forum/posts,0,0
+67,https://gitlab.com/stephlaf/gueshly/-/issues/67,Member Edit personal info,Open,As a Member I want to change my personal information,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:36,2020-03-03 18:15:30,,Access (Member),,Member Accessibility,0,0
+68,https://gitlab.com/stephlaf/gueshly/-/issues/68,Member Upload avatar,Open,"As a Member I want to upload an avatar connected to my profile
+
+That avatar is going to be displayed next to his name in the forum and blog posts",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:36,2020-01-10 05:07:58,,Access (Member),,Member Accessibility,0,0
+69,https://gitlab.com/stephlaf/gueshly/-/issues/69,Member Ask for gamertag change,Open,"As a Member I want to ask for a Gamertag change
+
+and give a reason. ",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:37,2020-01-10 05:09:22,,Access (Member),,Member Accessibility,0,0
+70,https://gitlab.com/stephlaf/gueshly/-/issues/70,Member Toggle email notifications,Open,"As a Member I want to activate/deactivate the option of having emails sent to me
+
+notifications AND/OR just emails concerning games and the website",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:37,2020-01-10 05:10:51,,Access (Member),,Member Accessibility,0,0
+71,https://gitlab.com/stephlaf/gueshly/-/issues/71,Member Notification on status change,Open,"As a Member I want to get a notification whenever I change membership status
+
+goes both ways. Upgrade or degrade ",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:37,2020-01-10 05:13:33,,Access (Member),,Member Accessibility,0,0
+72,https://gitlab.com/stephlaf/gueshly/-/issues/72,Member Notification badge,Open,As a Member I want to see the notifications on my top right on top of my tag (avatar),Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:37,2020-03-18 19:23:29,,Access (Member),,Member Accessibility,0,0
+73,https://gitlab.com/stephlaf/gueshly/-/issues/73,Member Manage notifications,Open,"As a Member I want to hover on notifications
+ 
+Click on one of the displayed one or dismiss it/them (clear all)",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:37,2020-01-10 05:16:22,,Access (Member),,Member Accessibility,0,0
+74,https://gitlab.com/stephlaf/gueshly/-/issues/74,Member Change Password,Open,"As a Member I want to change my password
+
+asking security questions before, to make sure it's the guy.",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:37,2020-01-10 05:17:57,,Access (Member),,Member Accessibility,0,0
+75,https://gitlab.com/stephlaf/gueshly/-/issues/75,Member See Current Membership,Open,"As a Member I want to see my current membership (bronze silver or gold)
+
+and maybe the time left before getting to the next membership!",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:37,2020-01-10 05:19:09,,Access (Member),,Member Accessibility,0,0
+76,https://gitlab.com/stephlaf/gueshly/-/issues/76,Member Change Color Theme,Open,"As a Member I want to change my theme color (background color - 3 to 4 choices)
+
+Only certain designated spots on the background changes",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:37,2020-01-10 05:20:40,,Access (Member),,Member Accessibility,0,0
+77,https://gitlab.com/stephlaf/gueshly/-/issues/77,Member Change Fonts,Open,"As a Member I want to change my fonts
+
+a choice between 3-4 fonts. ",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:37,2020-01-10 05:21:29,,Access (Member),,Member Accessibility,0,0
+78,https://gitlab.com/stephlaf/gueshly/-/issues/78,Member Cancel Subscription,Open,"As a Member I want to cancel my membership subscription
+
+When you cancel your subscription, you're not a member for the time that you're not subscribed but as soon as you get your subscription back you gain back the same level of membership you left on with all your perks.",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:37,2020-01-10 05:26:40,,Access (Member),,Member Accessibility,0,0
+79,https://gitlab.com/stephlaf/gueshly/-/issues/79,Member Delete Account,Open,"As a Member I want to delete my account
+
+Once deleted, the account cannot go back to previous membership status/level",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:37,2020-03-18 19:28:17,,Access (Member),,Member Accessibility,0,0
+80,https://gitlab.com/stephlaf/gueshly/-/issues/80,Member Send Friend Request,Open,As a Member I want to send a friend request,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:37,2020-01-10 05:27:49,,Friends (Member),,Friend system,0,0
+81,https://gitlab.com/stephlaf/gueshly/-/issues/81,Member Manage Friend Request,Open,As a Member I want to accept/refuse a friend request,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:38,2020-01-10 05:28:20,,Friends (Member),,Friend system,0,0
+82,https://gitlab.com/stephlaf/gueshly/-/issues/82,Member See Online Friends,Open,As a Member I want to see all my friends who are currently online,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:38,2020-01-10 05:28:47,,Friends (Member),,Friend system,0,0
+83,https://gitlab.com/stephlaf/gueshly/-/issues/83,Member Search For People,Open,"As a Member I want to search for people
+
+In the repertoire of all members registered on the platform",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:38,2020-01-10 05:29:37,,Friends (Member),,Friend system,0,0
+84,https://gitlab.com/stephlaf/gueshly/-/issues/84,Member Search Friendlist,Open,As a Member I want to search for friends in my friendlist,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:38,2020-01-10 05:30:39,,Friends (Member),,Friend system,0,0
+85,https://gitlab.com/stephlaf/gueshly/-/issues/85,Member Make Friend Favorite,Open,As a Member I want to favorite a friend,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:38,2020-01-10 05:31:12,,Friends (Member),,Friend system,0,0
+86,https://gitlab.com/stephlaf/gueshly/-/issues/86,Member Share post with Friend,Open,As a Member I want to share a post with a friend,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:38,2020-01-10 05:31:39,,Friends (Member),,Friend system,0,0
+87,https://gitlab.com/stephlaf/gueshly/-/issues/87,Member Private chat with Friends,Open,As a Member I want to private chat with friends,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:38,2020-01-10 05:32:07,,Friends (Member),,Friend system,0,0
+88,https://gitlab.com/stephlaf/gueshly/-/issues/88,Member Block Friend,Open,As a Member I want to block a friend,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:38,2020-01-10 05:32:32,,Friends (Member),,Friend system,0,0
+89,https://gitlab.com/stephlaf/gueshly/-/issues/89,Member Delete Friend,Open,"As a Member I want to delete a friend
+
+Give a reason",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:38,2020-01-10 05:35:03,,Friends (Member),,Friend system,0,0
+91,https://gitlab.com/stephlaf/gueshly/-/issues/91,Non-member See general news / posts,Open,"As a non-Member I want to only see the general news/posts
+
+on the homepage",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:38,2020-01-10 05:37:04,,Non-Member,,Non-member games,0,0
+92,https://gitlab.com/stephlaf/gueshly/-/issues/92,Non-member See price list,Open,As a non-Member I want to see the price with and without the different memberships (download prices),Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:38,2020-01-10 05:38:35,,Non-Member,,Non-member games,0,0
+93,https://gitlab.com/stephlaf/gueshly/-/issues/93,Non-member Share newsfeed with external websites,Open,"As a non-Member I want to share newsfeed articles with external websites
+
+Have a quick share button on the newsfeed ADMIN ARTICLES. (The ones that only the Admin can put and are related to news about the games and/Or the platform)",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 20:32:38,2020-01-10 05:40:27,,Non-Member,,Non-member games,0,0
+94,https://gitlab.com/stephlaf/gueshly/-/issues/94,Create Rails Structure,Open,Issue representing a nested Milestone,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 22:27:17,2020-02-14 00:04:38,,Complete MVP Backend (Rails API),,,36000,7200
+95,https://gitlab.com/stephlaf/gueshly/-/issues/95,Complete MVP Backend (Rails),Open,Issue representing nested Milestone,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 22:31:16,2020-02-26 21:03:35,,Complete MVP,,,0,0
+96,https://gitlab.com/stephlaf/gueshly/-/issues/96,Complete MVP Frontend (Rails & React),Open,Issue representing nested Milestone,Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 22:32:42,2020-01-19 04:09:30,,Complete MVP,,,0,0
+97,https://gitlab.com/stephlaf/gueshly/-/issues/97,Create Rails Structure,Closed,Issue representing nested Milestone,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 22:34:10,2020-02-26 21:00:41,2020-02-26 21:00:41,Complete MVP,,Backend Setup,7200,3600
+98,https://gitlab.com/stephlaf/gueshly/-/issues/98,Create Rails App,Closed,"",Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 22:46:28,2020-02-26 18:50:00,2020-02-25 20:29:58,Create Rails Structure,,Backend Setup,1800,1800
+99,https://gitlab.com/stephlaf/gueshly/-/issues/99,Set up Rails App as API,Open,"",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 22:46:54,2020-02-26 18:43:54,,Set up API structure,,API Setup,0,0
+100,https://gitlab.com/stephlaf/gueshly/-/issues/100,Set up Devise,Closed,"",Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 22:47:19,2020-02-27 00:59:39,2020-02-26 20:24:55,Create Rails Structure,,Backend Setup,2400,2400
+101,https://gitlab.com/stephlaf/gueshly/-/issues/101,Set up Pundit,Closed,"",Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 22:47:39,2020-02-26 20:59:02,2020-02-26 20:59:02,Create Rails Structure,,Backend Setup,900,900
+102,https://gitlab.com/stephlaf/gueshly/-/issues/102,Set up Cloudinary,Closed,"",Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 22:48:04,2020-02-26 18:51:21,2020-02-25 20:29:47,Create Rails Structure,,Backend Setup,2700,2700
+103,https://gitlab.com/stephlaf/gueshly/-/issues/103,Set up Active Storage,Closed,"",Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 22:48:32,2020-02-26 18:39:24,2020-02-26 18:34:17,Create Rails Structure,,Backend Setup,900,900
+104,https://gitlab.com/stephlaf/gueshly/-/issues/104,Set up Postman Testing Environment,Open,"",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-06 22:49:45,2020-02-26 18:44:59,,Set up API structure,,API Setup,0,0
+105,https://gitlab.com/stephlaf/gueshly/-/issues/105,Set up Heroku,Closed,"",Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 22:53:15,2020-02-26 18:50:45,2020-02-25 20:30:08,Create Rails Structure,,Backend Setup,3600,3600
+106,https://gitlab.com/stephlaf/gueshly/-/issues/106,Draw DB Schema - users & games,Closed,"users, games & join tables: downloads & reviews",Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 22:57:57,2020-02-26 22:14:48,2020-02-26 22:13:01,Set up Data Base - Basics,,Backend Setup,1800,1800
+107,https://gitlab.com/stephlaf/gueshly/-/issues/107,Create DB Tables - users & games,Closed,"",Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 22:58:21,2020-02-26 22:15:21,2020-02-26 22:13:04,Set up Data Base - Basics,,Backend Setup,1800,1800
+108,https://gitlab.com/stephlaf/gueshly/-/issues/108,Generate Models - Basics,Closed,"",Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 22:58:55,2020-03-02 18:06:36,2020-02-28 20:53:07,Complete MVP Backend (Rails API),,Backend Setup,0,0
+109,https://gitlab.com/stephlaf/gueshly/-/issues/109,Create Routes - Basics,Closed,"",Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-01-06 22:59:16,2020-03-02 18:07:05,2020-02-28 20:53:05,Complete MVP Backend (Rails API),,Backend Setup,0,0
+110,https://gitlab.com/stephlaf/gueshly/-/issues/110,Write API Documentation,Open,"",Stephane Lafontaine,stephlaf,"","",No,No,,2020-01-07 21:03:31,2020-02-26 18:45:37,,Complete MVP Backend (Rails API),,API Setup,0,0
+111,https://gitlab.com/stephlaf/gueshly/-/issues/111,Member turn blog into Forum,Open,"As a Member I want to turn a blog post into a Forum conversation
+
+where THERE people will be able to have replies and discuss",Gueshly Masson,guesh333,"","",No,No,,2020-01-11 23:02:27,2020-02-27 19:08:19,,Forums / Posts (Member),,Member forum/posts,0,0
+112,https://gitlab.com/stephlaf/gueshly/-/issues/112,Set up gitlab branch structure,Closed,"Set up gitlab branch structure:
+
+Rename current origin to 'development'
+
+Create 'test' branch
+
+Create 'qa' branch
+
+Create 'production' branch",Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,2020-02-28,2020-02-25 20:36:36,2020-02-26 18:33:07,2020-02-26 18:33:07,Create Rails Structure,,Backend Setup,2700,2700
+113,https://gitlab.com/stephlaf/gueshly/-/issues/113,Install & Configure Thredded gem (Forum),Open,,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-02-27 19:05:49,2020-02-27 19:06:00,,Forums / Posts (Admin),,Admin Forum/posts,0,0
+114,https://gitlab.com/stephlaf/gueshly/-/issues/114,Set up Sweet Alert,Open,"",Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-03-02 18:04:28,2020-03-04 20:27:06,,,,Front End,0,0
+115,https://gitlab.com/stephlaf/gueshly/-/issues/115,Investigate File system for games,Open,,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-03-02 20:27:42,2020-03-18 18:48:10,,Games (Selling),,Games (Selling),0,0
+116,https://gitlab.com/stephlaf/gueshly/-/issues/116,User can create an account,Closed,"",Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-03-04 20:38:08,2020-03-08 20:56:32,2020-03-08 20:56:32,User accounts - Devise,,User - Devise,0,0
+117,https://gitlab.com/stephlaf/gueshly/-/issues/117,User can change password,Closed,"",Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-03-04 20:38:42,2020-03-18 18:41:36,2020-03-18 18:41:36,User accounts - Devise,,User - Devise,0,0
+118,https://gitlab.com/stephlaf/gueshly/-/issues/118,User can upload avatar,Closed,"",Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-03-04 20:39:06,2020-03-08 20:56:30,2020-03-08 20:56:30,User accounts - Devise,,User - Devise,0,0
+119,https://gitlab.com/stephlaf/gueshly/-/issues/119,User can retrieve lost password,Open,"",Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-03-04 20:39:49,2020-03-17 22:06:04,,User accounts - Devise,,"On Hold,User - Devise",0,0
+120,https://gitlab.com/stephlaf/gueshly/-/issues/120,User can delete their account,Closed,"",Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-03-04 20:40:22,2020-03-18 18:34:54,2020-03-18 18:34:54,User accounts - Devise,,User - Devise,0,0
+121,https://gitlab.com/stephlaf/gueshly/-/issues/121,Fix unresponsive dropdown link in navbar,Closed,,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-03-04 20:44:06,2020-03-18 18:33:46,2020-03-18 18:33:45,,,User - Devise,0,0
+122,https://gitlab.com/stephlaf/gueshly/-/issues/122,Create User Profile Page,Closed,,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-03-04 20:47:31,2020-03-08 20:56:27,2020-03-08 20:56:27,User accounts - Devise,,User - Devise,0,0
+123,https://gitlab.com/stephlaf/gueshly/-/issues/123,Default avatar upon creation of user account,Closed,,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-03-06 21:41:50,2020-03-08 20:56:22,2020-03-08 20:56:22,User accounts - Devise,,User - Devise,0,0
+124,https://gitlab.com/stephlaf/gueshly/-/issues/124,Create Index page for Users - Admin,Closed,,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-03-06 21:43:08,2020-03-18 18:35:02,2020-03-18 18:35:02,User accounts - Devise,,User - Devise,0,0
+125,https://gitlab.com/stephlaf/gueshly/-/issues/125,Bug fix & new features easy to implement,Closed,,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,2020-03-12,2020-03-12 18:40:54,2020-03-18 18:34:44,2020-03-18 18:34:44,,,,0,0
+126,https://gitlab.com/stephlaf/gueshly/-/issues/126,Add multi prices to games,Closed,,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-03-17 22:05:24,2020-03-18 18:41:39,2020-03-18 18:41:39,Games (Admin),,Admin Games,0,0
+128,https://gitlab.com/stephlaf/gueshly/-/issues/128,Setup the game prices automatically,Closed,"Have the game prices calculated automatically according to the membership levels.
+
+There are four memberships level: bronze (0-3 months), silver (3-6 months), gold (6-1year), platinum (1y+)
+So for every game, there are 5 prices available:
+
+non-member (full price)
+bronze (10% cheaper)
+silver (20% cheaper)
+gold (30% cheaper)
+platinum (50% cheaper)
+ 
+If I could just put the first non-member price and then it would automatically calculate all the others, it would be great.
+
+Non-member price should appear in games index cards (when not logged in)
+Non-member price & all prices should appear in games show cards (when not logged in)
+",Gueshly Masson,guesh333,Stephane Lafontaine,stephlaf,No,No,,2020-03-18 19:12:27,2020-04-02 21:08:25,2020-03-21 02:10:22,Games (Admin),,"Admin Games,Memberships",0,0
+129,https://gitlab.com/stephlaf/gueshly/-/issues/129,Display $0 game prices as 'Free',Closed,Make games prices as Free (instead of 0$),Gueshly Masson,guesh333,Stephane Lafontaine,stephlaf,No,No,,2020-03-18 19:14:55,2020-03-21 02:10:20,2020-03-21 02:10:19,Games (Admin),,"Admin Games,Memberships",0,0
+130,https://gitlab.com/stephlaf/gueshly/-/issues/130,Add extensions,Open,"Possibility in the 'Edit Game' to add extensions or map packs (just a file that people can download). 
+
+NOT MVP",Gueshly Masson,guesh333,"","",No,No,,2020-03-18 19:17:58,2020-03-18 19:17:58,,,,Admin Maintenance,0,0
+131,https://gitlab.com/stephlaf/gueshly/-/issues/131,Bugfix 0318,Closed,Fix error on show page when user not logged in,Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-03-18 19:27:42,2020-03-21 02:10:24,2020-03-21 02:10:24,Games (Admin),,"Admin Games,Bugfix",0,0
+132,https://gitlab.com/stephlaf/gueshly/-/issues/132,Ask For Payment when trying to Sign In,Open,"When someone is trying to sign up on the platform, it needs to ask for a payment",Gueshly Masson,guesh333,"","",No,No,,2020-03-18 20:45:20,2020-03-18 20:45:20,,,,Memberships,0,0
+133,https://gitlab.com/stephlaf/gueshly/-/issues/133,Memberships upgrade automatically,Open,"Every level has its according amount of time. After each amount of time, membership upgrades to the next following membership level. 
+from bronze --> silver --> gold --> platinum .",Gueshly Masson,guesh333,"","",No,No,,2020-03-18 20:50:07,2020-03-18 20:50:07,,,,Memberships,0,0
+134,https://gitlab.com/stephlaf/gueshly/-/issues/134,Make a game not visible when game is set to StandBy,Open,"When admin changes a game availability to Standby, the game needs to not be visible to members (As we talked on the phone)",Gueshly Masson,guesh333,"","",No,No,,2020-03-19 03:11:59,2020-03-19 03:11:59,,,,Admin Maintenance,0,0
+135,https://gitlab.com/stephlaf/gueshly/-/issues/135,Install & Configure Administrate Gem,Open,"",Stephane Lafontaine,stephlaf,Stephane Lafontaine,stephlaf,No,No,,2020-05-15 15:03:00,2020-05-15 15:03:00,,Admin panel - Administrate gem,,Admin Panel,0,0
