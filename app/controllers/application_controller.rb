@@ -29,7 +29,11 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    stored_location_for(resource) || root_path
+    if resource.master
+      stored_location_for(resource)
+    else
+      root_path
+    end
   end
 
   def configure_permitted_parameters
@@ -44,6 +48,7 @@ class ApplicationController < ActionController::Base
   private
 
   def skip_pundit?
-    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+    # devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+    devise_controller? || params[:controller] =~ /(^pages$)/
   end
 end

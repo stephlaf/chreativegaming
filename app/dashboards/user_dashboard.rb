@@ -39,7 +39,7 @@ class UserDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
   id
   gametag
-  email
+  membership_level
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

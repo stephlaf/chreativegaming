@@ -3,9 +3,29 @@ module Admin
     # Overwrite any of the RESTful controller actions to implement custom behavior
     # For example, you may want to send an email after a foo is updated.
     #
+
+    # def index
+    #   # raise
+    #   policy_scope(User)
+    # end
+
     # def update
     #   super
     #   send_foo_updated_email(requested_resource)
+    # end
+    # before_action :authorize_user
+
+    # def index
+    #   # @users = policy_scope(User).all if current_user.master == true
+    #   # authorize current_user
+    #   # @users = policy_scope(User).search_by_all_fields(params[:query])
+    #   # authorize @user
+    # end
+
+    # private
+
+    # def authorize_user
+    #   authorize @user
     # end
 
     # Override this method to specify custom lookup behavior.
@@ -20,9 +40,10 @@ module Admin
 
     # Override this if you have certain roles that require a subset
     # this will be used to set the records shown on the `index` action.
-    #
+
     # def scoped_resource
-    #   if current_user.super_admin?
+    #     # raise
+    #   if current_user.master
     #     resource_class
     #   else
     #     resource_class.with_less_stuff
