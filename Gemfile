@@ -40,6 +40,11 @@ gem 'pundit'
 gem 'money-rails', '~>1.12'
 gem 'faker'
 
+# Administrate panel
+gem "administrate"
+gem 'administrate-field-active_storage'
+gem "image_processing"
+
 gem "aws-sdk-s3", require: false
 
 # Reduces boot times through caching; required in config/boot.rb
