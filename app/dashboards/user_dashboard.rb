@@ -11,6 +11,7 @@ class UserDashboard < Administrate::BaseDashboard
     # avatar_attachment: Field::HasOne,
     # avatar_attachment: Field::ActiveStorage,
     # avatar_blob: Field::HasOne,
+    avatar: Field::ActiveStorage,
     id: Field::Number,
     email: Field::String,
     encrypted_password: Field::String,
@@ -52,6 +53,7 @@ class UserDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
   id
   gametag
+  avatar
   membership_level
   email
   first_name
@@ -81,9 +83,10 @@ class UserDashboard < Administrate::BaseDashboard
   # deleted_at
   
   FORM_ATTRIBUTES = %i[
+  gametag
+  avatar
   email
   password
-  gametag
   first_name
   last_name
   status
