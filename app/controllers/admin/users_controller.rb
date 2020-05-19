@@ -9,6 +9,14 @@ module Admin
     #   send_foo_updated_email(requested_resource)
     # end
     # before_action :authorize_user
+    
+    def update
+      if params[:user][:password].blank?
+        params[:user].delete(:password)
+        params[:user].delete(:password_confirmation)
+      end
+      super
+    end
 
     # def index
     #   # @users = policy_scope(User).all if current_user.master == true
