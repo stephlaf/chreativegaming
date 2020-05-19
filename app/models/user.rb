@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  validates :gametag, presence: true
+
   # instead of deleting, indicate the user requested a delete & timestamp it  
   def soft_delete  
     update_attribute(:deleted_at, Time.current)  

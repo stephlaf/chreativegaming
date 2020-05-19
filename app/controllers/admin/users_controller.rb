@@ -4,11 +4,6 @@ module Admin
     # For example, you may want to send an email after a foo is updated.
     #
 
-    # def index
-    #   # raise
-    #   policy_scope(User)
-    # end
-
     # def update
     #   super
     #   send_foo_updated_email(requested_resource)
