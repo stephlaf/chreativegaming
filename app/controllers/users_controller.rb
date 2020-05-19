@@ -15,23 +15,24 @@ class UsersController < ApplicationController
 
   # Update method from user interface
 
-  # def update
-  #   if @user.update(user_params)
-  #     redirect_to user_path(@user)
-  #   else
-  #     render :edit
-  #   end
-  # end
+  def update
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
+  end
 
   # Update method from admin panel
 
-  def update
-    if params[:user][:password].blank?
-      params[:user].delete(:password)
-      params[:user].delete(:password_confirmation)
-    end
-    super
-  end
+  # def update
+  #   if params[:user][:password].blank?
+  #     params[:user].delete(:password)
+  #     params[:user].delete(:password_confirmation)
+  #   end
+  #   # raise
+  #   # super
+  # end
 
   def destroy
     # raise
