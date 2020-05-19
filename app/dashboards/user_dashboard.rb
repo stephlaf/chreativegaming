@@ -14,6 +14,8 @@ class UserDashboard < Administrate::BaseDashboard
     id: Field::Number,
     email: Field::String,
     encrypted_password: Field::String,
+    password: Field::String,
+    password_confirmation: Field::String,
     reset_password_token: Field::String,
     reset_password_sent_at: Field::DateTime,
     remember_created_at: Field::DateTime,
@@ -46,23 +48,23 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   # avatar_attachment
   # avatar_blob
+  # encrypted_password
   SHOW_PAGE_ATTRIBUTES = %i[
   id
+  gametag
+  membership_level
   email
-  encrypted_password
+  first_name
+  last_name
+  status
+  master
   reset_password_token
   reset_password_sent_at
   remember_created_at
   created_at
   updated_at
-  gametag
-  first_name
-  last_name
-  status
-  master
   archived
   deleted_at
-  membership_level
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -70,19 +72,22 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   # avatar_attachment
   # avatar_blob
+  # reset_password_token
+  # reset_password_sent_at
+  # password_confirmation
+  # encrypted_password
+  # remember_created_at
+  # archived
+  # deleted_at
+  
   FORM_ATTRIBUTES = %i[
   email
-  encrypted_password
-  reset_password_token
-  reset_password_sent_at
-  remember_created_at
+  password
   gametag
   first_name
   last_name
   status
   master
-  archived
-  deleted_at
   membership_level
   ].freeze
 
