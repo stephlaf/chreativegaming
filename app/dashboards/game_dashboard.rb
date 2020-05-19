@@ -20,6 +20,8 @@ class GameDashboard < Administrate::BaseDashboard
     # game_file_blob: Field::HasOne,
     id: Field::Number,
     name: Field::String,
+    thumbnail: Field::ActiveStorage,
+    banner: Field::ActiveStorage,
     description: Field::Text,
     category: Field::String,
     price_cents: Field::Number,
@@ -54,10 +56,12 @@ class GameDashboard < Administrate::BaseDashboard
   # banner_blob
   # game_file_attachment
   # game_file_blob
+  # reviews
   SHOW_PAGE_ATTRIBUTES = %i[
-  reviews
-  id
   name
+  thumbnail
+  banner
+  id
   description
   category
   price_cents
@@ -81,13 +85,14 @@ class GameDashboard < Administrate::BaseDashboard
   # game_file_attachment
   # game_file_blob
   FORM_ATTRIBUTES = %i[
-  reviews
   name
   description
   category
-  price_cents
+  thumbnail
+  banner
   status
   available
+  price_cents
   price_bronze_cents
   price_silver_cents
   price_gold_cents
