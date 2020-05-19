@@ -17,8 +17,22 @@ module Admin
           page: Administrate::Page::Form.new(dashboard, @game),
         }
       end
+    end
 
-      # raise
+    def update
+      if requested_resource.update(resource_params)
+        @game = requested_resource
+        set_prices
+        @game.save
+        redirect_to(
+          [namespace, requested_resource],
+          notice: translate_with_resource("update.success"),
+        )
+      else
+        render :edit, locals: {
+          page: Administrate::Page::Form.new(dashboard, requested_resource),
+        }
+      end
     end
 
     private
@@ -29,6 +43,5 @@ module Admin
       @game.price_gold_cents = @game.price_cents * 0.7
       @game.price_platinum_cents = @game.price_cents * 0.5
     end
-    
   end
 end
