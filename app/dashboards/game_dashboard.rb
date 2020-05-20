@@ -20,8 +20,8 @@ class GameDashboard < Administrate::BaseDashboard
     # game_file_blob: Field::HasOne,
     id: Field::Number,
     name: Field::String,
-    thumbnail: Field::ActiveStorage,
-    banner: Field::ActiveStorage,
+    thumbnail: Field::ActiveStorage.with_options(show_preview_size: [100, 100]),
+    banner: Field::ActiveStorage.with_options(show_preview_size: [500, nil]),
     description: Field::Text,
     category: Field::String,
     price_cents: Field::Number,
@@ -116,7 +116,7 @@ class GameDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how games are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(game)
-  #   "Game ##{game.id}"
-  # end
+  def display_resource(game)
+    "Game #{game.name}"
+  end
 end

@@ -11,7 +11,7 @@ class UserDashboard < Administrate::BaseDashboard
     # avatar_attachment: Field::HasOne,
     # avatar_attachment: Field::ActiveStorage,
     # avatar_blob: Field::HasOne,
-    avatar: Field::ActiveStorage,
+    avatar: Field::ActiveStorage.with_options(show_preview_size: [100, 100]),
     id: Field::Number,
     email: Field::String,
     encrypted_password: Field::String,
@@ -109,7 +109,7 @@ class UserDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how users are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(user)
-  #   "User ##{user.id}"
-  # end
+  def display_resource(user)
+    "User #{user.gametag}"
+  end
 end
