@@ -30,4 +30,8 @@ Rails.application.routes.draw do
       get 'toggle_availability'
     end
   end
+
+  # Forum stuff
+  mount Thredded::Engine => '/forum'
+  get '/forum', to: 'thredded/messageboards#index'
 end

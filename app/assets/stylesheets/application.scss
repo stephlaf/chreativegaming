@@ -11,6 +11,17 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+// Forum stylesheets
+@import "thredded";
+// .thredded--main-container {
+//   // The padding and max-width are handled by the app's container.
+//   max-width: none;
+//   padding: 0;
+//   @include thredded-media-tablet-and-up {
+//     padding: 0;
+//   }
+// }
+
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
