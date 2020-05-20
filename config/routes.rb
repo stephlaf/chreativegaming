@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
 
   namespace :admin do
-      resources :users
-      resources :reviews
       resources :games
+      resources :reviews
       resources :downloads
+      resources :users
 
-      root to: "users#index"
+      root to: "games#index"
     end
+  
   # devise_for :users
-
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   resources :users, except: [:new, :create]
@@ -30,6 +30,4 @@ Rails.application.routes.draw do
       get 'toggle_availability'
     end
   end
-
-  
 end
