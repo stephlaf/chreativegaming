@@ -1,2 +1,3 @@
-import { test } from './form_edit_prices';
+import { calculateMembershipPrices, test } from './form_edit_prices';
 test();
+// calculateMembershipPrices();
