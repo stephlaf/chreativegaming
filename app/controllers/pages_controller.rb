@@ -18,4 +18,8 @@ class PagesController < ApplicationController
 
   def community
   end
+
+  def not_found
+    # TODO Render alert & redirect
+  end
 end
