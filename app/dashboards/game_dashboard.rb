@@ -10,11 +10,15 @@ class GameDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     # thumbnail_attachment: Field::HasOne,
     # thumbnail_attachment: Field::ActiveStorage,
+    # thumbnail_blob: Field::ActiveStorage,
     thumbnail_blob: Field::HasOne,
+    # thumbnail_blob: Field::BelongsTo,
 
     # banner_attachment: Field::HasOne,
     # banner_attachment: Field::ActiveStorage,
+    # banner_blob: Field::ActiveStorage,
     banner_blob: Field::HasOne,
+    # banner_blob: Field::BelongsTo,
 
     # game_file_attachment: Field::HasOne,
     # game_file_attachment: Field::ActiveStorage,
@@ -53,13 +57,17 @@ class GameDashboard < Administrate::BaseDashboard
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
+  
   # thumbnail_attachment
-  # thumbnail_blob
   # banner_attachment
-  # banner_blob
   # game_file_attachment
   # game_file_blob
+
+  # thumbnail_blob
+  # banner_blob
+  
   # reviews
+
   SHOW_PAGE_ATTRIBUTES = %i[
   name
   thumbnail

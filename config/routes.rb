@@ -12,13 +12,14 @@ Rails.application.routes.draw do
   # devise_for :users
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  resources :users, except: [:new, :create]
+  # resources :users, except: [:new, :create]
+  resources :users, only: [:show, :edit, :create]
 
-  resources :users do
-    member do
-      get 'archive_profile'
-    end
-  end
+  # resources :users do
+  #   member do
+  #     get 'archive_profile'
+  #   end
+  # end
   
   root to: 'pages#home'
 
@@ -33,5 +34,6 @@ Rails.application.routes.draw do
 
   resources :games, except: [:new, :create, :edit, :update]
 
-  match '*any', to: 'pages#not_found', via: :all
+  match 'games/*any', to: 'pages#not_found', via: :all
+  match 'users', to: 'pages#not_found', via: :all
 end
