@@ -1,36 +1,33 @@
 const setPriceFields = () => {
+  return {
+    priceField: document.querySelector('#game_price_cents'),
+    bronzePrice: document.querySelector('#game_price_bronze_cents'),
+    silverPrice: document.querySelector('#game_price_silver_cents'),
+    goldPrice: document.querySelector('#game_price_gold_cents'),
+    platinumPrice: document.querySelector('#game_price_platinum_cents')
+  };
 };
 
-const calculateMembershipPrices = () => {  
-  const priceField = document.querySelector('#game_price_cents');
-  const bronzePrice = document.querySelector('#game_price_bronze_cents');
-  const silverPrice = document.querySelector('#game_price_silver_cents');
-  const goldPrice = document.querySelector('#game_price_gold_cents');
-  const platinumPrice = document.querySelector('#game_price_platinum_cents');
-  
-  priceField.addEventListener('keyup', () => {
-
+const calculateMembershipPrices = (priceFields) => {  
+  priceFields.priceField.addEventListener('keyup', () => {
     let price = event.currentTarget.value;
-    console.log(bronzePrice.value);
+    
     if (/^\d+$/.test(price)) {
-      bronzePrice.value = (price * 0.9).toFixed(0);
-      silverPrice.value = (price * 0.8).toFixed(0);
-      goldPrice.value = (price * 0.7).toFixed(0);
-      platinumPrice.value = (price * 0.5).toFixed(0);
+      priceFields.bronzePrice.value = (price * 0.9).toFixed(0);
+      priceFields.silverPrice.value = (price * 0.8).toFixed(0);
+      priceFields.goldPrice.value = (price * 0.7).toFixed(0);
+      priceFields.platinumPrice.value = (price * 0.5).toFixed(0);
     }
   });
 };
 
-const test = () => {
-  if (/^\/admin\/games\/(\d+\/edit|new)$/.test(window.location.pathname)) {
-    console.log(window.location.pathname);
-    // setPriceFields();
-    calculateMembershipPrices();
+const isGamesNewOrEditUrl = () => {
+  const regex = /^\/admin\/games\/(\d+\/edit|new)$/;
 
-  } else {
-    console.log('not in right place');
+  if (regex.test(window.location.pathname)) {
+    const priceFields = setPriceFields();
+    calculateMembershipPrices(priceFields);
   }
 };
 
-export { calculateMembershipPrices, test };
-// export { calculateMembershipPrices, test };
+export { isGamesNewOrEditUrl };
