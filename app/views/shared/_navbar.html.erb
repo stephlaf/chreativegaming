@@ -51,8 +51,8 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <% if policy(Game).new? %>
               <%= link_to 'Got to Admin Panel', admin_root_path, class: "dropdown-item" %>
-              <%= link_to "Add a new game", new_game_path, class: "dropdown-item" %>
-              <%= link_to "See all users", users_path, class: "dropdown-item" %>
+              <%#= link_to "Add a new game", new_game_path, class: "dropdown-item" %>
+              <%#= link_to "See all users", users_path, class: "dropdown-item" %>
             <% end %>
 
             <%= link_to "See profile", user_path(current_user), class: "dropdown-item" %>

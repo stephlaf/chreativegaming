@@ -5,6 +5,10 @@ class Game < ApplicationRecord
   has_one_attached :banner
   has_one_attached :game_file
 
+  # validates :name, presence: true
+  # validates :thumbnail, presence: true
+  # validates :banner, presence: true
+
   monetize :price_cents
   monetize :price_bronze_cents
   monetize :price_silver_cents

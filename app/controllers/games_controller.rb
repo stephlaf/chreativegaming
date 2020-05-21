@@ -1,7 +1,8 @@
 class GamesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
-  before_action :set_game, only: [:show, :edit, :update, :destroy, :toggle_availability]
+  # before_action :set_game, only: [:show, :edit, :update, :destroy, :toggle_availability]
+  before_action :set_game, only: [:show, :destroy]
   before_action :set_user, except: [:index]
 
   def index
@@ -15,37 +16,37 @@ class GamesController < ApplicationController
     @prices = get_prices
   end
 
-  def new
-    @game = Game.new
-    authorize @game
-  end
+  # def new
+  #   @game = Game.new
+  #   authorize @game
+  # end
 
-  def create
-    @game = Game.new(game_params)
-    authorize @game
-    set_prices
+  # def create
+  #   @game = Game.new(game_params)
+  #   authorize @game
+  #   set_prices
 
-    if @game.save
-      redirect_to game_path(@game)
-    else
-      render :new
-    end
-  end
+  #   if @game.save
+  #     redirect_to game_path(@game)
+  #   else
+  #     render :new
+  #   end
+  # end
 
-  def edit
-    authorize @game
-  end
+  # def edit
+  #   authorize @game
+  # end
 
-  def update
-    authorize @game
-    if @game.update(game_params)
-      set_prices
-      @game.save
-      redirect_to game_path(@game)
-    else
-      render :edit
-    end
-  end
+  # def update
+  #   authorize @game
+  #   if @game.update(game_params)
+  #     set_prices
+  #     @game.save
+  #     redirect_to game_path(@game)
+  #   else
+  #     render :edit
+  #   end
+  # end
 
   def destroy
     authorize @game
@@ -53,16 +54,21 @@ class GamesController < ApplicationController
     redirect_to games_path
   end
 
-  def toggle_availability
-    @game.toggle!(:available)
-    redirect_to game_path(@game)
-  end
+  # def toggle_availability
+  #   @game.toggle!(:available)
+  #   redirect_to game_path(@game)
+  # end
 
   private
 
   def set_game
-    @game = Game.find(params[:id])
-    authorize @game
+    # raise
+    if params[:id].to_i.zero?
+      redirect_to games_path and return
+    else
+      @game = Game.find(params[:id])
+      authorize @game
+    end
   end
 
   def set_user
