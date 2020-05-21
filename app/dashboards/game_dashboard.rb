@@ -8,16 +8,19 @@ class GameDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    reviews: Field::HasMany,
     # thumbnail_attachment: Field::HasOne,
     # thumbnail_attachment: Field::ActiveStorage,
-    # thumbnail_blob: Field::HasOne,
+    thumbnail_blob: Field::HasOne,
+
     # banner_attachment: Field::HasOne,
     # banner_attachment: Field::ActiveStorage,
-    # banner_blob: Field::HasOne,
+    banner_blob: Field::HasOne,
+
     # game_file_attachment: Field::HasOne,
     # game_file_attachment: Field::ActiveStorage,
     # game_file_blob: Field::HasOne,
+    
+    reviews: Field::HasMany,
     id: Field::Number,
     name: Field::String,
     thumbnail: Field::ActiveStorage.with_options(show_preview_size: [100, 100]),
