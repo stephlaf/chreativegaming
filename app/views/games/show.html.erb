@@ -34,25 +34,25 @@
       <%= link_to @game.game_file.attached? && @game.available? ? 'Download' : 'Not Available', "#", class: 'btn btn-sm btn-primary'  %>
     </p>
     
-    <% if user_signed_in? %>
-      <% if policy(Game).update? %>
+    <%# if user_signed_in? %>
+      <%# if policy(Game).update? %>
         <p class="nav-item">
-          <%= link_to "Edit game", edit_game_path, class: "btn btn-sm btn-warning" %>
+          <%#= link_to "Edit game", edit_game_path, class: "btn btn-sm btn-warning" %>
         </p>
-        <% if @game.game_file.attached? %>
+        <%# if @game.game_file.attached? %>
           <p class="nav-item">
-            <%= link_to "Toggle Status", toggle_availability_game_path(@game), data: { confirm: "Are you sure you want to change #{@game.name}'s status to #{@game.available? ? 'Standby' : 'Available'}?" }, class: "btn btn-sm btn-info" %>
+            <%#= link_to "Toggle Status", toggle_availability_game_path(@game), data: { confirm: "Are you sure you want to change #{@game.name}'s status to #{@game.available? ? 'Standby' : 'Available'}?" }, class: "btn btn-sm btn-info" %>
           </p>
-          <% else %>
+          <%# else %>
             <p class="nav-item">
-              <%= link_to "No Game File", '#', data: { confirm: "There is no game file attached to this game" }, class: "btn btn-sm btn-info" %>
+              <%#= link_to "No Game File", '#', data: { confirm: "There is no game file attached to this game" }, class: "btn btn-sm btn-info" %>
             </p>
-          <% end %>
+          <%# end %>
         <p class="nav-item">
-          <%= link_to "Delete game", game_path(@game), method: 'delete', data: { confirm: "Are you sure you want to delete #{@game.name}?" }, class: "btn btn-sm btn-danger" %>
+          <%#= link_to "Delete game", game_path(@game), method: 'delete', data: { confirm: "Are you sure you want to delete #{@game.name}?" }, class: "btn btn-sm btn-danger" %>
         </p>
-      <% end %>
-    <% end %>
+      <%# end %>
+    <%# end %>
     
   </div>
 </div>

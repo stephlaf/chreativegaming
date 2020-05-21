@@ -25,9 +25,13 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   get 'community', to: 'pages#community'
 
-  resources :games do
-    member do
-      get 'toggle_availability'
-    end
-  end
+  # resources :games do
+  #   member do
+  #     get 'toggle_availability'
+  #   end
+  # end
+
+  resources :games, except: [:new, :create, :edit, :update]
+
+  match '*any', to: 'pages#not_found', via: :all
 end
