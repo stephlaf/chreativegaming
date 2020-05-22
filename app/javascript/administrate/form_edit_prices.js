@@ -22,9 +22,14 @@ const calculateMembershipPrices = (priceFields) => {
 };
 
 const isGamesNewOrEditUrl = () => {
-  const regex = /^\/admin\/games\/(\d+\/edit|new)$/;
+  const baseRegex = /^\/admin\/games\/(\d+\/edit|new)$/;
+  const baseUrlCondition = baseRegex.test(window.location.pathname);
 
-  if (regex.test(window.location.pathname)) {
+  const errorRegex = /^\/admin\/games\/\d+$/;
+  const errorUrlCondition = errorRegex.test(window.location.pathname);
+  const flashError = document.querySelector('.flash-error');
+
+  if (baseUrlCondition || (errorUrlCondition && flashError)) {
     const priceFields = setPriceFields();
     calculateMembershipPrices(priceFields);
   }
