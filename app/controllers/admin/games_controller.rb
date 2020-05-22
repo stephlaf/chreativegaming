@@ -7,7 +7,7 @@ module Admin
       # authorize_resource(@game)
       # set_prices
 
-      if @game.save!
+      if @game.save
         redirect_to(
           [namespace, @game],
           notice: translate_with_resource("create.success"),
