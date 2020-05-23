@@ -25,7 +25,7 @@ const isGamesNewOrEditUrl = () => {
   const baseRegex = /^\/admin\/games\/(\d+\/edit|new)$/;
   const baseUrlCondition = baseRegex.test(window.location.pathname);
 
-  const errorRegex = /^\/admin\/games\/\d+$/;
+  const errorRegex = /^\/admin\/games\/?\d*$/;
   const errorUrlCondition = errorRegex.test(window.location.pathname);
   const flashError = document.querySelector('.flash-error');
 
