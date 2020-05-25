@@ -47,6 +47,7 @@ gem "image_processing"
 
 # Forum stuff
 gem 'thredded', '~> 0.16.16'
+gem 'rails-ujs'
 
 gem "aws-sdk-s3", require: false
 
