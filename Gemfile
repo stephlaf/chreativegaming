@@ -45,6 +45,10 @@ gem "administrate"
 gem 'administrate-field-active_storage'
 gem "image_processing"
 
+# Forum stuff
+gem 'thredded', '~> 0.16.16'
+gem 'rails-ujs'
+
 gem "aws-sdk-s3", require: false
 
 # Reduces boot times through caching; required in config/boot.rb

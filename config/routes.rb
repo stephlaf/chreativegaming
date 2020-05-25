@@ -26,6 +26,12 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   get 'community', to: 'pages#community'
 
+
+
+  # Forum stuff
+  mount Thredded::Engine => '/forum'
+  get '/forum', to: 'thredded/messageboards#index'
+
   # resources :games do
   #   member do
   #     get 'toggle_availability'

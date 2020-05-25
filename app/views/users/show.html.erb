@@ -28,6 +28,10 @@
   <li>Member since: <%= @user.created_at.strftime('%b %d, %Y') %></li>
 </ul>
 
+<%= Thredded::ApplicationController.render partial: 'thredded/users/posts', locals: {
+      posts: Thredded.posts_page_view(scope: @user.thredded_posts.order_newest_first.limit(5),
+                                      current_user: current_user) } %>
+
 <%= link_to 'Edit your profile', edit_user_path(@user), class: 'btn btn-sm btn-primary' %>
 <%= link_to "Change your password", edit_user_registration_path, class: 'btn btn-sm btn-warning' %>
 
