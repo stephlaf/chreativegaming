@@ -2,8 +2,6 @@
 <%= render 'thredded/posts_common/before_first_unread_post', post: post if post.first_unread_in_page? %>
 <%= content_tag :article, id: dom_id(post), class: "thredded--post thredded--#{post.read_state}--post" do %>
 
-<%# raise %>
-
   <% if  post.user.master %>
     <p class="admin-badge">Admin</p>
   <% end %>
