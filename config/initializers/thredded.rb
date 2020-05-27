@@ -42,7 +42,7 @@ Thredded.moderator_column = :master
 Thredded.admin_column = :master
 
 # Whether posts and topics pending moderation are visible to regular users.
-Thredded.content_visible_while_pending_moderation = true
+Thredded.content_visible_while_pending_moderation = false
 
 # This model can be customized further by overriding a handful of methods on the User model.
 # For more information, see app/models/thredded/user_extender.rb.
@@ -78,6 +78,7 @@ Thredded.private_messaging_enabled = true
 
 # The layout for rendering Thredded views.
 Thredded.layout = 'thredded/application'
+# Thredded.layout = 'layouts/application'
 
 # ==> Email Configuration
 # Email "From:" field will use the following
@@ -154,11 +155,12 @@ Thredded.email_from = 'info@medqigong.ca'
 # See the full list of view hooks and their arguments by running:
 #
 #     $ grep view_hooks -R --include '*.html.erb' "$(bundle show thredded)"
-#
+# #
 # Rails.application.config.to_prepare do
-#   Thredded.view_hooks.post_form.content_text_area.config.before do |form:, **args|
+#   # Thredded.view_hooks.post_form.content_text_area.config.after do |form:, **args|
+#   Thredded.view_hooks.post_common.actions.render @post do
 #     # This is called in the Thredded view context, so all Thredded helpers and URLs are accessible here directly.
-#     'hi'
+#     'hi prout'
 #   end
 # end
 
