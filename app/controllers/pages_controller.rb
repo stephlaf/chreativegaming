@@ -11,12 +11,17 @@ class PagesController < ApplicationController
         current_user.save!
       end
     end
+    @sticky_topics = stickies
   end
 
   def about
   end
 
   def community
+  end
+
+  def stickies
+    Thredded::Topic.select { |t| t.sticky }
   end
 
   def not_found

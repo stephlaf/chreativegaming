@@ -4,6 +4,16 @@
 
 <div id="news">
   <h2>News</h2>
+  <ul>
+    <% unless @sticky_topics.empty? %>
+      <p>Priority topics:</p>
+      <% @sticky_topics.each do |topic| %>
+        <li><%= topic.title %></li>
+      <% end %>
+    <% else %>
+      <p>No priority topics</p>
+    <% end %>
+  </ul>
 </div>
 
 <div id="members-feed">
