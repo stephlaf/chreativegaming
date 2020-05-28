@@ -77,8 +77,8 @@ Thredded.private_messaging_enabled = true
 # Thredded.posts_per_page = 25
 
 # The layout for rendering Thredded views.
-# Thredded.layout = 'thredded/application'
-Thredded.layout = 'layouts/application'
+Thredded.layout = 'thredded/application'
+# Thredded.layout = 'layouts/application'
 
 # ==> Email Configuration
 # Email "From:" field will use the following
