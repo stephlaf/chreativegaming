@@ -11,7 +11,7 @@ class PagesController < ApplicationController
         current_user.save!
       end
     end
-    @sticky_topics = stickies
+    @priority_posts = priorities
   end
 
   def about
@@ -20,8 +20,8 @@ class PagesController < ApplicationController
   def community
   end
 
-  def stickies
-    Thredded::Topic.select { |t| t.sticky }
+  def priorities
+    Thredded::Post.select { |post| post.priority }
   end
 
   def not_found
