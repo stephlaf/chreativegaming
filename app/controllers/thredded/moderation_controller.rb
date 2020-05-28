@@ -18,6 +18,7 @@ module Thredded
     end
 
     def history
+      # raise
       @post_moderation_records = accessible_post_moderation_records
         .order(created_at: :desc)
         .send(Kaminari.config.page_method_name, current_page)
