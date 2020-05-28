@@ -29,7 +29,8 @@ class UserDashboard < Administrate::BaseDashboard
     master: Field::Boolean,
     archived: Field::Boolean,
     deleted_at: Field::DateTime,
-    membership_level: Field::String,
+    # membership_level: Field::String,
+    membership_level: Field::Select.with_options(collection: ['', 'Bronze', 'Silver', 'Gold', 'Platinum']),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -50,7 +51,13 @@ class UserDashboard < Administrate::BaseDashboard
   # avatar_attachment
   # avatar_blob
   # encrypted_password
+  # status
+  # reset_password_token
+  # reset_password_sent_at
+  # remember_created_at
+  
   SHOW_PAGE_ATTRIBUTES = %i[
+  master
   id
   gametag
   avatar
@@ -58,15 +65,10 @@ class UserDashboard < Administrate::BaseDashboard
   email
   first_name
   last_name
-  status
-  master
-  reset_password_token
-  reset_password_sent_at
-  remember_created_at
   created_at
   updated_at
-  archived
   deleted_at
+  archived
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -81,16 +83,16 @@ class UserDashboard < Administrate::BaseDashboard
   # remember_created_at
   # archived
   # deleted_at
+  # status
   
   FORM_ATTRIBUTES = %i[
+  master
   gametag
   avatar
   email
   password
   first_name
   last_name
-  status
-  master
   membership_level
   ].freeze
 

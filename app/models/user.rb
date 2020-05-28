@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   validates :gametag, presence: true
+  validates :membership_level, inclusion: { in: ['', 'Bronze', 'Silver', 'Gold', 'Platinum'],
+    message: "%{value} is not a valid level"}
 
   # instead of deleting, indicate the user requested a delete & timestamp it  
   def soft_delete  
