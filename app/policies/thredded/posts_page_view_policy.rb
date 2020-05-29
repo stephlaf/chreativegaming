@@ -6,6 +6,7 @@ module Thredded
     end
 
     def pending?
+      # raise
       @user.master
     end
   end

@@ -6,7 +6,6 @@ module Thredded
     before_action :thredded_require_moderator!
 
     def pending
-      # raise
       @posts = Thredded::PostsPageView.new(
         thredded_current_user,
         preload_posts_for_moderation(moderatable_posts.pending_moderation).order_oldest_first
@@ -18,11 +17,14 @@ module Thredded
     end
 
     def history
+      # raise
       @post_moderation_records = accessible_post_moderation_records
         .order(created_at: :desc)
         .send(Kaminari.config.page_method_name, current_page)
         .preload(:messageboard, :post_user, :moderator, post: :postable)
         .preload_first_topic_post
+      # raise
+      authorize @post_moderation_records
     end
 
     def activity
@@ -33,6 +35,8 @@ module Thredded
           .preload_first_topic_post
       )
       maybe_set_last_moderated_record_flash
+      # raise
+      authorize @posts, :pending?
     end
 
     def moderate_post
@@ -50,6 +54,7 @@ module Thredded
         flash[:last_moderated_record_id] =
           Thredded::PostModerationRecord.order_newest_first.find_by(post_id: post.id)&.id
       end
+      authorize post
       redirect_back fallback_location: pending_moderation_path
     end
 
@@ -65,6 +70,7 @@ module Thredded
       @query = params[:q].to_s
       @users = DbTextSearch::CaseInsensitive.new(@users, Thredded.user_name_column).prefix(@query) if @query.present?
       @users = @users.send(Kaminari.config.page_method_name, current_page)
+      authorize @users
     end
 
     def user
@@ -76,6 +82,7 @@ module Thredded
         .includes(:postable)
         .send(Kaminari.config.page_method_name, current_page)
       @posts = Thredded::PostsPageView.new(thredded_current_user, posts_scope)
+      authorize @user
     end
 
     def moderate_user
@@ -83,6 +90,8 @@ module Thredded
       user = Thredded.user_class.find(params[:id])
       user.thredded_user_detail.update!(moderation_state: params[:moderation_state])
       redirect_back fallback_location: user_moderation_path(user.id)
+
+      authorize user
     end
 
     private
