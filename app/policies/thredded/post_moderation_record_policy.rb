@@ -1,13 +1,15 @@
 module Thredded
   class PostModerationRecordPolicy
     def initialize(user, scope)
-      # raise
       @user = user
       @scope = scope
     end
 
     def history?
-      # raise
+      return @user.master
+    end
+
+    def users?
       return true
     end
   end
