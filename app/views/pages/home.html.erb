@@ -4,6 +4,16 @@
 
 <div id="news">
   <h2>News</h2>
+  <ul>
+    <% unless @priority_posts.empty? %>
+      <p>Priority posts:</p>
+      <% @priority_posts.each do |post| %>
+        <li><%= post.content %></li>
+      <% end %>
+    <% else %>
+      <p>No priority posts</p>
+    <% end %>
+  </ul>
 </div>
 
 <div id="members-feed">

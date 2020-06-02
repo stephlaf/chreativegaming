@@ -11,12 +11,17 @@ class PagesController < ApplicationController
         current_user.save!
       end
     end
+    @priority_posts = priorities
   end
 
   def about
   end
 
   def community
+  end
+
+  def priorities
+    Thredded::Post.select { |post| post.priority_post }
   end
 
   def not_found
