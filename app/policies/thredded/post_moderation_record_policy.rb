@@ -1,11 +1,15 @@
 module Thredded
-  class UserPreferencesFormPolicy
+  class PostModerationRecordPolicy
     def initialize(user, scope)
       @user = user
       @scope = scope
     end
 
-    def update?
+    def history?
+      return @user.master
+    end
+
+    def users?
       return true
     end
   end

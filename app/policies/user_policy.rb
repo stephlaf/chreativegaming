@@ -35,6 +35,21 @@ class UserPolicy < ApplicationPolicy
   #   return true if @user.master == true
   # end
 
+  # Method called from thredded::moderation_controller#users
+  def users?
+    return true
+  end
+
+  # Method called from thredded::moderation_controller#user
+  def user?
+    return true
+  end
+
+  # Method called from thredded::moderation_controller#moderate_user
+  def moderate_user?
+    return true
+  end
+
   def archive_profile?
     return true
   end

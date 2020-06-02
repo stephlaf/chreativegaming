@@ -10,10 +10,12 @@ module Thredded
     # This still needs to be adressed: for now it is bypassed (see line 7)
     def edit
       @preferences = init_preferences
-      # authorize @preferences
     end
 
     def update
+      @preferences = init_preferences
+      authorize @preferences
+
       if @preferences.save
         flash[:notice] = t('thredded.preferences.updated_notice')
         redirect_back fallback_location: edit_preferences_url(@preferences.messageboard)
