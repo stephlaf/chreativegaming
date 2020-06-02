@@ -21,7 +21,7 @@ class PagesController < ApplicationController
   end
 
   def priorities
-    Thredded::Post.select { |post| post.priority }
+    Thredded::Post.select { |post| post.priority_post }
   end
 
   def not_found

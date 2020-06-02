@@ -23,9 +23,7 @@ module Thredded
       @post_form = Thredded::PostForm.new(
         user: thredded_current_user, topic: parent_topic, post_params: new_post_params
       )
-      raise
       authorize_creating @post_form.post
-
       if @post_form.save
         redirect_to post_path(@post_form.post, user: thredded_current_user)
       else

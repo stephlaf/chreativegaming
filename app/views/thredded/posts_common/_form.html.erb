@@ -1,6 +1,5 @@
 <%# locals: post, content_label, button_text, button_submitting_text. %>
 
-
 <%= form_for post,
              url: post.submit_path,
              as: :post,
@@ -15,11 +14,13 @@
     <%= render 'thredded/posts_common/form/content',
                form: form, content_label: content_label, preview_url: post.preview_path, priority: false %>
 
-    <%# raise %>
-    <%#= form.check_box :priority %>
-
-    <%= check_box_tag(:priority) %>
-    <%= label_tag(:priority, "Priority post?", style: 'display:inline') %>
+    <% if current_user.master %>
+      <li>
+        <%= fields_for post.post do |post_fields| %>
+          Priority post?: <%= post_fields.check_box :priority_post %>
+        <% end %>
+      </li>
+    <% end %>
 
     <li>
       <% button_submitting_text ||=
