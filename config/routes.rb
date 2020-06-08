@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   # resources :users, except: [:new, :create]
-  resources :users, only: [:show, :edit, :create]
+  resources :users, only: [:show, :edit, :update, :create]
 
   # resources :users do
   #   member do
