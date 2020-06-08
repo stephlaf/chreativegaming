@@ -21,7 +21,7 @@ as well as a link to its edit page.
 <% elsif page.resource.class == Game %>
   <% content_for(:title) { t("administrate.actions.show_resource", name: page.resource.name) } %>
 <% else %>
-  <% content_for(:title) { t("administrate.actions.show_resource", name: page.page.title) } %>
+  <% content_for(:title) { t("administrate.actions.show_resource", name: page.page_title) } %>
 <% end %>
 
 <header class="main-content__header" role="banner">
