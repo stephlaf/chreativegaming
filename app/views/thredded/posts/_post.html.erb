@@ -6,7 +6,8 @@
     <p class="admin-badge">Admin</p>
   <% end %>
 
-  <%#= button_to 'Like', thredded_post_likes_path(post), method: :post %>
+  <%= link_to 'Like', "/#{post.id}/likes", method: :post %>
+  <%#= link_to 'Like', likes_path(post.messageboard.id, post.id), method: :get %>
   <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 
   <%= render 'thredded/posts_common/actions', post: post, actions: local_assigns[:actions] %>
@@ -20,3 +21,11 @@
     </p>
   <% end %>
 <% end %>
+
+<!-- Code to unlike a post -->
+<%# pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+<%# if pre_like %>
+  <%#= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
+<%# else %>
+  <%#= button_to 'Like', post_likes_path(@post), method: :post %>
+<%# end %>

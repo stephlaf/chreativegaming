@@ -31,6 +31,15 @@ Rails.application.routes.draw do
   # Forum stuff
   mount Thredded::Engine => '/forum'
   get '/forum', to: 'thredded/messageboards#index'
+  
+  post '/:post_id/likes', to: 'likes#create', as: :likes
+
+  # resources :thredded_posts do
+  #   resources :likes, only: [:create]
+  # end
+
+
+
 
   # resources :games do
   #   member do
@@ -40,9 +49,6 @@ Rails.application.routes.draw do
 
   resources :games, except: [:new, :create, :edit, :update]
 
-  resources :thredded_posts do
-    resources :likes, only: [:create]
-  end
 
   match 'games/*any', to: 'pages#not_found', via: :all
   match 'users', to: 'pages#not_found', via: :all
