@@ -17,13 +17,11 @@ module Thredded
     end
 
     def history
-      # raise
       @post_moderation_records = accessible_post_moderation_records
         .order(created_at: :desc)
         .send(Kaminari.config.page_method_name, current_page)
         .preload(:messageboard, :post_user, :moderator, post: :postable)
         .preload_first_topic_post
-      # raise
       authorize @post_moderation_records
     end
 
@@ -35,7 +33,6 @@ module Thredded
           .preload_first_topic_post
       )
       maybe_set_last_moderated_record_flash
-      # raise
       authorize @posts, :pending?
     end
 
