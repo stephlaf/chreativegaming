@@ -40,6 +40,10 @@ Rails.application.routes.draw do
 
   resources :games, except: [:new, :create, :edit, :update]
 
+  resources :thredded_posts do
+    resources :likes, only: [:create]
+  end
+
   match 'games/*any', to: 'pages#not_found', via: :all
   match 'users', to: 'pages#not_found', via: :all
 end

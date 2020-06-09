@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :avatar
+  has_many :likes, dependent: :destroy
 
   validates :gametag, presence: true
   validates :membership_level, inclusion: { in: ['', 'Bronze', 'Silver', 'Gold', 'Platinum'],

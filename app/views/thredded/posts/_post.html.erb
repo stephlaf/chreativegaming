@@ -6,6 +6,9 @@
     <p class="admin-badge">Admin</p>
   <% end %>
 
+  <%#= button_to 'Like', thredded_post_likes_path(post), method: :post %>
+  <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
   <%= render 'thredded/posts_common/actions', post: post, actions: local_assigns[:actions] %>
   <%= render 'thredded/posts_common/header', post: post %>
   <%= content || render('thredded/posts/content', post: post) %>
