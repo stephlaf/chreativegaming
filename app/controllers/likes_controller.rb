@@ -1,4 +1,3 @@
-require 'pry-byebug'
 require 'json'
 
 class LikesController < ApplicationController
@@ -6,16 +5,20 @@ class LikesController < ApplicationController
   before_action :find_like, only: [:destroy]
 
   def create
-    # authorize
     unless already_liked?
       @like = @post.likes.create(user_id: current_user.id)
       authorize @like
+      render json: { post: @post, count: @post.likes.count}
     else
       @like = @post.likes.last
       authorize @like
-      flash[:notice] = "You can't like more than once"
+      
+      render json: {
+        post: @post,
+        count: @post.likes.count,
+        notice: "You can't like a post more than once"
+      }
     end
-    render json: { post: @post, count: @post.likes.count}
   end
 
   def destroy

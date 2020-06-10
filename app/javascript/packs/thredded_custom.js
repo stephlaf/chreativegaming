@@ -2,6 +2,7 @@ const likesLinks = document.querySelectorAll('.likes-link');
 const token = $('meta[name="csrf-token"]').attr('content');
 
 const updateCount = (data) => {
+  if (data.notice) alert(data.notice);
   const likesCount = document.querySelector(`[data-count='count-${data.post.id}']`);
   likesCount.innerText = `${data.count} Likes`;
 };
