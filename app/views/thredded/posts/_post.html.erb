@@ -6,9 +6,11 @@
     <p class="admin-badge">Admin</p>
   <% end %>
 
-  <%= link_to 'Like', "/#{post.id}/likes", method: :post %>
-  <%#= link_to 'Like', likes_path(post.messageboard.id, post.id), method: :get %>
-  <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+  <%#= link_to 'Like', "/#{messageboard.id}/#{post.id}/likes", method: :post %>
+  <%#= link_to 'Like', post_likes_path(post.id), method: :post %>
+
+  <%= link_to 'Like this post', root_path, class: "likes-link", data: { id: "post-#{post.id}"} %>
+  <p class="likes-count" data-count="count-<%= post.id %>" ><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 
   <%= render 'thredded/posts_common/actions', post: post, actions: local_assigns[:actions] %>
   <%= render 'thredded/posts_common/header', post: post %>

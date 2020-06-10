@@ -1,21 +1,22 @@
+require 'pry-byebug'
+require 'json'
+
 class LikesController < ApplicationController
   before_action :find_post
   before_action :find_like, only: [:destroy]
 
   def create
-    raise
-    @post.likes.create(user_id: current_user.id)
-    redirect_to messageboard_topic_path(@post.postable)
+    # authorize
+    unless already_liked?
+      @like = @post.likes.create(user_id: current_user.id)
+      authorize @like
+    else
+      @like = @post.likes.last
+      authorize @like
+      flash[:notice] = "You can't like more than once"
+    end
+    render json: { post: @post, count: @post.likes.count}
   end
-
-  # def create
-  #   if already_liked?
-  #     flash[:notice] = "You can't like more than once"
-  #   else
-  #     @post.likes.create(user_id: current_user.id)
-  #   end
-  #   redirect_to post_path(@post)
-  # end
 
   def destroy
     unless (already_liked?)

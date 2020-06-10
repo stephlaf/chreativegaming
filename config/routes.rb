@@ -32,9 +32,10 @@ Rails.application.routes.draw do
   mount Thredded::Engine => '/forum'
   get '/forum', to: 'thredded/messageboards#index'
   
-  post '/:post_id/likes', to: 'likes#create', as: :likes
+  post ':post_id/likes', to: 'likes#create', as: :likes
+  # post ':messageboard_id/:post_id/likes', to: 'likes#create', as: :likes
 
-  # resources :thredded_posts do
+  # resources :post do
   #   resources :likes, only: [:create]
   # end
 
