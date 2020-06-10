@@ -6,9 +6,16 @@
     <p class="admin-badge">Admin</p>
   <% end %>
 
+  <%= link_to 'Like this post', {}, class: "likes-link", data: { id: "post-#{post.id}"} %>
+
+  <p class="likes-count" data-count="count-<%= post.id %>" >
+    <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%>
+  </p>
+
   <%= render 'thredded/posts_common/actions', post: post, actions: local_assigns[:actions] %>
   <%= render 'thredded/posts_common/header', post: post %>
   <%= content || render('thredded/posts/content', post: post) %>
+  
   <% if post.pending_moderation? && !Thredded.content_visible_while_pending_moderation %>
     <p class="thredded--alert thredded--alert-warning"><%= t 'thredded.posts.pending_moderation_notice' %></p>
   <% elsif post.blocked? && post.can_moderate? %>
@@ -17,3 +24,11 @@
     </p>
   <% end %>
 <% end %>
+
+<!-- Code to unlike a post -->
+<%# pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+<%# if pre_like %>
+  <%#= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
+<%# else %>
+  <%#= button_to 'Like', post_likes_path(@post), method: :post %>
+<%# end %>
