@@ -38,7 +38,8 @@ module Thredded
     end
 
     def update?
-      @user.thredded_admin? || own_post? || messageboard_policy.moderate?
+      # @user.thredded_admin? || own_post? || messageboard_policy.moderate?
+      own_post?
     end
 
     def destroy?
