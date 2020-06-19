@@ -6,7 +6,12 @@
     <p class="admin-badge">Admin</p>
   <% end %>
 
-  <%= link_to 'Like this post', {}, class: "likes-link", data: { id: "post-#{post.id}"} %>
+  <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+  <% if pre_like %>
+    <%= link_to 'Unlike this post', {}, class: "likes-link", data: { id: "post-#{post.id}"} %>
+  <% else %>
+    <%= link_to 'Like this post', {}, class: "likes-link", data: { id: "post-#{post.id}"} %>
+  <% end %>
 
   <p class="likes-count" data-count="count-<%= post.id %>" >
     <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%>
@@ -24,11 +29,3 @@
     </p>
   <% end %>
 <% end %>
-
-<!-- Code to unlike a post -->
-<%# pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
-<%# if pre_like %>
-  <%#= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
-<%# else %>
-  <%#= button_to 'Like', post_likes_path(@post), method: :post %>
-<%# end %>
