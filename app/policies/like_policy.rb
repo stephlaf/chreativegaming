@@ -5,32 +5,7 @@ class LikePolicy < ApplicationPolicy
     end
   end
 
-  # def show?
-  #   return true
-  # end
-
-  # def new?
-  #   # raise
-  #   return true if @user.master == true
-  # end
-
-  def create?
+  def create_destroy?
     return true
   end
-
-  # def edit?
-  #   return true if @user.master == true
-  # end
-
-  # def update?
-  #   return true if @user.master == true
-  # end
-
-  # def destroy?
-  #   return true if @user.master == true
-  # end
-
-  # def toggle_availability?
-  #   return true if @user.master == true
-  # end
 end

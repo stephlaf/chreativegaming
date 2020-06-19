@@ -4,30 +4,28 @@ class LikesController < ApplicationController
   before_action :find_post
   before_action :find_like, only: [:destroy]
 
-  def create
+  def create_destroy
     unless already_liked?
       @like = @post.likes.create(user_id: current_user.id)
       authorize @like
-      render json: { post: @post, count: @post.likes.count}
+      render json: {
+        post: @post,
+        count: @post.likes.count,
+        linkText: "Unlike this post"
+      }
     else
-      @like = @post.likes.last
+      @like_to_delete = find_like
+      @like_to_delete.destroy
+
+      @like = @post.likes.last || Like.new()
       authorize @like
       
       render json: {
         post: @post,
         count: @post.likes.count,
-        notice: "You can't like a post more than once"
+        linkText: "Like this post"
       }
     end
-  end
-
-  def destroy
-    unless (already_liked?)
-      flash[:notice] = "Cannot unlike"
-    else
-      @like.destroy
-    end
-    messageboard_topic_path(@post.postable)
   end
 
   private
@@ -37,7 +35,8 @@ class LikesController < ApplicationController
   end
 
   def find_like
-     @like = @post.likes.find(params[:id])
+     @like = Like.where(user_id: current_user.id, post_id:
+    params[:post_id]).first
   end
 
   def already_liked?

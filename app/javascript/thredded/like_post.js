@@ -1,8 +1,9 @@
 const likesLinks = document.querySelectorAll('.likes-link');
 const token = $('meta[name="csrf-token"]').attr('content');
 
-const updateCount = (data) => {
-  if (data.notice) alert(data.notice);
+const updateDisplay = (data) => {
+  const linkText = document.querySelector(`[data-id='post-${data.post.id}']`);
+  linkText.innerText = data.linkText;
   const likesCount = document.querySelector(`[data-count='count-${data.post.id}']`);
   likesCount.innerText = `${data.count} Like${data.count === 1 ? '' : 's'}`;
 };
@@ -20,7 +21,7 @@ const updateLikes = (postId) => {
     credentials: 'same-origin'
   })
     .then(response => response.json())
-    .then(data => updateCount(data));
+    .then(data => updateDisplay(data));
 };
 
 const extractPostId = (event) => {
