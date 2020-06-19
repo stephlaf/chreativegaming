@@ -43,7 +43,7 @@ module Thredded
     end
 
     def destroy?
-      !@post.first_post_in_topic? && update?
+      !@post.first_post_in_topic? && (update? || @user.thredded_admin?)
     end
 
     def moderate_post?
