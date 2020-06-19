@@ -13,7 +13,7 @@ class ReviewDashboard < Administrate::BaseDashboard
     id: Field::Number,
     title: Field::String,
     content: Field::Text,
-    rating: Field::Number,
+    rating: Field::Select.with_options(collection: 1..5),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -26,8 +26,8 @@ class ReviewDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
   user
   game
-  id
   title
+  rating
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
