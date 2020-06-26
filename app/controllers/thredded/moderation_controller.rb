@@ -85,6 +85,11 @@ module Thredded
     def moderate_user
       return head(:bad_request) unless Thredded::UserDetail.moderation_states.include?(params[:moderation_state])
       user = Thredded.user_class.find(params[:id])
+      
+      # Custom code to approve all pending posts when a new User is approved
+      @pending_posts = user.thredded_posts.select { |post| post.moderation_state == 'pending_moderation' }
+      approve_posts
+
       user.thredded_user_detail.update!(moderation_state: params[:moderation_state])
       redirect_back fallback_location: user_moderation_path(user.id)
 
@@ -124,6 +129,13 @@ module Thredded
 
     def preload_posts_for_moderation(posts)
       posts.includes(:user, :messageboard, :postable)
+    end
+
+    def approve_posts
+      @pending_posts.each do |post|
+        post.moderation_state = 'approved'
+        post.save!
+      end
     end
   end
 end
