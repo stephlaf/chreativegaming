@@ -25,6 +25,10 @@
     <span class="admin-badge">Admin</span>
   <% end %>
 
+  <% if  topic.to_model.moderation_state == 'pending_moderation' %>
+    <span class="admin-badge">🥑 ⭐️ ⏰</span>
+  <% end %>
+
   <% if topic.categories.any? %>
     <ul class="thredded--topics--categories">
       <%= render topic.categories %>
