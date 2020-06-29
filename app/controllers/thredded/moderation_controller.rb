@@ -39,18 +39,26 @@ module Thredded
     def moderate_post
       moderation_state = params[:moderation_state].to_s
       return head(:bad_request) unless Thredded::Post.moderation_states.include?(moderation_state)
+
       post = moderatable_posts.find(params[:id].to_s)
-      if post.moderation_state != moderation_state
-        flash[:last_moderated_record_id] = Thredded::ModeratePost.run!(
-          post: post,
-          moderation_state: moderation_state,
-          moderator: thredded_current_user,
-        ).id
+      topic_first_post = post.postable.first_post
+
+      if post != topic_first_post && topic_first_post.moderation_state != 'approved'
+        flash[:alert] = "You must first approve the topic 🤓"
       else
-        flash[:alert] = "Post was already #{moderation_state}:"
-        flash[:last_moderated_record_id] =
-          Thredded::PostModerationRecord.order_newest_first.find_by(post_id: post.id)&.id
+        if post.moderation_state != moderation_state
+          flash[:last_moderated_record_id] = Thredded::ModeratePost.run!(
+            post: post,
+            moderation_state: moderation_state,
+            moderator: thredded_current_user,
+          ).id
+        else
+          flash[:alert] = "Post was already #{moderation_state}:"
+          flash[:last_moderated_record_id] =
+            Thredded::PostModerationRecord.order_newest_first.find_by(post_id: post.id)&.id
+        end
       end
+
       authorize post
       redirect_back fallback_location: pending_moderation_path
     end
