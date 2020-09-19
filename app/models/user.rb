@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :likes, dependent: :destroy
+  has_many :blog_posts
 
   validates :gametag, presence: true
   validates :membership_level, inclusion: { in: ['', 'Bronze', 'Silver', 'Gold', 'Platinum'],

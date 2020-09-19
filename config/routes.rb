@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
   namespace :admin do
-      resources :games
-      resources :reviews
-      resources :downloads
-      resources :users
+    resources :games
+    resources :reviews
+    resources :downloads
+    resources :users
 
-      root to: "games#index"
-    end
+    root to: "games#index"
+  end
   
   # devise_for :users
   devise_for :users, controllers: { registrations: 'users/registrations' }
@@ -25,6 +25,14 @@ Rails.application.routes.draw do
 
   get 'about', to: 'pages#about'
   get 'community', to: 'pages#community'
+
+  # Blog stuff
+  resources :blog_posts
+  # resources :blog_posts, except: [:new, :create]
+
+  # resources :users, only: [] do
+  #   resources :blog_posts, only: [:new, :create]
+  # end
 
 
 

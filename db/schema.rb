@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_26_002138) do
+ActiveRecord::Schema.define(version: 2020_09_19_162809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 2020_06_26_002138) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "blog_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_blog_posts_on_user_id"
   end
 
   create_table "downloads", force: :cascade do |t|
@@ -347,6 +356,7 @@ ActiveRecord::Schema.define(version: 2020_06_26_002138) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "blog_posts", "users"
   add_foreign_key "downloads", "games"
   add_foreign_key "downloads", "users"
   add_foreign_key "likes", "thredded_posts", column: "post_id"
