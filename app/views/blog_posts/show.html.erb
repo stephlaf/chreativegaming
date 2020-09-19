@@ -1,0 +1,27 @@
+<h1>BlogPosts#show</h1>
+<h2>
+  <%= @blog_post.title %>
+</h2>
+<p><%= @blog_post.content %></p>
+
+<p>An image, if there is one</p>
+<% if @blog_post.blog_image.attached? %>
+  <%= cl_image_tag @blog_post.blog_image.key, width: 200 %>
+<% end %>
+
+<ul>
+  <li>
+    <%= link_to 'All Posts', blog_posts_path %>
+  </li>
+  <li>
+    <%= link_to 'Edit', edit_blog_post_path(@blog_post) %>
+  </li>
+  <li>
+    <%= link_to 'Delete', blog_post_path(@blog_post),
+      method: 'delete',
+      data: { confirm: "Are you sure you want to delete #{@blog_post.title}?" }
+    %>
+  </li>
+</ul>
+
+

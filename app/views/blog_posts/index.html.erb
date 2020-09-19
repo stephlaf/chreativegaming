@@ -1,0 +1,11 @@
+<h1>BlogPosts#index</h1>
+<ul>
+  <% @blog_posts.each do |blog_post| %>
+    <%= link_to blog_post_path(blog_post) do  %>
+      <div class="card p-3">
+        <h3><%= blog_post.title %></h3>
+        <p><%= blog_post.content %></p>
+      </div>
+    <% end %>
+  <% end %>
+</ul>
