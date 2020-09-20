@@ -24,7 +24,7 @@ class BlogPostPolicy < ApplicationPolicy
   end
 
   def update?
-    return true
+    edit?
   end
 
   def destroy?
