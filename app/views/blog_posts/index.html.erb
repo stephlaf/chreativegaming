@@ -14,19 +14,22 @@
         <%= cl_image_tag blog_post.blog_image.key, width: 100 %>
       <% end %>
 
-      <% if policy(blog_post).edit? %>
         <ul>
-          <li>
-            <%= link_to 'Edit', edit_blog_post_path(blog_post) %>
-          </li>
-          <li>
-            <%= link_to 'Delete', blog_post_path(blog_post),
-              method: 'delete',
-              data: { confirm: "Are you sure you want to delete #{blog_post.title}?" }
-            %>
-          </li>
+          <% if policy(blog_post).edit? %>
+            <li>
+              <%= link_to 'Edit', edit_blog_post_path(blog_post) %>
+            </li>
+          <% end %>
+          <% if policy(blog_post).destroy? %>
+            <li>
+              <%= link_to 'Delete', blog_post_path(blog_post),
+                method: 'delete',
+                data: { confirm: "Are you sure you want to delete #{blog_post.title}?" }
+              %>
+            </li>
+          <% end %>
         </ul>
-      <% end %>
+        
     </div>
   <% end %>
 <% end %>
