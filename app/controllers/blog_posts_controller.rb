@@ -20,7 +20,7 @@ class BlogPostsController < ApplicationController
     authorize @blog_post
 
     if @blog_post.save
-      redirect_to blog_post_path(@blog_post)
+      redirect_to blog_posts_path
     else
       render :new
     end
@@ -33,7 +33,7 @@ class BlogPostsController < ApplicationController
   def update
     if @blog_post.update(blog_post_params)
       authorize @blog_post
-      redirect_to blog_post_path(@blog_post)
+      redirect_to blog_posts_path
     else
       render :new
     end
@@ -42,7 +42,7 @@ class BlogPostsController < ApplicationController
   def destroy
     authorize @blog_post
     @blog_post.destroy
-    redirect_to root_path
+    redirect_to blog_posts_path
   end
 
   private
