@@ -18,16 +18,16 @@ class BlogPostPolicy < ApplicationPolicy
   end
 
   def edit?
-    if record.user == user || user.master
-      return true
-    end
+    return true if record.user == user
   end
 
   def update?
-    return true
+    edit?
   end
 
   def destroy?
-    edit?
+    if record.user == user || user.master
+      return true
+    end
   end
 end
