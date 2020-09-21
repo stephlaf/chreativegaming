@@ -6,7 +6,11 @@
 
 <p>An image, if there is one</p>
 <% if @blog_post.blog_image.attached? %>
-  <%= cl_image_tag @blog_post.blog_image.key, width: 200 %>
+  <% if @blog_post.blog_image.blob.image? %>
+    <%= cl_image_tag @blog_post.blog_image.key, width: 100 %>
+  <% elsif @blog_post.blog_image.blob.video? %>
+    <%= cl_video_tag @blog_post.blog_image.key, width: 200, autoplay: true, controls: true %>
+  <% end %>
 <% end %>
 
 <ul>
