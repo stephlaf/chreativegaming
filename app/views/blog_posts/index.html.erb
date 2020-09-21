@@ -8,6 +8,7 @@
   <%#= link_to blog_post_path(blog_post) do  %>
     <div class="card p-3">
       <h3><%= blog_post.title %></h3>
+      <!-- <p><%#= Rinku.auto_link(blog_post.content, mode=:all) { |url| "Click me!"} %></p> -->
       <p><%= blog_post.content %></p>
 
       <p>A media 👇 (if there is one attached)</p>
