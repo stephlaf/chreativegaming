@@ -5,13 +5,23 @@
 <% end %>
 
 <% @blog_posts.order_by_updated.each do |blog_post| %>
-  <%= link_to blog_post_path(blog_post) do  %>
+  <%#= link_to blog_post_path(blog_post) do  %>
     <div class="card p-3">
       <h3><%= blog_post.title %></h3>
       <p><%= blog_post.content %></p>
+
       <p>A media 👇 (if there is one attached)</p>
+
+      <% if blog_post.content.match(/\bhttp.+\.gif\b/) %>
+        <%= image_tag blog_post.content.match(/\bhttp.+\.gif\b/)[0], width: 200, alt: "alttext" %>
+      <% end %>
+
       <% if blog_post.blog_image.attached? %>
-        <%= cl_image_tag blog_post.blog_image.key, width: 100 %>
+        <% if blog_post.blog_image.blob.image? %>
+          <%= cl_image_tag blog_post.blog_image.key, width: 150 %>
+        <% elsif blog_post.blog_image.blob.video? %>
+          <%= cl_video_tag blog_post.blog_image.key, width: 200, height: 150, crop: :pad, controls: true %>
+        <% end %>
       <% end %>
 
         <ul>
@@ -31,5 +41,5 @@
         </ul>
         
     </div>
-  <% end %>
+  <%# end %>
 <% end %>
