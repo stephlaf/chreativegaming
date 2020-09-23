@@ -1,5 +1,6 @@
 class BlogPostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: :index
 
   def index
     @blog_posts = policy_scope(BlogPost)
