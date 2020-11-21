@@ -27,12 +27,15 @@ Rails.application.routes.draw do
   get 'community', to: 'pages#community'
 
   # Blog stuff
-  resources :blog_posts
+  # resources :blog_posts
   # resources :blog_posts, except: [:new, :create]
 
   # resources :users, only: [] do
   #   resources :blog_posts, only: [:new, :create]
   # end
+
+  resources :blog_posts
+  get '/blog_posts/:blog_post_id/blog_likes', to: 'blog_likes#create_destroy', as: :blog_like
 
 
 

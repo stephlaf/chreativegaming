@@ -29,24 +29,41 @@
         </div>
       <% end %>
 
-        <ul>
-          <% if current_user %>
-            <% if policy(blog_post).edit? %>
-              <li>
-                <%= link_to 'Edit', edit_blog_post_path(blog_post) %>
-              </li>
-            <% end %>
-            <% if policy(blog_post).destroy? %>
-              <li>
-                <%= link_to 'Delete', blog_post_path(blog_post),
-                  method: 'delete',
-                  data: { confirm: "Are you sure you want to delete #{blog_post.title}?" }
-                %>
-              </li>
-            <% end %>
+      <ul>
+        <% if current_user %>
+          <% if policy(blog_post).edit? %>
+            <li>
+              <%= link_to 'Edit', edit_blog_post_path(blog_post) %>
+            </li>
           <% end %>
+          <% if policy(blog_post).destroy? %>
+            <li>
+              <%= link_to 'Delete', blog_post_path(blog_post),
+                method: 'delete',
+                data: { confirm: "Are you sure you want to delete #{blog_post.title}?" }
+              %>
+            </li>
+          <% end %>
+          <li>
+            <%= link_to blog_like_path(blog_post) do %>
+              <% pre_like = blog_post.blog_likes.find { |like| like.user_id == current_user.id} %>
+              <% if pre_like %>
+                <i class="far fa-thumbs-down"></i>
+              <% else %>
+                <i class="far fa-thumbs-up"></i>
+              <% end %>
+            <% end %>
+            <%= blog_post.blog_likes.count %>
+            <%= blog_post.blog_likes.count == 1 ? 'Like' : 'Likes' %>
+          </li>
+
+        <% else %>
+          <li>
+            <%= blog_post.blog_likes.count %>
+            <%= blog_post.blog_likes.count == 1 ? 'Like' : 'Likes' %>
+          </li>
+        <% end %>
       </ul>
-        
     </div>
   <%# end %>
 <% end %>
