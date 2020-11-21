@@ -10,7 +10,7 @@
   <%#= link_to blog_post_path(blog_post) do  %>
     <div class="card p-3">
       <h3><%= blog_post.title %></h3>
-
+      <p>Posted by: <%= blog_post.user.gametag %></p>
       <p class="textToAutoLink"><%= blog_post.content %></p>
 
       <% if blog_post.content.match(/\bhttp.+\.gif\b/) %>
