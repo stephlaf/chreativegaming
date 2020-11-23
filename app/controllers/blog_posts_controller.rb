@@ -46,6 +46,10 @@ class BlogPostsController < ApplicationController
     redirect_to blog_posts_path
   end
 
+  def pre_liked?
+    raise
+  end
+
   private
 
   def set_blog_post
