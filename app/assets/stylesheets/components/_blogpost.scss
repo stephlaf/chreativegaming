@@ -1,0 +1,62 @@
+.blogpost-card {
+  background: rgba(253, 253, 253, 1.00);
+  position: relative;
+  margin: 8px;
+  height: 300px;
+  h3 {
+
+  }
+}
+
+.blogpost-gametag {
+
+}
+
+.position-gif {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.position-image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.blog-likes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background: rgba(250, 17, 0, 0.20);
+  width: 30px;
+  height: 30px;
+  padding: 8px;
+  border-radius: 50%;
+
+  i {
+    color: rgba(250, 17, 0, 1);
+    font-size: 16px;
+  }
+}
+
+.blog-likes-arrows {
+  color: rgba(249, 67, 78, 1.00);
+  font-weight: bold;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  i {
+    color: rgba(250, 17, 0, 1);
+    font-size: 12px;
+  }
+}
+
+.blog-likes-count {
+  color: rgba(249, 67, 78, 1.00);
+  font-weight: bold;
+  position: absolute;
+  top: -7px;
+  right: -5px;
+}
