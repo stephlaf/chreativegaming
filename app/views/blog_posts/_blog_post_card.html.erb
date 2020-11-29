@@ -1,0 +1,81 @@
+<!-- <div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2>Title here</h2>
+      <p>Short description here!</p>
+    </div>
+    <h2 class="card-trip-pricing">£99.99</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div> -->
+
+<div class="card-trip">
+  <h2><%= blog_post.title %></h2>
+  <p class="blogpost-gametag">Posted by: <%= blog_post.user.gametag %>
+    <% if  blog_post.user.master %>
+      <i class="fas fa-chess-king admin-badge"></i>
+    <% end %>
+  </p>
+
+
+  <p class="textToAutoLink"><%= blog_post.content %></p>
+
+  <% if blog_post.content.match(/\bhttp.+\.gif\b/) %>
+    <div class="">
+      <%= image_tag blog_post.content.match(/\bhttp.+\.gif\b/)[0], width: 160, alt: "A GIF" %>
+    </div>
+  <% end %>
+
+  <% if blog_post.blog_image.attached? %>
+    <!-- <div class="position-image gif m-3 p-3"> -->
+    <div class="">
+      <% if blog_post.blog_image.blob.image? %>
+        <%= cl_image_tag blog_post.blog_image.key, width: 150 %>
+      <% elsif blog_post.blog_image.blob.video? %>
+        <%= cl_video_tag blog_post.blog_image.key, width: 200, height: 150, crop: :pad, controls: true %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if current_user %>
+    <% if policy(blog_post).edit? %>
+      <li>
+        <%= link_to edit_blog_post_path(blog_post) do %>
+          <i class="far fa-edit"></i>
+        <% end %>
+      </li>
+    <% end %>
+
+    <% if policy(blog_post).destroy? %>
+      <li>
+        <%= link_to blog_post_path(blog_post),
+          method: 'delete',
+          data: { confirm: "Are you sure you want to delete #{blog_post.title}?" } do
+        %>
+          <i class="fas fa-dumpster"></i>
+        <% end %>
+      </li>
+    <% end %>
+  <% end %>
+
+  <div class="card-trip-user avatar-bordered">
+    <% if current_user %>
+      <div class="blog-likes-arrows">
+        <%= link_to blog_like_path(blog_post) do %>
+          <% pre_like = blog_post.blog_likes.find { |like| like.user_id == current_user.id} %>
+
+          <% if pre_like %>
+            <i class="fas fa-minus"></i>
+          <% else %>
+            <i class="fas fa-plus"></i>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <p class="blog-likes-count"><%= blog_post.blog_likes.count %></p>
+    <i class="far fa-heart"></i>
+  </div>
+
+</div>

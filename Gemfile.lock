@@ -102,6 +102,9 @@ GEM
     bootsnap (1.4.5)
       msgpack (~> 1.0)
     builder (3.2.4)
+    bullet (6.1.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     byebug (11.1.1)
     capybara (3.31.0)
       addressable
@@ -365,6 +368,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.6)
+    uniform_notifier (1.13.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (4.0.1)
@@ -396,6 +400,7 @@ DEPENDENCIES
   autoprefixer-rails
   aws-sdk-s3
   bootsnap (>= 1.4.2)
+  bullet
   byebug
   capybara (>= 2.15)
   cloudinary (= 1.13.2)
