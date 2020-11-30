@@ -105,3 +105,33 @@
   top: -20px;
   width: 40px;
 }
+
+.unLoggedBlogLikeAttempt {
+  cursor: pointer;
+  position: relative;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgba(175, 175, 175, 0.7);
+  i {
+    color: rgba(250, 17, 0, 1);
+    position: absolute;
+    top: 5px;
+    left: 4px;
+  }
+}
+
+.loggedBlogLike {
+ cursor: pointer;
+ position: relative;
+ width: 26px;
+ height: 26px;
+ border-radius: 50%;
+ border: 1px solid rgba(175, 175, 175, 0.7);
+ i {
+   color: rgba(250, 17, 0, 1);
+   position: absolute;
+   top: 5px;
+   left: 4px;
+ } 
+}
