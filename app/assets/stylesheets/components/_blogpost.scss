@@ -64,10 +64,11 @@
 // Le Wagon UI kit css
 
 .card-trip {
+  // display: flex;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding: 6px;
+  padding: 12px;
   margin: 0 0 6px 0;
 }
 
@@ -134,4 +135,15 @@
    top: 5px;
    left: 4px;
  } 
+}
+
+.blogpost-header {
+  display: flex;
+  justify-content: space-between;
+  // padding: 12px;
+}
+
+.gif-image-content {
+  display: flex;
+  justify-content: space-around;
 }

@@ -1,7 +1,7 @@
 class BlogPostPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all.includes(:user, :blog_image_attachment, :blog_likes)
+      scope.all.includes(:user, :blog_image_attachment)
     end
   end
 
