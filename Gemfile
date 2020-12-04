@@ -32,6 +32,7 @@ gem 'devise'
 # gem 'cloudinary', '~> 1.12.0'
 gem 'cloudinary', '1.13.2'
 gem 'rinku'
+gem 'postmark-rails'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
@@ -60,6 +61,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-byebug'
   gem 'bullet'
+  gem 'letter_opener'
 end
 
 group :development do
