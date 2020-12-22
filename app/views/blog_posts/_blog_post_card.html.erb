@@ -4,7 +4,13 @@
       <h2><%= blog_post.title %></h2>
       <p class="">Posted by: 
         <span>
-          <%= cl_image_tag blog_post.user.avatar.key, width: 26, height: 26, alt: "alttext", class: 'blog-post-avatar' %>
+          <%= cl_image_tag blog_post.user.avatar.key, 
+            :transformation=>[
+            {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
+            {:width=>200, :crop=>"scale"}
+            ],
+            alt: "alttext",
+            class: 'blog-post-avatar' %>
         </span>
         <%= blog_post.user.gametag %>
         <% if  blog_post.user.master %>
