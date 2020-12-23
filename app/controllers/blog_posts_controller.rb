@@ -18,6 +18,12 @@ class BlogPostsController < ApplicationController
   def create
     @blog_post = BlogPost.new(blog_post_params)
     @blog_post.user = current_user
+
+    if blog_post_params[:published] && !current_user.master
+      skip_authorization
+      render :new and return
+    end
+
     authorize @blog_post
 
     if @blog_post.save
@@ -57,6 +63,6 @@ class BlogPostsController < ApplicationController
   end
 
   def blog_post_params
-    params.require(:blog_post).permit(:title, :content, :blog_image)
+    params.require(:blog_post).permit(:title, :content, :blog_image, :published)
   end
 end

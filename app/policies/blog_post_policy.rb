@@ -1,6 +1,7 @@
 class BlogPostPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
+      # raise
       scope.all.includes(:user, :blog_image_attachment)
     end
   end
