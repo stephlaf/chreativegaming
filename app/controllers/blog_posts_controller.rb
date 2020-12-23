@@ -21,6 +21,7 @@ class BlogPostsController < ApplicationController
 
     if blog_post_params[:published] && !current_user.master
       skip_authorization
+      flash[:alert] = "You don't have the rights to publish!"
       render :new and return
     end
 
@@ -38,6 +39,12 @@ class BlogPostsController < ApplicationController
   end
 
   def update
+    if blog_post_params[:published] && !current_user.master
+      skip_authorization
+      flash[:alert] = "You don't have the rights to publish!"
+      render :new and return
+    end
+
     if @blog_post.update(blog_post_params)
       authorize @blog_post
       redirect_to blog_posts_path
@@ -65,4 +72,13 @@ class BlogPostsController < ApplicationController
   def blog_post_params
     params.require(:blog_post).permit(:title, :content, :blog_image, :published)
   end
+
+  def validate_blog_post
+    if blog_post_params[:published] && !current_user.master
+      skip_authorization
+      render :new and return
+    end
+  end
 end
+
+# <input type="checkbox" id="" name="blog_post[published]" value="1">
