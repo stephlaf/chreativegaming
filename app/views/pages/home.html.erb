@@ -5,13 +5,12 @@
 <div id="news">
   <h2>News</h2>
   <ul>
-    <% unless @priority_posts.empty? %>
-      <p>Priority posts:</p>
-      <% @priority_posts.each do |post| %>
-        <li><%= post.content %></li>
+    <% unless @published_blog_posts.empty? %>
+      <% @published_blog_posts.each do |post| %>
+        <li class=""><%= link_to post.title, "/blog_posts##{post.id}", class: 'homepage-news-links' %></li>
       <% end %>
     <% else %>
-      <p>No priority posts</p>
+      <p>No news</p>
     <% end %>
   </ul>
 </div>
