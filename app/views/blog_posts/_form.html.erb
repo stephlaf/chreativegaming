@@ -3,7 +3,7 @@
   <%= f.input :content %>
   <%= f.input :blog_image %>
   <% if current_user.master %>
-    <%= f.input :published, label: 'Publish in newsfeed' %>
+    <%= f.input :published, as: :boolean, label: 'Publish in newsfeed' %>
   <% end %>
   <%= f.submit %>
 <% end %>
