@@ -12,6 +12,7 @@ class PagesController < ApplicationController
       end
     end
     @priority_posts = priorities
+    @published_blog_posts = published
   end
 
   def about
@@ -22,6 +23,10 @@ class PagesController < ApplicationController
 
   def priorities
     Thredded::Post.select { |post| post.priority_post }
+  end
+
+  def published
+    BlogPost.order_by_updated.select { |blog_post| blog_post.published }
   end
 
   def not_found
