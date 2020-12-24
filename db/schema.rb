@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_23_001736) do
+ActiveRecord::Schema.define(version: 2020_12_24_184627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_12_23_001736) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "published", default: false
+    t.boolean "priority_post", default: false
     t.index ["user_id"], name: "index_blog_posts_on_user_id"
   end
 
@@ -210,6 +211,7 @@ ActiveRecord::Schema.define(version: 2020_12_23_001736) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "priority_post", default: false
+    t.boolean "published", default: false
     t.index "to_tsvector('english'::regconfig, content)", name: "thredded_posts_content_fts", using: :gist
     t.index ["messageboard_id"], name: "index_thredded_posts_on_messageboard_id"
     t.index ["moderation_state", "updated_at"], name: "index_thredded_posts_for_display"

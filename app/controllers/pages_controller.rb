@@ -12,7 +12,9 @@ class PagesController < ApplicationController
       end
     end
     @priority_posts = priorities
-    @published_blog_posts = published
+    @published_posts = published
+    @regular_posts = regular_posts
+    # raise
   end
 
   def about
@@ -21,12 +23,21 @@ class PagesController < ApplicationController
   def community
   end
 
+  private
+
   def priorities
-    Thredded::Post.select { |post| post.priority_post }
+    [Thredded::Post.select(&:priority_post),
+      BlogPost.select(&:priority_post)].flatten.sort_by(&:updated_at).reverse
   end
 
   def published
-    BlogPost.order_by_updated.select { |blog_post| blog_post.published }
+    [Thredded::Post.select(&:published),
+      BlogPost.select(&:published)].flatten.sort_by(&:updated_at).reverse
+  end
+
+  def regular_posts
+    [Thredded::Post.select { |post| !post.priority_post && !post.published },
+      BlogPost.select { |post| !post.priority_post && !post.published }].flatten.sort_by(&:updated_at).reverse
   end
 
   def not_found
