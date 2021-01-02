@@ -27,17 +27,17 @@ class PagesController < ApplicationController
 
   def priorities
     [Thredded::Post.select(&:priority_post),
-      BlogPost.select(&:priority_post)].flatten.sort_by(&:updated_at).reverse
+      BlogPost.select(&:priority?)].flatten.sort_by(&:updated_at).reverse
   end
 
   def published
     [Thredded::Post.select(&:published),
-      BlogPost.select(&:published)].flatten.sort_by(&:updated_at).reverse
+      BlogPost.select(&:published?)].flatten.sort_by(&:updated_at).reverse
   end
 
   def regular_posts
     [Thredded::Post.select { |post| !post.priority_post && !post.published },
-      BlogPost.select { |post| !post.priority_post && !post.published }].flatten.sort_by(&:updated_at).reverse
+      BlogPost.select(&:regular?)].flatten.sort_by(&:updated_at).reverse
   end
 
   def not_found
