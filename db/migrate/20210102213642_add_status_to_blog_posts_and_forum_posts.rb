@@ -38,7 +38,7 @@ class AddStatusToBlogPostsAndForumPosts < ActiveRecord::Migration[6.0]
     
     remove_column :blog_posts, :status
     remove_column :thredded_posts, :status
-    remove_index :blog_posts, :status
-    remove_index :thredded_posts, :status
+    remove_index :blog_posts, :index_blog_posts_on_status
+    remove_index :thredded_posts, :index_thredded_posts_on_forum_post_status
   end
 end
