@@ -34,6 +34,9 @@ module Thredded
 
     has_many :likes, dependent: :destroy
 
+    enum status: { regular: 0, priority: 1, published: 2 }
+    validates :status, inclusion: { in: :status }
+
     validates :messageboard_id, presence: true
 
     after_commit :update_parent_last_user_and_time_from_last_post, on: %i[create destroy]
