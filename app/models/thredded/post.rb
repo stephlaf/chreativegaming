@@ -34,7 +34,7 @@ module Thredded
 
     has_many :likes, dependent: :destroy
 
-    enum status: { regular: 0, priority: 1, published: 2 }
+    enum status: { regular: 'regular', priority: 'priority', published: 'published' }
     validates :status, inclusion: { in: :status }
 
     validates :messageboard_id, presence: true

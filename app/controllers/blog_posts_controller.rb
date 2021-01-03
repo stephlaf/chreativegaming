@@ -19,12 +19,6 @@ class BlogPostsController < ApplicationController
     @blog_post = BlogPost.new(blog_post_params)
     @blog_post.user = current_user
 
-    # if blog_post_params[:published] && !current_user.master
-    #   skip_authorization
-    #   flash[:alert] = "You don't have the rights to publish!"
-    #   render :new and return
-    # end
-
     authorize @blog_post
 
     if @blog_post.save
@@ -39,12 +33,7 @@ class BlogPostsController < ApplicationController
   end
 
   def update
-    if blog_post_params[:published] && !current_user.master
-      skip_authorization
-      flash[:alert] = "You don't have the rights to publish!"
-      render :new and return
-    end
-
+# raise
     if @blog_post.update(blog_post_params)
       authorize @blog_post
       redirect_to blog_posts_path
@@ -60,7 +49,6 @@ class BlogPostsController < ApplicationController
   end
 
   def pre_liked?
-    raise
   end
 
   private
@@ -70,21 +58,11 @@ class BlogPostsController < ApplicationController
   end
 
   def blog_post_params
-    params.require(:blog_post)
-      .permit(:title, :content, :blog_image, :published, :status)
+    params
+      .require(:blog_post)
+      .permit(:title, :content, :blog_image, :blog_post_status)
       .tap do |p|
-        case p[:status].downcase
-        when 'regular'   then p[:status] = 0
-        when 'priority'  then p[:status] = 1
-        when 'published' then p[:status] = 2
-        end
+        p[:blog_post_status].downcase!
       end
-  end
-
-  def validate_blog_post
-    if blog_post_params[:published] && !current_user.master
-      skip_authorization
-      render :new and return
-    end
   end
 end

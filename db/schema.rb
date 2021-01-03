@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_02_233541) do
+ActiveRecord::Schema.define(version: 2021_01_02_213642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_enum :status, [
+    "regular",
+    "priority",
+    "published",
+  ], force: :cascade
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -63,8 +69,8 @@ ActiveRecord::Schema.define(version: 2021_01_02_233541) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "published", default: false
     t.boolean "priority_post", default: false
-    t.integer "status", default: 0
-    t.index ["status"], name: "index_blog_posts_on_status"
+    t.enum "blog_post_status", default: "regular", null: false, enum_name: "status"
+    t.index ["blog_post_status"], name: "index_blog_posts_on_blog_post_status"
     t.index ["user_id"], name: "index_blog_posts_on_user_id"
   end
 
@@ -214,13 +220,13 @@ ActiveRecord::Schema.define(version: 2021_01_02_233541) do
     t.datetime "updated_at", null: false
     t.boolean "priority_post", default: false
     t.boolean "published", default: false
-    t.integer "status", default: 0
+    t.enum "forum_post_status", default: "regular", null: false, enum_name: "status"
     t.index "to_tsvector('english'::regconfig, content)", name: "thredded_posts_content_fts", using: :gist
+    t.index ["forum_post_status"], name: "index_thredded_posts_on_forum_post_status"
     t.index ["messageboard_id"], name: "index_thredded_posts_on_messageboard_id"
     t.index ["moderation_state", "updated_at"], name: "index_thredded_posts_for_display"
     t.index ["postable_id", "created_at"], name: "index_thredded_posts_on_postable_id_and_created_at"
     t.index ["postable_id"], name: "index_thredded_posts_on_postable_id"
-    t.index ["status"], name: "index_thredded_posts_on_status"
     t.index ["user_id"], name: "index_thredded_posts_on_user_id"
   end
 
