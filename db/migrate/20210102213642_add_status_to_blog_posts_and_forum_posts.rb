@@ -30,15 +30,10 @@ class AddStatusToBlogPostsAndForumPosts < ActiveRecord::Migration[6.0]
   end
 
   def down
-    # drop_enum :status
-    # remove_column :blog_posts, :blog_post_status
-    # remove_column :thredded_posts, :forum_post_status
-    # remove_index :blog_posts, :blog_post_status
-    # remove_index :thredded_posts, :forum_post_status
-
-    remove_column :blog_posts, :status
-    remove_column :thredded_posts, :status
-    # remove_index :blog_posts, :index_blog_posts_on_status
-    # remove_index :thredded_posts, :index_thredded_posts_on_status
+    drop_enum :status
+    remove_column :blog_posts, :blog_post_status
+    remove_column :thredded_posts, :forum_post_status
+    remove_index :blog_posts, colummn: :blog_post_status
+    remove_index :thredded_posts, colummn: :forum_post_status
   end
 end
