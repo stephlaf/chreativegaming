@@ -2,13 +2,17 @@
   <p class="btn-gradient"><%= link_to "Join Community", new_user_session_path %></p>
 </div>
 
-<div id="news">
+<div class="news">
   <h2>News</h2>
   <div id="news-content">
     <ul>
-      <% unless @published_blog_posts.empty? %>
-        <% @published_blog_posts.each do |post| %>
-          <li class=""><%= link_to post.title, "/blog_posts##{post.id}", class: 'homepage-news-links' %></li>
+      <% unless @published_posts.empty? %>
+        <% @published_posts.each do |post| %>
+          <% if post.kind_of?(BlogPost) %>
+            <li class="">Blog <%= link_to post.title, "/blog_posts##{post.id}", class: 'homepage-news-links' %></li>
+          <% else %>
+            <li class="">Forum <%= link_to post.content.truncate_words(10), "/forum/#{post.messageboard.slug}/#{post.postable.slug}#post_#{post.id}", class: 'homepage-news-links priority-post' %></li>
+          <% end %>
         <% end %>
       <% else %>
         <p>No news</p>
@@ -17,6 +21,35 @@
   </div>
 </div>
 
-<div id="members-feed">
+<div class="news">
   <h2>Members feed</h2>
+  <div id="members-feed-content">
+    <ul>
+      <% unless @priority_posts.empty? %>
+      <h4>PRIORITY POSTS</h4>
+        
+        <% @priority_posts.each do |post| %>
+          <% if post.kind_of?(BlogPost) %>
+            <li class="">Blog <%= link_to post.title, "/blog_posts##{post.id}", class: 'homepage-news-links' %></li>
+          <% else %>
+            <li class="">Forum <%= link_to post.content.truncate_words(10), "/forum/#{post.messageboard.slug}/#{post.postable.slug}#post_#{post.id}", class: 'homepage-news-links priority-post' %></li>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <% if !@regular_posts.empty? %>
+      <h4>REGULAR POSTS</h4>
+      
+        <% @regular_posts.each do |post| %>
+          <% if post.kind_of?(BlogPost) %>
+            <li class="">Blog <%= link_to post.title, "/blog_posts##{post.id}", class: 'homepage-news-links' %></li>
+          <% else %>
+            <li class="">Forum <%= link_to post.content.truncate_words(10), "/forum/#{post.messageboard.slug}/#{post.postable.slug}#post_#{post.id}", class: 'homepage-news-links priority-post' %></li>
+          <% end %>
+        <% end %>
+      <% else %>
+        <p>No news</p>
+      <% end %>
+    </ul>
+  </div>
 </div>

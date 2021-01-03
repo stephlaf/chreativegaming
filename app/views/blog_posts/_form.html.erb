@@ -3,7 +3,13 @@
   <%= f.input :content %>
   <%= f.input :blog_image %>
   <% if current_user.master %>
-    <%= f.input :published, as: :boolean, label: 'Publish in newsfeed' %>
+    <%= f.input :status,
+      as: :select,
+      collection: BlogPost.statuses.keys.map!(&:capitalize),
+      # include_blank: false,
+      selected: f.object.status.capitalize,
+      label: 'Post Status' %>
+
   <% end %>
   <%= f.submit %>
 <% end %>
