@@ -6,7 +6,8 @@
     <%= f.input :status,
       as: :select,
       collection: BlogPost.statuses.keys.map!(&:capitalize),
-      include_blank: false,
+      # include_blank: false,
+      selected: f.object.status.capitalize,
       label: 'Post Status' %>
 
   <% end %>

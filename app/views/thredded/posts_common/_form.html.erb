@@ -20,6 +20,7 @@
           Post Priority:
           <%= post_fields.select :status,
             BlogPost.statuses.keys.map!(&:capitalize),
+            selected: post_fields.object.status.capitalize,
             include_blank: false %>
         <% end %>
       </li>
