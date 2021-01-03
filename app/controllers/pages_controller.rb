@@ -26,17 +26,17 @@ class PagesController < ApplicationController
   private
 
   def priorities
-    [Thredded::Post.select(&:priority_post),
+    [Thredded::Post.select(&:priority?),
       BlogPost.select(&:priority?)].flatten.sort_by(&:updated_at).reverse
   end
 
   def published
-    [Thredded::Post.select(&:published),
+    [Thredded::Post.select(&:published?),
       BlogPost.select(&:published?)].flatten.sort_by(&:updated_at).reverse
   end
 
   def regular_posts
-    [Thredded::Post.select { |post| !post.priority_post && !post.published },
+    [Thredded::Post.select(&:regular?),
       BlogPost.select(&:regular?)].flatten.sort_by(&:updated_at).reverse
   end
 

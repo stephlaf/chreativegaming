@@ -70,7 +70,7 @@ class BlogPostsController < ApplicationController
   end
 
   def blog_post_params
-    params.require(:blog_post).permit(:title, :content, :blog_image, :published)
+    params.require(:blog_post).permit(:title, :content, :blog_image, :published, :status)
   end
 
   def validate_blog_post

@@ -17,8 +17,10 @@
     <% if current_user.master %>
       <li>
         <%= fields_for post.post do |post_fields| %>
-          Priority post?: <%= post_fields.check_box :priority_post %>
-          
+          Post Priority:
+          <%= post_fields.select :status,
+            BlogPost.statuses.keys.map!(&:capitalize),
+            include_blank: false %>
         <% end %>
       </li>
     <% end %>

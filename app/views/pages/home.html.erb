@@ -11,7 +11,7 @@
           <% if post.kind_of?(BlogPost) %>
             <li class=""><%= link_to post.title, "/blog_posts##{post.id}", class: 'homepage-news-links' %></li>
           <% else %>
-            <li class=""><%= link_to post.content, "/forum/#{post.messageboard.slug}/#{post.postable.slug}#post_#{post.id}", class: 'homepage-news-links' %></li>
+            <li class=""><%= link_to post.content, "/forum/#{post.messageboard.slug}/#{post.postable.slug}#post_#{post.id}", class: 'homepage-news-links priority-post' %></li>
           <% end %>
         <% end %>
       <% else %>
