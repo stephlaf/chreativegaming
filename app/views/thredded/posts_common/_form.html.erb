@@ -18,9 +18,9 @@
       <li>
         <%= fields_for post.post do |post_fields| %>
           Post Priority:
-          <%= post_fields.select :status,
-            BlogPost.statuses.keys.map!(&:capitalize),
-            selected: post_fields.object.status.capitalize,
+          <%= post_fields.select :forum_post_status,
+            Thredded::Post.forum_post_statuses.keys.map!(&:capitalize),
+            selected: post_fields.object.forum_post_status.capitalize,
             include_blank: false %>
         <% end %>
       </li>

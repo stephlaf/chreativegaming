@@ -14,7 +14,6 @@ class PagesController < ApplicationController
     @priority_posts = priorities
     @published_posts = published
     @regular_posts = regular_posts
-    # raise
   end
 
   def about

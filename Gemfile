@@ -42,6 +42,9 @@ gem 'pundit'
 gem 'money-rails', '~>1.12'
 gem 'faker'
 
+# To have PG worl well with enums
+gem 'activerecord-postgres_enum'
+
 # Administrate panel
 gem "administrate"
 gem 'administrate-field-active_storage'

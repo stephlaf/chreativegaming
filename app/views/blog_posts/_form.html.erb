@@ -3,13 +3,11 @@
   <%= f.input :content %>
   <%= f.input :blog_image %>
   <% if current_user.master %>
-    <%= f.input :status,
+    <%= f.input :blog_post_status,
       as: :select,
-      collection: BlogPost.statuses.keys.map!(&:capitalize),
-      # include_blank: false,
-      selected: f.object.status.capitalize,
+      collection: BlogPost.blog_post_statuses.keys.map!(&:capitalize),
+      selected: f.object.blog_post_status.capitalize,
       label: 'Post Status' %>
-
   <% end %>
   <%= f.submit %>
 <% end %>
