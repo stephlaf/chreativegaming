@@ -6,10 +6,8 @@
     <%= f.input :blog_post_status,
       as: :select,
       collection: BlogPost.blog_post_statuses.keys.map!(&:capitalize),
-      # include_blank: false,
       selected: f.object.blog_post_status.capitalize,
       label: 'Post Status' %>
-
   <% end %>
   <%= f.submit %>
 <% end %>

@@ -7,15 +7,10 @@ module Thredded
 
     def new_post_params
       params.fetch(:post, {})
-        .permit(:content, :quote_post_id, :priority_post, :status)
+        .permit(:content, :quote_post_id, :forum_post_status)
         .tap do |p|
-          # p[:priority_post] = p[:priority_post] == '1' ? true : false
-          unless p[:status].nil?
-            case p[:status].downcase
-            when 'regular'   then p[:status] = 0
-            when 'priority'  then p[:status] = 1
-            when 'published' then p[:status] = 2
-            end
+          unless p[:forum_post_status].nil?
+            p[:forum_post_status].downcase!
           end
           quote_id = p.delete(:quote_post_id)
           if quote_id
