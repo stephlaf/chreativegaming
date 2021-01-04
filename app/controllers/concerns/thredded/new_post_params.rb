@@ -9,9 +9,7 @@ module Thredded
       params.fetch(:post, {})
         .permit(:content, :quote_post_id, :forum_post_status)
         .tap do |p|
-          unless p[:forum_post_status].nil?
-            p[:forum_post_status].downcase!
-          end
+          p[:forum_post_status].downcase! if p[:forum_post_status]
           quote_id = p.delete(:quote_post_id)
           if quote_id
             post = Thredded::Post.find(quote_id)

@@ -62,7 +62,7 @@ class BlogPostsController < ApplicationController
       .require(:blog_post)
       .permit(:title, :content, :blog_image, :blog_post_status)
       .tap do |p|
-        p[:blog_post_status].downcase!
+        p[:blog_post_status].downcase! if p[:blog_post_status]
       end
   end
 end
