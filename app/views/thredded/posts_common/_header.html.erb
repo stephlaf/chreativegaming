@@ -1,0 +1,15 @@
+<%# @param post [Thredded::PostView] %>
+<header class="">
+  <%= cl_image_tag post.user.avatar.key, 
+    :transformation=>[
+    {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
+    {:width=>200, :crop=>"scale"}
+    ],
+    alt: "alttext",
+    class: 'thredded--post--avatar' %>
+  <%#= image_tag post.avatar_url, class: 'thredded--post--avatar' if post.user %>
+  <h2 class="thredded--post--user"><%= user_link post.user %></h2>
+  <a href="<%= post.permalink_path %>" rel="nofollow" class="thredded--link thredded--post--created-at">
+    <%= time_ago post.created_at %>
+  </a>
+</header>
