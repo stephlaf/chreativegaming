@@ -30,8 +30,7 @@ class PagesController < ApplicationController
   end
 
   def published
-    [Thredded::Post.select(&:published?),
-      BlogPost.select(&:published?)].flatten.sort_by(&:updated_at).reverse
+    BlogPost.select(&:published?).sort_by(&:updated_at).reverse
   end
 
   def regular_posts
