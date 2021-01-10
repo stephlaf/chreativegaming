@@ -19,7 +19,7 @@
         <%= fields_for post.post do |post_fields| %>
           Post Priority:
           <%= post_fields.select :forum_post_status,
-            Thredded::Post.forum_post_statuses.keys.map!(&:capitalize),
+            Thredded::Post.forum_post_statuses.except('published').keys.map!(&:capitalize),
             selected: post_fields.object.forum_post_status.capitalize,
             include_blank: false %>
         <% end %>
