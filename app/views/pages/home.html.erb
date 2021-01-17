@@ -26,9 +26,9 @@
         
         <% @priority_posts.each do |post| %>
           <% if post.kind_of?(BlogPost) %>
-            <li class="">Blog <%= link_to post.title, "/blog_posts##{post.id}", class: 'homepage-news-links' %></li>
+            <li class=""><%= link_to post.title, "/blog_posts##{post.id}", class: 'homepage-news-links' %></li>
           <% else %>
-            <li class="">Forum <%= link_to post.content.truncate_words(10), "/forum/#{post.messageboard.slug}/#{post.postable.slug}#post_#{post.id}", class: 'homepage-news-links priority-post' %></li>
+            <li class=""><%= link_to post.postable.title, "/forum/#{post.messageboard.slug}/#{post.postable.slug}#post_#{post.id}", class: 'homepage-news-links priority-post' %></li>
           <% end %>
         <% end %>
       <% end %>
@@ -38,9 +38,10 @@
       
         <% @regular_posts.each do |post| %>
           <% if post.kind_of?(BlogPost) %>
-            <li class="">Blog <%= link_to post.title, "/blog_posts##{post.id}", class: 'homepage-news-links' %></li>
+            <li class=""><%= link_to post.title, "/blog_posts##{post.id}", class: 'homepage-news-links' %></li>
           <% else %>
-            <li class="">Forum <%= link_to post.content.truncate_words(10), "/forum/#{post.messageboard.slug}/#{post.postable.slug}#post_#{post.id}", class: 'homepage-news-links priority-post' %></li>
+            <li class=""><%= link_to post.postable.title, "/forum/#{post.messageboard.slug}/#{post.postable.slug}#post_#{post.id}", class: 'homepage-news-links regular-forum-post' %></li>
+            <%=  %>
           <% end %>
         <% end %>
       <% else %>
