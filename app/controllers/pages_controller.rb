@@ -24,21 +24,26 @@ class PagesController < ApplicationController
 
   private
 
+  def forum_post_priorities
+    Thredded::Post.select(&:priority?).group_by(&:postable)
+  end
+
   def priorities
-    [Thredded::Post.select(&:priority?),
-      BlogPost.select(&:priority?)].flatten.sort_by(&:updated_at).reverse
+    [forum_post_priorities.map { |_k, v| v.last || v },
+      BlogPost.select(&:priority?)].flatten.sort_by(&:created_at).reverse
   end
 
   def published
-    BlogPost.select(&:published?).sort_by(&:updated_at).reverse
+    BlogPost.select(&:published?).sort_by(&:created_at).reverse
   end
 
   def regular_posts
-    [Thredded::Post.select(&:regular?),
-      BlogPost.select(&:regular?)].flatten.sort_by(&:updated_at).reverse
+    topics_to_remove = forum_post_priorities.keys
+    all_topics = Thredded::Post.select(&:regular?).group_by(&:postable)
+    filtered_topics = all_topics.reject { |topic, _posts| topics_to_remove.include?(topic) }
+
+    [filtered_topics.map { |_topic, posts_aray_or_post| posts_aray_or_post.last || posts_aray_or_post },
+      BlogPost.select(&:regular?)].flatten.sort_by(&:created_at).reverse
   end
 
-  def not_found
-    # TODO Render alert & redirect
-  end
 end
