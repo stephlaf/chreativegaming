@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Gueshly</title>
+    <title>Chreative Gaming</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +9,18 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Thredded stuff -->
+    <!-- <title>Thredded | <%#= yield :thredded_page_title %></title> -->
+    <%= stylesheet_link_tag 'thredded', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tag %>
+    <%= csp_meta_tag if Thredded.rails_supports_csp_nonce? %>
+    <%= javascript_include_tag 'thredded',
+                               async: !Rails.application.config.assets.debug,
+                               defer: true,
+                               'data-turbolinks-track': 'reload' %>
+    <%== Gravatar.prefetch_dns %>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> -->
   </head>
 
   <body>
@@ -26,5 +38,6 @@
     <%= render 'shared/footer' %>
 
     <%= javascript_pack_tag 'custom', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'thredded_custom', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
