@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
     if resource.master
       stored_location_for(resource)
     else
-      root_path
+      super
     end
   end
 
