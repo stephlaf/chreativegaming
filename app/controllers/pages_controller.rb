@@ -61,5 +61,4 @@ class PagesController < ApplicationController
     [filtered_topics.map { |_topic, posts_aray_or_post| posts_aray_or_post.last || posts_aray_or_post },
       BlogPost.select(&:regular?)].flatten.sort_by(&:created_at).reverse
   end
-
 end

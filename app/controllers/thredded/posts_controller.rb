@@ -23,6 +23,9 @@ module Thredded
       @post_form = Thredded::PostForm.new(
         user: thredded_current_user, topic: parent_topic, post_params: new_post_params
       )
+
+      new_post_set_priority_date
+
       authorize_creating @post_form.post
       if @post_form.save
         redirect_to post_path(@post_form.post, user: thredded_current_user)
@@ -39,6 +42,9 @@ module Thredded
     end
 
     def update
+      # raise
+      update_set_priority_date
+
       authorize post, :update?
       post.update(new_post_params)
 
@@ -106,6 +112,20 @@ module Thredded
 
     def current_page
       params[:page].nil? ? 1 : params[:page].to_i
+    end
+
+    def new_post_set_priority_date
+      if @post_form.post.priority?
+        @post_form.post.set_priority_date = DateTime.now
+      end
+    end
+
+    def update_set_priority_date
+      if post.set_priority_date && new_post_params[:forum_post_status] == 'regular'
+        post.set_priority_date = nil
+      elsif post.set_priority_date.nil? && new_post_params[:forum_post_status] == 'priority'
+        post.set_priority_date = DateTime.now
+      end
     end
   end
 end
