@@ -85,16 +85,14 @@
                       <p class="card-tag blog-tag">blog</p>
 
                       <!-- Adding the "Priority" look -->
-                      <p class="absolute-bolt">
-                        <% if current_user && policy(current_user).master? %>
-                          <%= link_to blog_priority_path(post) do %>
-                            <i class="fas fa-bolt"></i>
-                          <% end %>
-                        <% else %>
-                          <i class="fas fa-bolt"></i>
+                      <p class="absolute-bolt"><i class="fas fa-bolt"></i></p>
+                        
+                      <!-- Link to remove priority from blog_post -->
+                      <% if current_user && policy(current_user).master? %>
+                        <%= link_to blog_priority_path(post) do %>
+                          <p class="absolute-not"><i class="far fa-times-circle"></i></p>
                         <% end %>
-                      </p>
-
+                      <% end %>
 
                       <div class="absolute-gradient"></div>
                     </div>
@@ -120,15 +118,14 @@
                       <p class="card-tag forum-tag"><%= post.messageboard.name.truncate(25)%></p>
                       
                       <!-- Adding the "Priority" look -->
-                      <p class="absolute-bolt">
-                        <% if current_user && policy(current_user).master? %>
-                          <%= link_to forum_priority_path(post) do %>
-                            <i class="fas fa-bolt"></i>
-                          <% end %>
-                        <% else %>
-                          <i class="fas fa-bolt"></i>
+                      <p class="absolute-bolt"><i class="fas fa-bolt"></i></p>
+                        
+                      <!-- Link to remove priority from forum_post -->
+                      <% if current_user && policy(current_user).master? %>
+                        <%= link_to forum_priority_path(post) do %>
+                          <p class="absolute-not"><i class="far fa-times-circle"></i></p>
                         <% end %>
-                      </p>
+                      <% end %>
 
                       <div class="absolute-gradient"></div>
                     </div>

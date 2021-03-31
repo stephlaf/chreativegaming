@@ -156,6 +156,17 @@
   }
 }
 
+.absolute-not {
+  position: absolute;
+  right: 32px;
+  top: 16px;
+  margin-bottom: 0;
+
+  i {
+    font-size: 20px;
+  }
+}
+
 .absolute-gradient {
   position: absolute;
   width: 12px;
