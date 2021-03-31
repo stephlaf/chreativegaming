@@ -108,7 +108,9 @@
                       </div>
                       <p class="card-tag forum-tag"><%= post.messageboard.name.truncate(25)%></p>
                       <!-- Adding the "Priority" look -->
-                      <p class="absolute-bolt"><i class="fas fa-bolt"></i></p>
+                      <%= link_to forum_priority_path(post) do %>
+                        <p class="absolute-bolt"><i class="fas fa-bolt"></i></p>
+                      <% end %>
                       <div class="absolute-gradient"></div>
                     </div>
                   <% end %>
