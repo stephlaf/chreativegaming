@@ -30,19 +30,30 @@
 
 .tabs {
   width: fit-content;
-}
-
-.tabs p {
+  p {
   font-family: $headers-font;
   border-bottom: 2px solid #EEEDF1;
   color: $secondary-gray;
   padding: 8px;
   cursor: pointer;
+  }
+}
+
+.tabs p:first-child {
+  padding-left: 0;
+}
+
+.tabs p:last-child {
+  padding-right: 0;
 }
 
 .tabs p:hover {
   color: $primary-dark;
   // border-bottom: 2px solid $chreative-orange;
+}
+
+.margin-bottom {
+  margin-bottom: 24px;
 }
 
 .card-long {
@@ -54,7 +65,6 @@
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.04);
   height: 112px;
   max-width: 1000px;
-  margin-bottom: 24px;
   transition: all .2s ease-in-out;
 }
 

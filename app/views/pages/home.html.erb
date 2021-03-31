@@ -21,111 +21,17 @@
     <!-- News -->
     <div data-tab="1">
       <% unless @published_posts.empty? %>
-        <p>Some gaming news we're paying attention to right now.</p>
+        <p>All the gaming news we're talking about right now.</p>
         <div class="news-section">
           <% @published_posts.each do |post| %>
-            <%= link_to "/blog_posts##{post.id}" do %>
-              <div class="card-long">
-                <div class="image-container">
-                  <% if post.blog_image.attached? %>
-                    <%= cl_image_tag post.blog_image.key, width: 136, height: 112, crop: :fill %>
-                  <% else %>
-                    <%= cl_image_tag post.user.avatar.key, width: 50, height: 50 %>
-                  <% end %>
-                </div>
-                <div class="card-text">
-                  <h3><%= post.title.truncate(50) %></h3>
-                  <div class="secondary-text d-flex">
-                    <p>by <%= post.user.gametag %></p>
-                    <p><i class="far fa-clock"></i><span><%= post.created_at.strftime("%b %d, %Y") %></span></p>
-                    <p><i class="far fa-heart"></i><%=post.blog_likes.count%></p>
-                  </div>
-                </div>
-                <p class="card-tag news-tag">news</p>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      <% else %>
-        <p>Hmm... must be a slow news day. Check back again soon! </p>
-      <% end %>
-    </div>
-
-    <!-- Member's Feed -->
-    <div data-tab="2">
-      <% unless @priority_posts.empty? || @regular_posts.empty? %>
-        <p>Dive into the lastest community topics and join the conversation!</p>
-
-        <!-- Priority Posts -->
-        <% unless @priority_posts.empty? %>
-          <div class="news-section">
-            <% @priority_posts.each do |post| %>
-
-              <!-- Priority Blog Posts -->
-              <% if post.kind_of?(BlogPost) %>
-                <%= link_to "/blog_posts##{post.id}" do %>
-                  <div class="card-long">
-                    <div class="image-container">
-                      <% if post.blog_image.attached? %>
-                        <%= cl_image_tag post.blog_image.key, width: 136, height: 112, crop: :fill %>
-                      <% else %>
-                        <%= cl_image_tag post.user.avatar.key, width: 50, height: 50 %>
-                      <% end %>
-                    </div>
-                    <div class="card-text">
-                      <h3><%= post.title.truncate(50) %></h3>
-                      <div class="secondary-text d-flex">
-                        <p>by <%= post.user.gametag %></p>
-                        <p><i class="far fa-clock"></i><span><%= post.created_at.strftime("%b %d, %Y") %></span></p>
-                        <p><i class="far fa-heart"></i><%=post.blog_likes.count%></p>
-                      </div>
-                    </div>
-                    <p class="card-tag blog-tag">blog</p>
-                    <!-- Adding the "Priority" look -->
-                    <p class="absolute-bolt"><i class="fas fa-bolt"></i></p>
-                    <div class="absolute-gradient"></div>
-                  </div>
-                <% end %>
-
-              <!-- Priority Forum Posts -->
-              <% else %>
-                <%= link_to "/forum/#{post.messageboard.slug}/#{post.postable.slug}#post_#{post.id}" do %>
-                  <div class="card-long">
-                    <div class="image-container">
-                      <%= cl_image_tag post.postable.user.avatar.key, width: 50, height: 50 %>
-                    </div>
-                    <div class="card-text">
-                      <h3><%= post.postable.title.truncate(50) %></h3>
-                      <div class="secondary-text d-flex">
-                        <p>by <%= post.postable.user.gametag %></p>
-                        <p><i class="far fa-clock"></i><span><%= post.postable.created_at.strftime("%b %d, %Y") %></span></p>
-                        <p><i class="far fa-comment-alt"></i><%=post.postable.posts_count%></p>
-                      </div>
-                    </div>
-                    <p class="card-tag forum-tag"><%= post.messageboard.name.truncate(25)%></p>
-                    <!-- Adding the "Priority" look -->
-                    <p class="absolute-bolt"><i class="fas fa-bolt"></i></p>
-                    <div class="absolute-gradient"></div>
-                  </div>
-                <% end %>
-              <% end %>
-            <% end %>
-          </div>
-        <% end %>
-
-        <!-- Reg Posts -->
-        <% if !@regular_posts.empty? %>
-          <% @regular_posts.each do |post| %>
-
-            <!-- Regular Blog Posts -->
-            <% if post.kind_of?(BlogPost) %>
+            <div class="margin-bottom">
               <%= link_to "/blog_posts##{post.id}" do %>
                 <div class="card-long">
                   <div class="image-container">
                     <% if post.blog_image.attached? %>
                       <%= cl_image_tag post.blog_image.key, width: 136, height: 112, crop: :fill %>
                     <% else %>
-                      <%= cl_image_tag post.user.avatar.key, width: 50, height: 50 %>
+                     <%= cl_image_tag post.user.avatar.key, width: 50, height: 50 %>
                     <% end %>
                   </div>
                   <div class="card-text">
@@ -136,37 +42,140 @@
                       <p><i class="far fa-heart"></i><%=post.blog_likes.count%></p>
                     </div>
                   </div>
-                  <p class="card-tag blog-tag">blog</p>
+                  <p class="card-tag news-tag">news</p>
                 </div>
               <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <p>Hmm... must be a slow news day. Check back again soon! </p>
+      <% end %>
+    </div>
 
-            <!-- Regular Forum Posts -->
-            <% else %>
-              <%= link_to "/forum/#{post.messageboard.slug}/#{post.postable.slug}#post_#{post.id}" do %>
-                <div class="card-long">
-                  <div class="image-container">
-                    <%= cl_image_tag post.postable.user.avatar.key, width: 50, height: 50 %>
-                  </div>
-                  <div class="card-text">
-                    <h3><%= post.postable.title.truncate(50) %></h3>
-                    <div class="secondary-text d-flex">
-                      <p>by <%= post.postable.user.gametag %></p>
-                      <p><i class="far fa-clock"></i><span><%= post.postable.created_at.strftime("%b %d, %Y") %></span></p>
-                      <p><i class="far fa-comment-alt"></i><%=post.postable.posts_count%></p>
+    <!-- Member's Feed -->
+    <div data-tab="2">
+      <% unless @priority_posts.empty? && @regular_posts.empty? %>
+        <p>Dive into the lastest community topics and join the conversation!</p>
+        <div class="news-section">
+        <!-- Priority Posts -->
+          <% unless @priority_posts.empty? %>
+            <% @priority_posts.each do |post| %>
+
+              <!-- Priority Blog Posts -->
+              <% if post.kind_of?(BlogPost) %>
+                <div class="margin-bottom">
+                  <%= link_to "/blog_posts##{post.id}" do %>
+                    <div class="card-long">
+                      <div class="image-container">
+                        <% if post.blog_image.attached? %>
+                          <%= cl_image_tag post.blog_image.key, width: 136, height: 112, crop: :fill %>
+                        <% else %>
+                          <%= cl_image_tag post.user.avatar.key, width: 50, height: 50 %>
+                        <% end %>
+                      </div>
+                      <div class="card-text">
+                        <h3><%= post.title.truncate(50) %></h3>
+                        <div class="secondary-text d-flex">
+                          <p>by <%= post.user.gametag %></p>
+                          <p><i class="far fa-clock"></i><span><%= post.created_at.strftime("%b %d, %Y") %></span></p>
+                          <p><i class="far fa-heart"></i><%=post.blog_likes.count%></p>
+                        </div>
+                      </div>
+                      <p class="card-tag blog-tag">blog</p>
+                      <!-- Adding the "Priority" look -->
+                      <p class="absolute-bolt"><i class="fas fa-bolt"></i></p>
+                      <div class="absolute-gradient"></div>
                     </div>
-                  </div>
-                  <p class="card-tag forum-tag"><%= post.messageboard.name.truncate(25)%></p>
+                  <% end %>
+                </div>
+
+              <!-- Priority Forum Posts -->
+              <% else %>
+                <div class="margin-bottom">
+                  <%= link_to "/forum/#{post.messageboard.slug}/#{post.postable.slug}#post_#{post.id}" do %>
+                    <div class="card-long">
+                      <div class="image-container">
+                        <%= cl_image_tag post.postable.user.avatar.key, width: 50, height: 50 %>
+                      </div>
+                      <div class="card-text">
+                        <h3><%= post.postable.title.truncate(50) %></h3>
+                        <div class="secondary-text d-flex">
+                          <p>by <%= post.postable.user.gametag %></p>
+                          <p><i class="far fa-clock"></i><span><%= post.postable.created_at.strftime("%b %d, %Y") %></span></p>
+                          <p><i class="far fa-comment-alt"></i><%=post.postable.posts_count%></p>
+                        </div>
+                      </div>
+                      <p class="card-tag forum-tag"><%= post.messageboard.name.truncate(25)%></p>
+                      <!-- Adding the "Priority" look -->
+                      <p class="absolute-bolt"><i class="fas fa-bolt"></i></p>
+                      <div class="absolute-gradient"></div>
+                    </div>
+                  <% end %>
                 </div>
               <% end %>
             <% end %>
-
           <% end %>
-        <% end %>
-        <%= render 'paginate_links' %>
+
+          <!-- Reg Posts -->
+          <% unless @regular_posts.empty? %>
+            <% @regular_posts.each do |post| %>
+
+              <!-- Regular Blog Posts -->
+              <% if post.kind_of?(BlogPost) %>
+                <div class="margin-bottom">
+                  <%= link_to "/blog_posts##{post.id}" do %>
+                    <div class="card-long">
+                      <div class="image-container">
+                        <% if post.blog_image.attached? %>
+                          <%= cl_image_tag post.blog_image.key, width: 136, height: 112, crop: :fill %>
+                        <% else %>
+                          <%= cl_image_tag post.user.avatar.key, width: 50, height: 50 %>
+                        <% end %>
+                      </div>
+                      <div class="card-text">
+                        <h3><%= post.title.truncate(50) %></h3>
+                        <div class="secondary-text d-flex">
+                          <p>by <%= post.user.gametag %></p>
+                          <p><i class="far fa-clock"></i><span><%= post.created_at.strftime("%b %d, %Y") %></span></p>
+                          <p><i class="far fa-heart"></i><%=post.blog_likes.count%></p>
+                        </div>
+                      </div>
+                      <p class="card-tag blog-tag">blog</p>
+                    </div>
+                  <% end %>
+                </div>
+
+              <!-- Regular Forum Posts -->
+              <% else %>
+                <div class="margin-bottom">
+                  <%= link_to "/forum/#{post.messageboard.slug}/#{post.postable.slug}#post_#{post.id}" do %>
+                    <div class="card-long">
+                      <div class="image-container">
+                        <%= cl_image_tag post.postable.user.avatar.key, width: 50, height: 50 %>
+                      </div>
+                      <div class="card-text">
+                        <h3><%= post.postable.title.truncate(50) %></h3>
+                        <div class="secondary-text d-flex">
+                          <p>by <%= post.postable.user.gametag %></p>
+                          <p><i class="far fa-clock"></i><span><%= post.postable.created_at.strftime("%b %d, %Y") %></span></p>
+                          <p><i class="far fa-comment-alt"></i><%=post.postable.posts_count%></p>
+                        </div>
+                      </div>
+                      <p class="card-tag forum-tag"><%= post.messageboard.name.truncate(25)%></p>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+        <%#= render 'paginate_links' %>
 
       <% else %>
         <p>Start a conversation or check back again soon!</p>
       <% end %>
+
     </div>
 
   </div>
