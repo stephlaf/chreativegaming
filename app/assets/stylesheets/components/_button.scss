@@ -1,3 +1,28 @@
+.btn-orange {
+  border: none;
+  font-family: $headers-font;
+  font-size: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.52) -110.17%, rgba(255, 255, 255, 0) 100%), #EC8600;
+  border-radius: 100px;
+  padding: 16px 24px;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.04);
+  transition: all .2s ease-in-out;
+}
+
+.btn-orange:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.02);
+}
+
+.btn-orange:active {
+  transform: scale(.99);
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.08);
+}
+
+.btn-orange a {
+  color: white;
+}
+
 .btn-ghost {
   color: #4A4A4A;
   border: 1px solid #4A4A4A;
@@ -40,3 +65,4 @@
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
 }
+
