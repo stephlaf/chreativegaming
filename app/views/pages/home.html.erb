@@ -57,7 +57,7 @@
     <div data-tab="2">
       <% unless @priority_posts.empty? && @regular_posts.empty? %>
         <p>Dive into the lastest community topics and join the conversation!</p>
-        <div class="news-section">
+        <div class="news-section" id="priority-section">
         <!-- Priority Posts -->
           <% unless @priority_posts.empty? %>
             <% @priority_posts.each do |post| %>
@@ -83,8 +83,19 @@
                         </div>
                       </div>
                       <p class="card-tag blog-tag">blog</p>
+
                       <!-- Adding the "Priority" look -->
-                      <p class="absolute-bolt"><i class="fas fa-bolt"></i></p>
+                      <p class="absolute-bolt">
+                        <% if current_user && policy(current_user).master? %>
+                          <%= link_to blog_priority_path(post) do %>
+                            <i class="fas fa-bolt"></i>
+                          <% end %>
+                        <% else %>
+                          <i class="fas fa-bolt"></i>
+                        <% end %>
+                      </p>
+
+
                       <div class="absolute-gradient"></div>
                     </div>
                   <% end %>
@@ -107,8 +118,18 @@
                         </div>
                       </div>
                       <p class="card-tag forum-tag"><%= post.messageboard.name.truncate(25)%></p>
+                      
                       <!-- Adding the "Priority" look -->
-                      <p class="absolute-bolt"><i class="fas fa-bolt"></i></p>
+                      <p class="absolute-bolt">
+                        <% if current_user && policy(current_user).master? %>
+                          <%= link_to forum_priority_path(post) do %>
+                            <i class="fas fa-bolt"></i>
+                          <% end %>
+                        <% else %>
+                          <i class="fas fa-bolt"></i>
+                        <% end %>
+                      </p>
+
                       <div class="absolute-gradient"></div>
                     </div>
                   <% end %>

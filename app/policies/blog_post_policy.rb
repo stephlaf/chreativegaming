@@ -31,4 +31,8 @@ class BlogPostPolicy < ApplicationPolicy
       return true
     end
   end
+
+  def remove_blog_post_priority?
+    user.master
+  end
 end
