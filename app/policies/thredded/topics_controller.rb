@@ -62,7 +62,7 @@ module Thredded
       @posts = Thredded::TopicPostsPageView.new(thredded_current_user, topic, page_scope)
       # Added end of next line conditional
       Thredded::UserTopicReadState.touch!(thredded_current_user.id, page_scope.last) if thredded_signed_in? && !page_scope.empty?
-      
+
       @new_post = Thredded::PostForm.new(user: thredded_current_user, topic: topic, post_params: new_post_params)
     end
 
