@@ -1,0 +1,37 @@
+.tabs {
+  width: fit-content;
+  p {
+  font-family: $headers-font;
+  border-bottom: 2px solid #EEEDF1;
+  color: $secondary-gray;
+  padding: 8px;
+  cursor: pointer;
+  }
+}
+
+.tabs p:first-child {
+  padding-left: 0;
+}
+
+.tabs p:last-child {
+  padding-right: 0;
+}
+
+.tabs p:hover {
+  color: $primary-dark;
+  // border-bottom: 2px solid $chreative-orange;
+}
+
+.tabs p.tab-active {
+  color: $chreative-orange;
+  border-bottom: 2px solid $chreative-orange;
+  font-weight: bolder;
+}
+
+.content {
+  display: none;
+}
+
+div.content-active {
+  display: block;
+}

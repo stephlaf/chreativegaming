@@ -14,12 +14,12 @@
   <div class="container">
 
     <div class="tabs d-flex">
-      <p data-for-tab="1">News</p>
+      <p data-for-tab="1" class="tab-active">News</p>
       <p data-for-tab="2">Members' feed</p>
     </div>
 
     <!-- News -->
-    <div data-tab="1">
+    <div data-tab="1" class="content content-active">
       <% unless @published_posts.empty? %>
         <p>All the gaming news we're talking about right now.</p>
         <div class="news-section">
@@ -57,7 +57,7 @@
     </div>
 
     <!-- Member's Feed -->
-    <div data-tab="2">
+    <div data-tab="2" class="content">
       <% unless @priority_posts.empty? && @regular_posts.empty? %>
         <p>Dive into the lastest community topics and join the conversation!</p>
         <div class="news-section" id="priority-section">

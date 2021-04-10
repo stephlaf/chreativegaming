@@ -28,30 +28,6 @@
   padding: 80px 16px;
 }
 
-.tabs {
-  width: fit-content;
-  p {
-  font-family: $headers-font;
-  border-bottom: 2px solid #EEEDF1;
-  color: $secondary-gray;
-  padding: 8px;
-  cursor: pointer;
-  }
-}
-
-.tabs p:first-child {
-  padding-left: 0;
-}
-
-.tabs p:last-child {
-  padding-right: 0;
-}
-
-.tabs p:hover {
-  color: $primary-dark;
-  // border-bottom: 2px solid $chreative-orange;
-}
-
 .margin-bottom {
   margin-bottom: 24px;
   position: relative;
@@ -97,12 +73,6 @@
     object-fit: scale-down;
   }
 }
-
-// .card-long .image-container > img {
-//   border-top-left-radius: 8px;
-//   border-bottom-left-radius: 8px;
-//   object-fit: scale-down;
-// }
 
 .card-long .card-text {
   // flex-grow: 1;

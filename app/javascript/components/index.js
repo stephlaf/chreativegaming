@@ -1,10 +1,9 @@
 import { askForLogin } from './bloglikes';
 import { showComingSoon } from './alerts';
-import { printTab } from './homefeed';
+import { showTabContent } from './tabs';
 
 document.addEventListener('turbolinks:load', () => {
   askForLogin();
   showComingSoon();
-  // printTab();
-  // console.log(tabs)
+  showTabContent();
 });

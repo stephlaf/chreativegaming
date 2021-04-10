@@ -1,5 +1,5 @@
 const showComingSoon = () => {
-  const games = document.querySelector('.testing-alert');
+  const games = document.querySelector('.games-alert');
   const body = document.querySelector('body');
     games.addEventListener('click', (event) => {
       event.preventDefault();
