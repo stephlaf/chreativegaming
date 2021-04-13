@@ -1,11 +1,10 @@
 .tabs {
   width: fit-content;
   p {
-  font-family: $headers-font;
-  border-bottom: 2px solid #EEEDF1;
-  color: $secondary-gray;
-  padding: 8px;
-  cursor: pointer;
+    font-family: $headers-font;
+    color: $secondary-gray;
+    margin-right: 14px;
+    cursor: pointer;
   }
 }
 
@@ -19,12 +18,11 @@
 
 .tabs p:hover {
   color: $primary-dark;
-  // border-bottom: 2px solid $chreative-orange;
 }
 
 .tabs p.tab-active {
-  color: $chreative-orange;
-  border-bottom: 2px solid $chreative-orange;
+  color: $primary-dark;
+  border-bottom: 3px solid $chreative-orange;
   font-weight: bolder;
 }
 

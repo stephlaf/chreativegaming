@@ -1,17 +1,51 @@
+// Banner section
 .banner {
   height: 70vh;
   margin-bottom: 32px;
-}
-
-.banner-welcome-section {
-  border-radius: 158px 0px 0px 0px;
-  background-color: $chreative-medium-orange;
-  width: 40vw;
+  background: linear-gradient(180deg, #FFFFFF 7.23%, rgba(255, 255, 255, 0) 100%), rgba(255, 218, 169, 0.75);
+  border-radius: 0px 0px 158px 0px;
+  display: flex;
+  align-items: center;
 }
 
 .title {
-  // color: $chreative-orange;
+  color: $chreative-orange;
 }
+
+.flex-container {
+  display: flex;
+}
+.banner-text {
+  position: relative;
+  h1 {
+    font-size: 48px;
+  }
+  p {
+    font-size: 20px;
+    margin-bottom: 1.5rem;
+    font-family: $headers-font;
+  }
+  img {
+    position: absolute;
+    right: 21px;
+    bottom: -10px;
+    height: 325px;
+    width: 475px;
+    object-fit: cover;
+    border: 8px solid white;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.04);
+    transform: rotate(0.01turn);
+  }
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+}
+// .banner-welcome-section {
+//   border-radius: 158px 0px 0px 0px;
+//   background-color: $chreative-medium-orange;
+//   width: 40vw;
+// }
+
 
 .banner-image-section {
   border-radius: 0px 0px 158px 0px;
@@ -21,13 +55,16 @@
   width: 60vw;
 }
 
+
+// News Section
 .background-curves {
   border-radius: 0px 158px;
   background-color: $chreative-light-orange;
-  min-height: 500px;
+  min-height: 600px;
   padding: 80px 16px;
 }
 
+// Cards
 .margin-bottom {
   margin-bottom: 24px;
   position: relative;
@@ -87,8 +124,8 @@
 }
 
 .card-long .card-text .secondary-text i {
- color: $chreative-orange;
- font-size: 16px;
+  color: $chreative-orange;
+  font-size: 16px;
   margin-right: 4px;
 }
 
@@ -205,24 +242,24 @@
 // }
 
 
-#members-feed {
-  border-top: 1px solid rgba(0,0,0,0.1);
-  width: 90%;
-  padding-left: 10px;
-}
+// #members-feed {
+//   border-top: 1px solid rgba(0,0,0,0.1);
+//   width: 90%;
+//   padding-left: 10px;
+// }
 
-.homepage-news-links {
-  font-size: 22px;
-  color: rgba(112, 103, 103, 0.60);
-  &:hover {
-    color: rgba(112, 103, 103, 0.9);
-  }
-}
+// .homepage-news-links {
+//   font-size: 22px;
+//   color: rgba(112, 103, 103, 0.60);
+//   &:hover {
+//     color: rgba(112, 103, 103, 0.9);
+//   }
+// }
 
-#members-feed {
-  width: 100%;
-  min-height: 200px;
-  background: lightgrey;
-  margin-bottom: 20px;
-  padding: 10px;
-}
+// #members-feed {
+//   width: 100%;
+//   min-height: 200px;
+//   background: lightgrey;
+//   margin-bottom: 20px;
+//   padding: 10px;
+// }
