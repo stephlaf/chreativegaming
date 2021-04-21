@@ -1,6 +1,7 @@
 const showComingSoon = () => {
   const games = document.querySelector('.games-alert');
   const body = document.querySelector('body');
+  if (games) {
     games.addEventListener('click', (event) => {
       event.preventDefault();
       const alert =
@@ -12,6 +13,7 @@ const showComingSoon = () => {
           </div>`;
       body.insertAdjacentHTML("afterbegin", alert);
     });
+  }
 };
 
 export { showComingSoon };
