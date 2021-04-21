@@ -4,10 +4,9 @@
   background-color: rgba(255, 255, 255, .7);
   backdrop-filter: blur(25px);
   transition: 0.5s background-color ease;
-}
-
-.navbar-chreative:hover {
-  background-color: rgba(255, 255, 255, 1);
+  &:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
 }
 
 .navbar-chreative .navbar-collapse {
@@ -15,5 +14,9 @@
 }
 
 .navbar-brand img {
-  width: 50px;
+  width: 56px;
+}
+
+.nav-item img {
+  cursor: pointer;
 }
