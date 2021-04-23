@@ -1,0 +1,35 @@
+// Backgrounds
+.bg-curves-lite-r {
+  border-radius: 0px 158px;
+  background-color: $chreative-light-orange;
+  padding: 80px 16px;
+  margin-bottom: 24px;
+}
+
+.bg-curves-lite-l {
+  border-radius: 158px 0px;
+  background-color: $chreative-light-orange;
+  padding: 80px 16px;
+  margin-bottom: 24px;
+}
+
+// Headers
+.header-colorful {
+  line-height: .9;
+  span {
+    color: $chreative-orange;
+  }
+}
+
+// Media Queries
+@media(max-width: 768px) {
+  .bg-curves-lite-r {
+    border-radius: 0px 90px;
+  }
+  .bg-curves-lite-l {
+  border-radius: 90px 0px;
+  }
+}
+
+
+// image children of bg-curves-l are placed on the right of the row in screens that are md and up

@@ -21,7 +21,7 @@
                                'data-turbolinks-track': 'reload' %>
     <%== Gravatar.prefetch_dns %>
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> -->
-    
+
   </head>
 
   <body>
@@ -31,9 +31,9 @@
     <% if request.path == '/' %>
         <%= yield %>
     <% else %>
-      <div class="container">
+      <!-- <div class="container"> -->
         <%= yield %>
-      </div>
+      <!-- </div> -->
     <% end %>
 
     <%= render 'shared/footer' %>
