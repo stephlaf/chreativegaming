@@ -5,21 +5,22 @@
         <div class="tabs d-flex">
           <p class="tab-active">Blog</p>
         </div>
-        <!-- Old code  -->
+
         <div class="news-section margin-top">
           <% if current_user && policy(BlogPost).create? %>
-            <!-- <p class="thredded--button"><%= link_to 'New Blog Post', new_blog_post_path %></p> -->
             <div class="blog-card-wrapper margin-bottom">
-              <%= link_to new_blog_post_path do %>
-                <div class="d-flex">
-                    <!-- <p class="thredded--button">New Blog Post</p> -->
-                    <%= cl_image_tag current_user.avatar.key, width: 200, height: 200, gravity: :face, crop: :thumb, class: "avatar-image"%>
-                    <p>Create a post</p>
-                </div>
-              <% end %>
+              <div class="d-flex align-items-center">
+                <%= cl_image_tag current_user.avatar.key, width: 200, height: 200, gravity: :face, crop: :thumb, class: "avatar-image"%>
+                <%= link_to 'Create a post', new_blog_post_path, class: 'input-rounded' %>
+              </div>
             </div>
           <% else %>
-            <p class="thredded--button"><%= link_to 'Log in to create a new blog post', new_user_session_path %> </p>
+            <div class="blog-card-wrapper margin-bottom">
+              <div class="d-flex align-items-center">
+                <%= image_tag 'default', class: "avatar-large"%>
+                <%= link_to 'Create a post', new_user_session_path, class: 'input-rounded' %>
+              </div>
+            </div>
           <% end %>
 
           <% @blog_posts.order_by_updated.each do |blog_post| %>

@@ -10,6 +10,17 @@
   transform: scale(1.01);
   box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.02);
   }
+ .input-rounded {
+  margin-bottom: 0;
+  padding: 12px;
+  border: 1px solid #E5E5E5;
+  border-radius: 8px;
+  margin-left: 12px;
+  width: 100%;
+  color: $secondary-gray;
+  cursor: text;
+  display: block;
+ }
 }
 
 .blog-card {
@@ -46,9 +57,9 @@
   font-size: 16px;
   align-items: center;
   justify-content: flex-start;
+  color: $secondary-gray;
   p {
     margin: 0;
-    color: $secondary-gray;
   }
   i {
     margin-right: 4px;
