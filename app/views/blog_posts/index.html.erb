@@ -1,11 +1,38 @@
-<h1>The Blog</h1>
+<section class="background-curves">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-9">
+        <div class="tabs d-flex">
+          <p class="tab-active">Blog</p>
+        </div>
+        <!-- Old code  -->
+        <div class="news-section margin-top">
+          <% if current_user && policy(BlogPost).create? %>
+            <!-- <p class="thredded--button"><%= link_to 'New Blog Post', new_blog_post_path %></p> -->
+            <div class="blog-card-wrapper margin-bottom">
+              <%= link_to new_blog_post_path do %>
+                <div class="d-flex">
+                    <!-- <p class="thredded--button">New Blog Post</p> -->
+                    <%= cl_image_tag current_user.avatar.key, width: 200, height: 200, gravity: :face, crop: :thumb, class: "avatar-image"%>
+                    <p>Create a post</p>
+                </div>
+              <% end %>
+            </div>
+          <% else %>
+            <p class="thredded--button"><%= link_to 'Log in to create a new blog post', new_user_session_path %> </p>
+          <% end %>
 
-<% if current_user && policy(BlogPost).create? %>
-  <p class="thredded--button"><%= link_to 'New Blog Post', new_blog_post_path %></p>
-<% else %>
-  <p class="thredded--button"><%= link_to 'Log in to create a new blog post', new_user_session_path %> </p>
-<% end %>
+          <% @blog_posts.order_by_updated.each do |blog_post| %>
+            <%= render 'blog_post_card', blog_post: blog_post %>
+          <% end %>
+        </div>
 
-<% @blog_posts.order_by_updated.each do |blog_post| %>
-  <%= render 'blog_post_card', blog_post: blog_post %>
-<% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+

@@ -1,10 +1,110 @@
-<div  id="<%= blog_post.id %>" class="blogpost-card">
+<!-- Blog Card -->
+<div id="<%= blog_post.id %>" class="blog-card-wrapper margin-bottom">
+  <div class="blog-card">
+    <!-- Author Info -->
+    <div class="blog-byline-content">
+      <%= cl_image_tag blog_post.user.avatar.key, width: 200, height: 200, gravity: :face, crop: :thumb,
+        alt: "alttext",
+        class: 'avatar-image-small' %>
+      <div>
+        <p>by <%= blog_post.user.gametag %>
+          <% if  blog_post.user.master %>
+            • <span class="admin-badge">admin</span>
+          <% end %>
+        </p>
+        <p><i class="far fa-clock"></i><span><%= blog_post.created_at.strftime("%b %d, %Y") %></span></p>
+      </div>
+    </div>
+    <!-- Blog Text -->
+    <div class="blog-text-content">
+      <h3><%= blog_post.title %></h3>
+      <p class="textToAutoLink"><%= blog_post.content %></p>
+    </div>
+    <!-- Blog Visual -->
+    <div class="gif-image-content">
+      <% if blog_post.content.match(/\bhttp.+\.gif\b/) %>
+        <div class="">
+          <%= image_tag blog_post.content.match(/\bhttp.+\.gif\b/)[0], width: 160, alt: "A GIF" %>
+        </div>
+      <% end %>
+
+      <% if blog_post.blog_image.attached? %>
+        <div class="">
+          <% if blog_post.blog_image.blob.image? %>
+            <%= cl_image_tag blog_post.blog_image.key, width: 150 %>
+          <% elsif blog_post.blog_image.blob.video? %>
+            <%= cl_video_tag blog_post.blog_image.key, width: 200, height: 150, crop: :pad, controls: true %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <!-- Actions Links -->
+    <div class="card-links-content">
+      <!-- Likes -->
+      <% if current_user %>
+        <div class="loggedBlogLike d-flex">
+          <%= link_to blog_like_path(blog_post) do %>
+            <%# pre_like = blog_post.blog_likes.find { |like| like.user_id == current_user.id} %>
+            <i class="far fa-heart"></i>
+            <!-- <i class="fas fa-heart"></i> -->
+          <% end %>
+          <p><%= blog_post.blog_likes.count %></p>
+        </div>
+      <% else %>
+        <div class="unLoggedBlogLikeAttempt d-flex">
+          <p><i class="far fa-heart"></i><%= blog_post.blog_likes.count %></p>
+        </div>
+      <% end %>
+      <!-- Edit / Delete -->
+      <% if current_user %>
+        <% if policy(blog_post).edit? %>
+          <%= link_to edit_blog_post_path(blog_post) do %>
+            <i class="far fa-edit"></i>
+          <% end %>
+        <% end %>
+
+        <% if policy(blog_post).destroy? %>
+          <%= link_to blog_post_path(blog_post),
+            method: 'delete',
+            data: { confirm: "Are you sure you want to delete #{blog_post.title}?" } do
+          %>
+            <i class="fas fa-dumpster"></i>
+          <% end %>
+        <% end %>
+      <% end %>
+      <!-- Tags -->
+      <% if blog_post.published? %>
+        <p class="card-tag news-tag">news</p>
+      <% else %>
+        <p class="card-tag blog-tag">blog</p>
+      <% end %>
+    </div>
+  </div>
+  <!-- "Priority" look -->
+  <% if blog_post.priority?%>
+    <div class="absolute-gradient"></div>
+    <p class="absolute-bolt"><i class="fas fa-bolt"></i></p>
+    <!-- Link to remove priority from blog_post -->
+    <% if current_user && policy(current_user).master? %>
+      <%= link_to blog_priority_path(blog_post) do %>
+        <p class="absolute-not" title="remove priority status"><i class="far fa-times-circle"></i></p>
+      <% end %>
+    <% end %>
+  <% end %>
+
+</div>
+
+
+
+<!-- Original Code -->
+
+<!-- <div  id="<%= blog_post.id %>" class="blogpost-card">
   <div class="blogpost-header">
     <div class="title-user-infos">
       <h2><%= blog_post.title %></h2>
-      <p class="">Posted by: 
+      <p class="">Posted by:
         <span>
-          <%= cl_image_tag blog_post.user.avatar.key, 
+          <%= cl_image_tag blog_post.user.avatar.key,
             :transformation=>[
             {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
             {:width=>200, :crop=>"scale"}
@@ -79,3 +179,4 @@
   </div>
 
 </div>
+ -->
