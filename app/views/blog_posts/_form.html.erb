@@ -1,13 +1,28 @@
 <%= simple_form_for(@blog_post) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.input :blog_image %>
+  <%= f.input :title, label: false, placeholder: 'Title', input_html: { class: 'input-rounded' } %>
+  <%= f.input :content, label: false, placeholder: 'Text', input_html: { class: 'input-rounded' } %>
+  <div class="control-group">
+  <div class="attach-set">
+    <%= f.input :blog_image, label: false,input_html: { hidden: true } %>
+    <div class="input-append">
+      <input id="file-display" class="input-large uneditable-input" disabled type="text">
+      <a id="upload-btn" class="btn btn-primary"><i class="fas fa-photo-video"></i>Browse</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
   <% if current_user.master %>
     <%= f.input :blog_post_status,
       as: :select,
       collection: BlogPost.blog_post_statuses.keys.map!(&:capitalize),
       selected: f.object.blog_post_status.capitalize,
-      label: 'Post Status' %>
+      label: 'Post Status',
+      input_html: { class: 'input-rounded' }
+    %>
   <% end %>
-  <%= f.submit %>
+  <%= f.button :submit, class: "btn-orange move-right margin-top" %>
 <% end %>

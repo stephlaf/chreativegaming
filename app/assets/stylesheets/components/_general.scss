@@ -10,6 +10,11 @@
   margin-bottom: 24px;
 }
 
+.move-right {
+  margin-left: auto;
+  display: block;
+}
+
 .background-curves {
   border-radius: 0px 158px;
   background-color: $chreative-light-orange;
@@ -24,6 +29,10 @@
 
 @media(max-width: 768px) {
   .background-curves {
-    border-radius: 0px 90px;
+    border-radius: 0px 56px;
+    padding-top: 32px;
+  }
+  .margin-top {
+    margin-top: 16px;
   }
 }
