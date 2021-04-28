@@ -26,6 +26,25 @@
   color: white;
 }
 
+.btn-grey {
+  width: fit-content;
+  border: none;
+  display: block;
+  font-family: $headers-font;
+  background: #e8e8e8;
+  border-radius: 100px;
+  padding: 16px 24px;
+  cursor: pointer;
+  p {
+    margin: 0 auto;
+    text-align: center;
+    color: $secondary-gray;
+    &:hover {
+      color: $primary-dark;
+    }
+  }
+}
+
 .btn-ghost {
   color: #4A4A4A;
   border: 1px solid #4A4A4A;

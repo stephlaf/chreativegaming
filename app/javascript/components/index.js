@@ -1,11 +1,11 @@
 import { askForLogin } from './bloglikes';
+import { displayFile } from './customUpload';
 import { showComingSoon } from './alerts';
 import { showTabContent } from './tabs';
-import { displayFile } from './customUpload';
 
 document.addEventListener('turbolinks:load', () => {
   askForLogin();
+  displayFile();
   showComingSoon();
   showTabContent();
-  displayFile();
 });
