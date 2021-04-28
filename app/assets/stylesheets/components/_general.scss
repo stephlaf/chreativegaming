@@ -5,3 +5,34 @@
 .margin-top {
   margin-top: 32px;
 }
+
+.margin-bottom {
+  margin-bottom: 24px;
+}
+
+.move-right {
+  margin-left: auto;
+  display: block;
+}
+
+.background-curves {
+  border-radius: 0px 158px;
+  background-color: $chreative-light-orange;
+  min-height: 60vh;
+  padding: 80px 16px;
+}
+
+.news-section {
+  display: flex;
+  flex-direction: column;
+}
+
+@media(max-width: 768px) {
+  .background-curves {
+    border-radius: 0px 56px;
+    padding-top: 32px;
+  }
+  .margin-top {
+    margin-top: 16px;
+  }
+}

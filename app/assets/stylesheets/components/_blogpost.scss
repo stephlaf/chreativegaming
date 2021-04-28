@@ -1,14 +1,211 @@
+// New Blog Post Cards
+.blog-card-wrapper {
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+  position: relative;
+  transition: all .2s ease-in-out;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.04);
+  &:hover {
+  transform: scale(1.01);
+  box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.02);
+  }
+ .input-rounded {
+  margin-left: 12px;
+  display: block;
+  color: $secondary-gray;
+ }
+}
+
+@media(max-width: 576px) {
+  .blog-card-wrapper .avatar-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid $chreative-medium-orange;
+    padding: 1px;
+  }
+  .blog-card-wrapper .avatar-large {
+    width: 40px;
+    height: 40px;
+    // border-radius: 50%;
+    // border: 2px solid $chreative-medium-orange;
+    // padding: 1px;
+  }
+}
+
+.blog-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.blog-byline-content {
+  display: flex;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #E5E5E5;
+  font-size: 14px;
+  align-items: center;
+  justify-content: flex-start;
+  img {
+    margin-right: 8px;
+  }
+  p {
+    margin: 0;
+    color: $secondary-gray;
+  }
+  i {
+    color: $chreative-orange;
+    margin-right: 4px;
+  }
+}
+
+.card-links-content {
+  display: flex;
+  padding-top: 8px;
+  border-top: 1px solid #E5E5E5;
+  font-size: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  color: $secondary-gray;
+  p {
+    margin: 0;
+  }
+  i {
+    margin-right: 4px;
+    color: $chreative-orange;
+  }
+  > * {
+    margin-left: 1px;
+    margin-right: 16px;
+  }
+  .card-tag {
+    margin-left: auto;
+  }
+}
+
+.blog-text-content {
+  h3 {
+    color: $primary-dark;
+    font-size: 20px;
+    margin-top: 1rem;
+  }
+}
+
+// Unrevised from home cards
+.card-long .image-container {
+  width: 136px;
+  // height: 112px;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  .blog-image {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    object-fit: scale-down;
+  }
+}
+
+.card-long .card-text {
+  // flex-grow: 1;
+  flex: 1 0 auto;
+  padding: 16px;
+}
+
+.card-long .card-text .secondary-text p {
+  margin: 0;
+  color: $secondary-gray;
+  margin-right: 16px;
+}
+
+.card-long .card-text .secondary-text i {
+  color: $chreative-orange;
+  font-size: 16px;
+  margin-right: 4px;
+}
+
+.card-long h3 {
+  color: $primary-dark;
+  font-size: 20px;
+}
+
+.card-long p {
+  font-size: 16px;
+}
+
+.card-tag {
+  margin: 16px;
+  padding: 4px;
+  border-radius: 4px;
+  align-self: flex-end;
+}
+
+.news-tag {
+  background-color: #F9F5FE;
+  color: #CFBAF3;
+}
+
+.blog-tag {
+  background-color: #EAFBF3;
+  color: #A0D0B9;
+}
+
+.forum-tag {
+  background-color: #DDF0F3;
+  color: #96C2C9;
+}
+
+.absolute-bolt {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  margin-bottom: 0;
+  i {
+    font-size: 20px;
+    color: $chreative-orange;
+  }
+}
+
+.absolute-not {
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  margin-bottom: 0;
+  i {
+    font-size: 24px;
+    background-color: white;
+    border-radius: 50%;
+    color: $chreative-medium-orange;
+    &:hover {
+      color: $chreative-orange;
+    }
+  }
+}
+
+.absolute-gradient {
+  position: absolute;
+  width: 12px;
+  height: 100%;
+  left: 0;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background: linear-gradient(179.97deg, rgba(255, 255, 255, 0.52) -28.84%, rgba(255, 255, 255, 0) 99.98%), #EC8600;
+}
+
+
+// ------ Original Blog Post Cards---------
 .blogpost-card {
   overflow: hidden;
-  background: rgba(253, 253, 253, 1.00);
+  background: white;
   position: relative;
-  border-radius: 3px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
   margin: 0 0 6px 0;
   padding: 16px;
   // max-height: 300px;
-  max-width: 50%;
-  
+  // max-width: 50%;
+
   img.test {
     // height: 150px;
     // width: auto;
@@ -19,7 +216,7 @@
   h3 {
 
   }
-  
+
   h2 {
     font-size: 16px;
     font-weight: bold;
@@ -56,7 +253,7 @@
 .blogpost-content {
   // border: 1px solid red;
   margin-bottom: 6px;
-  
+
   p {
     font-size: 16px;
   }
@@ -80,6 +277,7 @@
 .gif-image-content {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 16px;
 }
 
 .position-gif {
@@ -147,19 +345,19 @@
   }
 }
 
-.blogpost-card-links {
-  a {
-    font-size: 14px;
-    color: rgba(112, 103, 103, 0.60);
-    &:hover {
-      color: rgba(112, 103, 103, 0.9);
-    }
-  }
-}
+// .blogpost-card-links {
+//   a {
+//     font-size: 14px;
+//     color: rgba(112, 103, 103, 0.60);
+//     &:hover {
+//       color: rgba(112, 103, 103, 0.9);
+//     }
+//   }
+// }
 
 .thredded--button {
   a {
-    color: white;  
+    color: white;
   }
 }
 

@@ -18,7 +18,7 @@ const trimDisplayedLinks = (link) => {
 const hideGifLinks = () => {
   const allLinks = document.querySelectorAll('.textToAutoLink a');
   const regex = /\bhttp.+\.gif\b/;
-  
+
   allLinks.forEach((link) => {
     if (link.innerText.match(regex)) {
       link.hidden = true;
@@ -56,11 +56,11 @@ const autoLink = (content) => {
 
 const buildLinks = () => {
   const allBlogContents = document.querySelectorAll('.textToAutoLink');
-  
+
   allBlogContents.forEach((content) => {
     autoLink(content);
   });
-  
+
   hideGifLinks();
 };
 

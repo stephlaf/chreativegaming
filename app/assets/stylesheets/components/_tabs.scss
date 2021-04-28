@@ -5,6 +5,9 @@
     color: $secondary-gray;
     margin-right: 14px;
     cursor: pointer;
+    &:only-child {
+      cursor: default;
+    }
   }
 }
 

@@ -24,12 +24,10 @@
 // Media Queries
 @media(max-width: 768px) {
   .bg-curves-lite-r {
-    border-radius: 0px 90px;
+    border-radius: 0px 56px;
   }
   .bg-curves-lite-l {
-  border-radius: 90px 0px;
+  border-radius: 56px 0px;
   }
 }
 
-
-// image children of bg-curves-l are placed on the right of the row in screens that are md and up
