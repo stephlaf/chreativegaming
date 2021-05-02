@@ -6,13 +6,13 @@ class PagesController < ApplicationController
   POSTS_PER_PAGE = 10
 
   def home
-    file = URI.open('https://res.cloudinary.com/chreative-gaming/image/upload/v1583507597/default_junymf.png')
-    if current_user
-      unless current_user.avatar.attached?
-        current_user.avatar.attach(io: file, filename: 'default.png', content_type: 'image/png')
-        current_user.save!
-      end
-    end
+    # file = URI.open('https://res.cloudinary.com/chreative-gaming/image/upload/v1583507597/default_junymf.png')
+    # if current_user
+    #   unless current_user.avatar.attached?
+    #     current_user.avatar.attach(io: file, filename: 'default.png', content_type: 'image/png')
+    #     current_user.save!
+    #   end
+    # end
     @priority_posts = priorities
     @published_posts = published
     all_posts = regular_posts
