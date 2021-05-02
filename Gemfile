@@ -61,6 +61,7 @@ gem "aws-sdk-s3", require: false
 # Temp fix for the mimemagic problem
 # gem 'mimemagic', '0.3.4', git: 'https://github.com/mimemagicrb/mimemagic', ref: '64b60d1'
 # gem 'mimemagic', '0.3.5', git: 'https://github.com/mimemagicrb/mimemagic', ref: '01f92d8'
+gem 'sprockets', '3.7.2'
 
 # Background jobs
 # gem 'sidekiq'
