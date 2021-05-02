@@ -56,6 +56,12 @@ module Thredded
 
     delegate :moderate?, to: :messageboard_policy
 
+    # Custom policies
+
+    def remove_forum_post_priority?
+      user_is_master?
+    end
+
     private
 
     def messageboard_policy
@@ -64,6 +70,10 @@ module Thredded
 
     def own_post?
       !anonymous? && @user.id == @post.user_id
+    end
+
+    def user_is_master?
+      @user.master
     end
   end
 end

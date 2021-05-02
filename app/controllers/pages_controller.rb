@@ -4,12 +4,12 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!
 
   POSTS_PER_PAGE = 10
-  
+
   def home
     file = URI.open('https://res.cloudinary.com/chreative-gaming/image/upload/v1583507597/default_junymf.png')
     if current_user
       unless current_user.avatar.attached?
-        current_user.avatar.attach(io: file, filename: 'defaul.png', content_type: 'image/png')
+        current_user.avatar.attach(io: file, filename: 'default.png', content_type: 'image/png')
         current_user.save!
       end
     end
@@ -41,7 +41,8 @@ class PagesController < ApplicationController
   private
 
   def forum_post_priorities
-    Thredded::Post.select(&:priority?).group_by(&:postable)
+    all_priority_posts = Thredded::Post.select(&:priority?).group_by(&:postable)
+    all_priority_posts.reject { |topic| topic.moderation_state == 'pending_moderation' }
   end
 
   def priorities
@@ -55,11 +56,13 @@ class PagesController < ApplicationController
 
   def regular_posts
     topics_to_remove = forum_post_priorities.keys
+    
     all_topics = Thredded::Post.select(&:regular?).group_by(&:postable)
-    filtered_topics = all_topics.reject { |topic, _posts| topics_to_remove.include?(topic) }
+    all_approved_topics = all_topics.reject { |topic| topic.moderation_state == 'pending_moderation' }
+    
+    filtered_topics = all_approved_topics.reject { |topic, _posts| topics_to_remove.include?(topic) }
 
     [filtered_topics.map { |_topic, posts_aray_or_post| posts_aray_or_post.last || posts_aray_or_post },
       BlogPost.select(&:regular?)].flatten.sort_by(&:created_at).reverse
   end
-
 end

@@ -56,6 +56,10 @@ gem 'rails-ujs'
 
 gem "aws-sdk-s3", require: false
 
+# Background jobs
+# gem 'sidekiq'
+# gem 'sidekiq-failures', '~> 1.0'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

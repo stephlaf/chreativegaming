@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_02_233541) do
+ActiveRecord::Schema.define(version: 2021_02_06_205800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -221,6 +221,7 @@ ActiveRecord::Schema.define(version: 2021_01_02_233541) do
     t.boolean "priority_post", default: false
     t.boolean "published", default: false
     t.enum "forum_post_status", default: "regular", null: false, enum_name: "status"
+    t.datetime "set_priority_date"
     t.index "to_tsvector('english'::regconfig, content)", name: "thredded_posts_content_fts", using: :gist
     t.index ["forum_post_status"], name: "index_thredded_posts_on_forum_post_status"
     t.index ["messageboard_id"], name: "index_thredded_posts_on_messageboard_id"

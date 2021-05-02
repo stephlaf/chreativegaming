@@ -1,13 +1,22 @@
-.navbar-lewagon {
+.navbar-chreative {
   justify-content: space-between;
-  background: white;
+  font-family: $headers-font;
+  background-color: rgba(255, 255, 255, .7);
+  backdrop-filter: blur(25px);
+  transition: 0.5s background-color ease;
+  &:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-chreative .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 50px;
-  // border-radius: 50%;
+.navbar-brand img {
+  width: 56px;
+}
+
+.nav-item img {
+  cursor: pointer;
 }

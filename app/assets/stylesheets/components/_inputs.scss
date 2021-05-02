@@ -1,0 +1,29 @@
+.input-rounded {
+  margin-bottom: 0;
+  padding: 12px;
+  border: 1px solid #E5E5E5;
+  border-radius: 8px;
+  width: 100%;
+  color: $secondary-gray;
+  cursor: text;
+  display: block;
+  height: auto;
+ }
+
+.input-rounded.textarea {
+  height: 150px;
+}
+
+.input-rounded-dashed {
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px dashed $secondary-gray;
+  color: $secondary-gray;
+  width: fit-content;
+  max-width: 100%;
+  overflow: hidden;
+  cursor: default;
+}
+

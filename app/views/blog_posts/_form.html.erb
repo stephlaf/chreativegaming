@@ -1,13 +1,32 @@
 <%= simple_form_for(@blog_post) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.input :blog_image %>
+  <%= f.input :title, label: false, placeholder: 'Title', input_html: { class: 'input-rounded' } %>
+  <%= f.input :content, label: false, placeholder: 'Text', input_html: { class: 'input-rounded textarea' }, maxlength: true %>
+
   <% if current_user.master %>
     <%= f.input :blog_post_status,
       as: :select,
       collection: BlogPost.blog_post_statuses.keys.map!(&:capitalize),
       selected: f.object.blog_post_status.capitalize,
-      label: 'Post Status' %>
+      label: false,
+      hint: "choose your post status",
+      input_html: { class: 'input-rounded' }
+    %>
   <% end %>
-  <%= f.submit %>
+
+  <div class="control-group">
+    <div class="attach-set">
+      <%= f.input :blog_image, label: false, input_html: { hidden: true } %>
+      <div class="input-appendx">
+        <p id="file-display" class="uneditable-input" disabled type="text"></p>
+        <a id="upload-btn" class="btn-grey">
+          <p><i class="far fa-images"></i> Images & Video</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center margin-top">
+    <%= link_to "Back", :back %>
+    <%= f.button :submit, class: "btn-orange" %>
+  </div>
 <% end %>

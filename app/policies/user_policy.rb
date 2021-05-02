@@ -53,4 +53,8 @@ class UserPolicy < ApplicationPolicy
   def archive_profile?
     return true
   end
+
+  def master?
+    user.master
+  end
 end

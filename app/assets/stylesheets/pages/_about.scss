@@ -1,0 +1,33 @@
+// Backgrounds
+.bg-curves-lite-r {
+  border-radius: 0px 158px;
+  background-color: $chreative-light-orange;
+  padding: 80px 16px;
+  margin-bottom: 24px;
+}
+
+.bg-curves-lite-l {
+  border-radius: 158px 0px;
+  background-color: $chreative-light-orange;
+  padding: 80px 16px;
+  margin-bottom: 24px;
+}
+
+// Headers
+.header-colorful {
+  line-height: .9;
+  span {
+    color: $chreative-orange;
+  }
+}
+
+// Media Queries
+@media(max-width: 768px) {
+  .bg-curves-lite-r {
+    border-radius: 0px 56px;
+  }
+  .bg-curves-lite-l {
+  border-radius: 56px 0px;
+  }
+}
+
