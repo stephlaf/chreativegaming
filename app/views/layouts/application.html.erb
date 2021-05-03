@@ -25,20 +25,30 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+    <div class="wrapper">
+      <div class="page-header">
+        <%= render 'shared/navbar' %>
+      </div>
 
-    <% if request.path == '/' %>
-        <%= yield %>
-    <% else %>
-      <!-- <div class="container"> -->
-        <%= yield %>
-      <!-- </div> -->
-    <% end %>
+      <div class="page-body">
+        <%= render 'shared/flashes' %>
 
-    <%= render 'shared/footer' %>
+        <% if request.path == '/' %>
+            <%= yield %>
+        <% else %>
+          <!-- <div class="container"> -->
+            <%= yield %>
+          <!-- </div> -->
+        <% end %>
+      </div>
 
-    <%= javascript_pack_tag 'custom', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'thredded_custom', 'data-turbolinks-track': 'reload' %>
+      <div class="page-footer">
+        <%= render 'shared/footer' %>
+      </div>
+
+      <%= javascript_pack_tag 'custom', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_pack_tag 'thredded_custom', 'data-turbolinks-track': 'reload' %>
+
+    </div>
   </body>
 </html>

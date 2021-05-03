@@ -1,6 +1,9 @@
 <%= simple_form_for(@user) do |f| %>
   <p>Gametag: <%= @user.gametag %></p>
   <p>Email: <%= @user.email %></p>
+  <div class="form-inputs">
+    <%= f.input :first_name%>
+  </div>
   <div class="form-group">
     <%= f.label :first_name %>
     <%= f.text_field :first_name, class: 'form-control' %>
@@ -13,6 +16,7 @@
 
   <%= f.input :avatar, as: :file %>
 
-  <%= f.submit class: 'btn btn-primary' %>
+  <%= f.submit class: 'btn-orange' %>
 <% end %>
+
 

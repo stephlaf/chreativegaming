@@ -1,48 +1,56 @@
-<h1>User's Profile Page</h1>
-<p>Where they can see / edit their profile</p>
+<section class="background-curves">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-9">
 
-<p>
-  <% if @user.avatar.attached? %>
-    <%= cl_image_tag @user.avatar.key,
-      :transformation=>[
-      {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
-      {:width=>200, :crop=>"scale"}
-      ],
-      class: "avatar-profile dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" },
-      'aria-haspopup': true, 'aria-expanded': false
-    %>
-  <% else %>
-    <%= image_tag 'default',
-      class: "avatar-profile dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" },
-      'aria-haspopup': true, 'aria-expanded': false
-    %>
-  <% end %>
-</p>
+        <div class="tabs d-flex">
+          <p class="tab-active">Profile</p>
+        </div>
+        <div class="margin-top">
+          <div class="profile-card-wrapper">
+            <div class="profile-top"></div>
+            <div class="profile-centered">
+              <% if @user.avatar.attached? %>
+                <%= cl_image_tag @user.avatar.key, width: 200, height: 200, gravity: :face, crop: :thumb, class: "avatar-image-lrg margin-auto d-block"%>
+              <% else %>
+                <%= image_tag 'default', class: "avatar-image-lrg margin-auto d-block"%>
+              <% end %>
+            </div>
 
-<ul>
-  <li>Email: <%= @user.email %></li>
-  <li>Gametag: <%= @user.gametag %></li>
-  <li>First name: <%= @user.first_name %></li>
-  <li>Last name: <%= @user.last_name %></li>
-  <li>Membership Level: <%= @user.membership_level %></li>
-  <li>Member since: <%= @user.created_at.strftime('%b %d, %Y') %></li>
-</ul>
+            <!-- User Info -->
+            <div class="profile-text">
+              <div>
+                <% if @user.first_name && @user.last_name %>
+                  <h3><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h3>
+                <% end %>
+                <p><%= @user.gametag %></p>
+              </div>
+              <div>
+                <p><%= @user.email %></p>
+                <p>🎉 Member since <%= @user.created_at.strftime(' %B %d, %Y') %></p>
+              </div>
+              <%#= link_to "Change your password", edit_user_registration_path, class: 'btn-orange' %>
 
-<%= Thredded::ApplicationController.render partial: 'thredded/users/posts', locals: {
-      posts: Thredded.posts_page_view(scope: @user.thredded_posts.order_newest_first.limit(5),
-                                      current_user: current_user) } %>
+<!--               <% if @user.master %>
+                <%= link_to "Delete user", user_path(@user), method: 'delete', data: { confirm: "Are you sure you want to delete #{@user.gametag}'s account?" }, class: "btn-orange" %>
+              <% else %>
+                <%= link_to 'Archive account',
+                  # user_path(@user),
+                  user_registration_path,
+                  method: 'delete',
+                  data: { confirm: "Are you sure you want to delete your account?" },
+                  class: "btn-orange" %>
+              <% end %> -->
+            </div>
+            <%= link_to 'Edit profile', edit_user_path(@user), class: 'btn-orange margin-top' %>
+          </div>
+        </div>
 
-<%= link_to 'Edit your profile', edit_user_path(@user), class: 'btn btn-sm btn-primary' %>
-<%= link_to "Change your password", edit_user_registration_path, class: 'btn btn-sm btn-warning' %>
+        <%#= Thredded::ApplicationController.render partial: 'thredded/users/posts', locals: {
+              posts: Thredded.posts_page_view(scope: @user.thredded_posts.order_newest_first.limit(5),
+                                              current_user: current_user) } %>
 
-<% if @user.master %>
-  <%= link_to "Delete user", user_path(@user), method: 'delete', data: { confirm: "Are you sure you want to delete #{@user.gametag}'s account?" }, class: "btn btn-sm btn-danger" %>
-<% else %>
-  <%= link_to 'Archive account',
-    # user_path(@user),
-    user_registration_path,
-    method: 'delete',
-    data: { confirm: "Are you sure you want to delete your account?" },
-    class: "btn btn-sm btn-danger" %>
-    <%#= link_to 'Archive account', destroy_user_session_path, method: 'delete', data: { confirm: "Are you sure you want to delete #{@user.gametag}'s account?" }, class: "btn btn-sm btn-danger" %>
-<% end %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -4,9 +4,11 @@
   align-items: center;
   justify-content: space-between;
   height: 100px;
-  padding: 0px 50px;
   color: $secondary-gray;
-  margin-top: 64px;
+  // margin-top: 64px;
+  p {
+    margin-bottom: 0;
+  }
 }
 .footer-links {
   display: flex;
@@ -24,9 +26,9 @@
   color: $primary-dark;
 }
 
-.footer p {
-  margin-bottom: 0;
-}
-.footer .fa-heart {
-  color: #D23333;
+@media(max-width: 576px) {
+  .footer {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 }

@@ -18,14 +18,14 @@
 
         <li class="nav-item">
           <!-- <%= link_to "Games", main_app.games_path, class: "nav-link" %> -->
-          <a href="#" class="nav-link games-alert">Games</a>
+          <a href="#" class="nav-link games-alert cursor-no">Games</a>
         </li>
 
         <li class="nav-item dropdown">
           <%= link_to "Community", main_app.community_path, class: "nav-link dropdown-toggle", id: "navbarCommunityDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <ul class="dropdown-menu" aria-labelledby="navbarCommunityDropdown">
-            <li><%= link_to "Forum", main_app.forum_path, class: "dropdown-item" %></li>
             <li><%= link_to "Blog", main_app.blog_posts_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Forum", main_app.forum_path, class: "dropdown-item cursor-no" %></li>
           </ul>
         </li>
 
@@ -50,12 +50,12 @@
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <% if policy(Game).new? %>
-                <%= link_to 'Go to Admin Panel', main_app.admin_root_path, class: "dropdown-item" %>
+                <%= link_to 'Admin Panel', main_app.admin_root_path, class: "dropdown-item" %>
                 <%#= link_to "Add a new game", new_game_path, class: "dropdown-item" %>
                 <%#= link_to "See all users", users_path, class: "dropdown-item" %>
               <% end %>
 
-              <%= link_to "See profile", main_app.user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Profile", main_app.user_path(current_user), class: "dropdown-item" %>
               <%= link_to "Log out", main_app.destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
