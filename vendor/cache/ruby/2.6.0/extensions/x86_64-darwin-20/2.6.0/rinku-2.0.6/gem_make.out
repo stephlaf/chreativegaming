@@ -1,0 +1,19 @@
+current directory: /Users/alinagotcherian/code/stephlaf_gueshly/gueshly/vendor/cache/ruby/2.6.0/gems/rinku-2.0.6/ext/rinku
+/Users/alinagotcherian/.rbenv/versions/2.6.3/bin/ruby -I /Users/alinagotcherian/.rbenv/versions/2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210503-39556-1ap9rnz.rb extconf.rb
+creating Makefile
+
+current directory: /Users/alinagotcherian/code/stephlaf_gueshly/gueshly/vendor/cache/ruby/2.6.0/gems/rinku-2.0.6/ext/rinku
+make DESTDIR\= clean
+
+current directory: /Users/alinagotcherian/code/stephlaf_gueshly/gueshly/vendor/cache/ruby/2.6.0/gems/rinku-2.0.6/ext/rinku
+make DESTDIR\=
+compiling autolink.c
+compiling buffer.c
+compiling rinku.c
+compiling rinku_rb.c
+compiling utf8.c
+linking shared-object rinku.bundle
+
+current directory: /Users/alinagotcherian/code/stephlaf_gueshly/gueshly/vendor/cache/ruby/2.6.0/gems/rinku-2.0.6/ext/rinku
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 rinku.bundle ./.gem.20210503-39556-1rg86g3

@@ -17,11 +17,13 @@
       <div class="col-12 col-lg-6">
         <h1>Welcome to <br><span class="title">ChreativeGaming</span></h1>
         <p>Discuss 🗣, play 🏆, and earn 💰</p>
+        <%= link_to new_user_session_path do %>
+          <button class="btn-orange">Join the community</button>
+        <% end %>
       </div>
       <div class="col-12 col-lg-6">
         <%= image_tag "home_banner.png", alt: "Are You Two Smart", width: 200 %>
       </div>
-      <button class="btn-orange"><%= link_to "Join the community", new_user_session_path %></button>
     </div>
   </div>
 </section>

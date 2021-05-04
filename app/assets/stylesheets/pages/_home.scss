@@ -6,13 +6,13 @@
   border-radius: 0px 0px 158px 0px;
   display: flex;
   align-items: center;
+  padding-bottom: 56px;
   h1 {
     font-size: 48px;
   }
   p {
     font-size: 20px;
     font-family: $headers-font;
-    margin-bottom: 0;
   }
   img {
     // position: absolute;
@@ -24,6 +24,9 @@
     border: 8px solid white;
     box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.04);
     transform: rotate(0.01turn);
+  }
+  a {
+    display: inline-block;
   }
 }
 
@@ -38,7 +41,11 @@
 
 @media(max-width: 992px) {
   .banner {
+    align-items: flex-start;
     text-align: center;
+    .row {
+      flex-flow: column-reverse;
+    }
     h1 {
       font-size: 2.5rem;
       }
@@ -50,7 +57,7 @@
       border: 6px solid white;
       height: 300px;
       width: 65%;
-      margin: 32px 0;
+      margin: 74px 0;
     }
   }
 }
