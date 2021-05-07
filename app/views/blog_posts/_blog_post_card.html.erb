@@ -47,28 +47,14 @@
             <!-- if blog post is liked by user, show full heart -->
             <!-- else, show empty heart -->
 
-
-
-            <% blog_post.blog_likes.find do |like| like.user_id == current_user.id %>
-              <% "is liked by current" %>
-            <% end %>
-            <%# current_user.blog_like_ids.each do |likes_from_current_user_id|  %>
-              <%# blog_post.blog_like_ids.each do |blog_posts_like_id| %>
-                <%# if likes_from_current_user_id === blog_posts_like_id %>
-                  <!-- <i class="far fa-heart blog-like" data-id="<%= blog_post.id %>"></i> -->
-                <%# else %>
-                  <!-- <i class="fas fa-heart blog-like" data-id="<%= blog_post.id %>"></i> -->
-                <%# end %>
-              <%# end %>
-            <%# end %>
-            <%# raise %>
-
-            <% common_ids = current_user.blog_like_ids & blog_post.blog_like_ids %>
-            <% if common_ids.empty? %>
-              <i class="far fa-heart blog-like" data-id="<%= blog_post.id %>"></i>
-            <% else %>
-              <i class="fas fa-heart blog-like" data-id="<%= blog_post.id %>"></i>
-            <% end %>
+              <a href="">
+                <% common_ids = current_user.blog_like_ids & blog_post.blog_like_ids %>
+                <% if common_ids.empty? %>
+                  <i class="far fa-heart blog-like" data-id="<%= blog_post.id %>"></i>
+                <% else %>
+                  <i class="fas fa-heart blog-like" data-id="<%= blog_post.id %>"></i>
+                <% end %>
+              </a>
 
             <%# else %>
 
