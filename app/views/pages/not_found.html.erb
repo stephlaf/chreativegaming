@@ -1,1 +1,11 @@
-<h1>Not found</h1>
+<div class="background-patterned">
+  <div class="error-content">
+    <%= image_tag "gears.svg", alt: "gears", style: 'width:200px' %>
+    <h1>Oops!</h1>
+    <p>Sorry, this page isn't available</p>
+    <%= link_to root_path do %>
+      <button class="btn-orange margin-top">Go back home</button>
+    <% end %>
+  </div>
+</div>
+
