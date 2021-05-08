@@ -29,6 +29,8 @@
                 <p><%= @user.email %></p>
                 <p>🎉 Member since <%= @user.created_at.strftime(' %B %d, %Y') %></p>
               </div>
+
+              <!-- Buttons moved to EDIT PROFILE form -->
               <%#= link_to "Change your password", edit_user_registration_path, class: 'btn-orange' %>
 
 <!--               <% if @user.master %>
@@ -41,6 +43,7 @@
                   data: { confirm: "Are you sure you want to delete your account?" },
                   class: "btn-orange" %>
               <% end %> -->
+
             </div>
             <%= link_to 'Edit profile', edit_user_path(@user), class: 'btn-orange margin-top' %>
           </div>

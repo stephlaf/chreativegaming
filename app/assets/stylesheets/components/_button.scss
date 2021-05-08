@@ -2,7 +2,7 @@
   border: none;
   font-family: $headers-font;
   font-size: 18px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.52) -110.17%, rgba(255, 255, 255, 0) 100%), #EC8600;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.52) -110.17%, rgba(255, 255, 255, 0) 100%), $chreative-orange;
   border-radius: 100px;
   padding: 16px 24px;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.04);
@@ -30,6 +30,19 @@
 @media(max-width: 576px) {
   .btn-orange {
     font-size: 16px;
+  }
+}
+
+.btn-orange-outline {
+  border: 2px solid $chreative-orange;
+  box-sizing: border-box;
+  border-radius: 100px;
+  font-family: $headers-font;
+  padding: 16px 24px;
+  color: $chreative-orange;
+  display: inline-block;
+  a {
+  color: $chreative-orange;
   }
 }
 
