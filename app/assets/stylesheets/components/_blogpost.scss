@@ -18,6 +18,9 @@
 }
 
 @media(max-width: 576px) {
+  .blog-card-wrapper {
+    padding: 18px;
+  }
   .blog-card-wrapper .avatar-image {
     width: 40px;
     height: 40px;
@@ -28,9 +31,9 @@
   .blog-card-wrapper .avatar-large {
     width: 40px;
     height: 40px;
-    // border-radius: 50%;
-    // border: 2px solid $chreative-medium-orange;
-    // padding: 1px;
+  }
+  .blog-card-wrapper .absolute-gradient {
+    width: 8px;
   }
 }
 
@@ -92,108 +95,6 @@
     margin-top: 1rem;
   }
 }
-
-// Unrevised from home cards
-.card-long .image-container {
-  width: 136px;
-  // height: 112px;
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  .blog-image {
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-    object-fit: scale-down;
-  }
-}
-
-.card-long .card-text {
-  // flex-grow: 1;
-  flex: 1 0 auto;
-  padding: 16px;
-}
-
-.card-long .card-text .secondary-text p {
-  margin: 0;
-  color: $secondary-gray;
-  margin-right: 16px;
-}
-
-.card-long .card-text .secondary-text i {
-  color: $chreative-orange;
-  font-size: 16px;
-  margin-right: 4px;
-}
-
-.card-long h3 {
-  color: $primary-dark;
-  font-size: 20px;
-}
-
-.card-long p {
-  font-size: 16px;
-}
-
-.card-tag {
-  margin: 16px;
-  padding: 4px;
-  border-radius: 4px;
-  align-self: flex-end;
-}
-
-.news-tag {
-  background-color: #F9F5FE;
-  color: #CFBAF3;
-}
-
-.blog-tag {
-  background-color: #EAFBF3;
-  color: #A0D0B9;
-}
-
-.forum-tag {
-  background-color: #DDF0F3;
-  color: #96C2C9;
-}
-
-.absolute-bolt {
-  position: absolute;
-  right: 16px;
-  top: 16px;
-  margin-bottom: 0;
-  i {
-    font-size: 20px;
-    color: $chreative-orange;
-  }
-}
-
-.absolute-not {
-  position: absolute;
-  right: -8px;
-  top: -8px;
-  margin-bottom: 0;
-  i {
-    font-size: 24px;
-    background-color: white;
-    border-radius: 50%;
-    color: $chreative-medium-orange;
-    &:hover {
-      color: $chreative-orange;
-    }
-  }
-}
-
-.absolute-gradient {
-  position: absolute;
-  width: 12px;
-  height: 100%;
-  left: 0;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  background: linear-gradient(179.97deg, rgba(255, 255, 255, 0.52) -28.84%, rgba(255, 255, 255, 0) 99.98%), #EC8600;
-}
-
 
 // ------ Original Blog Post Cards---------
 .blogpost-card {

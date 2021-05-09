@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
     root to: "games#index"
   end
-  
+
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   resources :users, only: [:show, :edit, :update, :create]
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   #     get 'archive_profile'
   #   end
   # end
-  
+
   root to: 'pages#home'
 
   get 'about', to: 'pages#about'

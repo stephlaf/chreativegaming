@@ -1,1 +1,14 @@
-<%= render 'form' %>
+<section class="background-curves">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-9 col-lg-6">
+        <div class="tabs d-flex">
+          <p class="tab-active">Edit profile</p>
+        </div>
+        <div class="margin-top">
+          <%= render 'form', locals: {button_value: "Save"} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

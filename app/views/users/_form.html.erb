@@ -1,18 +1,42 @@
 <%= simple_form_for(@user) do |f| %>
-  <p>Gametag: <%= @user.gametag %></p>
-  <p>Email: <%= @user.email %></p>
-  <div class="form-group">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, class: 'form-control' %>
+  <p class="label-header">Gametag: <span class="read-only-grey"><%= @user.gametag %></span></p>
+  <p class="label-header">Email: <span class="read-only-grey"><%= @user.email %></span></p>
+
+  <div class="form-inputs">
+
+    <%= f.input :first_name, label: false, placeholder: 'First name', input_html: { class: 'input-rounded' } %>
+    <%= f.input :last_name, label: false, placeholder: 'Last name', input_html: { class: 'input-rounded' } %>
+
+    <div class="control-group">
+      <div class="attach-set">
+        <%= f.input :avatar, as: :file, label: false, input_html: { hidden: true, id: 'hidden_button' } %>
+        <div class="input-appendx">
+          <p id="file-display" class="uneditable-input" disabled type="text"></p>
+          <a id="upload-btn" class="btn-grey">
+            <p><i class="far fa-images"></i> Change avatar</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center margin-top">
+      <%= link_to "Back", :back %>
+      <%= f.submit locals[:button_value], class: "btn-orange" %>
+    </div>
+    <div class="d-flex flex-column">
+      <%= link_to "🔐Change password", edit_user_registration_path %>
+
+      <% if @user.master %>
+        <%= link_to "⛔️Delete account", user_path(@user), method: 'delete', data: { confirm: "Are you sure you want to delete #{@user.gametag}'s account?" } %>
+      <% else %>
+        <%= link_to 'Archive account',
+          # user_path(@user),
+          user_registration_path,
+          method: 'delete',
+          data: { confirm: "Are you sure you want to delete your account?" } %>
+      <% end %>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, class: 'form-control' %>
-  </div>
-
-  <%= f.input :avatar, as: :file %>
-
-  <%= f.submit class: 'btn btn-primary' %>
 <% end %>
+
 
