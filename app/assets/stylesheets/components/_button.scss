@@ -2,28 +2,48 @@
   border: none;
   font-family: $headers-font;
   font-size: 18px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.52) -110.17%, rgba(255, 255, 255, 0) 100%), #EC8600;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.52) -110.17%, rgba(255, 255, 255, 0) 100%), $chreative-orange;
   border-radius: 100px;
   padding: 16px 24px;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.04);
   transition: all .2s ease-in-out;
   color: white;
-}
-
-.btn-orange:hover {
+  display: inline-block;
+  a {
+  color: white;
+  }
+  &:hover {
   transform: scale(1.03);
   box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.02);
   color: white;
-}
-
-.btn-orange:active {
+  }
+  &:active {
   transform: scale(.99);
   box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.08);
   color: white;
+  }
+  &:focus {
+  outline: none;
+  }
 }
 
-.btn-orange a {
-  color: white;
+@media(max-width: 576px) {
+  .btn-orange {
+    font-size: 16px;
+  }
+}
+
+.btn-orange-outline {
+  border: 2px solid $chreative-orange;
+  box-sizing: border-box;
+  border-radius: 100px;
+  font-family: $headers-font;
+  padding: 16px 24px;
+  color: $chreative-orange;
+  display: inline-block;
+  a {
+  color: $chreative-orange;
+  }
 }
 
 .btn-grey {
