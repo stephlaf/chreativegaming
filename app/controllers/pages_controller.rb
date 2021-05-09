@@ -21,7 +21,7 @@ class PagesController < ApplicationController
     lower_limit = @page * POSTS_PER_PAGE
     upper_limit = (@page * POSTS_PER_PAGE) + (POSTS_PER_PAGE - 1)
 
-    @regular_posts = all_posts[lower_limit..upper_limit]
+    @regular_posts = all_posts[lower_limit..upper_limit] || all_posts
   end
 
   def about
