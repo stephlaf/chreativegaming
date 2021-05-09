@@ -45,7 +45,6 @@
                 </div>
               <% end %>
             </div>
-            <%#= render 'paginate_links' %>
 
           <% else %>
             <p>Hmm... must be a slow news day. Check back again soon! </p>
@@ -210,7 +209,9 @@
                 <% end %>
               </div>
 
-              <%= render "paginate_links" %>
+              <% if @all_posts.count > PagesController::POSTS_PER_PAGE %>
+                <%= render "paginate_links" %>
+              <% end %>
 
             <% else %>
               <p>Create a post or check back again soon!</p>
@@ -238,34 +239,34 @@
   <h2>Members feed</h2>
   <div id="members-feed-content">
     <ul>
-      <% unless @priority_posts.empty? %>
+      <%# unless @priority_posts.empty? %>
       <h4>PRIORITY POSTS</h4>
 
-        <% @priority_posts.each do |post| %>
-          <% if post.kind_of?(BlogPost) %>
-            <li class=""><%= link_to post.title.truncate(35), "/blog_posts##{post.id}", class: 'homepage-news-links' %></li>
-          <% else %>
-            <li class=""><%= link_to post.postable.title.truncate(35), "/forum/#{post.messageboard.slug}/#{post.postable.slug}#post_#{post.id}", class: 'homepage-news-links priority-post' %></li>
-          <% end %>
-        <% end %>
-      <% end %>
+        <%# @priority_posts.each do |post| %>
+          <%# if post.kind_of?(BlogPost) %>
+            <li class=""><%#= link_to post.title.truncate(35), "/blog_posts##{post.id}", class: 'homepage-news-links' %></li>
+          <%# else %>
+            <li class=""><%#= link_to post.postable.title.truncate(35), "/forum/#{post.messageboard.slug}/#{post.postable.slug}#post_#{post.id}", class: 'homepage-news-links priority-post' %></li>
+          <%# end %>
+        <%# end %>
+      <%# end %>
  -->
-  <!--     <% if !@regular_posts.empty? %>
+  <!--     <%# if !@regular_posts.empty? %>
       <h4>REGULAR POSTS</h4>
 
-        <% @regular_posts.each do |post| %>
-          <% if post.kind_of?(BlogPost) %>
+        <%# @regular_posts.each do |post| %>
+          <%# if post.kind_of?(BlogPost) %>
 
-            <li class=""><%= link_to post.title.truncate(35), "/blog_posts##{post.id}", class: 'homepage-news-links' %></li>
-          <% else %>
-            <li class=""><%= link_to post.postable.title.truncate(35), "/forum/#{post.messageboard.slug}/#{post.postable.slug}#post_#{post.id}", class: 'homepage-news-links regular-forum-post' %></li>
-            <%=  %>
-          <% end %>
-        <% end %>
-        <%= render 'paginate_links' %>
-      <% else %>
+            <li class=""><%#= link_to post.title.truncate(35), "/blog_posts##{post.id}", class: 'homepage-news-links' %></li>
+          <%# else %>
+            <li class=""><%#= link_to post.postable.title.truncate(35), "/forum/#{post.messageboard.slug}/#{post.postable.slug}#post_#{post.id}", class: 'homepage-news-links regular-forum-post' %></li>
+            <%#=  %>
+          <%# end %>
+        <%# end %>
+        <%#= render 'paginate_links' %>
+      <%# else %>
         <p>No news</p>
-      <% end %>
+      <%# end %>
     </ul>
   </div>
 </div> -->
@@ -274,13 +275,13 @@
   <h2>News</h2>
   <div>
     <ul>
-      <% unless @published_posts.empty? %>
-        <% @published_posts.each do |post| %>
-          <li class=""><%= link_to post.title, "/blog_posts##{post.id}", class: 'homepage-news-links' %></li>
-        <% end %>
-      <% else %>
+      <%# unless @published_posts.empty? %>
+        <%# @published_posts.each do |post| %>
+          <li class=""><%#= link_to post.title, "/blog_posts##{post.id}", class: 'homepage-news-links' %></li>
+        <%# end %>
+      <%# else %>
         <p>No news</p>
-      <% end %>
+      <%# end %>
     </ul>
   </div>
 </div> -->
