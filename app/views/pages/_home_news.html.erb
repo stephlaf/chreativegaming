@@ -1,15 +1,15 @@
-<section class="background-curves">
+<section class="background-curves" id="the-good-place">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-md-9">
-
         <div class="tabs d-flex">
-          <p data-for-tab="1" class="tab-active">News</p>
-          <p data-for-tab="2">Members' feed</p>
+
+          <p data-for-tab="1" class="<%= params.has_key?(:page) ? "" : "tab-active" %>">News</p>
+          <p data-for-tab="2" class="<%= params.has_key?(:page) ? "tab-active" : "" %>">Members' feed</p>
         </div>
 
         <!-- News -->
-        <div data-tab="1" class="content content-active">
+        <div data-tab="1" class="<%= params.has_key?(:page) ? "content" : "content content-active" %>">
           <% unless @published_posts.empty? %>
             <p>All the gaming news we're talking about right now.</p>
             <div class="news-section margin-top">
@@ -53,7 +53,7 @@
         </div>
 
         <!-- Member's Feed -->
-        <div data-tab="2" class="content">
+        <div data-tab="2" class="<%= params.has_key?(:page) ? "content content-active" : "content" %>">
           <% if user_signed_in? %>
             <% unless @priority_posts.empty? && @regular_posts.empty? %>
               <p>Dive into the lastest community topics and join the conversation!</p>
@@ -209,7 +209,8 @@
                   <% end %>
                 <% end %>
               </div>
-              <%= render 'paginate_links' %>
+
+              <%= render "paginate_links" %>
 
             <% else %>
               <p>Create a post or check back again soon!</p>

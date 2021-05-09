@@ -1,7 +1,15 @@
 <% unless @page.zero? %>
-  <%= link_to 'Previous page', root_path(page: @page - 1) %>
+  <%#= link_to 'Previous page',  %>
+  <%= link_to root_path(page: @page - 1), id: "previous" do %>
+    Previous page
+  <% end %>
 <% end %>
 
 <% unless @page == @last_page %>
-  <%= link_to 'Next page', root_path(page: @page + 1) %>
+  <%= link_to root_path(page: @page + 1), id: "next" do %>
+    Next page
+  <% end %>
+
 <% end %>
+
+

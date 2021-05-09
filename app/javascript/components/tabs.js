@@ -1,12 +1,11 @@
 const showTabContent = () => {
   const tabs = document.querySelectorAll('.tabs p');
-  if (tabs) {
+  if (tabs.length) {
     tabs.forEach((tab) => {
       tab.addEventListener('click', (event) => {
         const tabsContainer = tab.parentElement.parentElement;
         const tabNumber = tab.dataset.forTab;
         const contentActive = tabsContainer.querySelector(`.content[data-tab="${tabNumber}"]`);
-
         tabs.forEach((tab) => {
           tab.classList.remove("tab-active");
         });
