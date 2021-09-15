@@ -163,19 +163,17 @@ if Rails.env.development?
 
   # puts "Seeding messageboards..."
 
-  messgaeboard_1 = Thredded::Messageboard.new(
+  messageboard_1 = Thredded::Messageboard.new(
     name: "A messageboard name",
     slug: "A messageboard name",
     description: "A messageboard description",
     )
-  messgaeboard_1.save!
+  messageboard_1.save!
 
-  puts "Created messgaeboard_1"
-  puts messgaeboard_1
+  puts "Created messageboard_1"
+  puts messageboard_1
   puts "=========================="
 
   # posts_count
 
 end
-
-
