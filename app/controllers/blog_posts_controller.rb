@@ -1,6 +1,5 @@
 class BlogPostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: :index
 
   def index
     @blog_posts = policy_scope(BlogPost)
@@ -33,7 +32,6 @@ class BlogPostsController < ApplicationController
   end
 
   def update
-# raise
     if @blog_post.update(blog_post_params)
       authorize @blog_post
       redirect_to blog_posts_path
