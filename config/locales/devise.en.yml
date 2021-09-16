@@ -15,12 +15,7 @@ en:
       not_found_in_database: "Invalid %{authentication_keys} or password."
       timeout: "Your session expired. Please sign in again to continue."
       unauthenticated: "You need to sign in or sign up before continuing."
-<<<<<<< HEAD
-      unconfirmed: "You have to confirm your email address before continuing."
-=======
       unconfirmed: "Please confirm your email address by clicking on the link above."
->>>>>>> development
-
       deleted_account: "You've deleted your account. Sorry to see you go..."
 
     mailer:
