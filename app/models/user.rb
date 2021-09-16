@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :likes, dependent: :destroy
-  has_many :blog_posts
+  has_many :blog_posts#, dependent: :destroy
   has_many :blog_likes
 
   validates :gametag, presence: true

@@ -32,8 +32,8 @@ Rails.application.routes.draw do
   get '/blog_posts/:blog_post_id/blog_likes', to: 'blog_likes#create_destroy', as: :blog_like
 
   # Temporary redirects until forum feature is released
-  match '/forum', to: 'pages#not_found', via: :all
-  match 'forum/*any', to: 'pages#not_found', via: :all
+  # match '/forum', to: 'pages#not_found', via: :all
+  # match 'forum/*any', to: 'pages#not_found', via: :all
 
   # Forum stuff
   mount Thredded::Engine => '/forum'
