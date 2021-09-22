@@ -63,7 +63,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # Configure this to the actual host of the application
-  config.action_mailer.default_url_options = { host: 'chreativegaming.com' }
+  config.action_mailer.default_url_options = { host: 'https://chreativegaming.com' }
   # config.action_mailer.default_url_options = { host: 'https://chreativegaming-dev.herokuapp.com' }
 
   config.action_mailer.delivery_method = :postmark
