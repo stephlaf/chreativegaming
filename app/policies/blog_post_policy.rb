@@ -1,25 +1,24 @@
 class BlogPostPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      # raise
       scope.all.includes(:user, :blog_image_attachment)
     end
   end
 
   def show?
-    return true
+    true
   end
 
   def new?
-    return true
+    true
   end
 
   def create?
-    return true
+    true
   end
 
   def edit?
-    return true if record.user == user
+    record.user == user
   end
 
   def update?
@@ -27,9 +26,7 @@ class BlogPostPolicy < ApplicationPolicy
   end
 
   def destroy?
-    if record.user == user || user.master
-      return true
-    end
+    record.user == user || user.master
   end
 
   def remove_blog_post_priority?
