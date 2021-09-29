@@ -12,4 +12,5 @@ class BlogPost < ApplicationRecord
   has_one_attached :blog_image
 
   scope :order_by_updated, -> { order(updated_at: :desc) }
+  scope :order_by_created, -> { order(created_at: :desc) }
 end
