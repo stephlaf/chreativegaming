@@ -23,7 +23,7 @@
             </div>
           <% end %>
 
-          <% @blog_posts.order_by_updated.each do |blog_post| %>
+          <% @blog_posts.order_by_created.each do |blog_post| %>
             <%= render 'blog_post_card', blog_post: blog_post %>
           <% end %>
         </div>
@@ -32,8 +32,3 @@
     </div>
   </div>
 </section>
-
-
-
-
-
