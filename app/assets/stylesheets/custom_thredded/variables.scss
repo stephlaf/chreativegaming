@@ -51,8 +51,10 @@ $thredded-action-transition: color 0.1s linear !default;
 // $thredded-nav-color: $thredded-text-color !default;
 $thredded-nav-color: $secondary-gray;
 
+// $thredded-nav-hover-color: $thredded-action-color !default;
+$thredded-nav-hover-color: $primary-dark;
 
-$thredded-nav-hover-color: $thredded-action-color !default;
+
 $thredded-nav-current-color: $thredded-action-color !default;
 $thredded-overlay-background-color: opacify($thredded-background-color, 1) !default;
 $thredded-overlay-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12) !default;
