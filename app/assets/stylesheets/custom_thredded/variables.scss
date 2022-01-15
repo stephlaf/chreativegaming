@@ -88,9 +88,15 @@ $thredded-form-box-shadow: inset 0 1px 3px rgba(#000, 0.06) !default;
 $thredded-form-color: $thredded-text-color !default;
 
 // Buttons
-$thredded-button-background: $thredded-action-color !default;
-$thredded-button-color: #fff !default;
+// $thredded-button-background: $thredded-action-color !default;
+$thredded-button-background: $chreative-light-orange;
+
+// $thredded-button-color: #fff !default;
+$thredded-button-color: $primary-dark;
+
 $thredded-button-hover-background: darken($thredded-button-background, 15%) !default;
+// $thredded-button-hover-background: $chreative-light-orange;
+
 $thredded-button-hover-color: $thredded-button-color !default;
 
 $thredded-button-light-background: lighten($thredded-button-background, 35%) !default;
