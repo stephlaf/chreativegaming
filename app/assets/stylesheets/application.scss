@@ -11,8 +11,12 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+// Overriding Thredded Forum Variables
+@import "custom_thredded/variables";
 // Forum stylesheets
 @import "thredded";
+
+@import "custom_thredded/variables";
 
 // Bypassing the thredded container
 // .thredded--main-container {
