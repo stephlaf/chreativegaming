@@ -12,6 +12,8 @@
 @import "font-awesome";
 
 // Forum stylesheets
+// Overriding Thredded Forum Variables
+@import "custom_thredded/variables";
 @import "thredded";
 
 // Bypassing the thredded container
