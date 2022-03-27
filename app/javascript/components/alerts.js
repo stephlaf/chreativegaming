@@ -5,11 +5,11 @@ const showComingSoon = () => {
     games.addEventListener('click', (event) => {
       event.preventDefault();
       const alert =
-        `<div class="alert alert-info alert-dismissible" role="alert">
+        `<div class="alert alert-info alert-dismissible custom-alert" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-            Coming soon! 👾
+            <span class="flash-text-positioning">Coming soon! 👾</span>
           </div>`;
       body.insertAdjacentHTML("afterbegin", alert);
     });
