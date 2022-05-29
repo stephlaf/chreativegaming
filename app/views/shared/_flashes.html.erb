@@ -1,11 +1,15 @@
 <% if notice %>
-  <div class="alert alert-info alert-dismissible custom-alert" role="alert">
+  <div class="alert alert-info alert-dismissible custom-alert"
+       role="alert"
+       data-controller="dismiss-flashes">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <span class="flash-text-positioning"><%= notice %></span>
   </div>
 <% end %>
 <% if alert %>
-  <div class="alert alert-warning alert-dismissible custom-notice" role="alert">
+  <div class="alert alert-warning alert-dismissible custom-notice"
+       role="alert"
+       data-controller="dismiss-flashes">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <span class="flash-text-positioning"><%= alert %></span>
   </div>
