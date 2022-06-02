@@ -19,3 +19,5 @@ import '../components/index.js';
 // $(document).on('turbolinks:load', function(){ $.rails.refreshCSRFTokens(); });
 
 
+
+import "controllers"

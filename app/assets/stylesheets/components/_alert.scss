@@ -1,6 +1,28 @@
 .alert {
+  height: 100px;
+  min-width: 500px;
+  z-index: 2000;
   position: fixed;
-  bottom: 16px;
-  right: 16px;
-  z-index: 1000;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 18px;
+}
+
+.flash-text-positioning {
+  position: relative;
+  top: 33%;
+  margin: auto;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.custom-notice {
+  border: 1px solid $home-page-cta;
+}
+
+.custom-alert {
+  border: 1px solid $secondary-gray;
 }

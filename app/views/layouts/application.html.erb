@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= favicon_link_tag %>
     <title>Chreative Gaming</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -60,7 +61,7 @@
         <%= render 'shared/flashes' %>
 
         <% if request.path == '/' %>
-            <%= yield %>
+          <%= yield %>
         <% else %>
           <%= yield %>
         <% end %>
