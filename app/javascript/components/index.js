@@ -9,6 +9,7 @@ document.addEventListener('turbolinks:load', () => {
   blogLike();
   displayFile();
   paginate();
-  showComingSoon();
+  // Next line commented out for now (2022/06/21) until fit for removal once the games functionalities are completed
+  // showComingSoon();
   showTabContent();
 });
