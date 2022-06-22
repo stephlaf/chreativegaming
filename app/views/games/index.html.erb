@@ -1,38 +1,46 @@
-<h1>Our Collection of Awesome Games</h1>
-<div class="container">
-  <div class="row">
-    <% @games.order(updated_at: :desc).each do |game| %>
-      <div class="col-12 col-sm-6 col-md-4">
-          <%= link_to game_path(game) do %>
-            <div class="card" style="min-height: 26rem;">
-              <%#= cl_image_tag game.thumbnail.key, transformation: 'Test-transfo', class: 'card-img-top' %>
-              <%= cl_image_tag game.thumbnail.key, width: 320, height: 480, crop: :fit, class: 'card-img-top' %>
-              <div class="card-body">
-                <h5 class="card-title"><%= game.name %></h5>
-                <p class="card-text"><%= game.description %></p>
+<section class="background-curves" id="">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-9">
 
-                <% if user_signed_in? %>
-                  <p class="card-text">
-                    Your <%= @level %> price:
-                    <% case @level %>
-                    <% when 'Bronze' %>
-                      <%= game.price_bronze.zero? ? 'Free' : humanized_money_with_symbol(game.price_bronze) %>
-                    <% when 'Silver' %>
-                      <%= game.price_silver.zero? ? 'Free' : humanized_money_with_symbol(game.price_silver) %>
-                    <% when 'Gold' %>
-                      <%= game.price_gold.zero? ? 'Free' : humanized_money_with_symbol(game.price_gold) %>
-                    <% when 'Platinum' %>
-                      <%= game.price_platinum.zero? ? 'Free' : humanized_money_with_symbol(game.price_platinum) %>
+          <% unless @games.empty? %>
+            <h1>Our Collection of Awesome Games</h1>
+            <div class="news-section margin-top">
+              <% @games.each do |game| %>
+                <div class="margin-bottom">
+                  <div class="card-container">
+                    <%= link_to game.download_link, target: 'blank' do %>
+                      <div class="game-card-long">
+                        <div class="game-image-container">
+                          <% if game.thumbnail.attached? %>
+                            <%= cl_image_tag game.thumbnail.key, crop: :fill, class: 'game-image', alt: 'Game Thumbnail' %>
+                          <% else %>
+                            <%= image_tag asset_url('generic_game_thumb.png'), crop: :fill, class: 'game-image', alt: 'Default Game Thumbnail' %>
+                          <% end %>
+                        </div>
+                        <div class="game-card-text">
+                          <h3><%= game.name %></h3>
+                          <p class="game-description"><%= game.description.truncate(180) %></p>
+                          <div class="game-secondary-text d-flex">
+                            <p><i class="far fa-clock"></i><%= game.created_at.strftime("%b %d, %Y") %></p>
+                            <p><i class="far fa-heart"></i>20</p>
+                          </div>
+                        </div>
+                      </div>
                     <% end %>
-                  </p>
-                <% else %>
-                  <p class="card-text">Full price: <%= game.price.zero? ? 'Free' : humanized_money_with_symbol(game.price) %></p>
-                <% end %>
+                  </div>
 
-              </div>
+                </div>
+              <% end %>
             </div>
+
+          <% else %>
+            <p>Hmm... must be a slow games day. Check back again soon! </p>
           <% end %>
+
       </div>
-    <% end %>
+    </div>
+
+
   </div>
-</div>
+</section>
