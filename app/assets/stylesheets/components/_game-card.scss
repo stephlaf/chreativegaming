@@ -70,8 +70,13 @@
 //  ---- Cards Media Queries ----
 @media(max-width: 1199px) {
   .game-card-long {
-    // height: auto;
-    overflow: scroll;
+    height: 196px;
+    .game-card-text {
+      max-width: 59%;
+    }
+  }
+  .game-description {
+    max-width: 85%;
   }
 }
 
