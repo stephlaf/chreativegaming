@@ -23,7 +23,7 @@ class GameDashboard < Administrate::BaseDashboard
     # game_file_attachment: Field::HasOne,
     # game_file_attachment: Field::ActiveStorage,
     # game_file_blob: Field::HasOne,
-    
+
     reviews: Field::HasMany,
     id: Field::Number,
     name: Field::String,
@@ -31,6 +31,7 @@ class GameDashboard < Administrate::BaseDashboard
     banner: Field::ActiveStorage.with_options(show_preview_size: [500, nil]),
     description: Field::Text,
     category: Field::String,
+    download_link: Field::String,
     price_cents: Field::Number,
     status: Field::String,
     created_at: Field::DateTime,
@@ -57,7 +58,7 @@ class GameDashboard < Administrate::BaseDashboard
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  
+
   # thumbnail_attachment
   # banner_attachment
   # game_file_attachment
@@ -65,13 +66,14 @@ class GameDashboard < Administrate::BaseDashboard
 
   # thumbnail_blob
   # banner_blob
-  
+
   # reviews
 
   SHOW_PAGE_ATTRIBUTES = %i[
   name
   thumbnail
   banner
+  download_link
   id
   description
   category
@@ -101,6 +103,7 @@ class GameDashboard < Administrate::BaseDashboard
   category
   thumbnail
   banner
+  download_link
   status
   available
   price_cents
@@ -121,7 +124,7 @@ class GameDashboard < Administrate::BaseDashboard
   #     open: ->(resources) { resources.where(open: true) }
   #   }.freeze
   COLLECTION_FILTERS = {
-    
+
   }.freeze
 
   # Overwrite this method to customize how games are displayed
