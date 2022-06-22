@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: []
 
   # before_action :set_game, only: [:show, :edit, :update, :destroy, :toggle_availability]
   before_action :set_game, only: [:show, :destroy]
@@ -125,4 +125,3 @@ class GamesController < ApplicationController
     end
   end
 end
-

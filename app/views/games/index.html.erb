@@ -15,7 +15,7 @@
                           <% if game.thumbnail.attached? %>
                             <%= cl_image_tag game.thumbnail.key, crop: :fill, class: 'game-image', alt: 'Game Thumbnail' %>
                           <% else %>
-                            <%= cl_image_tag game.thumbnail.key, crop: :fill, class: 'game-image', alt: 'Default Game Thumbnail' %>
+                            <%= image_tag asset_url('generic_game_thumb.png'), crop: :fill, class: 'game-image', alt: 'Default Game Thumbnail' %>
                           <% end %>
                         </div>
                         <div class="game-card-text">
