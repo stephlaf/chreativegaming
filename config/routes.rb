@@ -43,6 +43,9 @@ Rails.application.routes.draw do
   get '/priorities/blog_post/:blog_post_id', to: 'priorities#remove_blog_post_priority', as: :blog_priority
   get '/priorities/forum_post/:forum_post_id', to: 'priorities#remove_forum_post_priority', as: :forum_priority
 
+  # SeoTemplate for autonomy purposes
+  get '/seo/edit_picture', to: 'seo#edit_picture', as: :edit_picture
+  patch '/seo', to: 'seo#update_picture', as: :update_picture
 
   # Commented out games routes for MVP
   # resources :games, except: [:new, :create, :edit, :update]
