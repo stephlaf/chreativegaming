@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   POSTS_PER_PAGE = 10
 
   def home
+    @seo_template = SeoTemplate.first
     @priority_posts = priorities
     @published_posts = published
     @all_posts = regular_posts
@@ -48,10 +49,10 @@ class PagesController < ApplicationController
 
   def regular_posts
     topics_to_remove = forum_post_priorities.keys
-    
+
     all_topics = Thredded::Post.select(&:regular?).group_by(&:postable)
     all_approved_topics = all_topics.reject { |topic| topic.moderation_state == 'pending_moderation' }
-    
+
     filtered_topics = all_approved_topics.reject { |topic, _posts| topics_to_remove.include?(topic) }
 
     [filtered_topics.map { |_topic, posts_aray_or_post| posts_aray_or_post.last || posts_aray_or_post },
