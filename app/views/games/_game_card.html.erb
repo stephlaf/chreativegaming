@@ -1,0 +1,23 @@
+<div class="margin-bottom">
+  <div class="card-container">
+    <%= link_to game.download_link, target: 'blank' do %>
+      <div class="game-card-long">
+        <div class="game-image-container">
+          <% if game.thumbnail.attached? %>
+            <%= cl_image_tag game.thumbnail.key, crop: :fill, class: 'game-image', alt: 'Game Thumbnail' %>
+          <% else %>
+            <%= image_tag asset_url('generic_game_thumb.png'), crop: :fill, class: 'game-image', alt: 'Default Game Thumbnail' %>
+          <% end %>
+        </div>
+        <div class="game-card-text">
+          <h3><%= game.name %></h3>
+          <p class="game-description"><%= game.description.truncate(180) %></p>
+          <div class="game-secondary-text d-flex">
+            <p><i class="far fa-clock"></i><%= game.created_at.strftime("%b %d, %Y") %></p>
+            <%# <p><i class="far fa-heart"></i>20</p> %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

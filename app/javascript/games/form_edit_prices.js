@@ -4,7 +4,7 @@ const silverPrice = document.querySelector('#silver');
 const goldPrice = document.querySelector('#gold');
 const platinumPrice = document.querySelector('#platinum');
 
-const calculateMembershipPrices = () => {  
+const calculateMembershipPrices = () => {
   priceField.addEventListener('keyup', () => {
     let price = event.currentTarget.value;
     if (/^\d+$/.test(price)) {
