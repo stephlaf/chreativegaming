@@ -6,7 +6,7 @@ class GamesController < ApplicationController
   before_action :set_user, except: [:index]
 
   def index
-    @games = policy_scope(Game)
+    @games = policy_scope(Game).order(:created_at)
     set_level
   end
 
