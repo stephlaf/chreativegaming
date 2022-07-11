@@ -1,0 +1,29 @@
+<section class="background-curves">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-9 col-lg-6">
+        <div class="margin-top">
+          <%= simple_form_for(@seo, url: :update_picture) do |f| %>
+            <div class="form-inputs">
+              <div class="control-group">
+                <div class="attach-set">
+                  <%= f.input :home_page_picture, as: :file, label: false, input_html: { hidden: true, id: 'hidden_button' } %>
+                </div>
+              </div>
+            </div>
+
+            <div class="input-appendx">
+              <p id="file-display" class="uneditable-input" disabled type="text"></p>
+              <a id="upload-btn" class="btn-grey">
+                <p><i class="far fa-images"></i> Change picture (900 x 600)</p>
+              </a>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit, "Save", class: "btn-orange my-3" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

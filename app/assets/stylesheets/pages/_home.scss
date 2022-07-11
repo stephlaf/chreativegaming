@@ -70,6 +70,17 @@
   width: 60vw;
 }
 
+.home-page-pic {
+  position: relative;
+}
+
+.home-page-edit {
+  font-size: 24px;
+  position: absolute;
+  top: 41px;
+  right: 46px;
+}
+
 // ---- Banner Media Queries ----
 
 @media(max-width: 1200px) {
@@ -102,6 +113,12 @@
       margin: 56px 0;
     }
   }
+  .home-page-edit {
+    font-size: 24px;
+    position: absolute;
+    top: 78px;
+    right: 166px;
+  }
 }
 
 @media(max-width: 768px) {
@@ -132,6 +149,12 @@
       height: 260px;
       width: 100%;
     }
+  }
+  .home-page-edit {
+    font-size: 24px;
+    position: absolute;
+    top: 78px;
+    right: 44px;
   }
 }
 
@@ -278,7 +301,7 @@
     overflow: hidden;
     display: flex;
     position: relative;
-    align-items: flex-start;;
+    align-items: flex-start;
     justify-content: space-between;
     flex-direction: column;
     .card-tag {

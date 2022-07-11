@@ -1,12 +1,12 @@
 class GamesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: []
 
   # before_action :set_game, only: [:show, :edit, :update, :destroy, :toggle_availability]
   before_action :set_game, only: [:show, :destroy]
   before_action :set_user, except: [:index]
 
   def index
-    @games = policy_scope(Game)
+    @games = policy_scope(Game).order(created_at: :desc)
     set_level
   end
 
@@ -125,4 +125,3 @@ class GamesController < ApplicationController
     end
   end
 end
-

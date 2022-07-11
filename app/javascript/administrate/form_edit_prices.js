@@ -8,10 +8,10 @@ const setPriceFields = () => {
   };
 };
 
-const calculateMembershipPrices = (priceFields) => {  
+const calculateMembershipPrices = (priceFields) => {
   priceFields.priceField.addEventListener('keyup', () => {
     let price = event.currentTarget.value;
-    
+
     if (/^\d+$/.test(price)) {
       priceFields.bronzePrice.value = (price * 0.9).toFixed(0);
       priceFields.silverPrice.value = (price * 0.8).toFixed(0);

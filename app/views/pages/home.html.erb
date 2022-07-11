@@ -21,8 +21,16 @@
           <% end %>
         <% end %>
       </div>
-      <div class="col-12 col-lg-6">
-        <%= image_tag "platformMeteorImage.jpeg", alt: "Meteor" %>
+      <div class="col-12 col-lg-6 home-page-pic">
+        <%#= image_tag "platformMeteorImage.jpeg", alt: "Meteor" %>
+        <%= cl_image_tag @seo_template.home_page_picture.key, alt: "" %>
+
+        <!-- Change Home Page Picture -->
+        <% if current_user && current_user.master %>
+          <%= link_to edit_picture_path do %>
+            <i class="fas fa-camera-retro home-page-edit"></i>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
