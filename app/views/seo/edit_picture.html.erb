@@ -2,12 +2,15 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-md-9 col-lg-6">
-        <div class="margin-top">
+        <div class="margin-top" data-controller="disable-save-home-pic">
           <%= simple_form_for(@seo, url: :update_picture) do |f| %>
             <div class="form-inputs">
               <div class="control-group">
                 <div class="attach-set">
-                  <%= f.input :home_page_picture, as: :file, label: false, input_html: { hidden: true, id: 'hidden_button' } %>
+                  <%= f.input :home_page_picture,
+                              as: :file, label: false,
+                              input_html: { hidden: true, id: 'hidden_button' },
+                              data: { disable_save_home_pic_target: 'picInput' } %>
                 </div>
               </div>
             </div>
@@ -19,7 +22,7 @@
               </a>
             </div>
             <div class="form-actions">
-              <%= f.button :submit, "Save", class: "btn-orange my-3" %>
+              <%= f.button :submit, "Save", class: "btn-orange my-3", disabled: true, data: { disable_save_home_pic_target: 'saveButton' } %>
             </div>
           <% end %>
         </div>
