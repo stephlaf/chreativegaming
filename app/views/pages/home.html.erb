@@ -22,8 +22,11 @@
         <% end %>
       </div>
       <div class="col-12 col-lg-6 home-page-pic">
-        <%#= image_tag "platformMeteorImage.jpeg", alt: "Meteor" %>
-        <%= cl_image_tag @seo_template.home_page_picture.key, alt: "" %>
+        <% if @seo_template && @seo_template.home_page_picture.attached? %>
+          <%= cl_image_tag @seo_template.home_page_picture.key, alt: "" %>
+        <% else %>
+          <%= image_tag "platformMeteorImage.jpeg", alt: "Meteor" %>
+        <% end %>
 
         <!-- Change Home Page Picture -->
         <% if current_user && current_user.master %>
