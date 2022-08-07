@@ -22,7 +22,7 @@
         <% end %>
       </div>
       <div class="col-12 col-lg-6 home-page-pic">
-        <% if @seo_template.home_page_picture.attached? %>
+        <% if @seo_template && @seo_template.home_page_picture.attached? %>
           <%= cl_image_tag @seo_template.home_page_picture.key, alt: "" %>
         <% else %>
           <%= image_tag "platformMeteorImage.jpeg", alt: "Meteor" %>
