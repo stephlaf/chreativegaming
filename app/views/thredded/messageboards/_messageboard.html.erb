@@ -8,3 +8,9 @@
     <%= render 'thredded/messageboards/messageboard/last_updated', messageboard: messageboard %>
   <% end %>
 <% end %>
+    <%# if current_user && policy(current_user).master? %>
+      <%= link_to 'PROUT', destroy_messageboard_path(Thredded::Messageboard.last.id, data: { method: :delete }) %>
+        <%# <p class="" title="delete messageboard"><i class="far fa-times-circle"></i></p> %>
+      <%# end %>
+    <%# end %>
+    <%= raise %>
