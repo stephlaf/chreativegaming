@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     resources :reviews
     resources :downloads
     resources :users
+    # resources :prouts
+    namespace :thredded do
+      resources :messageboards, only: :index
+    end
 
     root to: "games#index"
   end

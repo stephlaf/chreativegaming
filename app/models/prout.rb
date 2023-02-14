@@ -1,0 +1,2 @@
+class Prout < ApplicationRecord
+end
