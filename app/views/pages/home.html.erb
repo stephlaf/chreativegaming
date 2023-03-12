@@ -16,9 +16,18 @@
             data-action="click->scroll-to-news#scroll"
           >See the latest news</button>
         <% else %>
-          <%= link_to new_user_session_path do %>
-            <button class="btn-orange margin-top">Join the community</button>
-          <% end %>
+          <div class="d-flex margin-top align-items-center justify-content-center">
+            <%= link_to new_user_session_path do %>
+              <button class="btn-orange">Join the community</button>
+            <% end %>
+            <i class="far fa-question-circle fa-2x mx-3 pe-auto"
+               tabindex="0"
+               data-controller="why-join-popover"
+               data-bs-toggle="popover"
+               data-bs-trigger="focus"
+               data-bs-placement="right"
+               title="Why you should join us"></i>
+          </div>
         <% end %>
       </div>
       <div class="col-12 col-lg-6 home-page-pic">
