@@ -6,10 +6,8 @@ export default class extends Controller {
   static targets = [ ]
 
   connect() {
-    console.log("hey from popover controller");
     new Popover(this.element, {
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      trigger: 'focus'
+      trigger: 'focus',
     })
   }
 

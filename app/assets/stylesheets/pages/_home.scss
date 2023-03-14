@@ -81,8 +81,19 @@
   right: 46px;
 }
 
-.far {
+.fas {
   cursor: pointer;
+  color: $chreative-orange;
+  font-size: 30px;
+}
+
+.popover {
+  top: 25px !important;
+  max-width: 380px !important;
+
+  .arrow {
+    top: 22% !important;
+  }
 }
 
 // ---- Banner Media Queries ----

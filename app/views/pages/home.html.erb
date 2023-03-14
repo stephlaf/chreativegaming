@@ -20,12 +20,19 @@
             <%= link_to new_user_session_path do %>
               <button class="btn-orange">Join the community</button>
             <% end %>
-            <i class="far fa-question-circle fa-2x mx-3 pe-auto"
+            <i class="fas fa-info-circle mx-3"
                tabindex="0"
                data-controller="why-join-popover"
                data-bs-toggle="popover"
                data-bs-trigger="focus"
                data-bs-placement="right"
+               data-html="true",
+               data-content='<ul>
+                               <li> ‣ Discuss with and meet like-minded gamers </li>
+                               <li> ‣ Stay up to date with the biggest news in gaming </li>
+                               <li> ‣ Earn money playing games every month! </li>
+                               <li> ‣ Not Convinced? Watch this! <li>
+                             </ul>',
                title="Why you should join us"></i>
           </div>
         <% end %>
