@@ -16,9 +16,26 @@
             data-action="click->scroll-to-news#scroll"
           >See the latest news</button>
         <% else %>
-          <%= link_to new_user_session_path do %>
-            <button class="btn-orange margin-top">Join the community</button>
-          <% end %>
+          <div class="d-flex margin-top align-items-center justify-content-center">
+            <%= link_to new_user_session_path do %>
+              <button class="btn-orange">Join the community</button>
+            <% end %>
+            <i class="fas fa-info-circle mx-3"
+               id="info-popover"
+               tabindex="0"
+               data-controller="why-join-popover"
+               data-bs-toggle="popover"
+               data-bs-trigger="focus"
+               data-bs-placement="right"
+               data-html="true",
+               data-content='<ul>
+                               <li> ‣ Discuss with and meet like-minded gamers </li>
+                               <li> ‣ Stay up to date with the biggest news in gaming </li>
+                               <li> ‣ Earn money playing games every month! </li>
+                               <%# <li> ‣ Not Convinced? Watch this! <li> %>
+                             </ul>',
+               title="Why you should join us"></i>
+          </div>
         <% end %>
       </div>
       <div class="col-12 col-lg-6 home-page-pic">
