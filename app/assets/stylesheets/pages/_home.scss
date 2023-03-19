@@ -81,6 +81,21 @@
   right: 46px;
 }
 
+#info-popover {
+  cursor: pointer;
+  color: $chreative-orange;
+  font-size: 30px;
+}
+
+.popover {
+  top: 25px !important;
+  max-width: 380px !important;
+
+  .arrow {
+    top: 22% !important;
+  }
+}
+
 // ---- Banner Media Queries ----
 
 @media(max-width: 1200px) {
