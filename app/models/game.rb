@@ -12,6 +12,9 @@ class Game < ApplicationRecord
 
   validates :thumbnail, presence: true
 
+  PLATFORMS = ['PC', 'MAC', 'Android', 'iOS']
+  validates :available_platforms, inclusion: { in: PLATFORMS}, presence: true
+
   # Commented out temporarily until banner is actually in use
   # validates :banner, presence: true
 
