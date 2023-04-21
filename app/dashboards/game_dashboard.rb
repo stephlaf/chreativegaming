@@ -32,6 +32,7 @@ class GameDashboard < Administrate::BaseDashboard
     description: Field::Text,
     category: Field::String,
     # available_platforms: Field::Select.with_options(collection: Game::PLATFORMS),
+    available_platforms: MultipleSelectField.with_options(collection: Game::PLATFORMS),
     download_link: Field::String,
     price_cents: Field::Number,
     status: Field::String,

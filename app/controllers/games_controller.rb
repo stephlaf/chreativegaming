@@ -82,7 +82,8 @@ class GamesController < ApplicationController
       :price_cents,
       :thumbnail,
       :banner,
-      :game_file
+      :game_file,
+      :available_platforms => []
     )
   end
 
