@@ -4,7 +4,7 @@ module Admin
   class GamesController < Admin::ApplicationController
     def create
       @game = resource_class.new(resource_params)
-      sanitize_available_platforms(@game)
+      sanitize_available_platforms
       # authorize_resource(@game)
       # set_prices
       # raise
@@ -22,7 +22,6 @@ module Admin
 
     def update
       if requested_resource.update(resource_params)
-        sanitize_available_platforms(requested_resource)
         # raise
         # @game = requested_resource
         # set_prices
@@ -32,6 +31,7 @@ module Admin
           notice: translate_with_resource("update.success"),
         )
       else
+        # raise
         render :edit, locals: {
           page: Administrate::Page::Form.new(dashboard, requested_resource),
         }
@@ -40,9 +40,9 @@ module Admin
 
     private
 
-    def sanitize_available_platforms(params)
-      available_platforms = JSON.parse(params.available_platforms)
-      params.available_platforms = available_platforms.reject! { |platform| platform.empty? }
+    def sanitize_available_platforms
+      available_platforms = JSON.parse(@game.available_platforms)
+      @game.available_platforms = available_platforms.reject! { |platform| platform.empty? }
     end
 
     # def set_prices
