@@ -1,4 +1,7 @@
+require 'json'
+
 class Game < ApplicationRecord
+
   has_many :reviews, dependent: :destroy
 
   has_one_attached :thumbnail
@@ -13,7 +16,7 @@ class Game < ApplicationRecord
   validates :thumbnail, presence: true
 
   PLATFORMS = ['PC', 'MAC', 'Android', 'iOS']
-  validates :available_platforms, inclusion: { in: PLATFORMS}, presence: true
+  # validates :available_platforms, inclusion: { in: PLATFORMS}
 
   # Commented out temporarily until banner is actually in use
   # validates :banner, presence: true

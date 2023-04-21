@@ -4,9 +4,10 @@ module Admin
   class GamesController < Admin::ApplicationController
     def create
       @game = resource_class.new(resource_params)
+      sanitize_available_platforms(@game)
       # authorize_resource(@game)
       # set_prices
-
+      # raise
       if @game.save
         redirect_to(
           [namespace, @game],
@@ -21,6 +22,8 @@ module Admin
 
     def update
       if requested_resource.update(resource_params)
+        sanitize_available_platforms(requested_resource)
+        # raise
         # @game = requested_resource
         # set_prices
         # @game.save
@@ -36,6 +39,11 @@ module Admin
     end
 
     private
+
+    def sanitize_available_platforms(params)
+      available_platforms = JSON.parse(params.available_platforms)
+      params.available_platforms = available_platforms.reject! { |platform| platform.empty? }
+    end
 
     # def set_prices
     #   @game.price_bronze_cents = @game.price_cents * 0.9
