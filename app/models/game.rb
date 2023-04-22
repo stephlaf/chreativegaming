@@ -26,4 +26,8 @@ class Game < ApplicationRecord
   monetize :price_silver_cents
   monetize :price_gold_cents
   monetize :price_platinum_cents
+
+  def platforms_to_a
+     self.available_platforms = JSON.parse(self.available_platforms)
+  end
 end

@@ -67,6 +67,13 @@
   margin-right: 4px;
 }
 
+.game-card-long .game-card-platforms {
+  margin: 12px 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
 //  ---- Cards Media Queries ----
 @media(max-width: 1199px) {
   .game-card-long {
