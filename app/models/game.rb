@@ -1,6 +1,7 @@
+require 'json'
+
 class Game < ApplicationRecord
   has_many :reviews, dependent: :destroy
-
   has_one_attached :thumbnail
   has_one_attached :banner
   has_one_attached :game_file
@@ -20,4 +21,11 @@ class Game < ApplicationRecord
   monetize :price_silver_cents
   monetize :price_gold_cents
   monetize :price_platinum_cents
+
+  # Collection for available_platforms
+  PLATFORMS = ['PC', 'MAC', 'Android', 'iOS']
+
+  def platforms_to_a
+     self.available_platforms = JSON.parse(self.available_platforms)
+  end
 end

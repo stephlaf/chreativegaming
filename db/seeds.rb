@@ -94,25 +94,28 @@ if Rails.env.development?
   puts "Destroying users..."
   User.destroy_all if Rails.env.development?
 
+  puts "Destroying games..."
+  Game.destroy_all if Rails.env.development?
+
 
   puts "Seeding users..."
 
-  alina = User.new(
-    email: "alina@a.a",
-    password: "hello!",
-    first_name: "alina",
-    last_name: "gee",
+  ines = User.new(
+    email: "ines@gmail.com",
+    password: "123456",
+    first_name: "Ines",
+    last_name: "Alvergne",
     master: true,
-    gametag: "alina",
+    gametag: "youpi",
     membership_level: "Platinum",
     # status: "regular"
     )
-  alina.save!
+  ines.save!
   avatar_file = URI.open('https://res.cloudinary.com/chreative-gaming/image/upload/v1583507597/default_junymf.png')
-  alina.avatar.attach(io: avatar_file, filename: 'avatar', content_type: 'image/png')
+  ines.avatar.attach(io: avatar_file, filename: 'avatar', content_type: 'image/png')
 
-  puts "Created Alina"
-  puts alina
+  puts "Created Ines"
+  puts ines
   puts "=========================="
 
   # ---- Seed blog posts -----
@@ -122,7 +125,7 @@ if Rails.env.development?
   post_1 = BlogPost.new(
     title: "Epic Games teases Fortnite appearance",
     content: "Epic Games and Brazilian soccer player Neymar are teasing a likely appearance by the star athlete in Fortnite on March 16th, with clues coming via a couple of tweets. Eurogamer first reported the news, including a video tweeted from the Epic Games account showing Neymar’s No. 10 jersey. Neymar retweeted the video with the “eyes” emoji— not exactly confirmation, but another clue that something is brewing.",
-    user_id: alina.id,
+    user_id: ines.id,
     published: true,
     priority_post: true,
     blog_post_status: "published",
@@ -135,7 +138,7 @@ if Rails.env.development?
   post_2 = BlogPost.new(
     title: "Why Hitman 3’s throwing feels so good",
     content: "When you think of playing Hitman 3, or any of the games in developer IO Interactive’s World of Assassination series, you naturally think of the different ways you can eliminate a target.",
-    user_id: alina.id,
+    user_id: ines.id,
     published: false,
     priority_post: true,
     blog_post_status: "priority",
@@ -148,7 +151,7 @@ if Rails.env.development?
   post_3 = BlogPost.new(
     title: "Loop Hero guide: Card combos",
     content: "Some cards in Loop Hero transform though synergies and interactions with the nearby tiles.",
-    user_id: alina.id,
+    user_id: ines.id,
     published: false,
     priority_post: false,
     blog_post_status: "regular",
@@ -176,4 +179,50 @@ if Rails.env.development?
 
   # posts_count
 
+  # ---- Seed Games -----
+
+  puts "Seeding games..."
+
+  game_1 = Game.new(
+    name: "Les Escargots dans l'espace",
+    description: "Craignez-nous les escargots! Mort à la terre.",
+    download_link: "blabla.com",
+    available_platforms: ["PC", "iOS"]
+  )
+  thumbnail_1 = URI.open("https://i.ytimg.com/vi/MkPaysPibwg/hqdefault.jpg")
+  game_1.thumbnail.attach(io: thumbnail_1, filename: 'thumbnail_1.jpg', content_type: 'image/jpg')
+  game_1.save!
+
+  game_2 = Game.new(
+    name: "Les Escargots en discothèque",
+    description: "Toi aussi tu bave!",
+    download_link: "blabla.com",
+    available_platforms: ["PC"]
+  )
+  thumbnail_2 = URI.open("https://i.ytimg.com/vi/YleoZNSifUY/hqdefault.jpg")
+  game_2.thumbnail.attach(io: thumbnail_2, filename: 'thumbnail_2.jpg', content_type: 'image/jpg')
+  game_2.save!
+
+  game_3 = Game.new(
+    name: "Les Escargots jouent à la pétanque",
+    description: "Tu tire ou tu pointe?",
+    download_link: "blabla.com",
+    available_platforms: ["PC", "MAC", "iOS", "Android"]
+  )
+  thumbnail_3 = URI.open("https://i.ytimg.com/vi/X8qCXoA6ZLM/sddefault.jpg")
+  game_3.thumbnail.attach(io: thumbnail_3, filename: 'thumbnail_3.jpg', content_type: 'image/jpg')
+  game_3.save!
+
+  game_4 = Game.new(
+    name: "Un mauvais acteur",
+    description: "Ahhh.. Si seulement...",
+    download_link: "blabla.com",
+    available_platforms: ["PC", "MAC", "Android"]
+  )
+  thumbnail_4 = URI.open("https://i.ytimg.com/vi/guS2P3xhKlU/hqdefault.jpg")
+  game_4.thumbnail.attach(io: thumbnail_4, filename: 'thumbnail_4.jpg', content_type: 'image/jpg')
+  game_4.save!
+
+  puts "=========================="
+  puts "The seed is ready ✅"
 end

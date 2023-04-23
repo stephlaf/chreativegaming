@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_23_163039) do
+ActiveRecord::Schema.define(version: 2023_04_20_021016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 2022_06_23_163039) do
     t.integer "price_gold_cents", default: 0
     t.integer "price_platinum_cents", default: 0
     t.string "download_link"
+    t.string "available_platforms"
   end
 
   create_table "likes", force: :cascade do |t|
