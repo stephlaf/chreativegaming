@@ -10,16 +10,6 @@
       :to_s,
     ),
     {},
-    # selected: field.data.presence if field.data.present?,
-    include_hidden: false,
-    include_blank: false,
     multiple: true,
   ) %>
 </div>
-
-<%# <%= select("social_links",:option_id, Option.all.collect {|p| [ p.name, p.id ] },
-{ selected: 1 , prompt: "Please Select"}, { class: 'form-control' ,
- required:true})%>
-
-<%# include_blank: false %>
-<%# <% f.input_field :bar, :collection => { 'Opt1' => 1, 'Opt2' => 2}, :include_blank => '(All)', :multiple => true, :selected => [''] %>

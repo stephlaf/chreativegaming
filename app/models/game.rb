@@ -15,9 +15,6 @@ class Game < ApplicationRecord
 
   validates :thumbnail, presence: true
 
-  PLATFORMS = ['PC', 'MAC', 'Android', 'iOS']
-  # validates :available_platforms, inclusion: { in: PLATFORMS}
-
   # Commented out temporarily until banner is actually in use
   # validates :banner, presence: true
 
@@ -26,6 +23,9 @@ class Game < ApplicationRecord
   monetize :price_silver_cents
   monetize :price_gold_cents
   monetize :price_platinum_cents
+
+  # Collection for available_platforms
+  PLATFORMS = ['PC', 'MAC', 'Android', 'iOS']
 
   def platforms_to_a
      self.available_platforms = JSON.parse(self.available_platforms)
