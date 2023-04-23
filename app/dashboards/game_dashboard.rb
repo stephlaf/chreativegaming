@@ -31,6 +31,7 @@ class GameDashboard < Administrate::BaseDashboard
     banner: Field::ActiveStorage.with_options(show_preview_size: [500, nil]),
     description: Field::Text,
     category: Field::String,
+    available_platforms: MultipleSelectField.with_options(collection: Game::PLATFORMS),
     download_link: Field::String,
     price_cents: Field::Number,
     status: Field::String,
@@ -77,6 +78,7 @@ class GameDashboard < Administrate::BaseDashboard
   id
   description
   category
+  available_platforms
   price_cents
   status
   created_at
@@ -101,6 +103,7 @@ class GameDashboard < Administrate::BaseDashboard
   name
   description
   category
+  available_platforms
   thumbnail
   banner
   download_link
