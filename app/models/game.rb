@@ -26,6 +26,6 @@ class Game < ApplicationRecord
   PLATFORMS = ['PC', 'MAC', 'Android', 'iOS']
 
   def platforms_to_a
-     self.available_platforms = JSON.parse(self.available_platforms)
+     self.available_platforms = self.available_platforms.nil? ? [] : JSON.parse(self.available_platforms)
   end
 end
