@@ -1,7 +1,6 @@
 require "administrate/field/base"
 
 class MultipleSelectField < Administrate::Field::Select
-
   def to_s
     data
   end
@@ -13,5 +12,4 @@ class MultipleSelectField < Administrate::Field::Select
   def permitted_attribute
     self.class.permitted_attribute(attribute)
   end
-
 end
