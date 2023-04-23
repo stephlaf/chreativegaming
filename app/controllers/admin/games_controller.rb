@@ -7,7 +7,6 @@ module Admin
       sanitize_available_platforms
       # authorize_resource(@game)
       # set_prices
-      # raise
       if @game.save
         redirect_to(
           [namespace, @game],
@@ -22,16 +21,15 @@ module Admin
 
     def update
       if requested_resource.update(resource_params)
-        # raise
-        # @game = requested_resource
-        # set_prices
-        # @game.save
+        @game = requested_resource
+        sanitize_available_platforms
+        @game.save
+
         redirect_to(
           [namespace, requested_resource],
           notice: translate_with_resource("update.success"),
         )
       else
-        # raise
         render :edit, locals: {
           page: Administrate::Page::Form.new(dashboard, requested_resource),
         }
