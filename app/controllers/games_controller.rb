@@ -83,7 +83,6 @@ class GamesController < ApplicationController
       :thumbnail,
       :banner,
       :game_file,
-      :available_platforms => []
     )
   end
 
