@@ -8,13 +8,29 @@ as defined by the routes in the `admin/` namespace
 %>
 
 <nav class="navigation" role="navigation">
-  <%= link_to "Back to app", root_url, class: "button button--alt" %>
+  <%= link_to(t("administrate.navigation.back_to_app"), root_url, class: "button button--alt button--nav") if defined?(root_url) %>
 
-  <% Administrate::Namespace.new(namespace).resources.each do |resource| %>
+  <% Administrate::Namespace.new(namespace).resources_with_index_route.each do |resource| %>
     <%= link_to(
       display_resource_name(resource),
-      [namespace, resource_index_route_key(resource)],
+      resource_index_route(resource),
       class: "navigation__link navigation__link--#{nav_link_state(resource)}"
-    ) if valid_action? :index, resource  %>
+    ) if accessible_action?(model_from_resource(resource), :index) %>
   <% end %>
 </nav>
+
+<%# ________________________________________________________________________________________________ %>
+<%# PREVIOUSLY over-ridden view; switched to the new version from the Gem to fix symbol requirements %>
+<%# for polymorphic routes %>
+
+<%# <nav class="navigation" role="navigation"> %>
+  <%#= link_to "Back to app", root_url, class: "button button--alt" %>
+
+  <%# Administrate::Namespace.new(namespace).resources.each do |resource| %>
+    <%#= link_to(
+      display_resource_name(resource),
+      [namespace, resource_index_route(resource)],
+      class: "navigation__link navigation__link--#{nav_link_state(resource)}"
+    ) if valid_action? :index, resource  %>
+  <%# end %>
+<%# </nav> %>

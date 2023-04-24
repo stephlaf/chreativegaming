@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+# ruby '2.6.3'
+# ruby '2.6.6'
+# ruby '2.7.3'
+# ruby '2.7.4'
+ruby '3.0.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
@@ -33,7 +37,8 @@ gem 'simple_form'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'devise'
 # gem 'cloudinary', '~> 1.12.0'
-gem 'cloudinary', '1.13.2'
+# gem 'cloudinary', '1.13.2'
+gem 'cloudinary', '~> 1.25'
 gem 'rinku'
 gem 'postmark-rails'
 
@@ -54,7 +59,8 @@ gem 'administrate-field-active_storage'
 gem "image_processing"
 
 # Forum stuff
-gem 'thredded', '~> 0.16.16'
+# gem 'thredded', '~> 0.16.16'
+gem 'thredded', '~> 1.1'
 gem 'rails-ujs'
 
 gem "aws-sdk-s3", require: false

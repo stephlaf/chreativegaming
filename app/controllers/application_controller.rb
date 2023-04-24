@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  include Pundit
+  include Pundit::Authorization
 
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
         request.fullpath != "/users/password" &&
         request.fullpath != "/users/sign_out" &&
         !request.xhr?) # don't store ajax calls
-      session["user_return_to"] = request.fullpath 
+      session["user_return_to"] = request.fullpath
     end
   end
 
