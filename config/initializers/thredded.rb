@@ -29,8 +29,13 @@ Thredded.user_path = ->(user) {
 # This method is used by Thredded controllers and views to fetch the currently signed-in user
 Thredded.current_user_method = :"current_#{Thredded.user_class_name.demodulize.underscore}"
 
+# For Ruby v2.*
 # User avatar URL. rb-gravatar gem is used by default:
-Thredded.avatar_url = ->(user) { Gravatar.src(user.email, 156, 'mm') }
+# Thredded.avatar_url = ->(user) { Gravatar.src(user.email, 156, 'mm') }
+
+# For Ruby v3.*
+# User avatar URL. rails_gravatar gem is used by default:
+Thredded.avatar_url = ->(user) { RailsGravatar.src(user.email, 156, 'mm') }
 
 # ==> Permissions Configuration
 # By default, thredded uses a simple permission model, where all the users can post to all message boards,
@@ -125,7 +130,7 @@ Thredded.email_from = 'info@medqigong.ca'
 # Change the HTML sanitization settings used by Thredded.
 # See the Sanitize docs for more information on the underlying library: https://github.com/rgrove/sanitize/#readme
 # E.g. to allow a custom element <custom-element>:
-# Thredded::ContentFormatter.whitelist[:elements] += %w(custom-element)
+# Thredded::ContentFormatter.allowlist[:elements] += %w(custom-element)
 
 # ==> User autocompletion (Private messages and @-mentions)
 # Thredded.autocomplete_min_length = 2 lower to 1 if have 1-letter names -- increase if you want
@@ -157,8 +162,7 @@ Thredded.email_from = 'info@medqigong.ca'
 #     $ grep view_hooks -R --include '*.html.erb' "$(bundle show thredded)"
 # #
 # Rails.application.config.to_prepare do
-#   # Thredded.view_hooks.post_form.content_text_area.config.after do |form:, **args|
-#   Thredded.view_hooks.post_common.actions.render @post do
+#   Thredded.view_hooks.post_form.content_text_area.config.before do |form:, **args|
 #     # This is called in the Thredded view context, so all Thredded helpers and URLs are accessible here directly.
 #     'hi prout'
 #   end

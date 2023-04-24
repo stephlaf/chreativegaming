@@ -7,8 +7,8 @@ module Thredded
 
     belongs_to :user,
                class_name: Thredded.user_class_name,
-               inverse_of: :thredded_posts,
-               **(Thredded.rails_gte_51? ? { optional: true } : {})
+               inverse_of: :thredded_posts
+              #  **(Thredded.rails_gte_51? ? { optional: true } : {})
     belongs_to :messageboard,
                counter_cache: true,
                inverse_of: :posts
@@ -20,8 +20,8 @@ module Thredded
                inverse_of:    :posts,
                primary_key:   :user_id,
                foreign_key:   :user_id,
-               counter_cache: true,
-               **(Thredded.rails_gte_51? ? { optional: true } : {})
+               counter_cache: true
+              #  **(Thredded.rails_gte_51? ? { optional: true } : {})
     has_many :moderation_records,
              class_name: 'Thredded::PostModerationRecord',
              dependent: :nullify

@@ -12,12 +12,26 @@
         <div class="game-card-text">
           <h3><%= game.name %></h3>
           <p class="game-description"><%= game.description.truncate(180) %></p>
+          <div class="game-card-platforms">
+            <% game.platforms_to_a.each do |platform| %>
+              <% case platform %>
+              <% when 'Android' %>
+                <%= render 'shared/svg/icon_android'%>
+              <% when 'MAC' %>
+                <%= render 'shared/svg/icon_mac'%>
+              <% when 'PC' %>
+                <%= render 'shared/svg/icon_pc'%>
+              <% when 'iOS' %>
+                <%= render 'shared/svg/icon_ios'%>
+              <% end %>
+            <% end %>
+          </div>
           <div class="game-secondary-text d-flex">
             <p><i class="far fa-clock"></i><%= game.created_at.strftime("%b %d, %Y") %></p>
             <%# <p><i class="far fa-heart"></i>20</p> %>
           </div>
-        </div>
       </div>
+        </div>
     <% end %>
   </div>
 </div>
