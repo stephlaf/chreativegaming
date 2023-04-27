@@ -3,7 +3,6 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require('thredded_imports.js');
-require('boostrap')
 
 import '../plugins/index.js';
 import '../components/index.js';
