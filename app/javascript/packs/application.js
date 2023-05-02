@@ -4,8 +4,6 @@ require("@rails/activestorage").start()
 require("channels")
 require('thredded_imports.js');
 
-import 'bootstrap';
-
 import '../plugins/index.js';
 import '../components/index.js';
 
