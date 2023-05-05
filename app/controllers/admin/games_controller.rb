@@ -20,11 +20,15 @@ module Admin
     end
 
     def update
+      previous_game_version = Game.find(params[:id])
       if requested_resource.update(resource_params)
         @game = requested_resource
-        sanitize_available_platforms
+        if @game.available_platforms == "[\"\"]"
+          @game.available_platforms = previous_game_version.available_platforms
+        else
+          sanitize_available_platforms
+        end
         @game.save
-
         redirect_to(
           [namespace, requested_resource],
           notice: translate_with_resource("update.success"),
