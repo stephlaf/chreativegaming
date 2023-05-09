@@ -2,6 +2,8 @@
 
 module Admin
   class GamesController < Admin::ApplicationController
+    helper_method :selected_available_platforms
+
     def create
       @game = resource_class.new(resource_params)
       sanitize_available_platforms
@@ -38,6 +40,11 @@ module Admin
           page: Administrate::Page::Form.new(dashboard, requested_resource),
         }
       end
+    end
+
+    def selected_available_platforms
+      @game = requested_resource
+      JSON.parse(@game.available_platforms)
     end
 
     private
