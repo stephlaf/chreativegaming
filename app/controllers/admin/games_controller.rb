@@ -2,6 +2,8 @@
 
 module Admin
   class GamesController < Admin::ApplicationController
+    helper_method :selected_available_platforms
+
     def create
       @game = resource_class.new(resource_params)
       sanitize_available_platforms
@@ -20,11 +22,15 @@ module Admin
     end
 
     def update
+      previous_game_version = Game.find(params[:id])
       if requested_resource.update(resource_params)
         @game = requested_resource
-        sanitize_available_platforms
+        if @game.available_platforms == "[\"\"]"
+          @game.available_platforms = previous_game_version.available_platforms
+        else
+          sanitize_available_platforms
+        end
         @game.save
-
         redirect_to(
           [namespace, requested_resource],
           notice: translate_with_resource("update.success"),
@@ -34,6 +40,11 @@ module Admin
           page: Administrate::Page::Form.new(dashboard, requested_resource),
         }
       end
+    end
+
+    def selected_available_platforms
+      @game = requested_resource
+      JSON.parse(@game.available_platforms)
     end
 
     private
