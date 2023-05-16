@@ -43,8 +43,12 @@ module Admin
     end
 
     def selected_available_platforms
-      @game = requested_resource
-      JSON.parse(@game.available_platforms)
+      begin
+        @game = requested_resource
+        JSON.parse(@game.available_platforms)
+      rescue ActiveRecord::RecordNotFound
+        p "rescued from ActiveRecord::RecordNotFound"
+      end
     end
 
     private
