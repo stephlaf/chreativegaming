@@ -1,7 +1,9 @@
 
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<%= cl_image_path @game.banner.key %>')">
+<%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<%= cl_image_path @game.banner.key %>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<%= cl_image_tag @game.thumbnail.key %>')">
     <h1 class="card-title"><%= @game.name %></h1>
 </div>
+
 
 <div class="card-body">
   <h3 class="card-text"><%= @game.description %></h3>
@@ -12,12 +14,12 @@
   <% else %>
     <p class="card-text"><%= @level.capitalize %> price: <%= @price.zero? ? 'Free' : humanized_money_with_symbol(@price) %></p>
   <% end %>
-  
+
   <% unless @prices.empty? || @price.zero? %>
     <ul>
       <% @prices.each_with_index do |(level, price), index| %>
         <% unless index.zero? %>
-          <li><%= level.capitalize %> level price: <%= price.zero? ? 'Free' : humanized_money_with_symbol(price) %></li>        
+          <li><%= level.capitalize %> level price: <%= price.zero? ? 'Free' : humanized_money_with_symbol(price) %></li>
         <% end %>
       <% end %>
     </ul>
@@ -33,7 +35,7 @@
     <p>
       <%= link_to @game.game_file.attached? && @game.available? ? 'Download' : 'Not Available', "#", class: 'btn btn-sm btn-primary'  %>
     </p>
-    
+
     <%# if user_signed_in? %>
       <%# if policy(Game).update? %>
         <p class="nav-item">
@@ -53,8 +55,6 @@
         </p>
       <%# end %>
     <%# end %>
-    
+
   </div>
 </div>
-
-
