@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_20_021016) do
+ActiveRecord::Schema.define(version: 2023_05_18_140433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2023_04_20_021016) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "published", default: false
     t.boolean "priority_post", default: false
-    t.enum "blog_post_status", default: "regular", null: false, enum_name: "status"
+    t.enum "blog_post_status", default: "regular", null: false, enum_type: "status"
     t.index ["blog_post_status"], name: "index_blog_posts_on_blog_post_status"
     t.index ["user_id"], name: "index_blog_posts_on_user_id"
   end
@@ -109,6 +109,18 @@ ActiveRecord::Schema.define(version: 2023_04_20_021016) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_likes_on_post_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id", null: false
+    t.bigint "game_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_orders_on_game_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "prouts", force: :cascade do |t|
@@ -222,7 +234,7 @@ ActiveRecord::Schema.define(version: 2023_04_20_021016) do
     t.datetime "updated_at", null: false
     t.boolean "priority_post", default: false
     t.boolean "published", default: false
-    t.enum "forum_post_status", default: "regular", null: false, enum_name: "status"
+    t.enum "forum_post_status", default: "regular", null: false, enum_type: "status"
     t.datetime "set_priority_date"
     t.index "to_tsvector('english'::regconfig, content)", name: "thredded_posts_content_fts", using: :gist
     t.index ["forum_post_status"], name: "index_thredded_posts_on_forum_post_status"
@@ -402,6 +414,8 @@ ActiveRecord::Schema.define(version: 2023_04_20_021016) do
   add_foreign_key "downloads", "users"
   add_foreign_key "likes", "thredded_posts", column: "post_id"
   add_foreign_key "likes", "users"
+  add_foreign_key "orders", "games"
+  add_foreign_key "orders", "users"
   add_foreign_key "reviews", "games"
   add_foreign_key "reviews", "users"
   add_foreign_key "thredded_messageboard_users", "thredded_messageboards", on_delete: :cascade
