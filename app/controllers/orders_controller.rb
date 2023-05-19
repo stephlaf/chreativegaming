@@ -16,13 +16,18 @@ class OrdersController < ApplicationController
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
-        # name: @game.name
-        price: 'price_1N8sMtLEgTaZSDkmszFFFKvS',
-        quantity: 1
+        quantity: 1,
+        price_data: {
+          unit_amount: @game.price_cents,
+          currency: 'CAD',
+          product_data: {
+            name: @game.name
+          }
+        }
         }],
-      mode: 'subscription',
+      mode: 'payment',
       success_url: order_url(@order),
-      cancel_url: games_url
+      cancel_url: order_url(@order)
     )
 
     @order.checkout_session_id = session.id
