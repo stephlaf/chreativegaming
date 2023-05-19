@@ -7,11 +7,11 @@ export default class extends Controller {
     orderId: String
   }
   connect() {
-    console.log();
+    // console.log();
   }
 
   sendRequest() {
-    console.log('From sendRequest');
+    // console.log('From sendRequest');
     const stripe = Stripe(this.publishableKeyValue);
     stripe.redirectToCheckout({
       sessionId: this.orderIdValue
