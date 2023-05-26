@@ -15,7 +15,7 @@ export default class extends Controller {
     const stripe = Stripe(this.publishableKeyValue);
     stripe.redirectToCheckout({
       sessionId: this.orderIdValue
-    });
+    })//.then(data => console.log(data))
   }
 
 }

@@ -30,4 +30,8 @@ class User < ApplicationRecord
   def inactive_message
     !deleted_at ? super : :deleted_account
   end
+
+  def game_bought?(game)
+    bought_games.include?(game)
+  end
 end
