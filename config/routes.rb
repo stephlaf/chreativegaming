@@ -51,6 +51,13 @@ Rails.application.routes.draw do
   # resources :games, except: [:new, :create, :edit, :update]
   resources :games, only: [:index, :show]
   get '/my-games', to: 'games#my_games'
+  # get '/games/:id/buy', to: 'games#buy_game', as: :buy_game
+
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
+  end
+
+  mount StripeEvent::Engine, at: '/webhooks'
 
   # Temporary redirects until games feature is released
   # match 'games', to: 'pages#not_found', via: :all
