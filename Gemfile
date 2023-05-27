@@ -50,6 +50,9 @@ gem 'pundit'
 gem 'money-rails', '~>1.12'
 gem 'faker'
 
+gem 'stripe'
+gem 'stripe_event'
+
 # To have PG worl well with enums
 gem 'activerecord-postgres_enum'
 

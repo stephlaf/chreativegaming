@@ -3,11 +3,11 @@ class AddStatusToBlogPostsAndForumPosts < ActiveRecord::Migration[6.0]
     create_enum :status, ['regular', 'priority', 'published']
 
     change_table :blog_posts do |t|
-      t.enum :blog_post_status, enum_name: :status, null: false, default: "regular"
+      t.enum :blog_post_status, enum_name: :status, null: false, default: "regular", enum_type: :string
     end
 
     change_table :thredded_posts do |t|
-      t.enum :forum_post_status, enum_name: :status, null: false, default: "regular"
+      t.enum :forum_post_status, enum_name: :status, null: false, default: "regular", enum_type: :string
     end
 
     add_index :blog_posts, :blog_post_status

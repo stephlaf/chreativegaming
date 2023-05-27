@@ -355,6 +355,10 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    stripe (8.5.0)
+    stripe_event (2.7.0)
+      activesupport (>= 3.1)
+      stripe (>= 2.8, < 9)
     thor (1.2.1)
     thread_safe (0.3.6)
     thredded (1.1.0)
@@ -452,6 +456,8 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets (= 3.7.2)
+  stripe
+  stripe_event
   thredded (~> 1.1)
   turbolinks (~> 5)
   tzinfo-data
