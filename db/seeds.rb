@@ -98,7 +98,7 @@ if Rails.env.development?
   Game.destroy_all if Rails.env.development?
 
 
-  puts "Seeding users..."
+  puts "Seeding one admin user..."
 
 
   ines = User.new(
@@ -142,6 +142,24 @@ if Rails.env.development?
 
   puts "Created Ines, Steph, and User"
   puts "=========================="
+
+  # puts "Seeding more users for pagination..."
+
+  # 40.times do
+  #   user = User.new(
+  #     email: Faker::Internet.email,
+  #     password: "123456",
+  #     first_name: "Someone",
+  #     last_name: "Great",
+  #     master: true,
+  #     gametag: Faker::FunnyName.name,
+  #     membership_level: "Platinum",
+  #     # status: "regular"
+  #     )
+  #   user.save!
+  #   avatar_file = URI.open('https://res.cloudinary.com/chreative-gaming/image/upload/v1583507597/default_junymf.png')
+  #   user.avatar.attach(io: avatar_file, filename: 'avatar', content_type: 'image/png')
+  # end
 
   # ---- Seed blog posts -----
 
