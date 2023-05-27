@@ -1,7 +1,32 @@
 
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<%= cl_image_path @game.banner.key %>')">
+<div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<%= cl_image_path @game.thumbnail.key %>')">
     <h1 class="card-title"><%= @game.name %></h1>
 </div>
+
+<div class="text-center mt-5">
+  <p class="card-text"><%= @game.description %></p>
+  <div class="d-flex justify-content-center">
+    <p class="card-text mr-2"> <strong>Available platforms:</strong></p>
+    <div class="game-card-platforms">
+            <% @game.platforms_to_a.each do |platform| %>
+              <% case platform %>
+              <% when 'Android' %>
+                <%= render 'shared/svg/icon_android'%>
+              <% when 'MAC' %>
+                <%= render 'shared/svg/icon_mac'%>
+              <% when 'PC' %>
+                <%= render 'shared/svg/icon_pc'%>
+              <% when 'iOS' %>
+                <%= render 'shared/svg/icon_ios'%>
+              <% end %>
+            <% end %>
+    </div>
+  </div>
+  <p class="card-text"><strong>Category:</strong> <%= @game.category %></p>
+  <%= link_to 'Download game', @game.download_link, class: 'btn btn-sm btn-primary' %>
+</div>
+
+<!--
 
 <div class="card-body">
   <h3 class="card-text"><%= @game.description %></h3>
@@ -56,3 +81,4 @@
 
   </div>
 </div>
+-->
