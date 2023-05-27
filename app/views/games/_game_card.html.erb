@@ -1,6 +1,14 @@
 <div class="margin-bottom">
   <div class="card-container">
-    <%= link_to game_path(game), target: 'blank' do %>
+
+    <% unless current_user.game_bought?(game) %>
+      <%= form_with url: orders_path(game) do %>
+        <%= hidden_field_tag 'game_id', game.id %>
+        <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+      <% end %>
+    <% end %>
+
+    <%= link_to game_path(game) do %>
       <div class="game-card-long">
         <div class="game-image-container">
           <% if game.thumbnail.attached? %>
