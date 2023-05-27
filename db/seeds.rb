@@ -205,7 +205,8 @@ if Rails.env.development?
     name: "Les Escargots dans l'espace",
     description: "Craignez-nous les escargots! Mort à la terre.",
     download_link: "blabla.com",
-    available_platforms: ["PC", "iOS"]
+    available_platforms: ["PC", "iOS"],
+    price_cents: 100
   )
   thumbnail_1 = URI.open("https://i.ytimg.com/vi/MkPaysPibwg/hqdefault.jpg")
   game_1.thumbnail.attach(io: thumbnail_1, filename: 'thumbnail_1.jpg', content_type: 'image/jpg')
@@ -215,7 +216,8 @@ if Rails.env.development?
     name: "Les Escargots en discothèque",
     description: "Toi aussi tu bave!",
     download_link: "blabla.com",
-    available_platforms: ["PC"]
+    available_platforms: ["PC"],
+    price_cents: 100
   )
   thumbnail_2 = URI.open("https://i.ytimg.com/vi/YleoZNSifUY/hqdefault.jpg")
   game_2.thumbnail.attach(io: thumbnail_2, filename: 'thumbnail_2.jpg', content_type: 'image/jpg')
@@ -225,7 +227,8 @@ if Rails.env.development?
     name: "Les Escargots jouent à la pétanque",
     description: "Tu tire ou tu pointe?",
     download_link: "blabla.com",
-    available_platforms: ["PC", "MAC", "iOS", "Android"]
+    available_platforms: ["PC", "MAC", "iOS", "Android"],
+    price_cents: 100
   )
   thumbnail_3 = URI.open("https://i.ytimg.com/vi/X8qCXoA6ZLM/sddefault.jpg")
   game_3.thumbnail.attach(io: thumbnail_3, filename: 'thumbnail_3.jpg', content_type: 'image/jpg')
@@ -235,7 +238,8 @@ if Rails.env.development?
     name: "Un mauvais acteur",
     description: "Ahhh.. Si seulement...",
     download_link: "blabla.com",
-    available_platforms: ["PC", "MAC", "Android"]
+    available_platforms: ["PC", "MAC", "Android"],
+    price_cents: 100
   )
   thumbnail_4 = URI.open("https://i.ytimg.com/vi/guS2P3xhKlU/hqdefault.jpg")
   game_4.thumbnail.attach(io: thumbnail_4, filename: 'thumbnail_4.jpg', content_type: 'image/jpg')
