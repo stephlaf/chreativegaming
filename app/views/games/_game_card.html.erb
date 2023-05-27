@@ -1,6 +1,6 @@
 <div class="margin-bottom">
   <div class="card-container">
-    <%= link_to game.download_link, target: 'blank' do %>
+    <%= link_to game_path(game), target: 'blank' do %>
       <div class="game-card-long">
         <div class="game-image-container">
           <% if game.thumbnail.attached? %>

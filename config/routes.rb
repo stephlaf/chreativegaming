@@ -49,7 +49,7 @@ Rails.application.routes.draw do
 
   # Commented out games routes for MVP
   # resources :games, except: [:new, :create, :edit, :update]
-  resources :games, only: [:index]
+  resources :games, only: [:index, :show]
 
   # Temporary redirects until games feature is released
   # match 'games', to: 'pages#not_found', via: :all
