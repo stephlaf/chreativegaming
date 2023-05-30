@@ -17,7 +17,8 @@ class GamesController < ApplicationController
   end
 
   def my_games
-    @games = Game.all
+    @user = current_user
+    @games = @user.bought_games
     @game = Game.new
     authorize @game
   end
