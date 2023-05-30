@@ -1,5 +1,4 @@
 import { Controller } from '@hotwired/stimulus'
-// import { Stripe } from '@hotwired/stimulus'
 
 export default class extends Controller {
   static values = {
@@ -11,13 +10,11 @@ export default class extends Controller {
   }
 
   sendRequest() {
-    // console.log('From sendRequest');
     const stripe = Stripe(this.publishableKeyValue);
     stripe.redirectToCheckout({
       sessionId: this.orderIdValue
     })//.then(data => console.log(data))
   }
-
 }
 
 // <script src="https://js.stripe.com/v3/"></script>
