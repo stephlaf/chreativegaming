@@ -134,6 +134,6 @@ class GameDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(game)
-    "Game #{game.name}"
+    game.name
   end
 end
