@@ -55,7 +55,7 @@ class UserDashboard < Administrate::BaseDashboard
   # reset_password_token
   # reset_password_sent_at
   # remember_created_at
-  
+
   SHOW_PAGE_ATTRIBUTES = %i[
   master
   id
@@ -84,7 +84,7 @@ class UserDashboard < Administrate::BaseDashboard
   # archived
   # deleted_at
   # status
-  
+
   FORM_ATTRIBUTES = %i[
   master
   gametag
@@ -112,6 +112,6 @@ class UserDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(user)
-    "User #{user.gametag}"
+    user.gametag
   end
 end

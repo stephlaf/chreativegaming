@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :reviews
     resources :downloads
     resources :users
+    resources :orders, only: [:index, :show]
 
     root to: "games#index"
   end
