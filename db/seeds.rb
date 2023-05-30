@@ -91,6 +91,9 @@ if Rails.env.development?
   puts "Destroying blog posts..."
   BlogPost.destroy_all if Rails.env.development?
 
+  puts "Destroying orders..."
+  Order.destroy_all if Rails.env.development?
+
   puts "Destroying users..."
   User.destroy_all if Rails.env.development?
 
