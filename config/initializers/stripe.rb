@@ -7,6 +7,7 @@ if Rails.env.development?
     signing_secret:  ENV['STRIPE_WEBHOOK_SECRET_KEY_LOCAL']
   }
 else
+  p "PROUT env NOT dev: #{Rails.env.development?}"
   Rails.configuration.stripe = {
     publishable_key: ENV['STRIPE_PUBLISHABLE_KEY'],
     secret_key:      ENV['STRIPE_SECRET_KEY'],
