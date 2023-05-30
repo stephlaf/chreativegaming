@@ -16,6 +16,12 @@ class GamesController < ApplicationController
     @prices = get_prices
   end
 
+  def my_games
+    @games = current_user.bought_games
+    @game = Game.new
+    authorize @game
+  end
+
   # def new
   #   @game = Game.new
   #   authorize @game

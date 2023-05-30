@@ -100,22 +100,47 @@ if Rails.env.development?
 
   puts "Seeding one admin user..."
 
+
   ines = User.new(
-    email: "ines@gmail.com",
+    email: "ines@email.com",
     password: "123456",
     first_name: "Ines",
     last_name: "Alvergne",
     master: true,
     gametag: "youpi",
-    membership_level: "Platinum",
-    # status: "regular"
-    )
+    membership_level: "Platinum"
+  )
   ines.save!
-  avatar_file = URI.open('https://res.cloudinary.com/chreative-gaming/image/upload/v1583507597/default_junymf.png')
-  ines.avatar.attach(io: avatar_file, filename: 'avatar', content_type: 'image/png')
+  ines_avatar = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1656425949/epasuf7ooakpmby23zr6.jpg')
+  ines.avatar.attach(io: ines_avatar, filename: 'avatar-ines', content_type: 'image/png')
 
-  puts "Created Ines"
-  puts ines
+  steph = User.new(
+    email: "steph@email.com",
+    password: "123456",
+    first_name: "Stephane",
+    last_name: "Lafontaine",
+    master: true,
+    gametag: "steph",
+    membership_level: "Platinum"
+  )
+  steph.save!
+  steph_avatar = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1652365690/ygqzrfi0zo1jpj6y4lwa.jpg')
+  steph.avatar.attach(io: steph_avatar, filename: 'avatar-steph', content_type: 'image/png')
+
+  user = User.new(
+    email: "user@email.com",
+    password: "123456",
+    first_name: "User",
+    last_name: "Jean-Michel",
+    master: false,
+    gametag: "someone",
+    membership_level: "Platinum"
+  )
+  user.save!
+  avatar_file = URI.open('https://res.cloudinary.com/chreative-gaming/image/upload/v1583507597/default_junymf.png')
+  user.avatar.attach(io: avatar_file, filename: 'avatar', content_type: 'image/png')
+
+  puts "Created Ines, Steph, and User"
   puts "=========================="
 
   # puts "Seeding more users for pagination..."

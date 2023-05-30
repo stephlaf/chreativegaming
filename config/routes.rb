@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   # Commented out games routes for MVP
   # resources :games, except: [:new, :create, :edit, :update]
   resources :games, only: [:index, :show]
+  get '/my-games', to: 'games#my_games'
   # get '/games/:id/buy', to: 'games#buy_game', as: :buy_game
 
   resources :orders, only: [:show, :create] do

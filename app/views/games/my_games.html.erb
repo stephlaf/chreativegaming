@@ -1,0 +1,18 @@
+<section class="background-curves" id="">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-9">
+          <% unless @games.empty? %>
+            <h1>My games</h1>
+            <div class="news-section margin-top">
+              <% @games.each do |game| %>
+                <%= render 'game_card', game: game %>
+              <% end %>
+            </div>
+          <% else %>
+            <p>You haven't bought any games yet! <%= link_to 'Check out our games here', games_path %> </p>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</section>
