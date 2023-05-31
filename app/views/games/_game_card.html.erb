@@ -34,12 +34,17 @@
               <% end %>
             <% end %>
           </div>
-          <div class="game-secondary-text d-flex">
-            <p><i class="far fa-clock"></i><%= game.created_at.strftime("%b %d, %Y") %></p>
-            <%# <p><i class="far fa-heart"></i>20</p> %>
+          <div class="d-flex">
+            <div class="game-secondary-text d-flex">
+              <p>CDN$ <%= game.price_cents %></p>
+            </div>
+            <div class="game-secondary-text d-flex">
+              <p><i class="far fa-clock"></i><%= game.created_at.strftime("%b %d, %Y") %></p>
+              <%# <p><i class="far fa-heart"></i>20</p> %>
+            </div>
           </div>
-      </div>
         </div>
+      </div>
     <% end %>
   </div>
 </div>
