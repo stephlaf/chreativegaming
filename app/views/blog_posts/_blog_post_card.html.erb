@@ -18,25 +18,25 @@
     <!-- Blog Text -->
     <div class="blog-text-content">
       <h3><%= blog_post.title %></h3>
-      <p class="textToAutoLink"><%= blog_post.content %></p>
-    </div>
     <!-- Blog Visual -->
-    <div class="gif-image-content">
-      <% if blog_post.content.match(/\bhttp.+\.gif\b/) %>
-        <div class="">
-          <%= image_tag blog_post.content.match(/\bhttp.+\.gif\b/)[0], width: 160, alt: "A GIF" %>
-        </div>
-      <% end %>
+      <div class="gif-image-content">
+        <% if blog_post.content.match(/\bhttp.+\.gif\b/) %>
+          <div class="">
+            <%= image_tag blog_post.content.match(/\bhttp.+\.gif\b/)[0], width: 160, alt: "A GIF" %>
+          </div>
+        <% end %>
 
-      <% if blog_post.blog_image.attached? %>
-        <div class="">
-          <% if blog_post.blog_image.blob.image? %>
-            <%= cl_image_tag blog_post.blog_image.key, width: 150 %>
-          <% elsif blog_post.blog_image.blob.video? %>
-            <%= cl_video_tag blog_post.blog_image.key, width: 200, height: 150, crop: :pad, controls: true %>
-          <% end %>
-        </div>
-      <% end %>
+        <% if blog_post.blog_image.attached? %>
+          <div class="">
+            <% if blog_post.blog_image.blob.image? %>
+              <%= cl_image_tag blog_post.blog_image.key, width: 150 %>
+            <% elsif blog_post.blog_image.blob.video? %>
+              <%= cl_video_tag blog_post.blog_image.key, width: 200, height: 150, crop: :pad, controls: true %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <p class="textToAutoLink"> <%= blog_post.content %> </p>
     </div>
     <!-- Actions Links -->
     <div class="card-links-content">

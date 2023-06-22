@@ -167,9 +167,11 @@
 }
 
 .gif-image-content {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 16px;
+  // display: flex;
+  // justify-content: space-around;
+  // margin-bottom: 16px;
+  float: right;
+  margin: 0 10px;
 }
 
 .position-gif {
