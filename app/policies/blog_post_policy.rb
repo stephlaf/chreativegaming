@@ -1,7 +1,11 @@
 class BlogPostPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all.includes(:user, :blog_image_attachment)
+      if user
+        scope.all.includes(:user, :blog_image_attachment)
+      else
+        scope.where(blog_post_status: 'published').includes(:user, :blog_image_attachment)
+      end
     end
   end
 
