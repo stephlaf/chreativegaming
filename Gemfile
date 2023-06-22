@@ -86,6 +86,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'bullet'
   gem 'letter_opener'
+  gem 'rails-erd'
 end
 
 group :development do

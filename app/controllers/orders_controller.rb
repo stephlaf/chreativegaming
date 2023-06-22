@@ -26,8 +26,8 @@ class OrdersController < ApplicationController
         }
         }],
       mode: 'payment',
-      success_url: order_url(@order),
-      cancel_url: game_url(@game)
+      success_url: order_validate_transaction_url(@order),
+      cancel_url: order_validate_transaction_url(@order)
     )
 
     @order.checkout_session_id = session.id

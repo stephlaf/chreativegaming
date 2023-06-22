@@ -9,4 +9,8 @@ class PaymentPolicy < ApplicationPolicy
   def new?
     true
   end
+
+  def validate?
+    true
+  end
 end

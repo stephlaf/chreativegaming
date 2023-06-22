@@ -115,6 +115,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    choice (0.2.0)
     cloudinary (1.25.0)
       aws_cf_signer
       rest-client (>= 2.0.0)
@@ -289,6 +290,11 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
+    rails-erd (1.7.2)
+      activerecord (>= 4.2)
+      activesupport (>= 4.2)
+      choice (~> 0.2.0)
+      ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.5.0)
       loofah (~> 2.19, >= 2.19.1)
     rails-ujs (0.1.0)
@@ -316,6 +322,8 @@ GEM
       netrc (~> 0.8)
     rexml (3.2.5)
     rinku (2.0.6)
+    ruby-graphviz (1.2.5)
+      rexml
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     rubyzip (2.3.2)
@@ -419,6 +427,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  arm64-darwin-22
   x86_64-darwin-20
   x86_64-linux
 
@@ -448,6 +457,7 @@ DEPENDENCIES
   puma (= 4.3.6)
   pundit
   rails (~> 6.0.3, >= 6.0.3.6)
+  rails-erd
   rails-ujs
   rinku
   sass-rails (>= 6)
