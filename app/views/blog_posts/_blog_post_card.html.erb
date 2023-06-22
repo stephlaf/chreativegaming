@@ -30,7 +30,7 @@
             <% if blog_post.blog_image.blob.image? %>
               <%= cl_image_tag blog_post.blog_image.key, data: {blog_images_size_target: "images"} %>
             <% elsif blog_post.blog_image.blob.video? %>
-              <%= cl_video_tag blog_post.blog_image.key, width: 200, height: 150, crop: :pad, controls: true %>
+              <%= cl_video_tag blog_post.blog_image.key, class: 'video', crop: :pad, controls: true %>
             <% end %>
           </div>
         <% end %>`

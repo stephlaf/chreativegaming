@@ -106,8 +106,16 @@
 
 .landscape {
   width: 275px;
+  height: 200px;
+  object-fit: cover;
 }
 
 .portrait {
   width: 200px;
+  margin-left: 30px;
+}
+
+.video {
+  width: 300px;
+  margin-left: 30px;
 }
