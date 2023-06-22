@@ -11,10 +11,19 @@
     <%= link_to game_path(game) do %>
       <div class="game-card-long">
         <div class="game-image-container">
-          <% if game.thumbnail.attached? %>
-            <%= cl_image_tag game.thumbnail.key, crop: :fill, class: 'game-image', alt: 'Game Thumbnail' %>
+          <% if current_user.bought_games.include?(game) %>
+            <% if game.thumbnail.attached? %>
+              <%= cl_image_tag game.thumbnail.key, crop: :fill, class: 'game-image layer', alt: 'Game Thumbnail' %>
+              <p id="image-text"><i class="fas fa-check-circle"></i> Already purchased</p>
+            <% else %>
+              <%= image_tag asset_url('generic_game_thumb.png'), crop: :fill, class: 'game-image layer', alt: 'Default Game Thumbnail' %>
+            <% end %>
           <% else %>
-            <%= image_tag asset_url('generic_game_thumb.png'), crop: :fill, class: 'game-image', alt: 'Default Game Thumbnail' %>
+            <% if game.thumbnail.attached? %>
+              <%= cl_image_tag game.thumbnail.key, crop: :fill, class: 'game-image', alt: 'Game Thumbnail' %>
+            <% else %>
+              <%= image_tag asset_url('generic_game_thumb.png'), crop: :fill, class: 'game-image', alt: 'Default Game Thumbnail' %>
+            <% end %>
           <% end %>
         </div>
         <div class="game-card-text">
