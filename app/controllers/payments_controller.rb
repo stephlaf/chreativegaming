@@ -12,9 +12,9 @@ class PaymentsController < ApplicationController
     case session.payment_status
     when "paid"
       @order.update(state: 'paid')
-      redirect_to game_path(@order.game), alert: 'The game is yours!'
+      redirect_to game_path(@order.game), notice: 'The game is yours!'
     when "unpaid"
-      redirect_to game_path(@order.game), alert: 'Payment failed'
+      redirect_to game_path(@order.game), alert: 'The payment failed'
     end
   end
 
