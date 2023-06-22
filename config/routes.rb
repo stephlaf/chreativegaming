@@ -56,6 +56,7 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:show, :create] do
     resources :payments, only: :new
+    get '/validate_transaction', to: 'payments#validate'
   end
 
   mount StripeEvent::Engine, at: '/webhooks'
