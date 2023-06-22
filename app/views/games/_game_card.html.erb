@@ -16,7 +16,7 @@
               <%= cl_image_tag game.thumbnail.key, crop: :fill, class: 'game-image layer', alt: 'Game Thumbnail' %>
               <p id="image-text"><i class="fas fa-check-circle"></i> Already purchased</p>
             <% else %>
-              <%= image_tag asset_url('generic_game_thumb.png'), crop: :fill, class: 'game-image', alt: 'Default Game Thumbnail' %>
+              <%= image_tag asset_url('generic_game_thumb.png'), crop: :fill, class: 'game-image layer', alt: 'Default Game Thumbnail' %>
             <% end %>
           <% else %>
             <% if game.thumbnail.attached? %>
