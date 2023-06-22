@@ -89,11 +89,10 @@
 }
 
 .blog-text-content {
-  margin: 20px 0;
+  margin: 40px 0;
   h3 {
     color: $primary-dark;
     font-size: 20px;
-    margin-top: 1rem;
   }
   p {
     // To display line breaks
@@ -102,14 +101,16 @@
 }
 
 .gif-image-content {
-  // display: flex;
-  // justify-content: space-around;
-  // margin-bottom: 16px;
   float: right;
-  margin: 0 10px;
 }
 
+.landscape {
+  width: 275px;
+}
 
+.portrait {
+  width: 200px;
+}
 
 // ------ Original Blog Post Cards---------
 // .blogpost-card {
