@@ -26,8 +26,8 @@ class OrdersController < ApplicationController
         }
         }],
       mode: 'payment',
-      success_url: "#{order_validate_transaction_url(@order)}?session_id={CHECKOUT_SESSION_ID}",
-      cancel_url: "#{order_validate_transaction_url(@order)}?session_id={CHECKOUT_SESSION_ID}"
+      success_url: order_validate_transaction_url(@order),
+      cancel_url: order_validate_transaction_url(@order)
     )
 
     @order.checkout_session_id = session.id
