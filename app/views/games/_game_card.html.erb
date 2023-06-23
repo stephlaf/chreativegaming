@@ -45,7 +45,7 @@
           </div>
           <div class="d-flex">
             <div class="game-secondary-text d-flex">
-              <p>CDN$ <%= game.price_cents %></p>
+              <p>CDN$ <%= game.price_cents / 100 %></p>
             </div>
             <div class="game-secondary-text d-flex">
               <p><i class="far fa-clock"></i><%= game.created_at.strftime("%b %d, %Y") %></p>
