@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
         }],
       mode: 'payment',
       success_url: order_validate_transaction_url(@order),
-      cancel_url: games_url
+      cancel_url: "#{rollback_canceled_order_url}?order_id=#{(@order.id)}"
     )
 
     @order.checkout_session_id = session.id
@@ -41,8 +41,16 @@ class OrdersController < ApplicationController
     end
   end
 
+  def rollback_canceled_order
+    @order = Order.find(params[:order_id])
+    authorize @order
+    @order.destroy
+    redirect_to game_path(@order.game), alert: 'The transaction was canceled'
+  end
+
+  private
+
   def game_already_ordered
-    flash[:alert] = "You have already ordered this game."
-    redirect_to games_path
+    redirect_to games_path, alert: "You have already ordered this game."
   end
 end

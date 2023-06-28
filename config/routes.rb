@@ -52,12 +52,12 @@ Rails.application.routes.draw do
   # resources :games, except: [:new, :create, :edit, :update]
   resources :games, only: [:index, :show]
   get '/my-games', to: 'games#my_games'
-  # get '/games/:id/buy', to: 'games#buy_game', as: :buy_game
 
   resources :orders, only: [:show, :create] do
     resources :payments, only: :new
     get '/validate_transaction', to: 'payments#validate'
   end
+  get '/rollback_canceled_order', to: 'orders#rollback_canceled_order'
 
   mount StripeEvent::Engine, at: '/webhooks'
 
