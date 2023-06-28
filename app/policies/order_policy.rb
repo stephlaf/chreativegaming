@@ -13,4 +13,8 @@ class OrderPolicy < ApplicationPolicy
   def create?
     record.valid?
   end
+
+  def rollback_canceled_order?
+    true
+  end
 end

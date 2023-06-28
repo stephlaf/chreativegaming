@@ -6,7 +6,7 @@
          data-stripe-publishable-key-value="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
          data-stripe-order-id-value="<%= @order.checkout_session_id %>">
       <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @order.game.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
+      <p>Purchase of <strong><%= @order.game.name %></strong> for <strong><%= @order.amount / 100 %></strong></p>
       <button
         id="pay"
         class="btn btn-primary"
