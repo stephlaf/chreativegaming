@@ -9,13 +9,13 @@
   </div>
 
   <div class="game-show-content">
-    <h1> <%= @game.name %></h1>
+    <h1><%= @game.name %></h1>
     <div class="game-show-secondary-text">
       <p><i class="far fa-clock"></i><%= @game.created_at.strftime("%b %d, %Y") %></p>
     </div>
     <div class="game-show-info">
       <div class="game-show-text-container game-show-description">
-        <p> <%= @game.description %> </p>
+        <p><%= @game.description %></p>
         <div class="game-platforms">
           <p><strong>Available on</strong></p>
           <% @game.platforms_to_a.each do |platform| %>
