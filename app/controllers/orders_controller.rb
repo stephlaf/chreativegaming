@@ -35,7 +35,10 @@ class OrdersController < ApplicationController
     begin
       authorize @order
       @order.save
-      redirect_to new_order_payment_path(@order)
+      respond_to do |format|
+        format.html { redirect_to new_order_payment_path(@order) }
+        format.text { "#{@order.checkout_session_id}" }
+      end
     rescue Pundit::NotAuthorizedError
       game_already_ordered
     end
