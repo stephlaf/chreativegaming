@@ -1,7 +1,6 @@
 .game-show-container {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 50px;
   img {
     border-radius: 8px;
@@ -37,9 +36,6 @@
   text-align: center;
 }
 
-.game-show-description {
-  width: 380px;
-}
 
 .game-platforms {
   display: flex;
@@ -47,5 +43,41 @@
   align-items: center;
   p {
     margin: 0;
+  }
+}
+
+//  ----  Media Queries ----
+@media(max-width: 991px) {
+  .game-show-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .game-show-text-container {
+    margin: 10px;
+  }
+
+  .game-show-content {
+    width: 100%;
+  }
+
+  .game-show-info {
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  .game-platforms {
+    justify-content: center;
+  }
+}
+
+@media(max-width: 576px) {
+  .game-show-container {
+    img {
+      width: 300px;
+    }
+    h1 {
+      font-size: 22px;
+    }
   }
 }
