@@ -119,7 +119,7 @@ ActiveRecord::Schema.define(version: 2023_06_29_143854) do
     t.bigint "game_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "charge_cents"
+    t.integer "charge"
     t.index ["game_id"], name: "index_orders_on_game_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
