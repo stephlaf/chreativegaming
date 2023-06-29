@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
     @game = Game.find(params[:game_id])
     @order = Order.create(
                 game: @game,
-                amount: @game.price_cents,
+                charge_cents: @game.price_cents,
                 state: 'pending',
                 user: current_user
               )
@@ -35,7 +35,10 @@ class OrdersController < ApplicationController
     begin
       authorize @order
       @order.save
-      redirect_to new_order_payment_path(@order)
+      respond_to do |format|
+        format.html { redirect_to new_order_payment_path(@order) }
+        format.text { render partial: 'checkout_session_id', locals: { order: @order }, formats: :html }
+      end
     rescue Pundit::NotAuthorizedError
       game_already_ordered
     end

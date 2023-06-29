@@ -1,49 +1,55 @@
-<section class="background-curves" id="">
- <div class="game-show-container">
-  <div>
-    <% if @game.thumbnail.attached? %>
-      <%= cl_image_tag @game.thumbnail.key, width: 550, crop: :fill, class: 'game-image', alt: 'Game Thumbnail' %>
-    <% else %>
-      <%= image_tag asset_url('generic_game_thumb.png'), width: 550, crop: :fill, class: 'game-image', alt: 'Default Game Thumbnail' %>
-    <% end %>
-  </div>
-
-  <div class="game-show-content">
-    <h1><%= @game.name %></h1>
-    <div class="game-show-secondary-text">
-      <p><i class="far fa-clock"></i><%= @game.created_at.strftime("%b %d, %Y") %></p>
+<section class="background-curves"
+         id=""
+         data-controller="stripe-checkout"
+         data-stripe-checkout-publishable-key-value="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>">
+  <div class="game-show-container">
+    <div>
+      <% if @game.thumbnail.attached? %>
+        <%= cl_image_tag @game.thumbnail.key, width: 550, crop: :fill, class: 'game-image', alt: 'Game Thumbnail' %>
+      <% else %>
+        <%= image_tag asset_url('generic_game_thumb.png'), width: 550, crop: :fill, class: 'game-image', alt: 'Default Game Thumbnail' %>
+      <% end %>
     </div>
-    <div class="game-show-info">
-      <div class="game-show-text-container game-show-description">
-        <p><%= @game.description %></p>
-        <div class="game-platforms">
-          <p><strong>Available on</strong></p>
-          <% @game.platforms_to_a.each do |platform| %>
-            <% case platform %>
-            <% when 'Android' %>
-              <%= render 'shared/svg/icon_android'%>
-            <% when 'MAC' %>
-              <%= render 'shared/svg/icon_mac'%>
-            <% when 'PC' %>
-              <%= render 'shared/svg/icon_pc'%>
-            <% when 'iOS' %>
-              <%= render 'shared/svg/icon_ios'%>
+
+    <div class="game-show-content">
+      <h1><%= @game.name %></h1>
+      <div class="game-show-secondary-text">
+        <p><i class="far fa-clock"></i><%= @game.created_at.strftime("%b %d, %Y") %></p>
+      </div>
+      <div class="game-show-info">
+        <div class="game-show-text-container game-show-description">
+          <p><%= @game.description %></p>
+          <div class="game-platforms">
+            <p><strong>Available on</strong></p>
+            <% @game.platforms_to_a.each do |platform| %>
+              <% case platform %>
+              <% when 'Android' %>
+                <%= render 'shared/svg/icon_android'%>
+              <% when 'MAC' %>
+                <%= render 'shared/svg/icon_mac'%>
+              <% when 'PC' %>
+                <%= render 'shared/svg/icon_pc'%>
+              <% when 'iOS' %>
+                <%= render 'shared/svg/icon_ios'%>
+              <% end %>
             <% end %>
+          </div>
+        </div>
+        <div class="game-show-text-container game-show-price">
+          <p>CDN$ <%= @game.price_cents / 100 %></p>
+          <% unless current_user.game_bought?(@game) %>
+            <%= form_with url: orders_path,
+                          data: {
+                            stripe_checkout_target: 'form',
+                            action: 'submit->stripe-checkout#createOrder' } do %>
+              <%= hidden_field_tag 'game_id', @game.id %>
+              <%= submit_tag 'Buy now', class: 'btn btn-primary' %>
+            <% end %>
+          <% else %>
+            <%= link_to 'Download game', @game.download_link, class: 'btn btn-primary' %>
           <% end %>
         </div>
       </div>
-      <div class="game-show-text-container game-show-price">
-        <p>CDN$ <%= @game.price_cents / 100 %></p>
-        <% unless current_user.game_bought?(@game) %>
-          <%= form_with url: orders_path(@game) do %>
-            <%= hidden_field_tag 'game_id', @game.id %>
-            <%= submit_tag 'Buy now', class: 'btn btn-primary' %>
-          <% end %>
-        <% else %>
-          <%= link_to 'Download game', @game.download_link, class: 'btn btn-primary' %>
-        <% end %>
-      </div>
     </div>
   </div>
- </div>
 </section>
