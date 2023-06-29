@@ -3,13 +3,12 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static values = {
     publishableKey: String
-    // orderId: String
   }
 
   static targets = [ 'form' ]
 
   connect() {
-    console.log(this.formTarget.action);
+    // console.log(this.formTarget.action);
     // console.log(this.publishableKeyValue);
   }
 
@@ -24,15 +23,15 @@ export default class extends Controller {
       body: new FormData(this.formTarget)
     })
       .then(response => response.text())
-      .then((data) => {
-        console.log(data);
+      .then((checkoutSessionId) => {
+        this.sendRequest(checkoutSessionId);
       })
   }
 
-  // sendRequest() {
-  //   const stripe = Stripe(this.publishableKeyValue);
-  //   stripe.redirectToCheckout({
-  //     sessionId: this.orderIdValue
-  //   })
-  // }
+  sendRequest(checkoutSessionId) {
+    const stripe = Stripe(this.publishableKeyValue);
+    stripe.redirectToCheckout({
+      sessionId: checkoutSessionId
+    })
+  }
 }
