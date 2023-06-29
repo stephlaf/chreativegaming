@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
     @game = Game.find(params[:game_id])
     @order = Order.create(
                 game: @game,
-                charge: @game.price_cents,
+                charge_cents: @game.price_cents,
                 state: 'pending',
                 user: current_user
               )
