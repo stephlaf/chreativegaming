@@ -8,14 +8,11 @@ export default class extends Controller {
   static targets = [ 'form' ]
 
   connect() {
-    // console.log(this.formTarget.action);
-    // console.log(this.publishableKeyValue);
   }
 
   createOrder(event) {
     event.preventDefault()
     event.stopImmediatePropagation()
-    console.log('From createOrder');
 
     fetch(this.formTarget.action, {
       method: 'POST',
