@@ -14,7 +14,7 @@ class OrderDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     amount_cents: Field::Number,
-    charge_cents: Field::Number,
+    charge: Field::Number,
     state: Field::String,
     checkout_session_id: Field::String
   }.freeze
@@ -37,7 +37,7 @@ class OrderDashboard < Administrate::BaseDashboard
     id
     user
     game
-    charge_cents
+    charge
     state
     created_at
     updated_at
