@@ -1,0 +1,25 @@
+.blog-show-background {
+  background-color: $chreative-light-orange;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.blog-content {
+  width: 800px;
+  margin: 50px auto;
+}
+
+@media(max-width: 576px) {
+  .blog-content {
+    width: 300px;
+  }
+
+  .blog-background {
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+    }
+  }
+}
