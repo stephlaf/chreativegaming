@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2023_06_29_143854) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "published", default: false
     t.boolean "priority_post", default: false
-    t.string "blog_post_status", default: "regular", null: false
+    t.enum "blog_post_status", default: "regular", null: false, enum_type: "status"
     t.index ["blog_post_status"], name: "index_blog_posts_on_blog_post_status"
     t.index ["user_id"], name: "index_blog_posts_on_user_id"
   end
@@ -119,7 +119,7 @@ ActiveRecord::Schema.define(version: 2023_06_29_143854) do
     t.bigint "game_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "charge"
+    t.integer "charge_cents"
     t.index ["game_id"], name: "index_orders_on_game_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -230,7 +230,7 @@ ActiveRecord::Schema.define(version: 2023_06_29_143854) do
     t.datetime "updated_at", null: false
     t.boolean "priority_post", default: false
     t.boolean "published", default: false
-    t.string "forum_post_status", default: "regular", null: false
+    t.enum "forum_post_status", default: "regular", null: false, enum_type: "status"
     t.datetime "set_priority_date"
     t.index "to_tsvector('english'::regconfig, content)", name: "thredded_posts_content_fts", using: :gist
     t.index ["forum_post_status"], name: "index_thredded_posts_on_forum_post_status"
