@@ -55,7 +55,7 @@
 
 <div class="blog-content">
   <!-- Blog Visual -->
-  <div class="gif-image-content" data-controller="blog-images-size">
+  <div class="float-media" data-controller="blog-images-size">
     <% if @blog_post.content.match(/\bhttp.+\.gif\b/) %>
       <div class="">
         <%= image_tag @blog_post.content.match(/\bhttp.+\.gif\b/)[0], width: 160, alt: "A GIF" %>
