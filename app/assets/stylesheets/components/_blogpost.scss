@@ -87,12 +87,11 @@
 
 .blog-content-truncate {
   overflow: hidden;
-  white-Space: nowrap;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  // white-space: pre;
+  word-break: break-word;
 }
 
 .gif-image-content {
