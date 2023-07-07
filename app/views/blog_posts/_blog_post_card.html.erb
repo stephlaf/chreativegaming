@@ -16,9 +16,8 @@
           <p><i class="far fa-clock"></i><span><%= blog_post.created_at.strftime("%b %d, %Y") %></span></p>
         </div>
       </div>
-      <!-- Blog Text -->
-      <div class="blog-text-content">
-      <!-- Blog Visual -->
+      <div class="blog-text-content-card">
+        <!-- Blog Visual -->
         <div class="gif-image-content" data-controller="blog-images-size">
           <% if blog_post.content.match(/\bhttp.+\.gif\b/) %>
             <div class="">
@@ -36,8 +35,11 @@
             </div>
           <% end %>
         </div>
-        <h3><%= blog_post.title %></h3>
-        <p class="textToAutoLink"> <%= blog_post.content %> </p>
+        <!-- Blog Text -->
+        <div>
+          <h3><%= blog_post.title %></h3>
+          <p class="textToAutoLink blog-content-truncate"><%= blog_post.content %></p>
+        </div>
       </div>
       <!-- Actions Links -->
       <div class="card-links-content">
