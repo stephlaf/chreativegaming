@@ -52,7 +52,6 @@
   align-items: center;
   justify-content: flex-start;
   color: $secondary-gray;
-
   p {
     margin: 0;
   }
@@ -112,7 +111,7 @@
 }
 
 //  ----  Media Queries ----
-@media(max-width: 576px) {
+@media(max-width: 991px) {
   .blog-card-wrapper {
     padding: 18px;
   }
@@ -130,11 +129,9 @@
   .blog-card-wrapper .absolute-gradient {
     width: 8px;
   }
-
   .blog-text-content-card {
     flex-direction: column;
-
-    img {
+    img, video {
       margin-left: 0;
     }
   }

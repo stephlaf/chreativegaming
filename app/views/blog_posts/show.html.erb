@@ -34,6 +34,7 @@
           <p><i class="far fa-heart"></i><%= @blog_post.blog_likes.count %></p>
         </div>
       <% end %>
+
       <!-- Edit / Delete -->
       <% if current_user %>
         <% if policy(@blog_post).edit? %>
@@ -41,7 +42,6 @@
             <i class="far fa-edit"></i>
           <% end %>
         <% end %>
-
         <% if policy(@blog_post).destroy? %>
           <%= link_to blog_post_path(@blog_post),
             method: 'delete',
@@ -61,7 +61,6 @@
         <%= image_tag @blog_post.content.match(/\bhttp.+\.gif\b/)[0], width: 160, alt: "A GIF" %>
       </div>
     <% end %>
-
     <% if @blog_post.blog_image.attached? %>
       <div class="">
         <% if @blog_post.blog_image.blob.image? %>
@@ -72,6 +71,8 @@
       </div>
     <% end %>
   </div>
+
+  <!-- Blog Text -->
   <p><%= @blog_post.content %></p>
   <%= link_to "Back to all blog posts", blog_posts_path %>
 </div>
