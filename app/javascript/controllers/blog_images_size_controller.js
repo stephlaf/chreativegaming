@@ -5,6 +5,8 @@ export default class extends Controller {
 
   connect() {
     this.imagesTargets.forEach(image => {
+      console.log(width, image.width);
+      console.log(height, image.height);
       if (image.width > image.height) {
         image.classList.add('landscape')
       } else if (image.height > image.width)  {
