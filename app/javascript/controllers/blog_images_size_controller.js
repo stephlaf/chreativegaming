@@ -7,7 +7,7 @@ export default class extends Controller {
     this.imagesTargets.forEach(image => {
       if (image.width > image.height) {
         image.classList.add('landscape')
-      } else {
+      } else if (image.height > image.width)  {
         image.classList.add('portrait')
       }
     })
