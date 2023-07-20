@@ -36,7 +36,7 @@
           </div>
         </div>
         <div class="game-show-text-container game-show-price">
-          <p>CDN$ <%= @game.price_cents / 100 %></p>
+          <p>CDN$ <%= humanized_money @game.price %></p>
           <% unless current_user.game_bought?(@game) %>
             <%= form_with url: orders_path,
                           data: {
