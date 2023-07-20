@@ -8,7 +8,6 @@ class BlogPostsController < ApplicationController
   end
 
   def show
-    set_blog_post
     authorize @blog_post
   end
 
