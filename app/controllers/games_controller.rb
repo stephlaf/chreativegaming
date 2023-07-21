@@ -1,7 +1,6 @@
 class GamesController < ApplicationController
   skip_before_action :authenticate_user!, only: []
 
-  # before_action :set_game, only: [:show, :edit, :update, :destroy, :toggle_availability]
   before_action :set_game, only: [:show, :destroy]
   before_action :set_user, except: [:index]
 
@@ -22,48 +21,11 @@ class GamesController < ApplicationController
     authorize @game
   end
 
-  # def new
-  #   @game = Game.new
-  #   authorize @game
-  # end
-
-  # def create
-  #   @game = Game.new(game_params)
-  #   authorize @game
-  #   set_prices
-
-  #   if @game.save
-  #     redirect_to game_path(@game)
-  #   else
-  #     render :new
-  #   end
-  # end
-
-  # def edit
-  #   authorize @game
-  # end
-
-  # def update
-  #   authorize @game
-  #   if @game.update(game_params)
-  #     set_prices
-  #     @game.save
-  #     redirect_to game_path(@game)
-  #   else
-  #     render :edit
-  #   end
-  # end
-
   def destroy
     authorize @game
     @game.destroy
     redirect_to games_path
   end
-
-  # def toggle_availability
-  #   @game.toggle!(:available)
-  #   redirect_to game_path(@game)
-  # end
 
   private
 

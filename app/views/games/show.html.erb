@@ -1,6 +1,8 @@
 <section class="background-curves"
          id=""
-         data-controller="stripe-checkout"
+         data-controller="stripe-checkout stripe-abort-transaction"
+         data-stripe-abort-transaction-game-id-value="<%= @game.id %>"
+         data-stripe-abort-transaction-current-user-id-value="<%= current_user.id %>"
          data-stripe-checkout-publishable-key-value="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>">
   <div class="game-show-container">
     <div>

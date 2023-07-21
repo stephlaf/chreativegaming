@@ -58,6 +58,7 @@ Rails.application.routes.draw do
     get '/validate_transaction', to: 'payments#validate'
   end
   get '/rollback_canceled_order', to: 'orders#rollback_canceled_order'
+  get '/rollback_aborted_transaction', to: 'orders#rollback_aborted_transaction'
 
   mount StripeEvent::Engine, at: '/webhooks'
 

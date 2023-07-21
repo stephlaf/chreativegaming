@@ -17,4 +17,8 @@ class OrderPolicy < ApplicationPolicy
   def rollback_canceled_order?
     true
   end
+
+  def rollback_aborted_transaction?
+    true
+  end
 end

@@ -44,6 +44,23 @@ class OrdersController < ApplicationController
     end
   end
 
+  def rollback_aborted_transaction
+    @user = User.find(params[:userId])
+    @game = Game.find(params[:gameId])
+    @order = @user.pending_order(@game)
+
+    if @order
+      authorize(@order)
+      @order.destroy
+    else
+      skip_authorization
+    end
+
+    respond_to do |format|
+      format.json
+    end
+  end
+
   def rollback_canceled_order
     @order = Order.find(params[:order_id])
     authorize @order
