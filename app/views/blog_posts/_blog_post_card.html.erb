@@ -1,107 +1,111 @@
 <!-- Blog Card -->
-<div id="<%= blog_post.id %>" class="blog-card-wrapper margin-bottom">
-  <div class="blog-card">
-    <!-- Author Info -->
-    <div class="blog-byline-content">
-      <%= cl_image_tag blog_post.user.avatar.key, width: 200, height: 200, gravity: :face, crop: :thumb,
-        alt: "alttext",
-        class: 'avatar-image-small' %>
-      <div>
-        <p>by <%= blog_post.user.gametag %>
-          <% if  blog_post.user.master %>
-            • <span class="admin-badge">admin</span>
-          <% end %>
-        </p>
-        <p><i class="far fa-clock"></i><span><%= blog_post.created_at.strftime("%b %d, %Y") %></span></p>
-      </div>
-    </div>
-    <!-- Blog Text -->
-    <div class="blog-text-content">
-    <!-- Blog Visual -->
-      <div class="gif-image-content" data-controller="blog-images-size">
-        <% if blog_post.content.match(/\bhttp.+\.gif\b/) %>
-          <div class="">
-            <%= image_tag blog_post.content.match(/\bhttp.+\.gif\b/)[0], width: 160, alt: "A GIF" %>
-          </div>
-        <% end %>
-
-        <% if blog_post.blog_image.attached? %>
-          <div class="">
-            <% if blog_post.blog_image.blob.image? %>
-              <%= cl_image_tag blog_post.blog_image.key, data: {blog_images_size_target: "images"} %>
-            <% elsif blog_post.blog_image.blob.video? %>
-              <%= cl_video_tag blog_post.blog_image.key, class: 'video', crop: :pad, controls: true %>
+<%= link_to blog_post_path(blog_post) do %>
+  <div id="<%= blog_post.id %>" class="blog-card-wrapper margin-bottom">
+    <div class="blog-card">
+      <!-- Author Info -->
+      <div class="blog-byline-content">
+        <%= cl_image_tag blog_post.user.avatar.key, width: 200, height: 200, gravity: :face, crop: :thumb,
+          alt: "alttext",
+          class: 'avatar-image-small' %>
+        <div>
+          <p>by <%= blog_post.user.gametag %>
+            <% if  blog_post.user.master %>
+              • <span class="admin-badge">admin</span>
             <% end %>
-          </div>
-        <% end %>`
+          </p>
+          <p><i class="far fa-clock"></i><span><%= blog_post.created_at.strftime("%b %d, %Y") %></span></p>
+        </div>
       </div>
-      <h3><%= blog_post.title %></h3>
-      <p class="textToAutoLink"> <%= blog_post.content %> </p>
-    </div>
-    <!-- Actions Links -->
-    <div class="card-links-content">
-      <!-- Likes -->
-      <% if current_user %>
-        <div class="loggedBlogLike d-flex">
-          <%#= link_to blog_like_path(blog_post) do %>
-            <!-- if blog post is liked by user, show full heart -->
-            <!-- else, show empty heart -->
+      <div class="blog-text-content-card">
+        <!-- Blog Visual -->
+        <div class="gif-image-content" data-controller="blog-images-size">
+          <% if blog_post.content.match(/\bhttp.+\.gif\b/) %>
+            <div class="">
+              <%= image_tag blog_post.content.match(/\bhttp.+\.gif\b/)[0], class: 'd-none', width: 160, alt: "A GIF" %>
+            </div>
+          <% end %>
 
-              <a href="">
-                <% common_ids = current_user.blog_like_ids & blog_post.blog_like_ids %>
-                <% if common_ids.empty? %>
-                  <i class="far fa-heart blog-like" data-id="<%= blog_post.id %>"></i>
-                <% else %>
-                  <i class="fas fa-heart blog-like" data-id="<%= blog_post.id %>"></i>
-                <% end %>
-              </a>
+          <% if blog_post.blog_image.attached? %>
+            <div class="">
+              <% if blog_post.blog_image.blob.image? %>
+                <%= cl_image_tag blog_post.blog_image.key, class: 'd-none', data: {blog_images_size_target: "images"} %>
+              <% elsif blog_post.blog_image.blob.video? %>
+                <%= cl_video_tag blog_post.blog_image.key, class: 'video', crop: :pad, controls: true %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <!-- Blog Text -->
+        <div>
+          <h3><%= blog_post.title %></h3>
+          <p class="textToAutoLink blog-content-truncate"><%= blog_post.content %></p>
+        </div>
+      </div>
+      <!-- Actions Links -->
+      <div class="card-links-content">
+        <!-- Likes -->
+        <% if current_user %>
+          <div class="loggedBlogLike d-flex">
+            <%#= link_to blog_like_path(blog_post) do %>
+              <!-- if blog post is liked by user, show full heart -->
+              <!-- else, show empty heart -->
 
-            <%# else %>
+                <a href="">
+                  <% common_ids = current_user.blog_like_ids & blog_post.blog_like_ids %>
+                  <% if common_ids.empty? %>
+                    <i class="far fa-heart blog-like" data-id="<%= blog_post.id %>"></i>
+                  <% else %>
+                    <i class="fas fa-heart blog-like" data-id="<%= blog_post.id %>"></i>
+                  <% end %>
+                </a>
+
+              <%# else %>
+
+              <%# end %>
 
             <%# end %>
+            <p class="blog-count" data-id="<%= blog_post.id %>"><%= blog_post.blog_likes.count %></p>
+          </div>
+        <% else %>
+          <div class="unLoggedBlogLikeAttempt d-flex">
+            <p><i class="far fa-heart"></i><%= blog_post.blog_likes.count %></p>
+          </div>
+        <% end %>
+        <!-- Edit / Delete -->
+        <% if current_user %>
+          <% if policy(blog_post).edit? %>
+            <%= link_to edit_blog_post_path(blog_post) do %>
+              <i class="far fa-edit"></i>
+            <% end %>
+          <% end %>
 
-          <%# end %>
-          <p class="blog-count" data-id="<%= blog_post.id %>"><%= blog_post.blog_likes.count %></p>
-        </div>
-      <% else %>
-        <div class="unLoggedBlogLikeAttempt d-flex">
-          <p><i class="far fa-heart"></i><%= blog_post.blog_likes.count %></p>
-        </div>
-      <% end %>
-      <!-- Edit / Delete -->
-      <% if current_user %>
-        <% if policy(blog_post).edit? %>
-          <%= link_to edit_blog_post_path(blog_post) do %>
-            <i class="far fa-edit"></i>
+          <% if policy(blog_post).destroy? %>
+            <%= link_to blog_post_path(blog_post),
+              method: 'delete',
+              data: { confirm: "Are you sure you want to delete #{blog_post.title}?" } do
+            %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
           <% end %>
         <% end %>
-
-        <% if policy(blog_post).destroy? %>
-          <%= link_to blog_post_path(blog_post),
-            method: 'delete',
-            data: { confirm: "Are you sure you want to delete #{blog_post.title}?" } do
-          %>
-            <i class="far fa-trash-alt"></i>
-          <% end %>
+        <!-- Tags -->
+        <% if blog_post.published? %>
+          <p class="card-tag news-tag">news</p>
+        <% else %>
+          <p class="card-tag blog-tag">blog</p>
         <% end %>
-      <% end %>
-      <!-- Tags -->
-      <% if blog_post.published? %>
-        <p class="card-tag news-tag">news</p>
-      <% else %>
-        <p class="card-tag blog-tag">blog</p>
-      <% end %>
+      </div>
     </div>
-  </div>
-  <!-- "Priority" look -->
-  <% if blog_post.priority?%>
-    <div class="absolute-gradient"></div>
-    <p class="absolute-bolt"><i class="fas fa-bolt"></i></p>
-    <!-- Link to remove priority from blog_post -->
-    <% if current_user && policy(current_user).master? %>
-      <%= link_to blog_priority_path(blog_post) do %>
-        <p class="absolute-not" title="remove priority status"><i class="far fa-times-circle"></i></p>
+    <!-- "Priority" look -->
+    <% if blog_post.priority?%>
+      <div class="absolute-gradient"></div>
+      <p class="absolute-bolt"><i class="fas fa-bolt"></i></p>
+      <!-- Link to remove priority from blog_post -->
+      <% if current_user && policy(current_user).master? %>
+        <%= link_to blog_priority_path(blog_post) do %>
+          <p class="absolute-not" title="remove priority status"><i class="far fa-times-circle"></i></p>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
