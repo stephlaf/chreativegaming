@@ -48,16 +48,16 @@ class OrdersController < ApplicationController
     @user = User.find(params[:userId])
     @game = Game.find(params[:gameId])
     @order = @user.pending_order(@game)
-
-    if @order
-      authorize(@order)
-      @order.destroy
-    else
-      skip_authorization
-    end
-
+# p "ORDER IS: #{@order}"
     respond_to do |format|
-      format.json
+      if @order
+        authorize(@order)
+        @order.destroy
+        format.json
+      else
+        skip_authorization
+        format.json
+      end
     end
   end
 

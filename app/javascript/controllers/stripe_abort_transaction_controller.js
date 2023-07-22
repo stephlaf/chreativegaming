@@ -10,6 +10,8 @@ export default class extends Controller {
   }
 
   deletePendingOrder() {
+  //   console.log('USER ID: ', this.currentUserIdValue);
+  //   console.log('GAME ID: ', this.gameIdValue);
     const url = `/rollback_aborted_transaction?userId=${this.currentUserIdValue}&gameId=${this.gameIdValue}`
 
     fetch(url, {
@@ -17,11 +19,14 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        let reload = true
-        if(data.reload && reload === true) {
-          window.location.reload();
-          reload = false
-        }
+        console.log(data);
+        console.log('USER ID: ', this.currentUserIdValue);
+        console.log('GAME ID: ', this.gameIdValue);
+        // let reload = true
+        // if(data.reload && reload === true) {
+        //   window.location.reload();
+        //   reload = false
+        // }
       })
   }
 }

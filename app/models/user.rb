@@ -43,6 +43,6 @@ class User < ApplicationRecord
   end
 
   def pending_order(game)
-    order = Order.where(user: self, game: game, state: 'pending').first
+    p Order.where(user: self, game: game, state: 'pending').first
   end
 end

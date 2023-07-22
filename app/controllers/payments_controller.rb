@@ -5,6 +5,7 @@ class PaymentsController < ApplicationController
   end
 
   def validate
+    p "PAYMENT STATUS: #{@session.payment_status}"
     case @session.payment_status
     when "paid"
       @order.update(state: 'paid')
