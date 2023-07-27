@@ -5,9 +5,20 @@ export default class extends Controller {
     currentUserId: Number,
     gameId: Number
   }
-  connect() {
-    this.deletePendingOrder()
+
+  initialize() {
+    // this.reloadPage = this.reloadPage.bind(this)
   }
+
+  connect() {
+    // window.addEventListener("onpopstate", this.reloadPage)
+    this.deletePendingOrder()
+    // console.log(this)
+  }
+
+  // reloadPage(event) {
+  //   console.log(event);
+  // }
 
   deletePendingOrder() {
   //   console.log('USER ID: ', this.currentUserIdValue);
@@ -15,18 +26,18 @@ export default class extends Controller {
     const url = `/rollback_aborted_transaction?userId=${this.currentUserIdValue}&gameId=${this.gameIdValue}`
 
     fetch(url, {
-      headers: { 'Accept': 'application/json' }
+      headers: { 'Accept': 'application/json', "Cache-Control": "no-cache" }
     })
       .then(response => response.json())
       .then((data) => {
-        console.log(data);
-        console.log('USER ID: ', this.currentUserIdValue);
-        console.log('GAME ID: ', this.gameIdValue);
+        console.log('DATA IS: ', data);
+        // console.log('USER ID: ', this.currentUserIdValue);
+        // console.log('GAME ID: ', this.gameIdValue);
+        // response.headers["Cache-Control"] = "no-cache"
         // let reload = true
-        // if(data.reload && reload === true) {
-        //   window.location.reload();
-        //   reload = false
-        // }
+        if(!data.reload) {
+          Response.redirect("/games", 200);
+        }
       })
   }
 }
