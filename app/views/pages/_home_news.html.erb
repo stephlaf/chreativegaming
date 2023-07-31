@@ -16,7 +16,7 @@
               <% @published_posts.each do |post| %>
                 <div class="margin-bottom">
                   <div class="card-container">
-                    <%= link_to "/blog_posts##{post.id}" do %>
+                    <%= link_to blog_post_path(post) do %>
                       <div class="card-long">
                         <div class="image-container">
                           <% if post.blog_image.attached? %>
@@ -155,7 +155,7 @@
                     <% if post.kind_of?(BlogPost) %>
                       <div class="margin-bottom">
                         <div class="card-container">
-                          <%= link_to "/blog_posts##{post.id}" do %>
+                          <%= link_to blog_post_path(post) do %>
                             <div class="card-long">
                               <div class="image-container">
                                 <% if post.blog_image.attached? %>
