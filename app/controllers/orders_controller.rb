@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
 
   def create
     @game = Game.find(params[:game_id])
+    rollback_aborted_transaction
     @order = Order.create(
                 game: @game,
                 charge_cents: @game.price_cents,
@@ -44,23 +45,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  def rollback_aborted_transaction
-    @user = User.find(params[:userId])
-    @game = Game.find(params[:gameId])
-    @order = @user.pending_order(@game)
-# p "ORDER IS: #{@order}"
-    respond_to do |format|
-      if @order
-        authorize(@order)
-        @order.destroy
-        format.json
-      else
-        skip_authorization
-        format.json
-      end
-    end
-  end
-
   def rollback_canceled_order
     @order = Order.find(params[:order_id])
     authorize @order
@@ -69,6 +53,11 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def rollback_aborted_transaction
+    @orders = current_user.pending_orders(@game)
+    @orders.each(&:destroy) if @orders.present?
+  end
 
   def game_already_ordered
     redirect_to games_path, alert: "You have already ordered this game."

@@ -42,7 +42,7 @@ class User < ApplicationRecord
     bought_games.include?(game)
   end
 
-  def pending_order(game)
-    p Order.where(user: self, game: game, state: 'pending').first
+  def pending_orders(game)
+    Order.where(user: self, game: game, state: 'pending')
   end
 end
