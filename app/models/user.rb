@@ -41,4 +41,8 @@ class User < ApplicationRecord
   def game_bought?(game)
     bought_games.include?(game)
   end
+
+  def pending_orders(game)
+    Order.where(user: self, game: game, state: 'pending')
+  end
 end
