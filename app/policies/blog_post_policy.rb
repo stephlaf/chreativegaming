@@ -10,7 +10,11 @@ class BlogPostPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    if !user.nil?
+      true
+    else
+      record.published?
+    end
   end
 
   def new?
