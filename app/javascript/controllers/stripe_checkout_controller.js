@@ -27,6 +27,7 @@ export default class extends Controller {
   }
 
   sendRequest(checkoutSessionId) {
+    this.submitButtonTarget.disabled = false
     const stripe = Stripe(this.publishableKeyValue);
     stripe.redirectToCheckout({
       sessionId: checkoutSessionId
