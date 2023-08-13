@@ -5,7 +5,7 @@ export default class extends Controller {
     publishableKey: String
   }
 
-  static targets = [ 'form' ]
+  static targets = [ 'form', 'submitButton' ]
 
   connect() {
   }
@@ -13,16 +13,17 @@ export default class extends Controller {
   createOrder(event) {
     event.preventDefault()
     event.stopImmediatePropagation()
+    this.submitButtonTarget.disabled = true
 
     fetch(this.formTarget.action, {
       method: 'POST',
       headers: { 'Accept': 'text/plain'},
       body: new FormData(this.formTarget)
     })
-      .then(response => response.text())
-      .then((checkoutSessionId) => {
-        this.sendRequest(checkoutSessionId);
-      })
+    .then(response => response.text())
+    .then((checkoutSessionId) => {
+      this.sendRequest(checkoutSessionId);
+    })
   }
 
   sendRequest(checkoutSessionId) {
