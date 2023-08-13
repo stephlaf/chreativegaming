@@ -1,1 +1,2 @@
 config/environments/production.rb merge=ours
+config/initializers/stripe.rb merge=ours
