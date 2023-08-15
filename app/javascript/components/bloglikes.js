@@ -3,7 +3,7 @@ const askForLogin = () => {
   if (likeLinks.length > 0) {
     likeLinks.forEach((link) => {
       link.addEventListener('click', () => {
-        window.location.href = 'users/sign_in'
+        window.location.href = '/users/sign_in'
       });
     });
   }
