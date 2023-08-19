@@ -14,6 +14,8 @@ else
     publishable_key: ENV['STRIPE_PUBLISHABLE_KEY'],
     secret_key:      ENV['STRIPE_SECRET_KEY'],
     signing_secret:  ENV['STRIPE_WEBHOOK_SECRET_KEY_DEVELOPMENT']
+    # secret_key:      ENV['STRIPE_SECRET_KEY_PRODUCTION'],
+    # publishable_key: ENV['STRIPE_PUBLISHABLE_KEY_PRODUCTION'],
     # signing_secret:  ENV['STRIPE_WEBHOOK_SECRET_KEY_PRODUCTION']
   }
 end
