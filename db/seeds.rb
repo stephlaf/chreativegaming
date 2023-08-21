@@ -91,6 +91,9 @@ if Rails.env.development?
   puts "Destroying blog posts..."
   BlogPost.destroy_all if Rails.env.development?
 
+  puts "Destroying orders..."
+  Order.destroy_all if Rails.env.development?
+
   puts "Destroying users..."
   User.destroy_all if Rails.env.development?
 
@@ -98,25 +101,68 @@ if Rails.env.development?
   Game.destroy_all if Rails.env.development?
 
 
-  puts "Seeding users..."
+  puts "Seeding one admin user..."
+
 
   ines = User.new(
-    email: "ines@gmail.com",
+    email: "ines@email.com",
     password: "123456",
     first_name: "Ines",
     last_name: "Alvergne",
     master: true,
     gametag: "youpi",
-    membership_level: "Platinum",
-    # status: "regular"
-    )
+    membership_level: "Platinum"
+  )
   ines.save!
-  avatar_file = URI.open('https://res.cloudinary.com/chreative-gaming/image/upload/v1583507597/default_junymf.png')
-  ines.avatar.attach(io: avatar_file, filename: 'avatar', content_type: 'image/png')
+  ines_avatar = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1656425949/epasuf7ooakpmby23zr6.jpg')
+  ines.avatar.attach(io: ines_avatar, filename: 'avatar-ines', content_type: 'image/png')
 
-  puts "Created Ines"
-  puts ines
+  steph = User.new(
+    email: "steph@email.com",
+    password: "123456",
+    first_name: "Stephane",
+    last_name: "Lafontaine",
+    master: true,
+    gametag: "steph",
+    membership_level: "Platinum"
+  )
+  steph.save!
+  steph_avatar = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1652365690/ygqzrfi0zo1jpj6y4lwa.jpg')
+  steph.avatar.attach(io: steph_avatar, filename: 'avatar-steph', content_type: 'image/png')
+
+  user = User.new(
+    email: "user@email.com",
+    password: "123456",
+    first_name: "User",
+    last_name: "Jean-Michel",
+    master: false,
+    gametag: "someone",
+    membership_level: "Platinum"
+  )
+  user.save!
+  avatar_file = URI.open('https://res.cloudinary.com/chreative-gaming/image/upload/v1583507597/default_junymf.png')
+  user.avatar.attach(io: avatar_file, filename: 'avatar', content_type: 'image/png')
+
+  puts "Created Ines, Steph, and User"
   puts "=========================="
+
+  # puts "Seeding more users for pagination..."
+
+  # 40.times do
+  #   user = User.new(
+  #     email: Faker::Internet.email,
+  #     password: "123456",
+  #     first_name: "Someone",
+  #     last_name: "Great",
+  #     master: true,
+  #     gametag: Faker::FunnyName.name,
+  #     membership_level: "Platinum",
+  #     # status: "regular"
+  #     )
+  #   user.save!
+  #   avatar_file = URI.open('https://res.cloudinary.com/chreative-gaming/image/upload/v1583507597/default_junymf.png')
+  #   user.avatar.attach(io: avatar_file, filename: 'avatar', content_type: 'image/png')
+  # end
 
   # ---- Seed blog posts -----
 
@@ -187,7 +233,8 @@ if Rails.env.development?
     name: "Les Escargots dans l'espace",
     description: "Craignez-nous les escargots! Mort à la terre.",
     download_link: "blabla.com",
-    available_platforms: ["PC", "iOS"]
+    available_platforms: ["PC", "iOS"],
+    price_cents: 100
   )
   thumbnail_1 = URI.open("https://i.ytimg.com/vi/MkPaysPibwg/hqdefault.jpg")
   game_1.thumbnail.attach(io: thumbnail_1, filename: 'thumbnail_1.jpg', content_type: 'image/jpg')
@@ -197,7 +244,8 @@ if Rails.env.development?
     name: "Les Escargots en discothèque",
     description: "Toi aussi tu bave!",
     download_link: "blabla.com",
-    available_platforms: ["PC"]
+    available_platforms: ["PC"],
+    price_cents: 100
   )
   thumbnail_2 = URI.open("https://i.ytimg.com/vi/YleoZNSifUY/hqdefault.jpg")
   game_2.thumbnail.attach(io: thumbnail_2, filename: 'thumbnail_2.jpg', content_type: 'image/jpg')
@@ -207,7 +255,8 @@ if Rails.env.development?
     name: "Les Escargots jouent à la pétanque",
     description: "Tu tire ou tu pointe?",
     download_link: "blabla.com",
-    available_platforms: ["PC", "MAC", "iOS", "Android"]
+    available_platforms: ["PC", "MAC", "iOS", "Android"],
+    price_cents: 100
   )
   thumbnail_3 = URI.open("https://i.ytimg.com/vi/X8qCXoA6ZLM/sddefault.jpg")
   game_3.thumbnail.attach(io: thumbnail_3, filename: 'thumbnail_3.jpg', content_type: 'image/jpg')
@@ -217,7 +266,8 @@ if Rails.env.development?
     name: "Un mauvais acteur",
     description: "Ahhh.. Si seulement...",
     download_link: "blabla.com",
-    available_platforms: ["PC", "MAC", "Android"]
+    available_platforms: ["PC", "MAC", "Android"],
+    price_cents: 100
   )
   thumbnail_4 = URI.open("https://i.ytimg.com/vi/guS2P3xhKlU/hqdefault.jpg")
   game_4.thumbnail.attach(io: thumbnail_4, filename: 'thumbnail_4.jpg', content_type: 'image/jpg')

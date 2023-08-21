@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row py-4">
+    <div class="col-md-3"><%= image_tag @order.game.thumbnail, width: '100%' %></div>
+    <div class="col"
+         data-controller="stripe"
+         data-stripe-publishable-key-value="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
+         data-stripe-order-id-value="<%= @order.checkout_session_id %>">
+      <h1>Checkout summary</h1>
+      <p>Purchase of <strong><%= @order.game.name %></strong> for <strong><%= @order.amount / 100 %></strong></p>
+      <button
+        id="pay"
+        class="btn btn-primary"
+        data-action='click->stripe#sendRequest'
+      >Pay</button>
+
+    </div>
+  </div>
+</div>

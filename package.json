@@ -8,6 +8,7 @@
     "@rails/webpacker": "4.2.2",
     "autolinker": "^3.14.1",
     "bootstrap": "^4.4.1",
+    "imagesloaded": "^5.0.0",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
     "popper.js": "^1.16.1",

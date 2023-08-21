@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :blog_posts
   has_many :blog_likes
+  has_many :orders
 
   validates :gametag, presence: true
   validates :membership_level, inclusion: { in: ['', 'Bronze', 'Silver', 'Gold', 'Platinum'],
@@ -27,5 +28,21 @@ class User < ApplicationRecord
   # provide a custom message for a deleted account
   def inactive_message
     !deleted_at ? super : :deleted_account
+  end
+
+  def paid_orders
+    orders.where(state: 'paid')
+  end
+
+  def bought_games
+    paid_orders.map(&:game)
+  end
+
+  def game_bought?(game)
+    bought_games.include?(game)
+  end
+
+  def pending_orders(game)
+    Order.where(user: self, game: game, state: 'pending')
   end
 end

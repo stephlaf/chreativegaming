@@ -50,6 +50,9 @@ gem 'pundit'
 gem 'money-rails', '~>1.12'
 gem 'faker'
 
+gem 'stripe'
+gem 'stripe_event'
+
 # To have PG worl well with enums
 gem 'activerecord-postgres_enum'
 
@@ -83,6 +86,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'bullet'
   gem 'letter_opener'
+  gem 'rails-erd'
 end
 
 group :development do

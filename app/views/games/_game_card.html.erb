@@ -1,12 +1,22 @@
 <div class="margin-bottom">
   <div class="card-container">
-    <%= link_to game.download_link, target: 'blank' do %>
+
+    <%= link_to game_path(game) do %>
       <div class="game-card-long">
         <div class="game-image-container">
-          <% if game.thumbnail.attached? %>
-            <%= cl_image_tag game.thumbnail.key, crop: :fill, class: 'game-image', alt: 'Game Thumbnail' %>
+          <% if current_user.bought_games.include?(game) %>
+            <% if game.thumbnail.attached? %>
+              <%= cl_image_tag game.thumbnail.key, crop: :fill, class: 'game-image layer', alt: 'Game Thumbnail' %>
+              <p id="image-text"><i class="fas fa-check-circle"></i> Already purchased</p>
+            <% else %>
+              <%= image_tag asset_url('generic_game_thumb.png'), crop: :fill, class: 'game-image layer', alt: 'Default Game Thumbnail' %>
+            <% end %>
           <% else %>
-            <%= image_tag asset_url('generic_game_thumb.png'), crop: :fill, class: 'game-image', alt: 'Default Game Thumbnail' %>
+            <% if game.thumbnail.attached? %>
+              <%= cl_image_tag game.thumbnail.key, crop: :fill, class: 'game-image', alt: 'Game Thumbnail' %>
+            <% else %>
+              <%= image_tag asset_url('generic_game_thumb.png'), crop: :fill, class: 'game-image', alt: 'Default Game Thumbnail' %>
+            <% end %>
           <% end %>
         </div>
         <div class="game-card-text">
@@ -26,12 +36,17 @@
               <% end %>
             <% end %>
           </div>
-          <div class="game-secondary-text d-flex">
-            <p><i class="far fa-clock"></i><%= game.created_at.strftime("%b %d, %Y") %></p>
-            <%# <p><i class="far fa-heart"></i>20</p> %>
+          <div class="d-flex">
+            <div class="game-secondary-text d-flex">
+              <p>CDN$ <%= humanized_money game.price %></p>
+            </div>
+            <div class="game-secondary-text d-flex">
+              <p><i class="far fa-clock"></i><%= game.created_at.strftime("%b %d, %Y") %></p>
+              <%# <p><i class="far fa-heart"></i>20</p> %>
+            </div>
           </div>
-      </div>
         </div>
+      </div>
     <% end %>
   </div>
 </div>

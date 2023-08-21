@@ -33,4 +33,8 @@ class GamePolicy < ApplicationPolicy
   def toggle_availability?
     return true if @user.master == true
   end
+
+  def my_games?
+    true
+  end
 end

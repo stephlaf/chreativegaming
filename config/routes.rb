@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :reviews
     resources :downloads
     resources :users
+    resources :orders, only: [:index, :show]
 
     root to: "games#index"
   end
@@ -49,7 +50,16 @@ Rails.application.routes.draw do
 
   # Commented out games routes for MVP
   # resources :games, except: [:new, :create, :edit, :update]
-  resources :games, only: [:index]
+  resources :games, only: [:index, :show]
+  get '/my-games', to: 'games#my_games'
+
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
+    get '/validate_transaction', to: 'payments#validate'
+  end
+  get '/rollback_canceled_order', to: 'orders#rollback_canceled_order'
+
+  mount StripeEvent::Engine, at: '/webhooks'
 
   # Temporary redirects until games feature is released
   # match 'games', to: 'pages#not_found', via: :all

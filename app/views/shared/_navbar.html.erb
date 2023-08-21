@@ -51,6 +51,7 @@
                 <%#= link_to "See all users", users_path, class: "dropdown-item" %>
               <% end %>
 
+              <%= link_to 'My games', main_app.my_games_path, class: "dropdown-item" %>
               <%= link_to "Profile", main_app.user_path(current_user), class: "dropdown-item" %>
               <%= link_to "Log out", main_app.destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>

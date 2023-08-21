@@ -115,6 +115,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    choice (0.2.0)
     cloudinary (1.25.0)
       aws_cf_signer
       rest-client (>= 2.0.0)
@@ -234,6 +235,8 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.5.9)
+    nokogiri (1.14.3-arm64-darwin)
+      racc (~> 1.4)
     nokogiri (1.14.3-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.14.3-x86_64-linux)
@@ -287,6 +290,11 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
+    rails-erd (1.7.2)
+      activerecord (>= 4.2)
+      activesupport (>= 4.2)
+      choice (~> 0.2.0)
+      ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.5.0)
       loofah (~> 2.19, >= 2.19.1)
     rails-ujs (0.1.0)
@@ -314,6 +322,8 @@ GEM
       netrc (~> 0.8)
     rexml (3.2.5)
     rinku (2.0.6)
+    ruby-graphviz (1.2.5)
+      rexml
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     rubyzip (2.3.2)
@@ -353,6 +363,10 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    stripe (8.5.0)
+    stripe_event (2.7.0)
+      activesupport (>= 3.1)
+      stripe (>= 2.8, < 9)
     thor (1.2.1)
     thread_safe (0.3.6)
     thredded (1.1.0)
@@ -412,6 +426,8 @@ GEM
     zeitwerk (2.6.7)
 
 PLATFORMS
+  arm64-darwin-21
+  arm64-darwin-22
   x86_64-darwin-20
   x86_64-linux
 
@@ -441,6 +457,7 @@ DEPENDENCIES
   puma (= 4.3.6)
   pundit
   rails (~> 6.0.3, >= 6.0.3.6)
+  rails-erd
   rails-ujs
   rinku
   sass-rails (>= 6)
@@ -449,6 +466,8 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets (= 3.7.2)
+  stripe
+  stripe_event
   thredded (~> 1.1)
   turbolinks (~> 5)
   tzinfo-data

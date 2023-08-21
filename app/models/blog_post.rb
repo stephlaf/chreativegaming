@@ -13,4 +13,8 @@ class BlogPost < ApplicationRecord
 
   scope :order_by_updated, -> { order(updated_at: :desc) }
   scope :order_by_created, -> { order(created_at: :desc) }
+
+  def published?
+    blog_post_status == 'published'
+  end
 end
