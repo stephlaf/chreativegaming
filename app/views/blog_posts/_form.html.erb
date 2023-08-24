@@ -1,6 +1,6 @@
 <%= simple_form_for(@blog_post) do |f| %>
   <%= f.input :title, label: false, placeholder: 'Title', input_html: { class: 'input-rounded' } %>
-  <%= f.input :content, label: false, placeholder: 'Text', hint: "maximum 1500 characters", input_html: { class: 'input-rounded textarea' }, maxlength: true %>
+  <%= f.input :content, label: false, placeholder: 'Text', input_html: { class: 'input-rounded textarea' }, maxlength: true %>
 
   <% if current_user.master %>
     <%= f.input :blog_post_status,
