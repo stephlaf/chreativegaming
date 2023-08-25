@@ -7,8 +7,6 @@ class BlogPost < ApplicationRecord
   validates :title, :content, presence: true
   validates :blog_post_status, inclusion: { in: :blog_post_status }
 
-  validates :content, length: { maximum: 1500 }
-
   has_one_attached :blog_image
 
   scope :order_by_updated, -> { order(updated_at: :desc) }
