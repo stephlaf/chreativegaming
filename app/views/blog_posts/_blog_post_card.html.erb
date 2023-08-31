@@ -19,9 +19,9 @@
       <div class="blog-text-content-card">
         <!-- Blog Visual -->
         <div class="gif-image-content" data-controller="blog-images-size">
-          <% if blog_post.content.match(/\bhttp.+\.gif\b/) %>
+          <% if blog_post.content.body.to_plain_text.match(/\bhttp.+\.gif\b/) %>
             <div class="">
-              <%= image_tag blog_post.content.match(/\bhttp.+\.gif\b/)[0], class: 'd-none', width: 160, alt: "A GIF" %>
+              <%= image_tag blog_post.content.body.to_plain_text.match(/\bhttp.+\.gif\b/)[0], class: 'd-none', width: 160, alt: "A GIF" %>
             </div>
           <% end %>
 
