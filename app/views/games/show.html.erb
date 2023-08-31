@@ -1,7 +1,7 @@
 <section class="background-curves"
          id=""
          data-controller="stripe-checkout"
-         data-stripe-checkout-publishable-key-value="<%= Rails.env.production? ? ENV['STRIPE_PUBLISHABLE_KEY'] : ENV['STRIPE_PUBLISHABLE_KEY'] %>">
+         data-stripe-checkout-publishable-key-value="<%= Rails.env.production? ? ENV['STRIPE_PUBLISHABLE_KEY_PRODUCTION'] : ENV['STRIPE_PUBLISHABLE_KEY'] %>">
   <div class="game-show-container">
     <div>
       <% if @game.thumbnail.attached? %>
