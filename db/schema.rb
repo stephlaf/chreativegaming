@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_29_143854) do
+ActiveRecord::Schema.define(version: 2023_08_31_005939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 2023_06_29_143854) do
     "priority",
     "published",
   ], force: :cascade
+
+  create_table "action_text_rich_texts", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "body"
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -53,13 +63,13 @@ ActiveRecord::Schema.define(version: 2023_06_29_143854) do
 
   create_table "blog_posts", force: :cascade do |t|
     t.string "title"
-    t.text "content"
+    t.text "plain_content"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "published", default: false
     t.boolean "priority_post", default: false
-    t.enum "blog_post_status", default: "regular", null: false, enum_type: "status"
+    t.string "blog_post_status", default: "regular", null: false
     t.index ["blog_post_status"], name: "index_blog_posts_on_blog_post_status"
     t.index ["user_id"], name: "index_blog_posts_on_user_id"
   end
@@ -230,7 +240,7 @@ ActiveRecord::Schema.define(version: 2023_06_29_143854) do
     t.datetime "updated_at", null: false
     t.boolean "priority_post", default: false
     t.boolean "published", default: false
-    t.enum "forum_post_status", default: "regular", null: false, enum_type: "status"
+    t.string "forum_post_status", default: "regular", null: false
     t.datetime "set_priority_date"
     t.index "to_tsvector('english'::regconfig, content)", name: "thredded_posts_content_fts", using: :gist
     t.index ["forum_post_status"], name: "index_thredded_posts_on_forum_post_status"

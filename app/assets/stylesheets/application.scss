@@ -16,6 +16,10 @@
 @import "custom_thredded/variables";
 @import "thredded";
 
+// ActionText stylesheet
+@import "trix/dist/trix";
+
+
 // Bypassing the thredded container
 // .thredded--main-container {
 //   // The padding and max-width are handled by the app's container.
