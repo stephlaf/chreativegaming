@@ -2,6 +2,8 @@ class BlogPost < ApplicationRecord
   belongs_to :user
   has_many :blog_likes, dependent: :destroy
 
+  has_rich_text :content
+
   enum blog_post_status: { regular: 'regular', priority: 'priority', published: 'published' }
 
   validates :title, :content, presence: true
@@ -15,4 +17,5 @@ class BlogPost < ApplicationRecord
   def published?
     blog_post_status == 'published'
   end
+
 end
