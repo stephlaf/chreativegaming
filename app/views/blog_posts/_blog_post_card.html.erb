@@ -38,7 +38,9 @@
         <!-- Blog Text -->
         <div>
           <h3><%= blog_post.title %></h3>
-          <p class="textToAutoLink blog-content-truncate"><%= blog_post.content %></p>
+          <div class="textToAutoLink blog-content-truncate">
+            <%= blog_post.content %>
+          </div>
         </div>
       </div>
       <!-- Actions Links -->
