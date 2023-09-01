@@ -73,6 +73,8 @@
   </div>
 
   <!-- Blog Text -->
-  <p><%= @blog_post.content %></p>
+  <div class="paragraph-white-space">
+    <%= @blog_post.content %>
+  </div>
   <%= link_to "Back to all blog posts", blog_posts_path %>
 </div>
