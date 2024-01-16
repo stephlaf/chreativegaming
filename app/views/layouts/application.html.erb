@@ -53,9 +53,17 @@
     <%#== Gravatar.prefetch_dns %>
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> -->
 
+    <!-- Google Tag Manager -->
+    <% if Rails.env.production? %>
+      <%= render 'shared/header/google_tags' %>
+    <% end %>
   </head>
 
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TR266X7X"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
     <div class="wrapper">
       <%= render 'shared/navbar' %>
 
