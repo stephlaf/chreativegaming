@@ -54,9 +54,7 @@
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> -->
 
     <!-- Google Tag Manager -->
-    <% if Rails.env.production? %>
-      <%= render 'shared/header/google_tags' %>
-    <% end %>
+    <%= render 'shared/header/google_tags' if Rails.env.production? %>
   </head>
 
   <body>
