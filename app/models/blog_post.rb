@@ -8,6 +8,7 @@ class BlogPost < ApplicationRecord
 
   validates :title, :content, presence: true
   validates :blog_post_status, inclusion: { in: :blog_post_status }
+  validate :media_size, if: -> { blog_image.attached? }
 
   has_one_attached :blog_image
 
@@ -16,5 +17,11 @@ class BlogPost < ApplicationRecord
 
   def published?
     blog_post_status == 'published'
+  end
+
+  def media_size
+    if blog_image.blob.byte_size > 10.megabytes
+      errors.add(:blog_image, 'size exceeds the allowed limit (10 MB)')
+    end
   end
 end
