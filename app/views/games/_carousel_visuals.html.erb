@@ -1,11 +1,23 @@
-<section data-controller="game-carousel" class="swiper mySwiper">
-  <div class="swiper-wrapper">
-    <% @game.carousel_visuals.each do |visual| %>
-      <div class="swiper-slide">
-        <%= cl_image_tag visual.key, class: 'game-image', alt: 'game overview' %>
-      </div>
-    <% end %>
+<div data-controller="game-carousel">
+  <div class="swiper gallery-top">
+    <div class="swiper-wrapper">
+      <% @game.carousel_visuals.each do |visual| %>
+        <div class="swiper-slide">
+          <%= cl_image_tag visual.key, class: 'game-image', alt: 'game overview' %>
+        </div>
+      <% end %>
+    </div>
+    <div class="swiper-button-prev swiper-arrow"></div>
+    <div class="swiper-button-next swiper-arrow"></div>
   </div>
-  <div class="swiper-button-prev swiper-arrow"></div>
-  <div class="swiper-button-next swiper-arrow"></div>
-</section>
+
+  <div thumbsSlider="" class="swiper gallery-thumbs">
+    <div class="swiper-wrapper">
+      <% @game.carousel_visuals.each do |visual| %>
+        <div class="swiper-slide">
+          <%= cl_image_tag visual.key, class: 'game-image', alt: 'game overview' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
