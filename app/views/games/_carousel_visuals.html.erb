@@ -1,0 +1,11 @@
+<section data-controller="game-carousel" class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <% @game.carousel_visuals.each do |visual| %>
+      <div class="swiper-slide">
+        <%= cl_image_tag visual.key, class: 'game-image', alt: 'game overview' %>
+      </div>
+    <% end %>
+  </div>
+  <div class="swiper-button-prev swiper-arrow"></div>
+  <div class="swiper-button-next swiper-arrow"></div>
+</section>
