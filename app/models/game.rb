@@ -6,6 +6,7 @@ class Game < ApplicationRecord
   has_one_attached :thumbnail
   has_one_attached :banner
   has_one_attached :game_file
+  has_many_attached :carousel_visuals
 
   validates :name, presence: true
   validates :download_link, presence: true
