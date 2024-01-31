@@ -6,8 +6,8 @@ import { Navigation, Thumbs } from 'swiper/modules';
 export default class extends Controller {
   connect() {
     const galleryThumbs = new Swiper(".gallery-thumbs", {
-      spaceBetween: 10,
-      slidesPerView: 4,
+      spaceBetween: 5,
+      slidesPerView: 3,
       freeMode: true,
       watchSlidesProgress: true,
     });

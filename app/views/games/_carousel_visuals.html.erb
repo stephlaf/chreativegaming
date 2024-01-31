@@ -15,7 +15,7 @@
     <div class="swiper-wrapper">
       <% @game.carousel_visuals.each do |visual| %>
         <div class="swiper-slide">
-          <%= cl_image_tag visual.key, class: 'game-image', alt: 'game overview' %>
+          <%= cl_image_tag visual.key, alt: 'game overview' %>
         </div>
       <% end %>
     </div>
