@@ -27,6 +27,13 @@
                             autofocus: true,
                             input_html: { autocomplete: "gametag" },
                             input_html: { class: 'input-rounded' } %>
+                <%= f.input :gamer_type,
+                            as: :select,
+                            collection: User.gamer_types.keys.map{ |key| [key.humanize, key] },
+                            label: "What type of user are you?",
+                            prompt: "Select an option",
+                            required: true,
+                            input_html: { class: 'input-rounded dropdown' } %>
                 <%= f.input :password,
                             label: false,
                             placeholder: 'password',
