@@ -29,7 +29,7 @@ class UserDashboard < Administrate::BaseDashboard
     master: Field::Boolean,
     archived: Field::Boolean,
     deleted_at: Field::DateTime,
-    # membership_level: Field::String,
+    gamer_type: Field::Enum,
     membership_level: Field::Select.with_options(collection: ['', 'Bronze', 'Silver', 'Gold', 'Platinum']),
   }.freeze
 
@@ -44,6 +44,7 @@ class UserDashboard < Administrate::BaseDashboard
   id
   gametag
   membership_level
+  gamer_type
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -62,6 +63,7 @@ class UserDashboard < Administrate::BaseDashboard
   gametag
   avatar
   membership_level
+  gamer_type
   email
   first_name
   last_name
