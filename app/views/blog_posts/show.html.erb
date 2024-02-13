@@ -58,7 +58,7 @@
   <div class="float-media" data-controller="blog-images-size">
     <% if @blog_post.content.body.to_plain_text.match(/\bhttp.+\.gif\b/) %>
       <div class="">
-        <%= image_tag @blog_post.content.body.to_plain_text.match(/\bhttp.+\.gif\b/)[0], width: 160, alt: "A GIF" %>
+        <%= image_tag @blog_post.content.body.to_plain_text.match(/\bhttp.+\.gif\b/)[0], width: 160, alt: "A GIF", flag: :fl_lossy %>
       </div>
     <% end %>
     <% if @blog_post.blog_image.attached? %>
