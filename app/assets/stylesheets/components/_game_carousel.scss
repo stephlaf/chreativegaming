@@ -3,14 +3,9 @@
 }
 
 .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  img {
+  width: 100%;
+  height: 100%;
+  img, video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -34,9 +29,7 @@
   }
 }
 
-gallery-thumbs {
-  height: 20%;
-  box-sizing: border-box;
+.gallery-thumbs {
   padding: 10px 0;
 
   .swiper-slide {
@@ -47,5 +40,20 @@ gallery-thumbs {
 
   .swiper-slide-thumb-active {
     opacity: 1;
+  }
+}
+
+.carousel-video-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+
+  i {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
