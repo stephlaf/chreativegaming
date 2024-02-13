@@ -7,7 +7,7 @@ export default class extends Controller {
   connect() {
     const galleryThumbs = new Swiper(".gallery-thumbs", {
       spaceBetween: 5,
-      slidesPerView: 3,
+      slidesPerView: 4,
       freeMode: true,
       watchSlidesProgress: true,
     });
