@@ -3,8 +3,6 @@
 }
 
 .swiper-slide {
-  width: 100%;
-  height: 100%;
   img, video {
     width: 100%;
     height: 100%;
@@ -12,6 +10,7 @@
   }
 }
 
+// Upper part of the carousel
 .gallery-top {
   .swiper-wrapper {
     height: 400px;
@@ -22,6 +21,7 @@
   color: white;
 }
 
+// Lower part of the carousel
 .gallery-thumbs {
   .swiper-wrapper {
     margin-top: 5px;
