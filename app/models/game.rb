@@ -34,8 +34,8 @@ class Game < ApplicationRecord
   private
 
   def carousel_visuals_count
-    unless carousel_visuals.size == 4
-      errors.add(:carousel_visuals, "must have 4 visuals attached")
+    unless carousel_visuals.size >= 4
+      errors.add(:carousel_visuals, "must have at least 4 visuals attached")
     end
   end
 end
