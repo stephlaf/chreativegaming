@@ -1,7 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
-import Swiper from 'swiper';
+import { Swiper } from 'swiper';
 import { Navigation, Thumbs } from 'swiper/modules';
-
 
 export default class extends Controller {
   connect() {
