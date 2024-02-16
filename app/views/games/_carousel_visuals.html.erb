@@ -1,0 +1,34 @@
+<div data-controller="game-carousel">
+  <div class="swiper gallery-top">
+    <div class="swiper-wrapper">
+      <% @game.carousel_visuals.each do |visual| %>
+        <div class="swiper-slide">
+          <% if visual.blob.image? %>
+            <%= cl_image_tag visual.key, class: 'game-image', alt: 'game overview' %>
+          <% elsif visual.blob.video? %>
+            <%= cl_video_tag visual.key, class: 'game-image', controls: true %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="swiper-button-prev swiper-arrow"></div>
+    <div class="swiper-button-next swiper-arrow"></div>
+  </div>
+
+  <div thumbsSlider="" class="swiper gallery-thumbs">
+    <div class="swiper-wrapper">
+      <% @game.carousel_visuals.each do |visual| %>
+        <div class="swiper-slide" type="button">
+          <% if visual.blob.image? %>
+            <%= cl_image_tag visual.key, alt: 'game overview' %>
+          <% elsif visual.blob.video? %>
+            <div class="carousel-video-preview">
+              <%= cl_video_tag visual.key, crop: :pad %>
+              <i class="fas fa-play fa-2x"></i>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
