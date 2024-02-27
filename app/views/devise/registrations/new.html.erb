@@ -15,28 +15,24 @@
               <%#= f.input :title, label: false, placeholder: 'Title', input_html: { class: 'input-rounded' } %>
                 <%= f.input :email,
                             label: "Email",
-                            placeholder: 'lara.croft@email.com',
                             required: true,
                             autofocus: true,
                             input_html: { autocomplete: "email" },
                             input_html: { class: 'input-rounded' } %>
                 <%= f.input :gametag,
                             label: "Gametag",
-                            placeholder: 'laracroft66',
                             required: true,
                             autofocus: true,
                             input_html: { autocomplete: "gametag" },
                             input_html: { class: 'input-rounded' } %>
                 <%= f.input :password,
                             label: 'Password',
-                            placeholder: '••••••',
                             required: true,
                             hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                             input_html: { autocomplete: "new-password" },
                             input_html: { class: 'input-rounded' } %>
                 <%= f.input :password_confirmation,
                             label: 'Confirm password',
-                            placeholder: '••••••',
                             required: true,
                             input_html: { autocomplete: "new-password" },
                             input_html: { class: 'input-rounded' } %>
