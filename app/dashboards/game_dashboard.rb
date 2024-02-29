@@ -17,8 +17,9 @@ class GameDashboard < Administrate::BaseDashboard
     # banner_attachment: Field::HasOne,
     # banner_attachment: Field::ActiveStorage,
     # banner_blob: Field::ActiveStorage,
-    banner_blob: Field::HasOne,
+    # banner_blob: Field::HasOne,
     # banner_blob: Field::BelongsTo,
+    carousel_visuals_blob: Field::HasMany,
 
     # game_file_attachment: Field::HasOne,
     # game_file_attachment: Field::ActiveStorage,
@@ -28,7 +29,8 @@ class GameDashboard < Administrate::BaseDashboard
     id: Field::Number,
     name: Field::String,
     thumbnail: Field::ActiveStorage.with_options(show_preview_size: [100, 100]),
-    banner: Field::ActiveStorage.with_options(show_preview_size: [500, nil]),
+    carousel_visuals: Field::ActiveStorage.with_options(show_preview_size: [100, 100]),
+    # banner: Field::ActiveStorage.with_options(show_preview_size: [500, nil]),
     description: Field::Text,
     category: Field::String,
     available_platforms: MultipleSelectField.with_options(collection: Game::PLATFORMS),
@@ -73,7 +75,7 @@ class GameDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
   name
   thumbnail
-  banner
+  carousel_visuals
   download_link
   id
   description
@@ -105,7 +107,7 @@ class GameDashboard < Administrate::BaseDashboard
   category
   available_platforms
   thumbnail
-  banner
+  carousel_visuals
   download_link
   status
   available
@@ -135,5 +137,10 @@ class GameDashboard < Administrate::BaseDashboard
   #
   def display_resource(game)
     game.name
+  end
+
+  # permitted for has_many_attached
+  def permitted_attributes
+    super + [:carousel_visuals => []]
   end
 end
