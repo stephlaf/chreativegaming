@@ -34,8 +34,9 @@ class BlogPostsController < ApplicationController
   end
 
   def update
+    authorize @blog_post
+
     if @blog_post.update(blog_post_params)
-      authorize @blog_post
       redirect_to blog_post_path(@blog_post)
     else
       render :new
