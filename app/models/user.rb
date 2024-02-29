@@ -11,7 +11,9 @@ class User < ApplicationRecord
   has_many :blog_likes
   has_many :orders
 
-  validates :gametag, presence: true
+  enum gamer_type: { gamer: 0, game_developer: 1, game_enthusiast: 2, all_of_the_above: 3, none_of_the_above: 4 }
+
+  validates :gametag, :gamer_type, presence: true
   validates :membership_level, inclusion: { in: ['', 'Bronze', 'Silver', 'Gold', 'Platinum'],
     message: "%{value} is not a valid level"}
 
