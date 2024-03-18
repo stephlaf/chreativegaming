@@ -60,6 +60,7 @@ gem 'activerecord-postgres_enum'
 gem "administrate"
 gem 'administrate-field-active_storage'
 gem "image_processing"
+gem 'administrate-field-enum'
 
 # Forum stuff
 # gem 'thredded', '~> 0.16.16'

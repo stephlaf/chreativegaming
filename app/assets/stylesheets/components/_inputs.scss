@@ -8,7 +8,11 @@
   cursor: text;
   display: block;
   height: auto;
- }
+
+  &.dropdown {
+    cursor: pointer;
+  }
+}
 
 .input-rounded.textarea {
   height: 150px;

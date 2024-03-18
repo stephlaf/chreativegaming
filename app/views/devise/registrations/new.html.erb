@@ -12,34 +12,36 @@
               </div>
 
               <div class="form-inputs">
-              <%#= f.input :title, label: false, placeholder: 'Title', input_html: { class: 'input-rounded' } %>
                 <%= f.input :email,
-                            label: false,
-                            placeholder: 'email',
+                            label: "Email",
                             required: true,
                             autofocus: true,
                             input_html: { autocomplete: "email" },
                             input_html: { class: 'input-rounded' } %>
                 <%= f.input :gametag,
-                            label: false,
-                            placeholder: 'gametag',
+                            label: "Gametag",
                             required: true,
                             autofocus: true,
                             input_html: { autocomplete: "gametag" },
                             input_html: { class: 'input-rounded' } %>
                 <%= f.input :password,
-                            label: false,
-                            placeholder: 'password',
+                            label: 'Password',
                             required: true,
                             hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                             input_html: { autocomplete: "new-password" },
                             input_html: { class: 'input-rounded' } %>
                 <%= f.input :password_confirmation,
-                            label: false,
-                            placeholder: 'confirm password',
+                            label: 'Confirm password',
                             required: true,
                             input_html: { autocomplete: "new-password" },
                             input_html: { class: 'input-rounded' } %>
+                <%= f.input :gamer_type,
+                            as: :select,
+                            collection: User.gamer_types.keys.map{ |key| [key.humanize, key] },
+                            label: "I am...",
+                            prompt: "Select an option",
+                            required: true,
+                            input_html: { class: 'input-rounded dropdown' } %>
               </div>
             <div class="d-flex justify-content-between align-items-center margin-top">
               <div>
