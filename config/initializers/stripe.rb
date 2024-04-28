@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'stripe_checkout_session_service'
 
 if Rails.env.development?
@@ -6,6 +8,12 @@ if Rails.env.development?
     secret_key:      ENV['STRIPE_SECRET_KEY'],
     signing_secret:  ENV['STRIPE_WEBHOOK_SECRET_KEY_LOCAL']
   }
+elsif Rails.env.test?
+  Rails.configuration.stripe = {
+    publishable_key: ENV['STRIPE_PUBLISHABLE_KEY'],
+    secret_key:      ENV['STRIPE_SECRET_KEY'],
+    signing_secret:  ENV['STRIPE_WEBHOOK_SECRET_KEY_LOCAL']
+}
 elsif Rails.env.staging?
   Rails.configuration.stripe = {
     publishable_key: ENV['STRIPE_PUBLISHABLE_KEY'],
