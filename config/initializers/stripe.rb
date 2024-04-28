@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'stripe_checkout_session_service'
 
 if Rails.env.development?
