@@ -7,8 +7,7 @@ module Admin
     def create
       @game = resource_class.new(resource_params)
       sanitize_available_platforms
-      # authorize_resource(@game)
-      # set_prices
+
       if @game.save
         redirect_to(
           [namespace, @game],
@@ -57,12 +56,5 @@ module Admin
       available_platforms = JSON.parse(@game.available_platforms)
       @game.available_platforms = available_platforms.reject! { |platform| platform.empty? }
     end
-
-    # def set_prices
-    #   @game.price_bronze_cents = @game.price_cents * 0.9
-    #   @game.price_silver_cents = @game.price_cents * 0.8
-    #   @game.price_gold_cents = @game.price_cents * 0.7
-    #   @game.price_platinum_cents = @game.price_cents * 0.5
-    # end
   end
 end

@@ -8,29 +8,13 @@ class GameDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    # thumbnail_attachment: Field::HasOne,
-    # thumbnail_attachment: Field::ActiveStorage,
-    # thumbnail_blob: Field::ActiveStorage,
     thumbnail_blob: Field::HasOne,
-    # thumbnail_blob: Field::BelongsTo,
-
-    # banner_attachment: Field::HasOne,
-    # banner_attachment: Field::ActiveStorage,
-    # banner_blob: Field::ActiveStorage,
-    # banner_blob: Field::HasOne,
-    # banner_blob: Field::BelongsTo,
     carousel_visuals_blob: Field::HasMany,
-
-    # game_file_attachment: Field::HasOne,
-    # game_file_attachment: Field::ActiveStorage,
-    # game_file_blob: Field::HasOne,
-
     reviews: Field::HasMany,
     id: Field::Number,
     name: Field::String,
     thumbnail: Field::ActiveStorage.with_options(show_preview_size: [100, 100]),
     carousel_visuals: Field::ActiveStorage.with_options(show_preview_size: [100, 100]),
-    # banner: Field::ActiveStorage.with_options(show_preview_size: [500, nil]),
     description: Field::Text,
     category: Field::String,
     available_platforms: MultipleSelectField.with_options(collection: Game::PLATFORMS),
@@ -51,9 +35,7 @@ class GameDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  # thumbnail_attachment
-  # thumbnail_blob
-  # banner_attachment
+
   COLLECTION_ATTRIBUTES = %i[
   name
   reviews
@@ -61,16 +43,6 @@ class GameDashboard < Administrate::BaseDashboard
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-
-  # thumbnail_attachment
-  # banner_attachment
-  # game_file_attachment
-  # game_file_blob
-
-  # thumbnail_blob
-  # banner_blob
-
-  # reviews
 
   SHOW_PAGE_ATTRIBUTES = %i[
   name
@@ -95,12 +67,6 @@ class GameDashboard < Administrate::BaseDashboard
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  # thumbnail_attachment
-  # thumbnail_blob
-  # banner_attachment
-  # banner_blob
-  # game_file_attachment
-  # game_file_blob
   FORM_ATTRIBUTES = %i[
   name
   description

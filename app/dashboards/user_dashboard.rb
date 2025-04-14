@@ -8,9 +8,6 @@ class UserDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    # avatar_attachment: Field::HasOne,
-    # avatar_attachment: Field::ActiveStorage,
-    # avatar_blob: Field::HasOne,
     avatar: Field::ActiveStorage.with_options(show_preview_size: [100, 100]),
     id: Field::Number,
     email: Field::String,

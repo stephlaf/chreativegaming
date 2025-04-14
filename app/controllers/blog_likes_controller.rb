@@ -5,11 +5,9 @@ class BlogLikesController < ApplicationController
     unless already_liked?
       @blog_like = @blog_post.blog_likes.create(user_id: current_user.id)
       authorize @blog_like
-      # raise
     else
       @blog_like_to_delete = find_blog_like
       @blog_like_to_delete.destroy
-      # @blog_like = @blog_post.likes.last || BlogLike.new()
       authorize @blog_like
     end
     redirect_to blog_posts_path

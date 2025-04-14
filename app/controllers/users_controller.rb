@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 
   def index
     @users = policy_scope(User).all if current_user.master == true
-    # @users = policy_scope(User).search_by_all_fields(params[:query])
   end
 
   def show

@@ -17,12 +17,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update, :create]
 
-  # resources :users do
-  #   member do
-  #     get 'archive_profile'
-  #   end
-  # end
-
   root to: 'pages#home'
 
   get 'about', to: 'pages#about'
@@ -31,10 +25,6 @@ Rails.application.routes.draw do
   # Blog stuff
   resources :blog_posts
   get '/blog_posts/:blog_post_id/blog_likes', to: 'blog_likes#create_destroy', as: :blog_like
-
-  # Temporary redirects until forum feature is released >> RELEASED 2202/01/29
-  # match '/forum', to: 'pages#not_found', via: :all
-  # match 'forum/*any', to: 'pages#not_found', via: :all
 
   # Forum stuff
   mount Thredded::Engine => '/forum'

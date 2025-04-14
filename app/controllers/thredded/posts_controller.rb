@@ -42,7 +42,6 @@ module Thredded
     end
 
     def update
-      # raise
       update_set_priority_date
 
       authorize post, :update?
